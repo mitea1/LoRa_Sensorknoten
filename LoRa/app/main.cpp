@@ -44,7 +44,7 @@ int main() {
 
 
 	//TODO check mpu init. scale is wrong
-	mpu9250.init();
+	mpu9250.init(MODE_3);
 	bme280.init();
 
 	double lux;

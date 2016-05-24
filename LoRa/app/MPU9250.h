@@ -5,7 +5,6 @@
  *      Author: Adrian
  */
 #include "I2C_RT.h"
-#include "main.h"
 #include "MPU9250Config.h"
 
 
