@@ -5,6 +5,9 @@
  *      Author: Adrian
  */
 #include "I2C_RT.h"
+#include "main.h"
+#include "MPU9250Config.h"
+
 
 #ifndef APP_MPU9250_H_
 #define APP_MPU9250_H_
@@ -140,10 +143,11 @@
 #define MPU9250_GYRO_FS_SEL_MASK        0x18
 #define MPU9250_FCHOICE_B_MASK          0x03
 
-#define MPU9250_GYRO_FULL_SCALE_250DPS  0b00
-#define MPU9250_GYRO_FULL_SCALE_500DPS  0b01
-#define MPU9250_GYRO_FULL_SCALE_1000DPS 0b10
-#define MPU9250_GYRO_FULL_SCALE_2000DPS 0b11
+//Moved to MPU9250Config.h
+//#define MPU9250_GYRO_FULL_SCALE_250DPS  0b00
+//#define MPU9250_GYRO_FULL_SCALE_500DPS  0b01
+//#define MPU9250_GYRO_FULL_SCALE_1000DPS 0b10
+//#define MPU9250_GYRO_FULL_SCALE_2000DPS 0b11
 
 //ACCEL_CONFIG register masks
 #define MPU9250_AX_ST_EN_MASK           0x80
@@ -151,10 +155,11 @@
 #define MPU9250_AZ_ST_EN_MASK           0x20
 #define MPU9250_ACCEL_FS_SEL_MASK       0x18
 
-#define MPU9250_FULL_SCALE_2G           0b00
-#define MPU9250_FULL_SCALE_4G           0b01
-#define MPU9250_FULL_SCALE_8G           0b10
-#define MPU9250_FULL_SCALE_16G          0b11
+// Moved to MPU9250Config.h
+//#define MPU9250_FULL_SCALE_2G           0b00
+//#define MPU9250_FULL_SCALE_4G           0b01
+//#define MPU9250_FULL_SCALE_8G           0b10
+//#define MPU9250_FULL_SCALE_16G          0b11
 
 //ACCEL_CONFIG_2 register masks
 #define MPU9250_ACCEL_FCHOICE_B_MASK    0xC0
@@ -335,12 +340,13 @@
 //Magnetometer register masks
 #define MPU9250_WIA_MASK 0x48
 
+
 class MPU9250 {
 public:
 	MPU9250(I2C_RT*);
 	virtual ~MPU9250();
 
-	void init();
+	void init(MPU9250_MODE);
 	void enableAxisAccelerationMeasurement();
 	void enableAxisGyroscopeMeasurement();
 	void enableAxisTeslaMeasurement();
@@ -356,6 +362,7 @@ public:
 	float getZAxisTesla();
 private:
 	I2C_RT* i2c;
+	MPU9250Config* config;
 	void setI2c(I2C_RT*);
 };
 

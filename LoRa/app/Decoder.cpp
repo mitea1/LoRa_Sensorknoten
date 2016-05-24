@@ -31,9 +31,11 @@ void Decoder::getCharacterFromSerial(){
 
 bool Decoder::hasReceived(char specificChar){
 	bool received=false;
+
 	if(lastReceivedChar == specificChar){
 		received = true;
 	}
+
 	return received;
 }
 
@@ -77,18 +79,14 @@ void Decoder::rxInterrupt(){
 
 		if(hasReceived(0xB5)){
 			setBufferPosition(0);
-			bufferReceivedCharacter();
 		}
-		else{
-			bufferReceivedCharacter();
-		}
+
+		bufferReceivedCharacter();
 
 		if(isBufferFilled()){
 			decodeReceiveBuffer();
 		}
-
 	}
-
 }
 
 char* Decoder::getReceiveBuffer(){

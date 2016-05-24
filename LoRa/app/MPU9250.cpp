@@ -7,8 +7,9 @@
 
 #include "MPU9250.h"
 
-MPU9250::MPU9250(I2C_RT* i2c) {
+MPU9250::MPU9250(I2C_RT* i2c){
 	setI2c(i2c);
+	this->config = new MPU9250Config();
 }
 
 MPU9250::~MPU9250() {
@@ -19,21 +20,22 @@ void MPU9250::setI2c(I2C_RT* i2c){
 	this->i2c = i2c;
 }
 
-void MPU9250::init(){
+void MPU9250::init(MPU9250_MODE desiredMode){
+		config->build(desiredMode);
 		enableAxisAccelerationMeasurement();
 		enableAxisGyroscopeMeasurement();
 		enableAxisTeslaMeasurement();
 }
 
 void MPU9250::enableAxisAccelerationMeasurement(){
-	uint8_t configValueAcceleration=MPU9250_FULL_SCALE_2G<<3;
+	uint8_t configValueAcceleration=config->getAccelerometerScale()<<3;
 
 	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_ACCEL_CONFIG,false,
 			&configValueAcceleration,1);
 }
 
 void MPU9250::enableAxisGyroscopeMeasurement(){
-	uint8_t configValueGyroscope = MPU9250_GYRO_FULL_SCALE_250DPS<<3;
+	uint8_t configValueGyroscope = config->getGyroscopeScale()<<3;
 
 	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_GYRO_CONFIG,false,
 			&configValueGyroscope,1);
@@ -68,7 +70,7 @@ float MPU9250::getXAxisAcceleration(){
 
 	int16_t acceleration = ((int16_t)xAccelarationHighByte<<8)|((int16_t)xAccelarationLowByte);
 
-	return ((float) acceleration)*2/32768;
+	return ((float) acceleration)/config->getAccelerationDivider();
 
 }
 
@@ -84,7 +86,7 @@ float MPU9250::getYAxisAcceleration(){
 
 	int16_t acceleration = yAccelarationHighByte<<8|yAccelarationLowByte;
 
-	return ((float) acceleration)*2/32768;
+	return ((float) acceleration)/config->getAccelerationDivider();
 
 }
 
@@ -100,7 +102,7 @@ float MPU9250::getZAxisAcceleration(){
 
 	int16_t acceleration = zAccelarationHighByte<<8|zAccelarationLowByte;
 
-	return ((float) acceleration)*2/32768;
+	return ((float) acceleration)/config->getAccelerationDivider();
 
 }
 
@@ -116,7 +118,7 @@ float MPU9250::getXAxisGyro(){
 
 	int16_t gyroscope = xGyroscopeHighByte<<8|xGyroscopeLowByte;
 
-	return ((float) gyroscope)*250/32768;
+	return ((float) gyroscope)/config->getGyroDivider();
 }
 
 float MPU9250::getYAxisGyro(){
@@ -131,7 +133,7 @@ float MPU9250::getYAxisGyro(){
 
 	int16_t gyroscope = yGyroscopeHighByte<<8|yGyroscopeLowByte;
 
-	return ((float) gyroscope)*250/32768;
+	return ((float) gyroscope)/config->getGyroDivider();
 }
 
 float MPU9250::getZAxisGyro(){
@@ -146,7 +148,7 @@ float MPU9250::getZAxisGyro(){
 
 	int16_t gyroscope = zGyroscopeHighByte<<8|zGyroscopeLowByte;
 
-	return ((float) gyroscope)*250/32768;
+	return ((float) gyroscope)/config->getGyroDivider();
 }
 
 float MPU9250::getXAxisTesla(){
