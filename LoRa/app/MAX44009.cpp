@@ -10,12 +10,17 @@
 MAX44009::MAX44009(I2C_RT* i2c) {
 	// TODO Auto-generated constructor stub
 	this->i2c = i2c;
-
-
+	this->config = new MAX44009Config();
 }
 
 MAX44009::~MAX44009() {
 	// TODO Auto-generated destructor stub
+}
+
+void MAX44009::init(MAX44009_MODE desiredMode){
+	config->build(desiredMode);
+	setIntegrationTime(config->getIntegrationTime());
+	setContinousMode(config->getContinousMode());
 }
 
 double MAX44009::getLux(){
@@ -33,4 +38,14 @@ double MAX44009::getLux(){
 
 double MAX44009::calculateLux(uint8_t mantissa, uint8_t exponent){
 	return pow(2,exponent) + mantissa * 0.72;
+}
+
+void MAX44009::setIntegrationTime(uint8_t integrationTime){
+	uint8_t registerValue = integrationTime;
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
+}
+
+void MAX44009::setContinousMode(uint8_t continousMode){
+	uint8_t registerValue = continousMode<<7;
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
