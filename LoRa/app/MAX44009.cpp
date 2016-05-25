@@ -37,7 +37,7 @@ double MAX44009::getLux(){
 }
 
 double MAX44009::calculateLux(uint8_t mantissa, uint8_t exponent){
-	return pow(2,exponent) + mantissa * 0.72;
+	return pow(2,exponent) * mantissa * 0.72;
 }
 
 void MAX44009::setIntegrationTime(uint8_t integrationTime){
