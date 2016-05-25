@@ -46,8 +46,9 @@ int main() {
 
 
 	//TODO check mpu init. scale is wrong
-	mpu9250.init(MODE_3);
-	bme280.init();
+	lightSensor.init(MAX44009_MODE_1);
+	mpu9250.init(MPU9250_MODE_3);
+	bme280.init(BME280_MODE_1);
 
 	double lux;
 	float humidity;

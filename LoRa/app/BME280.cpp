@@ -9,20 +9,25 @@
 
 BME280::BME280(I2C_RT* i2c){
 	setI2C(i2c);
+	this->config = new BME280Config();
 }
 
 BME280::~BME280() {
 	// TODO Auto-generated destructor stub
 }
 
-void BME280::init(){
+void BME280::init(BME280_MODE desiredMode){
 
-	setWeatherMonitoringMode();
+	config->build(desiredMode);
+
+	setOversamplingHumidity(config->getOversamplingHumidity());
+	setOversamplingTemperature(config->getOversamplingTemperature());
+	setOversamplingPressure(config->getOversamplingPressure());
+	setMode(config->getMode());
 
 	getTrimValuesHumidity();
 	getTrimValuesPressure();
 	getTrimValuesTemperature();
-
 }
 
 void BME280::setI2C(I2C_RT* i2c_rt){
@@ -45,8 +50,6 @@ uint32_t BME280::getHumidity(){
 	int32_t humRaw = (int32_t) (msbRegisterData[0]<<8|lsbRegisterData[0]);
 	uint32_t hum_fine = this->compensateHumidity(humRaw,temp_fine);
 
-	// Umrechnen ohne Kommastellen
-	//hum_fine = hum_fine / 1024;
 	return hum_fine;
 
 }
@@ -71,8 +74,6 @@ uint32_t BME280::getPressure(){
 	int32_t pressRaw = (int32_t) (msbRegisterData[0]<<12|lsbRegisterData[0]<<4|lsbRegisterData[0]);
 	uint32_t press_fine = compensatePressure(pressRaw,temp_fine);
 
-	// Umrechnen ohne Kommastellen
-	//press_fine = press_fine / 256;
 	return press_fine;
 }
 
@@ -205,6 +206,46 @@ void BME280::setWeatherMonitoringMode(){
 	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_HUM,false,&configuration_2,1);
 	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,&configuration_1,1);
 
+}
+
+void BME280::setOversamplingTemperature(uint8_t oversamplingTemperature){
+	uint8_t oldRegisterValue;
+	i2c->read_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+			&oldRegisterValue,1);
+
+	uint8_t registerValue = (oversamplingTemperature << 5) | oldRegisterValue;
+	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+			&registerValue,1);
+}
+
+void BME280::setOversamplingPressure(uint8_t oversamplingPressure){
+	uint8_t oldRegisterValue;
+	i2c->read_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+			&oldRegisterValue,1);
+
+	uint8_t registerValue = (oversamplingPressure << 2) | oldRegisterValue;
+	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+			&registerValue,1);
+}
+
+void BME280::setOversamplingHumidity(uint8_t oversamplingHumdity){
+	uint8_t oldRegisterValue;
+	i2c->read_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_HUM,false,
+			&oldRegisterValue,1);
+
+	uint8_t newRegisterValue = oversamplingHumdity|oldRegisterValue;
+	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_HUM,false,
+			&newRegisterValue,1);
+}
+
+void BME280::setMode(uint8_t mode){
+	uint8_t oldRegisterValue;
+	i2c->read_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+			&oldRegisterValue,1);
+
+	uint8_t registerValue = mode | oldRegisterValue;
+	i2c->write_RT(BME280_SENSOR_ADDRESS,BME280_SENSOR_CTRL_MEAS,false,
+				&registerValue,1);
 }
 
 int32_t BME280::compensateHumidity(int32_t adc_H,int32_t temp_fine)

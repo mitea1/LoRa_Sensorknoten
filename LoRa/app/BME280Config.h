@@ -61,15 +61,21 @@ public:
 	uint8_t getOversamplingPressure();
 	uint8_t getOversamplingHumidity();
 
+	uint8_t getMode();
+
 private:
 	uint8_t oversamplingTemperature;
 	uint8_t oversamplingPressure;
 	uint8_t oversamplingHumidity;
 
+	uint8_t mode;
+
 
 	void setOversamplingTemperature(uint8_t);
 	void setOversamplingPressure(uint8_t);
 	void setOversamplingHumidity(uint8_t);
+
+	void setMode(uint8_t);
 };
 
 #endif /* APP_BME280CONFIG_H_ */

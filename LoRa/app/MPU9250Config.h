@@ -21,9 +21,9 @@
 #define MPU9250_FULL_SCALE_16G          0b11
 
 enum MPU9250_MODE{
-	MODE_1,
-	MODE_2,
-	MODE_3
+	MPU9250_MODE_1,
+	MPU9250_MODE_2,
+	MPU9250_MODE_3
 };
 
 class MPU9250Config {

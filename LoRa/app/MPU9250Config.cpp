@@ -18,15 +18,15 @@ MPU9250Config::~MPU9250Config() {
 
 void MPU9250Config::build(MPU9250_MODE desiredMode){
 	switch(desiredMode){
-	case MODE_1:
+	case MPU9250_MODE_1:
 		setAccelerometerScale(MPU9250_FULL_SCALE_2G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_250DPS);
 		break;
-	case MODE_2:
+	case MPU9250_MODE_2:
 		setAccelerometerScale(MPU9250_FULL_SCALE_4G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_500DPS);
 		break;
-	case MODE_3:
+	case MPU9250_MODE_3:
 		setAccelerometerScale(MPU9250_FULL_SCALE_8G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_1000DPS);
 		break;

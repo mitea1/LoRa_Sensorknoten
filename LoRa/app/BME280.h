@@ -71,7 +71,7 @@ class BME280 {
 public:
 	BME280(I2C_RT*);
 	virtual ~BME280();
-	void init();
+	void init(BME280_MODE);
 	void setI2C(I2C_RT*);
 
 	float getHumidityFloat();
@@ -80,6 +80,7 @@ public:
 
 private:
 	I2C_RT* i2c;
+	BME280Config* config;
 
 	uint16_t digT1;
 	int16_t digT2;
@@ -109,6 +110,10 @@ private:
 	void getTrimValuesTemperature();
 
 	void setWeatherMonitoringMode();
+	void setOversamplingTemperature(uint8_t);
+	void setOversamplingPressure(uint8_t);
+	void setOversamplingHumidity(uint8_t);
+	void setMode(uint8_t);
 
 	uint32_t getHumidity();
 	uint32_t getPressure();

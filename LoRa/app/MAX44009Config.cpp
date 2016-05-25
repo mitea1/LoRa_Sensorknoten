@@ -20,13 +20,19 @@ void MAX44009Config::build(MAX44009_MODE desiredMode){
 	switch(desiredMode){
 		case MAX44009_MODE_1:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_800_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
 			break;
 		case MAX44009_MODE_2:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_400_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
 			break;
 		case MAX44009_MODE_3:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_6_25_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
 			break;
+		default:
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_800_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
 		}
 }
 
@@ -34,6 +40,9 @@ uint8_t MAX44009Config::getIntegrationTime(){
 	return this->integrationTime;
 }
 
+uint8_t MAX44009Config::getContinousMode(){
+	return this->continousMode;
+}
 void MAX44009Config::setIntegrationTime(uint8_t integrationTime){
 	this->integrationTime = integrationTime;
 }
