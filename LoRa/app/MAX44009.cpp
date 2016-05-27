@@ -23,7 +23,7 @@ void MAX44009::init(MAX44009_MODE desiredMode){
 	setContinousMode(config->getContinousMode());
 }
 
-double MAX44009::getLux(){
+float MAX44009::getLux(){
 	uint8_t registerData[2];
 
 	i2c->read_RT(MAX44009_ADRESS,MAX44009_LUX_H_L_BYTE,true,registerData,2);
@@ -36,7 +36,7 @@ double MAX44009::getLux(){
 
 }
 
-double MAX44009::calculateLux(uint8_t mantissa, uint8_t exponent){
+float MAX44009::calculateLux(uint8_t mantissa, uint8_t exponent){
 	return pow(2,exponent) * mantissa * 0.72;
 }
 
