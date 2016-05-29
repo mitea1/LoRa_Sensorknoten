@@ -17,7 +17,7 @@
 
 class TaskDatahandler {
 public:
-	TaskDatahandler(Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>*,
+	TaskDatahandler(QueueBundle,
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskDatahandler();
 
@@ -26,19 +26,33 @@ public:
 	void setDebugSerial(RawSerial*);
 private:
 	Thread* thread;
-	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight;
+	QueueBundle queueBundle;
 	RawSerial* debugSerial;
 
 	osPriority priority = osPriorityNormal;
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
+	osEvent lightMeasureEvent;
+	osEvent temperatureMeasureEvent;
+	osEvent pressureMeasureEvent;
+	osEvent humidityMeasureEvent;
+	osEvent accelerationMeasureEvent;
+	osEvent gyroscopeMeasureEvent;
+	osEvent teslaMeasureEvent;
+
 	static void callBack(void const *);
 	void handleData();
+	void getMessagesFromQueues();
+	void forwardReceivedMessages();
 
+	void setQueueBundle(QueueBundle);
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
+
+
+
 };
 
 #endif /* TASKDATAHANDLER_H_ */

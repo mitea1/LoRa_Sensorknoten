@@ -36,6 +36,8 @@ private:
 
 	void setIntegrationTime(uint8_t);
 	void setContinousMode(uint8_t);
+
+	void setI2CRT(I2C_RT*);
 };
 
 #endif /* APP_MAX44009_H_ */

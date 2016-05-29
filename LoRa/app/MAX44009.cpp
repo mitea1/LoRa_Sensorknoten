@@ -9,7 +9,7 @@
 
 MAX44009::MAX44009(I2C_RT* i2c) {
 	// TODO Auto-generated constructor stub
-	this->i2c = i2c;
+	setI2CRT(i2c);
 	this->config = new MAX44009Config();
 }
 
@@ -48,4 +48,8 @@ void MAX44009::setIntegrationTime(uint8_t integrationTime){
 void MAX44009::setContinousMode(uint8_t continousMode){
 	uint8_t registerValue = continousMode<<7;
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
+}
+
+void MAX44009::setI2CRT(I2C_RT* i2c){
+	this->i2c = i2c;
 }

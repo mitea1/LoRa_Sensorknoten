@@ -66,6 +66,15 @@
 #define BME280_digH5_MSB			0xE5		/**< Trimming parameter for humidity */
 #define BME280_digH6_LSB			0xE7		/**< Trimming parameter for humidity */
 
+typedef struct BME280TemperatureMessage{
+	float temperature;
+};
+typedef struct BME280PresssureMessage{
+	float pressure;
+};
+typedef struct BME280HumidityMessage{
+	float humidity;
+};
 
 class BME280 {
 public:
@@ -74,9 +83,9 @@ public:
 	void init(BME280_MODE);
 	void setI2C(I2C_RT*);
 
-	float getHumidityFloat();
-	float getPressureFloat();
 	float getTemperatureFloat();
+	float getPressureFloat();
+	float getHumidityFloat();
 
 private:
 	I2C_RT* i2c;

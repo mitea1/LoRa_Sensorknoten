@@ -339,6 +339,23 @@
 //Magnetometer register masks
 #define MPU9250_WIA_MASK 0x48
 
+typedef struct MPU9250AccelerationMessage{
+	float xAcceleration;
+	float yAcceleration;
+	float zAcceleration;
+};
+
+typedef struct MPU9250GyroscopeMessage{
+	float xGyro;
+	float yGyro;
+	float zGyro;
+};
+
+typedef struct MPU9250TeslaMessage{
+	float xTesla;
+	float yTesla;
+	float zTesla;
+};
 
 class MPU9250 {
 public:

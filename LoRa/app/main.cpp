@@ -33,11 +33,21 @@ MAX44009 max44009(&i2c_rt);
 BME280	bme280(&i2c_rt);
 MPU9250 mpu9250(&i2c_rt);
 
-rtos::Queue<MAX44009Message,LIGHT_QUEUE_LENGHT> queueLight;
+Queue<MAX44009Message,LIGHT_QUEUE_LENGHT> queueLight;
+Queue<BME280TemperatureMessage,TEMPERATURE_QUEUE_LENGHT> queueTemperature;
+Queue<BME280PresssureMessage,PRESSURE_QUEUE_LENGHT> queuePressure;
+Queue<BME280HumidityMessage,HUMIDITY_QUEUE_LENGHT> queueHumidity;
+Queue<MPU9250AccelerationMessage,ACCELERATION_QUEUE_LENGHT> queueAcceleration;
+Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT> queueGyro;
+Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT> queueTesla;
+
 rtos::Mutex mutexI2C;
 
+QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
+							&queueAcceleration,&queueGyro,&queueTesla};
+
 TaskLight taskLight(&max44009,&mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskDatahandler taskDatahandler(&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+TaskDatahandler taskDatahandler(queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 
 int main() {
 
@@ -54,15 +64,19 @@ int main() {
 	usb.format(8,SerialBase::None,1);
 
 
-	//TODO check mpu init. scale is wrong
-	max44009.init(MAX44009_MODE_1);
-
 	taskDatahandler.setDebugSerial(&usb);
-	taskLight.start();
+	taskLight.start(MAX44009_MODE_2);
 	taskDatahandler.start();
 
 
     while (true) {
+
+    	wait_ms(4000);
+    	taskLight.stop();
+    	taskLight.start(MAX44009_MODE_1);
+    	wait_ms(4000);
+		taskLight.stop();
+		taskLight.start(MAX44009_MODE_4);
 
     }
 

@@ -7,10 +7,12 @@
 
 #include "TaskDatahandler.h"
 
-TaskDatahandler::TaskDatahandler(Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight,
+TaskDatahandler::TaskDatahandler(QueueBundle queueBundle,
 		osPriority priority,uint32_t stackSize, unsigned char* stackPointer){
-	this->queueLight = queueLight;
-
+	setQueueBundle(queueBundle);
+	setPriority(priority);
+	setStackSize(stackSize);
+	setStackPointer(stackPointer);
 }
 
 TaskDatahandler::~TaskDatahandler() {
@@ -32,14 +34,61 @@ void TaskDatahandler::callBack(void const* data){
 void TaskDatahandler::handleData(){
 
 	while(true){
-		osEvent event = queueLight->get(0);
-		if (event.status == osEventMessage) {
-			MAX44009Message *message = (MAX44009Message*)event.value.p;
-			debugSerial->printf("Lux: %.2f\n",message->lux);
-		}
+		getMessagesFromQueues();
+		forwardReceivedMessages();
 		osDelay(DATAHANLDER_TASK_DELAY_MS);
 	}
 
+}
+
+void TaskDatahandler::getMessagesFromQueues(){
+	lightMeasureEvent = queueBundle.queueLight->get(0);
+	temperatureMeasureEvent = queueBundle.queueTemperature->get(0);
+	pressureMeasureEvent = queueBundle.queuePressure->get(0);
+	humidityMeasureEvent = queueBundle.queueHumidity->get(0);
+	accelerationMeasureEvent = queueBundle.queueAcceleration->get(0);
+	gyroscopeMeasureEvent = queueBundle.queueGyro->get(0);
+	teslaMeasureEvent = queueBundle.queueTesla->get(0);
+}
+
+void TaskDatahandler::forwardReceivedMessages(){
+	if (lightMeasureEvent.status == osEventMessage) {
+		MAX44009Message* luxMessage = (MAX44009Message*)lightMeasureEvent.value.p;
+		debugSerial->printf("Lux: %.2f\n",luxMessage->lux);
+	}
+
+	if (temperatureMeasureEvent.status == osEventMessage) {
+		BME280TemperatureMessage* temperatureMessage = (BME280TemperatureMessage*)temperatureMeasureEvent.value.p;
+		debugSerial->printf("Temperature: %.2f\n",temperatureMessage->temperature);
+	}
+
+	if (pressureMeasureEvent.status == osEventMessage) {
+		BME280PresssureMessage* pressureMessage = (BME280PresssureMessage*)pressureMeasureEvent.value.p;
+		debugSerial->printf("Pressure: %.2f\n",pressureMessage->pressure);
+	}
+	
+	if (humidityMeasureEvent.status == osEventMessage) {
+		BME280HumidityMessage* humidityMessage = (BME280HumidityMessage*)humidityMeasureEvent.value.p;
+		debugSerial->printf("Humidity: %.2f\n",humidityMessage->humidity);
+	}
+	
+	if (accelerationMeasureEvent.status == osEventMessage) {
+		MPU9250AccelerationMessage* accelerationMessage = (MPU9250AccelerationMessage*)accelerationMeasureEvent.value.p;
+		debugSerial->printf("Acceleration X: %.2f\n",accelerationMessage->xAcceleration);
+		debugSerial->printf("Acceleration Y: %.2f\n",accelerationMessage->yAcceleration);
+		debugSerial->printf("Acceleration Z: %.2f\n",accelerationMessage->zAcceleration);
+	}
+	
+	if (gyroscopeMeasureEvent.status == osEventMessage) {
+		MPU9250GyroscopeMessage* gyroscopeMessage = (MPU9250GyroscopeMessage*)gyroscopeMeasureEvent.value.p;
+		debugSerial->printf("Gyroscope X: %.2f\n",gyroscopeMessage->xGyro);
+		debugSerial->printf("Gyroscope Y: %.2f\n",gyroscopeMessage->yGyro);
+		debugSerial->printf("Gyroscope Z: %.2f\n",gyroscopeMessage->zGyro);
+	}
+}
+
+void TaskDatahandler::setQueueBundle(QueueBundle queueBundle){
+	this->queueBundle = queueBundle;
 }
 
 void TaskDatahandler::setPriority(osPriority priority){
@@ -57,3 +106,5 @@ void TaskDatahandler::setStackPointer(unsigned char* stackPointer){
 void TaskDatahandler::setDebugSerial(RawSerial* debugSerial){
 	this->debugSerial = debugSerial;
 }
+
+

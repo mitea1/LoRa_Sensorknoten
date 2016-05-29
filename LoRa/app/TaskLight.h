@@ -21,7 +21,8 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskLight();
 
-	osStatus start();
+	osStatus start(MAX44009_MODE);
+	osStatus stop();
 
 private:
 	rtos::Thread* thread;
@@ -33,13 +34,19 @@ private:
 
 
 	MAX44009* max44009;
+	MAX44009_MODE max44009Mode;
 
 	static void callBack(void const *);
 	void measureLight();
 
+	void setQueue(Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>*);
+	void setMutex(Mutex*);
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
+
+	void setMAX44009Mode(MAX44009_MODE);
+	MAX44009_MODE getMAX44009Mode();
 
 };
 #endif /* TASKLIGHT_H_ */
