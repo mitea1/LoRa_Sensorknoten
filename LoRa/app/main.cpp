@@ -7,6 +7,7 @@
 #include "BME280.h"
 #include "MPU9250.h"
 #include "TaskLight.h"
+#include "TaskTemperature.h"
 #include "TaskDatahandler.h"
 #include "main.h"
 #include <string>
@@ -42,11 +43,17 @@ Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT> queueGyro;
 Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT> queueTesla;
 
 rtos::Mutex mutexI2C;
+rtos::Mutex mutexBME280;
+rtos::Mutex mutexMAX44009;
+rtos::Mutex mutexMPU9250;
+rtos::Mutex mutexSi4103;
+rtos::Mutex mutexUBlox;
 
 QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
 							&queueAcceleration,&queueGyro,&queueTesla};
 
 TaskLight taskLight(&max44009,&mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+TaskTemperature taskTemperature(&bme280,&mutexI2C,&queueTemperature,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskDatahandler taskDatahandler(queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 
 int main() {
@@ -65,18 +72,12 @@ int main() {
 
 
 	taskDatahandler.setDebugSerial(&usb);
-	taskLight.start(MAX44009_MODE_2);
+	taskLight.start(MAX44009_MODE_1);
+	taskTemperature.start(BME280_MODE_1);
 	taskDatahandler.start();
 
 
     while (true) {
-
-    	wait_ms(4000);
-    	taskLight.stop();
-    	taskLight.start(MAX44009_MODE_1);
-    	wait_ms(4000);
-		taskLight.stop();
-		taskLight.start(MAX44009_MODE_4);
 
     }
 

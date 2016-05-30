@@ -34,14 +34,14 @@ void TaskDatahandler::callBack(void const* data){
 void TaskDatahandler::handleData(){
 
 	while(true){
-		getMessagesFromQueues();
-		forwardReceivedMessages();
+		getMessagesFromSensorQueues();
+		forwardSensorMessages();
 		osDelay(DATAHANLDER_TASK_DELAY_MS);
 	}
 
 }
 
-void TaskDatahandler::getMessagesFromQueues(){
+void TaskDatahandler::getMessagesFromSensorQueues(){
 	lightMeasureEvent = queueBundle.queueLight->get(0);
 	temperatureMeasureEvent = queueBundle.queueTemperature->get(0);
 	pressureMeasureEvent = queueBundle.queuePressure->get(0);
@@ -51,7 +51,7 @@ void TaskDatahandler::getMessagesFromQueues(){
 	teslaMeasureEvent = queueBundle.queueTesla->get(0);
 }
 
-void TaskDatahandler::forwardReceivedMessages(){
+void TaskDatahandler::forwardSensorMessages(){
 	if (lightMeasureEvent.status == osEventMessage) {
 		MAX44009Message* luxMessage = (MAX44009Message*)lightMeasureEvent.value.p;
 		debugSerial->printf("Lux: %.2f\n",luxMessage->lux);

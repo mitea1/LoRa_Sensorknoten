@@ -15,6 +15,7 @@
 #include "MAX44009.h"
 #include "main.h"
 
+
 class TaskDatahandler {
 public:
 	TaskDatahandler(QueueBundle,
@@ -43,8 +44,8 @@ private:
 
 	static void callBack(void const *);
 	void handleData();
-	void getMessagesFromQueues();
-	void forwardReceivedMessages();
+	void getMessagesFromSensorQueues();
+	void forwardSensorMessages();
 
 	void setQueueBundle(QueueBundle);
 	void setPriority(osPriority);
