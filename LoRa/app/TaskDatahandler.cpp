@@ -49,9 +49,11 @@ void TaskDatahandler::getMessagesFromSensorQueues(){
 	accelerationMeasureEvent = queueBundle.queueAcceleration->get(0);
 	gyroscopeMeasureEvent = queueBundle.queueGyro->get(0);
 	teslaMeasureEvent = queueBundle.queueTesla->get(0);
+	gpsMeasureEvent = queueBundle.queueGps->get(0);
 }
 
 void TaskDatahandler::forwardSensorMessages(){
+	debugSerial->printf("\n");
 	if (lightMeasureEvent.status == osEventMessage) {
 		MAX44009Message* luxMessage = (MAX44009Message*)lightMeasureEvent.value.p;
 		debugSerial->printf("Lux: %.2f\n",luxMessage->lux);
@@ -85,6 +87,14 @@ void TaskDatahandler::forwardSensorMessages(){
 		debugSerial->printf("Gyroscope Y: %.2f\n",gyroscopeMessage->yGyro);
 		debugSerial->printf("Gyroscope Z: %.2f\n",gyroscopeMessage->zGyro);
 	}
+
+	if(gpsMeasureEvent.status == osEventMessage){
+		UBloxGPSMessage* uBloxGpsMessage = (UBloxGPSMessage*)gpsMeasureEvent.value.p;
+		debugSerial->printf("Longitude: %.4f\n",uBloxGpsMessage->longitude);
+		debugSerial->printf("Latitude: %.4f\n",uBloxGpsMessage->latidute);
+	}
+	debugSerial->printf("\n");
+
 }
 
 void TaskDatahandler::setQueueBundle(QueueBundle queueBundle){

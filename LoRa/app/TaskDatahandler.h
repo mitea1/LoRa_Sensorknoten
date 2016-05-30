@@ -41,6 +41,7 @@ private:
 	osEvent accelerationMeasureEvent;
 	osEvent gyroscopeMeasureEvent;
 	osEvent teslaMeasureEvent;
+	osEvent gpsMeasureEvent;
 
 	static void callBack(void const *);
 	void handleData();

@@ -8,6 +8,7 @@
 #include "BME280.h"
 #include "MAX44009.h"
 #include "MPU9250.h"
+#include "uBlox.h"
 
 #ifndef MAIN_H_
 #define MAIN_H_
@@ -20,8 +21,15 @@
 #define TEMPERATURE_QUEUE_LENGHT	1
 #define PRESSURE_QUEUE_LENGHT		1
 #define HUMIDITY_QUEUE_LENGHT		1
+#define GPS_QUEUE_LENGHT			1
 
 #define LIGHT_TASK_DELAY_MS 100
+#define TEMPERATURE_TASK_DELAY_MS 100
+#define HUMIDITY_TASK_DELAY_MS 100
+#define PRESSURE_TASK_DELAY_MS 100
+#define ACCELERATION_TASK_DELAY_MS 100
+#define GYROSCOPE_TASK_DELAY_MS 100
+#define GPS_TASK_DELAY_MS 100
 #define DATAHANLDER_TASK_DELAY_MS 500
 
 typedef struct QueueBundle{
@@ -32,6 +40,7 @@ typedef struct QueueBundle{
 	Queue<MPU9250AccelerationMessage,ACCELERATION_QUEUE_LENGHT>* queueAcceleration;
 	Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>* queueGyro;
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queueTesla;
+	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queueGps;
 };
 
 
