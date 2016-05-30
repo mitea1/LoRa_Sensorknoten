@@ -11,6 +11,7 @@
 #include "TaskHumidity.h"
 #include "TaskPressure.h"
 #include "TaskAcceleration.h"
+#include "TaskGyroscope.h"
 #include "TaskDatahandler.h"
 #include "main.h"
 #include <string>
@@ -60,6 +61,7 @@ TaskTemperature taskTemperature(&bme280,&mutexI2C,&queueTemperature,osPriorityNo
 TaskHumidity taskHumidity(&bme280,&mutexI2C,&queueHumidity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskPressure taskPressure(&bme280,&mutexI2C,&queuePressure,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskAcceleration taskAcceleration(&mpu9250,&mutexI2C,&queueAcceleration,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+TaskGyroscope taskGyroscope(&mpu9250,&mutexI2C,&queueGyro,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskDatahandler taskDatahandler(queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 
 int main() {
@@ -83,6 +85,7 @@ int main() {
 	taskHumidity.start(BME280_MODE_1);
 	taskPressure.start(BME280_MODE_1);
 	taskAcceleration.start(MPU9250_MODE_1);
+	taskGyroscope.start(MPU9250_MODE_1);
 	taskDatahandler.start();
 
 
