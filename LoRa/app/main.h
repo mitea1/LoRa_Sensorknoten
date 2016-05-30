@@ -27,7 +27,7 @@
 typedef struct QueueBundle{
 	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight;
 	Queue<BME280TemperatureMessage,TEMPERATURE_QUEUE_LENGHT>* queueTemperature;
-	Queue<BME280PresssureMessage,PRESSURE_QUEUE_LENGHT>* queuePressure;
+	Queue<BME280PressureMessage,PRESSURE_QUEUE_LENGHT>* queuePressure;
 	Queue<BME280HumidityMessage,HUMIDITY_QUEUE_LENGHT>* queueHumidity;
 	Queue<MPU9250AccelerationMessage,ACCELERATION_QUEUE_LENGHT>* queueAcceleration;
 	Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>* queueGyro;

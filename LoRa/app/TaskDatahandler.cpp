@@ -63,7 +63,7 @@ void TaskDatahandler::forwardSensorMessages(){
 	}
 
 	if (pressureMeasureEvent.status == osEventMessage) {
-		BME280PresssureMessage* pressureMessage = (BME280PresssureMessage*)pressureMeasureEvent.value.p;
+		BME280PressureMessage* pressureMessage = (BME280PressureMessage*)pressureMeasureEvent.value.p;
 		debugSerial->printf("Pressure: %.2f\n",pressureMessage->pressure);
 	}
 	

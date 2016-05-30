@@ -69,7 +69,7 @@
 typedef struct BME280TemperatureMessage{
 	float temperature;
 };
-typedef struct BME280PresssureMessage{
+typedef struct BME280PressureMessage{
 	float pressure;
 };
 typedef struct BME280HumidityMessage{
