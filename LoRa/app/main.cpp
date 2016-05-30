@@ -8,6 +8,7 @@
 #include "MPU9250.h"
 #include "TaskLight.h"
 #include "TaskTemperature.h"
+#include "TaskHumidity.h"
 #include "TaskDatahandler.h"
 #include "main.h"
 #include <string>
@@ -54,6 +55,7 @@ QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHu
 
 TaskLight taskLight(&max44009,&mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskTemperature taskTemperature(&bme280,&mutexI2C,&queueTemperature,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+TaskHumidity taskHumidity(&bme280,&mutexI2C,&queueHumidity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 TaskDatahandler taskDatahandler(queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 
 int main() {
@@ -74,6 +76,7 @@ int main() {
 	taskDatahandler.setDebugSerial(&usb);
 	taskLight.start(MAX44009_MODE_1);
 	taskTemperature.start(BME280_MODE_1);
+	taskHumidity.start(BME280_MODE_1);
 	taskDatahandler.start();
 
 

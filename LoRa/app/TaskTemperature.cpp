@@ -43,17 +43,17 @@ void TaskTemperature::callBack(void const* data){
 }
 
 void TaskTemperature::measureTemperature(){
-	BME280TemperatureMessage bme280Message;
+	BME280TemperatureMessage bme280TemperatureMessage;
 	mutexI2C->lock(osWaitForever);
 	bme280->init(getBME280Mode());
 	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		bme280Message.temperature = bme280->getTemperatureFloat();
+		bme280TemperatureMessage.temperature = bme280->getTemperatureFloat();
 		mutexI2C->unlock();
 
-		queue->put(&bme280Message,osWaitForever);
+		queue->put(&bme280TemperatureMessage,osWaitForever);
 	}
 
 
