@@ -54,6 +54,7 @@ void TaskPressure::measurePressure(){
 		mutexI2C->unlock();
 
 		queue->put(&bme280PressureMessage,osWaitForever);
+		osDelay(PRESSURE_TASK_DELAY_MS);
 	}
 
 

@@ -6,6 +6,7 @@
 #include "MAX44009.h"
 #include "BME280.h"
 #include "MPU9250.h"
+#include "LoRa.h"
 #include "TaskLight.h"
 #include "TaskTemperature.h"
 #include "TaskHumidity.h"
@@ -24,7 +25,7 @@
 // uncomment the following lines and edit their values to match your configuration
 static std::string config_network_name = "<lora network id>";
 static std::string config_network_pass = "<lora network key>";
-//static uint8_t config_frequency_sub_band = 1;
+static uint8_t config_frequency_sub_band = 1;
 
 #define GPS_MESSAGE_LENGTH  36
 #define BAUD_UART   9600
@@ -59,29 +60,27 @@ rtos::Mutex mutexMPU9250;
 rtos::Mutex mutexSi4103;
 rtos::Mutex mutexUBlox;
 
-TaskLight taskLight(&max44009,&mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskTemperature taskTemperature(&bme280,&mutexI2C,&queueTemperature,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskHumidity taskHumidity(&bme280,&mutexI2C,&queueHumidity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskPressure taskPressure(&bme280,&mutexI2C,&queuePressure,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskAcceleration taskAcceleration(&mpu9250,&mutexI2C,&queueAcceleration,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskGyroscope taskGyroscope(&mpu9250,&mutexI2C,&queueGyro,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskGPS taskGps(&gpsSensor,&mutexUART1,&queueGps,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-TaskDatahandler taskDatahandler(queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-
 int main() {
 
-    mDot* dot;
-    //std::vector<uint8_t> data;
-    std::string data_str = "hello!";
+	mDot* dot;
+	dot = mDot::getInstance();
 
-    // get a mDot handle
-    dot = mDot::getInstance();
+	LoRa lora(dot,&usb);
+
+	TaskLight taskLight(&max44009,&mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskTemperature taskTemperature(&bme280,&mutexI2C,&queueTemperature,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskHumidity taskHumidity(&bme280,&mutexI2C,&queueHumidity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskPressure taskPressure(&bme280,&mutexI2C,&queuePressure,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskAcceleration taskAcceleration(&mpu9250,&mutexI2C,&queueAcceleration,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskGyroscope taskGyroscope(&mpu9250,&mutexI2C,&queueGyro,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskGPS taskGps(&gpsSensor,&mutexUART1,&queueGps,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskDatahandler taskDatahandler(&lora,queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+
 
     uart.baud(BAUD_UART);
 	uart.format(8,SerialBase::None,1);
 	usb.baud(BAUD_USB);
 	usb.format(8,SerialBase::None,1);
-
 
 	taskDatahandler.setDebugSerial(&usb);
 	taskLight.start(MAX44009_MODE_1);
@@ -94,8 +93,9 @@ int main() {
 	taskDatahandler.start();
 
 
-    while (true) {
 
+    while (true) {
+//    	osDelay(std::max((uint32_t)5000, (uint32_t)dot->getNextTxMs()));
     }
 
     return 0;

@@ -56,6 +56,7 @@ void TaskGyroscope::measureGyroscope(){
 		mutexI2C->unlock();
 
 		queue->put(&mpu9250GyroscopeMessage,osWaitForever);
+		osDelay(GYROSCOPE_TASK_DELAY_MS);
 	}
 
 

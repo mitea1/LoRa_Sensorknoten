@@ -54,6 +54,7 @@ void TaskTemperature::measureTemperature(){
 		mutexI2C->unlock();
 
 		queue->put(&bme280TemperatureMessage,osWaitForever);
+		osDelay(TEMPERATURE_TASK_DELAY_MS);
 	}
 
 

@@ -55,6 +55,7 @@ void TaskGPS::measureGps(){
 		mutexUART->unlock();
 
 		queue->put(&uBloxGPSMessage,osWaitForever);
+		osDelay(GPS_TASK_DELAY_MS);
 	}
 
 

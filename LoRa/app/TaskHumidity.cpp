@@ -54,6 +54,7 @@ void TaskHumidity::measureHumidity(){
 		mutexI2C->unlock();
 
 		queue->put(&bme280HumidityMessage,osWaitForever);
+		osDelay(HUMIDITY_TASK_DELAY_MS);
 	}
 
 

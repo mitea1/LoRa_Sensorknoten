@@ -56,6 +56,7 @@ void TaskAcceleration::measureAcceleration(){
 		mutexI2C->unlock();
 
 		queue->put(&mpu9250AccelerationMessage,osWaitForever);
+		osDelay(ACCELERATION_TASK_DELAY_MS);
 	}
 
 

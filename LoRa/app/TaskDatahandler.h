@@ -11,24 +11,26 @@
 #include <Thread.h>
 #include <Queue.h>
 #include <Mutex.h>
-#include <mDot.h>
+#include "LoRa.h"
 #include "MAX44009.h"
 #include "main.h"
 
 
 class TaskDatahandler {
 public:
-	TaskDatahandler(QueueBundle,
+	TaskDatahandler(LoRa*,QueueBundle,
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskDatahandler();
 
 	osStatus start();
 
 	void setDebugSerial(RawSerial*);
+	void setLoRa(LoRa* lora);
 private:
 	Thread* thread;
 	QueueBundle queueBundle;
 	RawSerial* debugSerial;
+	LoRa* lora;
 
 	osPriority priority = osPriorityNormal;
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
@@ -52,8 +54,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-
 
 };
 

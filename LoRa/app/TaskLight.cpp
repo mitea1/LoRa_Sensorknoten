@@ -56,6 +56,7 @@ void TaskLight::measureLight(){
 		mutexI2C->unlock();
 
 		queue->put(&max44009Message,osWaitForever);
+		osDelay(LIGHT_TASK_DELAY_MS);
 	}
 
 
