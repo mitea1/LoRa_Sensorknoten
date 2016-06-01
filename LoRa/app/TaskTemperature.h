@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "BME280.h"
+#include "BME280TemperatureMessage.h"
 #include "main.h"
 
 #ifndef TASKTEMPERATURE_H_

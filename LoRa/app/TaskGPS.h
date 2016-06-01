@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "uBlox.h"
+#include "UBloxGPSMessage.h"
 #include "main.h"
 
 #ifndef TASKGPS_H_

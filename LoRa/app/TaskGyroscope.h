@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "MPU9250.h"
+#include "MPU9250GyroscopeMessage.h"
 #include "main.h"
 
 #ifndef TASKGYROSCOPE_H_

@@ -50,9 +50,9 @@ void TaskGyroscope::measureGyroscope(){
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		mpu9250GyroscopeMessage.xGyro = mpu9250->getXAxisGyro();
-		mpu9250GyroscopeMessage.yGyro = mpu9250->getYAxisGyro();
-		mpu9250GyroscopeMessage.zGyro = mpu9250->getZAxisGyro();
+		mpu9250GyroscopeMessage.setXGyro(mpu9250->getXAxisGyro());
+		mpu9250GyroscopeMessage.setYGyro(mpu9250->getYAxisGyro());
+		mpu9250GyroscopeMessage.setZGyro(mpu9250->getZAxisGyro());
 		mutexI2C->unlock();
 
 		queue->put(&mpu9250GyroscopeMessage,osWaitForever);

@@ -50,8 +50,8 @@ void TaskGPS::measureGps(){
 
 	while(true){
 		mutexUART->lock(osWaitForever);
-		uBloxGPSMessage.longitude = mUBlox->getLongitude();
-		uBloxGPSMessage.latidute = mUBlox->getLatitude();
+		uBloxGPSMessage.setLongitude(mUBlox->getLongitude());
+		uBloxGPSMessage.setLatitude(mUBlox->getLatitude());
 		mutexUART->unlock();
 
 		queue->put(&uBloxGPSMessage,osWaitForever);

@@ -50,7 +50,7 @@ void TaskPressure::measurePressure(){
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		bme280PressureMessage.pressure = bme280->getPressureFloat();
+		bme280PressureMessage.setPressure(bme280->getPressureFloat());
 		mutexI2C->unlock();
 
 		queue->put(&bme280PressureMessage,osWaitForever);

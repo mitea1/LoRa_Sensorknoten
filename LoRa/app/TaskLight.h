@@ -8,10 +8,12 @@
 #ifndef TASKLIGHT_H_
 #define TASKLIGHT_H_
 
+
 #include <Thread.h>
 #include <Queue.h>
 #include <Mutex.h>
 #include "MAX44009.h"
+#include "MAX44009Message.h"
 #include "main.h"
 
 class TaskLight{

@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "MPU9250.h"
+#include "MPU9250AccelerationMessage.h"
 #include "main.h"
 
 #ifndef TASKACCELERATION_H_

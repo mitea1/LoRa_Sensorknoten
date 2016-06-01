@@ -50,9 +50,9 @@ void TaskAcceleration::measureAcceleration(){
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		mpu9250AccelerationMessage.xAcceleration = mpu9250->getXAxisAcceleration();
-		mpu9250AccelerationMessage.yAcceleration = mpu9250->getYAxisAcceleration();
-		mpu9250AccelerationMessage.zAcceleration = mpu9250->getZAxisAcceleration();
+		mpu9250AccelerationMessage.setXAcceleration(mpu9250->getXAxisAcceleration());
+		mpu9250AccelerationMessage.setYAcceleration(mpu9250->getYAxisAcceleration());
+		mpu9250AccelerationMessage.setZAcceleration(mpu9250->getZAxisAcceleration());
 		mutexI2C->unlock();
 
 		queue->put(&mpu9250AccelerationMessage,osWaitForever);

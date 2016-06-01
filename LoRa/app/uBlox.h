@@ -13,12 +13,6 @@
 #ifndef APP_UBLOX_H_
 #define APP_UBLOX_H_
 
-typedef struct UBloxGPSMessage{
-	float longitude;
-	float latidute;
-};
-
-
 class uBlox {
 public:
 	uBlox(mbed::RawSerial*);

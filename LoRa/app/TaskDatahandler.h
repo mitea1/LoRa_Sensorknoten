@@ -12,7 +12,10 @@
 #include <Queue.h>
 #include <Mutex.h>
 #include "LoRa.h"
-#include "MAX44009.h"
+#include "MAX44009Message.h"
+#include "BME280TemperatureMessage.h"
+#include "BME280PressureMessage.h"
+#include "BME280HumidityMessage.h"
 #include "main.h"
 
 

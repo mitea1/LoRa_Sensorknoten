@@ -18,10 +18,6 @@
 #define MAX44009_LUX_L_BYTE		0x04
 #define MAX44009_LUX_H_L_BYTE	0x0304
 
-typedef struct MAX44009Message{
-	float lux;
-};
-
 
 class MAX44009 {
 public:

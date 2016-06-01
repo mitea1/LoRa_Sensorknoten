@@ -50,7 +50,7 @@ void TaskHumidity::measureHumidity(){
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		bme280HumidityMessage.humidity = bme280->getHumidityFloat();
+		bme280HumidityMessage.setHumidity(bme280->getHumidityFloat());
 		mutexI2C->unlock();
 
 		queue->put(&bme280HumidityMessage,osWaitForever);

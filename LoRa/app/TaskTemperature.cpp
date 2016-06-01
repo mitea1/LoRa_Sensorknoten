@@ -50,7 +50,7 @@ void TaskTemperature::measureTemperature(){
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		bme280TemperatureMessage.temperature = bme280->getTemperatureFloat();
+		bme280TemperatureMessage.setTemperature(bme280->getTemperatureFloat());
 		mutexI2C->unlock();
 
 		queue->put(&bme280TemperatureMessage,osWaitForever);

@@ -45,17 +45,17 @@ void TaskLight::callBack(void const* data){
 }
 
 void TaskLight::measureLight(){
-	MAX44009Message max44009Message;
+	MAX44009Message* max44009Message = new MAX44009Message();
 	mutexI2C->lock(osWaitForever);
 	max44009->init(getMAX44009Mode());
 	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
-		max44009Message.lux = max44009->getLux();
+		max44009Message->setLux(max44009->getLux());
 		mutexI2C->unlock();
 
-		queue->put(&max44009Message,osWaitForever);
+		queue->put(max44009Message,osWaitForever);
 		osDelay(LIGHT_TASK_DELAY_MS);
 	}
 

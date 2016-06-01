@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "BME280.h"
+#include "BME280PressureMessage.h"
 #include "main.h"
 
 #ifndef TASKPRESSURE_H_

@@ -5,6 +5,7 @@
  *      Author: Adrian
  */
 #include "BME280.h"
+#include "BME280HumidityMessage.h"
 #include "main.h"
 
 #ifndef TASKHUMIDITY_H_
