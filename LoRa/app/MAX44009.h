@@ -24,14 +24,16 @@ public:
 	MAX44009(I2C_RT*);
 	virtual ~MAX44009();
 	void init(MAX44009_MODE);
-	double getLux();
+	float getLux();
 private:
 	I2C_RT* i2c;
 	MAX44009Config* config;
-	double calculateLux(uint8_t,uint8_t);
+	float calculateLux(uint8_t,uint8_t);
 
 	void setIntegrationTime(uint8_t);
 	void setContinousMode(uint8_t);
+
+	void setI2CRT(I2C_RT*);
 };
 
 #endif /* APP_MAX44009_H_ */

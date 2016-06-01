@@ -339,7 +339,6 @@
 //Magnetometer register masks
 #define MPU9250_WIA_MASK 0x48
 
-
 class MPU9250 {
 public:
 	MPU9250(I2C_RT*);
