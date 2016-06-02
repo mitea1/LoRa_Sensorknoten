@@ -13,6 +13,7 @@
 #include "TaskPressure.h"
 #include "TaskAcceleration.h"
 #include "TaskGyroscope.h"
+#include "TaskTesla.h"
 #include "TaskGPS.h"
 #include "TaskDatahandler.h"
 #include "main.h"
@@ -73,6 +74,7 @@ int main() {
 	TaskPressure taskPressure(&bme280,&mutexI2C,&queuePressure,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	TaskAcceleration taskAcceleration(&mpu9250,&mutexI2C,&queueAcceleration,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	TaskGyroscope taskGyroscope(&mpu9250,&mutexI2C,&queueGyro,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	TaskTesla taskTesla(&mpu9250,&mutexI2C,&queueTesla,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	TaskGPS taskGps(&gpsSensor,&mutexUART1,&queueGps,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	TaskDatahandler taskDatahandler(&lora,queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 
@@ -89,13 +91,15 @@ int main() {
 	taskPressure.start(BME280_MODE_1);
 	taskAcceleration.start(MPU9250_MODE_1);
 	taskGyroscope.start(MPU9250_MODE_1);
+	taskTesla.start(MPU9250_MODE_1);
 	taskGps.start(uBLOX_MODE_1);
 	taskDatahandler.start();
 
+	mpu9250.init(MPU9250_MODE_1);
 
 
     while (true) {
-//    	osDelay(std::max((uint32_t)5000, (uint32_t)dot->getNextTxMs()));
+
     }
 
     return 0;

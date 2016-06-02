@@ -21,14 +21,20 @@ void MPU9250Config::build(MPU9250_MODE desiredMode){
 	case MPU9250_MODE_1:
 		setAccelerometerScale(MPU9250_FULL_SCALE_2G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_250DPS);
+		setMagnetometerBitResolution(MPU9250_MAG_16_BIT);
+		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
 		break;
 	case MPU9250_MODE_2:
 		setAccelerometerScale(MPU9250_FULL_SCALE_4G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_500DPS);
+		setMagnetometerBitResolution(MPU9250_MAG_16_BIT);
+		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
 		break;
 	case MPU9250_MODE_3:
 		setAccelerometerScale(MPU9250_FULL_SCALE_8G);
 		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_1000DPS);
+		setMagnetometerBitResolution(MPU9250_MAG_16_BIT);
+		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
 		break;
 	}
 }
@@ -41,14 +47,29 @@ void MPU9250Config::setGyroscopeScale(uint8_t gyroscopeScale){
 	this->gyroscopeScale = gyroscopeScale;
 }
 
+void MPU9250Config::setMagnetometerBitResolution(uint8_t magnetometerBitResolution){
+	this->magnetometerBitResolution = magnetometerBitResolution;
+}
+
+void MPU9250Config::setMagnetometerMeasureMode(uint8_t magnetometermeasureMode){
+	this->magnetometerMeasureMode = magnetometermeasureMode;
+}
+
 uint8_t MPU9250Config::getAccelerometerScale(){
-	return this->accelerometerScale;
+	return accelerometerScale;
 }
 
 uint8_t MPU9250Config::getGyroscopeScale(){
-	return this->gyroscopeScale;
+	return gyroscopeScale;
 }
 
+uint8_t MPU9250Config::getMagnetometerBitResolution(){
+	return magnetometerBitResolution;
+}
+
+uint8_t MPU9250Config::getMagnetometerMeasureMode(){
+	return magnetometerMeasureMode;
+}
 float MPU9250Config::getAccelerationDivider(){
 	float divider;
 
@@ -88,6 +109,24 @@ float MPU9250Config::getGyroDivider(){
 			break;
 		case MPU9250_GYRO_FULL_SCALE_2000DPS:
 			divider = 32768/2000;
+			break;
+		default:
+			divider = 1;
+			break;
+	}
+
+	return divider;
+}
+
+float MPU9250Config::getTeslaDivider(){
+	float divider;
+
+	switch(magnetometerBitResolution){
+		case MPU9250_MAG_14_BIT:
+			divider = 8190/4192;
+			break;
+		case MPU9250_MAG_16_BIT:
+			divider = 32768/4192;
 			break;
 		default:
 			divider = 1;

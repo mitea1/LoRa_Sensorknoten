@@ -40,7 +40,6 @@ void TaskDatahandler::handleData(){
 		forwardSensorMessages();
 		osDelay(DATAHANLDER_TASK_DELAY_MS);
 	}
-
 }
 
 void TaskDatahandler::getMessagesFromSensorQueues(){
@@ -95,6 +94,12 @@ void TaskDatahandler::forwardSensorMessages(){
 		MPU9250GyroscopeMessage* gyroscopeMessage = (MPU9250GyroscopeMessage*)gyroscopeMeasureEvent.value.p;
 		debugSerial->printf("%s\n",gyroscopeMessage->getLoRaMessageString());
 		loraMessage.append(gyroscopeMessage->getLoRaMessageString());
+	}
+
+	if (teslaMeasureEvent.status == osEventMessage) {
+		MPU9250TeslaMessage* teslaMessage = (MPU9250TeslaMessage*)teslaMeasureEvent.value.p;
+		debugSerial->printf("%s\n",teslaMessage->getLoRaMessageString());
+		loraMessage.append(teslaMessage->getLoRaMessageString());
 	}
 
 	if(gpsMeasureEvent.status == osEventMessage){

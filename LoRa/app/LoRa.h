@@ -20,10 +20,6 @@ public:
 	int32_t send(std::vector<uint8_t>&);
 	int32_t recv(std::vector<uint8_t>&);
 
-	int32_t setFrequencySubBand(const uint8_t&);
-	int32_t setNetworkName(const std::string&);
-	int32_t setNetworkPassphrase(const std::string&);
-
 
 private:
 	mDot* dot;
@@ -33,7 +29,17 @@ private:
 	std::string config_network_pass = "conduitgwy";
 	uint8_t config_frequency_sub_band = 1;
 
+	int32_t setPublicNetwork(bool);
+	int32_t setFrequencySubBand(uint8_t);
+	int32_t setNetworkName(const std::string&);
+	int32_t setNetworkPassphrase(const std::string&);
+	int32_t setSpreadingFactor(const uint8_t&);
+	int32_t setAckRetries(const uint8_t&);
+	void saveConfig();
+	void resetConfig();
 	void joinNetwork();
+
+
 
 };
 
