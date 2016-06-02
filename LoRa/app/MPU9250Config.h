@@ -20,6 +20,13 @@
 #define MPU9250_FULL_SCALE_8G           0b10
 #define MPU9250_FULL_SCALE_16G          0b11
 
+#define MPU9250_MAG_16_BIT				0b1
+#define MPU9250_MAG_14_BIT				0b0
+
+#define MPU9250_MAG_SINGLE_MEASUREMENT			0b0001
+#define MPU9250_MAG_CONTINUOUS_MEASUREMENT_1	0b0010
+#define MPU9250_MAG_CONTINUOUS_MEASUREMENT_2	0b0110
+
 enum MPU9250_MODE{
 	MPU9250_MODE_1,
 	MPU9250_MODE_2,
@@ -34,15 +41,22 @@ public:
 
 	uint8_t getAccelerometerScale();
 	uint8_t getGyroscopeScale();
+	uint8_t getMagnetometerBitResolution();
+	uint8_t getMagnetometerMeasureMode();
 	float getAccelerationDivider();
 	float getGyroDivider();
+	float getTeslaDivider();
 
 private:
 	uint8_t gyroscopeScale;
 	uint8_t accelerometerScale;
+	uint8_t magnetometerBitResolution;
+	uint8_t magnetometerMeasureMode;
 
 	void setAccelerometerScale(uint8_t);
 	void setGyroscopeScale(uint8_t);
+	void setMagnetometerBitResolution(uint8_t);
+	void setMagnetometerMeasureMode(uint8_t);
 };
 
 #endif /* APP_MPU9250CONFIG_H_ */

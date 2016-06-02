@@ -34,6 +34,7 @@ private:
 	float xGyro;
 	float yGyro;
 	float zGyro;
+
 	virtual char* getLoRaMessageId();
 };
 

@@ -19,6 +19,7 @@ class uBloxConfig {
 public:
 	uBloxConfig();
 	virtual ~uBloxConfig();
+	void build(uBLOX_MODE);
 };
 
 #endif /* UBLOXCONFIG_H_ */

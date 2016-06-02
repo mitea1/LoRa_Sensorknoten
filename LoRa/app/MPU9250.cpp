@@ -42,19 +42,23 @@ void MPU9250::enableAxisGyroscopeMeasurement(){
 }
 
 void MPU9250::enableAxisTeslaMeasurement(){
-	//TODO implement correctly. Do not use before
 	uint8_t configValueMagnetometer = 0x02;
 
 	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_INT_PIN_CFG,false,
 			&configValueMagnetometer,1);
 
-	configValueMagnetometer = 1<<4|0001;
+	configValueMagnetometer = 0;
+	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_USER_CTRL,false,
+				&configValueMagnetometer,1);
+
+	configValueMagnetometer = 0;
 	i2c->write_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_CNTL1,false,
 			&configValueMagnetometer,1);
 
-	configValueMagnetometer = 0x01;
-	i2c->write_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_CNTL2,false,
-				&configValueMagnetometer,1);
+	configValueMagnetometer = config->getMagnetometerBitResolution()<<4|
+			config->getMagnetometerMeasureMode();
+	i2c->write_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_CNTL1,false,
+			&configValueMagnetometer,1);
 
 }
 
@@ -152,7 +156,6 @@ float MPU9250::getZAxisGyro(){
 }
 
 float MPU9250::getXAxisTesla(){
-	//TODO implement correctly. Do not use before
 	uint8_t xTelsaHighByte;
 	uint8_t xTelsaLowByte;
 
@@ -163,17 +166,53 @@ float MPU9250::getXAxisTesla(){
 
 
 	uint8_t status;
-	do{
-		i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ST1,false,
-					&status,1);
-	}while(status<1);
 
 	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ST2,false,
 			&status,1);
 
 	int16_t tesla = xTelsaHighByte<<8|xTelsaLowByte;
 
-	return (float) tesla;
+	return (float) (tesla) / config->getTeslaDivider();
+}
+
+float MPU9250::getYAxisTesla(){
+	uint8_t yTelsaHighByte;
+	uint8_t yTelsaLowByte;
+
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_YOUT_H,false,
+			&yTelsaHighByte,1);
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_YOUT_L,false,
+			&yTelsaLowByte,1);
+
+
+	uint8_t status;
+
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ST2,false,
+			&status,1);
+
+	int16_t tesla = yTelsaHighByte<<8|yTelsaLowByte;
+
+	return (float) (tesla) / config->getTeslaDivider();
+}
+
+float MPU9250::getZAxisTesla(){
+	uint8_t zTelsaHighByte;
+	uint8_t zTelsaLowByte;
+
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ZOUT_H,false,
+			&zTelsaHighByte,1);
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ZOUT_L,false,
+			&zTelsaLowByte,1);
+
+
+	uint8_t status;
+
+	i2c->read_RT(MPU9250_MAG_ADDRESS,MPU9250_MAG_ST2,false,
+			&status,1);
+
+	int16_t tesla = zTelsaHighByte<<8|zTelsaLowByte;
+
+	return (float) (tesla) / config->getTeslaDivider();
 }
 
 
