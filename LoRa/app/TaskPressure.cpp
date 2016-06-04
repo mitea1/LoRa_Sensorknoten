@@ -19,6 +19,7 @@ TaskPressure::TaskPressure(BME280* bme280,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(ApplicationConfig::SLEEPING_STATE);
 }
 
 TaskPressure::~TaskPressure() {
@@ -27,10 +28,12 @@ TaskPressure::~TaskPressure() {
 
 osStatus TaskPressure::start(BME280_MODE desiredBME280Mode){
 	setBME280Mode(desiredBME280Mode);
+	setState(ApplicationConfig::RUNNING_STATE);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskPressure::stop(){
+	setState(ApplicationConfig::SLEEPING_STATE);
 	delete this->thread;
 }
 
@@ -86,5 +89,13 @@ void TaskPressure::setBME280Mode(BME280_MODE desiredMode){
 
 BME280_MODE TaskPressure::getBME280Mode(){
 	return this->bme280Mode;
+}
+
+void TaskPressure::setState(ApplicationConfig::TASK_STATE state){
+	this->state = state;
+}
+
+ApplicationConfig::TASK_STATE TaskPressure::getState(){
+	return state;
 }
 

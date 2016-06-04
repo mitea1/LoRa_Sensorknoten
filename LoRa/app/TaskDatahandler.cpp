@@ -14,6 +14,7 @@ TaskDatahandler::TaskDatahandler(LoRa* lora,QueueBundle queueBundle,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(ApplicationConfig::SLEEPING_STATE);
 }
 
 TaskDatahandler::~TaskDatahandler() {
@@ -21,6 +22,7 @@ TaskDatahandler::~TaskDatahandler() {
 }
 
 osStatus TaskDatahandler::start(){
+	setState(ApplicationConfig::RUNNING_STATE);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
@@ -33,7 +35,7 @@ void TaskDatahandler::callBack(void const* data){
 }
 
 void TaskDatahandler::handleData(){
-	lora->init();
+	//lora->init();
 
 	while(true){
 		getMessagesFromSensorQueues();
@@ -112,7 +114,7 @@ void TaskDatahandler::forwardSensorMessages(){
 	for (std::string::iterator it = loraMessage.begin(); it != loraMessage.end(); it++){
 		data.push_back((uint8_t) *it);
 	}
-	lora->send(data);
+	//lora->send(data);
 
 	loraMessage.clear();
 
@@ -141,6 +143,14 @@ void TaskDatahandler::setDebugSerial(RawSerial* debugSerial){
 
 void TaskDatahandler::setLoRa(LoRa* lora){
 	this->lora = lora;
+}
+
+void TaskDatahandler::setState(ApplicationConfig::TASK_STATE state){
+	this->state = state;
+}
+
+ApplicationConfig::TASK_STATE TaskDatahandler::getState(){
+	return state;
 }
 
 

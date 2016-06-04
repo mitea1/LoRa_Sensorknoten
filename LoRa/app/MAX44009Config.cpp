@@ -12,6 +12,10 @@ MAX44009Config::MAX44009Config() {
 
 }
 
+MAX44009Config::MAX44009Config(MAX44009_MODE desiredMode) {
+	build(desiredMode);
+}
+
 MAX44009Config::~MAX44009Config() {
 	// TODO Auto-generated destructor stub
 }

@@ -21,6 +21,8 @@ public:
 	osStatus start(BME280_MODE);
 	osStatus stop();
 
+	ApplicationConfig::TASK_STATE getState();
+
 private:
 	rtos::Thread* thread;
 	rtos::Queue<BME280PressureMessage,PRESSURE_QUEUE_LENGHT>* queue;
@@ -29,6 +31,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
+	ApplicationConfig::TASK_STATE state;
 
 	BME280* bme280;
 	BME280_MODE bme280Mode;
@@ -44,6 +47,8 @@ private:
 
 	void setBME280Mode(BME280_MODE);
 	BME280_MODE getBME280Mode();
+
+	void setState(ApplicationConfig::TASK_STATE);
 };
 
 #endif /* TASKPRESSURE_H_ */

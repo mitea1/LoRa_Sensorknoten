@@ -21,6 +21,7 @@ TaskLight::TaskLight(MAX44009* max44009,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(ApplicationConfig::SLEEPING_STATE);
 }
 
 TaskLight::~TaskLight() {
@@ -29,10 +30,12 @@ TaskLight::~TaskLight() {
 
 osStatus TaskLight::start(MAX44009_MODE desiredMAX44009Mode){
 	setMAX44009Mode(desiredMAX44009Mode);
+	setState(ApplicationConfig::RUNNING_STATE);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskLight::stop(){
+	setState(ApplicationConfig::SLEEPING_STATE);
 	delete this->thread;
 }
 
@@ -88,4 +91,12 @@ void TaskLight::setMAX44009Mode(MAX44009_MODE desiredMode){
 
 MAX44009_MODE TaskLight::getMAX44009Mode(){
 	return this->max44009Mode;
+}
+
+void TaskLight::setState(ApplicationConfig::TASK_STATE state){
+	this->state = state;
+}
+
+ApplicationConfig::TASK_STATE TaskLight::getState(){
+	return state;
 }

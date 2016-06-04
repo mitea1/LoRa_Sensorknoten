@@ -31,6 +31,7 @@ enum MAX44009_MODE{
 class MAX44009Config {
 public:
 	MAX44009Config();
+	MAX44009Config(MAX44009_MODE);
 	virtual ~MAX44009Config();
 	void build(MAX44009_MODE);
 

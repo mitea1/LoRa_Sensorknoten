@@ -18,8 +18,14 @@
 #include "MPU9250AccelerationMessage.h"
 #include "MPU9250GyroscopeMessage.h"
 #include "MPU9250TeslaMessage.h"
+#include "SI1143ProximityMessage.h"
 #include "uBlox.h"
 #include "UBloxGPSMessage.h"
+#include "ApplicationConfig.h"
+
+#define GPS_MESSAGE_LENGTH  36
+#define BAUD_UART   9600
+#define BAUD_USB    9600
 
 #define LIGHT_QUEUE_LENGHT			1
 #define ACCELERATION_QUEUE_LENGHT	1
@@ -28,17 +34,19 @@
 #define TEMPERATURE_QUEUE_LENGHT	1
 #define PRESSURE_QUEUE_LENGHT		1
 #define HUMIDITY_QUEUE_LENGHT		1
+#define PROXIMITY_QUEUE_LENGHT		1
 #define GPS_QUEUE_LENGHT			1
 
-#define LIGHT_TASK_DELAY_MS 		1000
-#define TEMPERATURE_TASK_DELAY_MS 	1000
-#define HUMIDITY_TASK_DELAY_MS 		1000
-#define PRESSURE_TASK_DELAY_MS 		1000
-#define ACCELERATION_TASK_DELAY_MS 	1000
-#define GYROSCOPE_TASK_DELAY_MS 	1000
-#define TESLA_TASK_DELAY_MS 		1000
-#define GPS_TASK_DELAY_MS 			1000
-#define DATAHANLDER_TASK_DELAY_MS 	1000
+#define LIGHT_TASK_DELAY_MS 			1000
+#define TEMPERATURE_TASK_DELAY_MS 		1000
+#define HUMIDITY_TASK_DELAY_MS 			1000
+#define PRESSURE_TASK_DELAY_MS 			1000
+#define ACCELERATION_TASK_DELAY_MS 		1000
+#define GYROSCOPE_TASK_DELAY_MS 		1000
+#define TESLA_TASK_DELAY_MS 			1000
+#define PROXIMITY_TASK_DELAY_MS 		1000
+#define GPS_TASK_DELAY_MS 				1000
+#define DATAHANLDER_TASK_DELAY_MS 		1000
 
 #define MAX44009_MESSAGE_ID					"L"
 #define UBLOX_GPS_MESSAGE_ITOW_ID			"G1"
@@ -60,7 +68,8 @@
 #define MPU9250_X_TESLA_MESSAGE_ID			"M7"
 #define MPU9250_Y_TESLA_MESSAGE_ID			"M8"
 #define MPU9250_Z_TESLA_MESSAGE_ID			"M9"
-#define SI1143_DISTANCE_MESSAGE_ID			"P1"
+#define SI1143_PROXIMITY_MESSAGE_ID			"P1"
+
 
 typedef struct QueueBundle{
 	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight;
@@ -70,6 +79,7 @@ typedef struct QueueBundle{
 	Queue<MPU9250AccelerationMessage,ACCELERATION_QUEUE_LENGHT>* queueAcceleration;
 	Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>* queueGyro;
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queueTesla;
+	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queueGps;
 };
 

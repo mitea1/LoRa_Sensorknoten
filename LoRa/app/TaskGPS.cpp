@@ -19,6 +19,7 @@ TaskGPS::TaskGPS(uBlox* uBlox,rtos::Mutex* mutexUART,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(ApplicationConfig::SLEEPING_STATE);
 }
 
 TaskGPS::~TaskGPS() {
@@ -27,10 +28,12 @@ TaskGPS::~TaskGPS() {
 
 osStatus TaskGPS::start(uBLOX_MODE desiredMode){
 	setUBLOXMode(desiredMode);
+	setState(ApplicationConfig::RUNNING_STATE);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskGPS::stop(){
+	setState(ApplicationConfig::SLEEPING_STATE);
 	delete this->thread;
 }
 
@@ -87,5 +90,13 @@ void TaskGPS::setUBLOXMode(uBLOX_MODE desiredMode){
 
 uBLOX_MODE TaskGPS::getUBLOXMode(){
 	return this->uBloxMode;
+}
+
+void TaskGPS::setState(ApplicationConfig::TASK_STATE state){
+	this->state = state;
+}
+
+ApplicationConfig::TASK_STATE TaskGPS::getState(){
+	return state;
 }
 

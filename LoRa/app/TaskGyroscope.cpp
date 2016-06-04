@@ -19,6 +19,7 @@ TaskGyroscope::TaskGyroscope(MPU9250* mpu9250,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(ApplicationConfig::SLEEPING_STATE);
 }
 
 TaskGyroscope::~TaskGyroscope() {
@@ -27,10 +28,12 @@ TaskGyroscope::~TaskGyroscope() {
 
 osStatus TaskGyroscope::start(MPU9250_MODE desiredMPU9250Mode){
 	setMPU9250Mode(desiredMPU9250Mode);
+	setState(ApplicationConfig::RUNNING_STATE);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskGyroscope::stop(){
+	setState(ApplicationConfig::SLEEPING_STATE);
 	delete this->thread;
 }
 
@@ -88,5 +91,13 @@ void TaskGyroscope::setMPU9250Mode(MPU9250_MODE desiredMode){
 
 MPU9250_MODE TaskGyroscope::getMPU9250Mode(){
 	return this->mpu9250Mode;
+}
+
+void TaskGyroscope::setState(ApplicationConfig::TASK_STATE state){
+	this->state = state;
+}
+
+ApplicationConfig::TASK_STATE TaskGyroscope::getState(){
+	return state;
 }
 
