@@ -93,6 +93,7 @@ private:
 
 	void stopAllRunningSensorTasks();
 	void startRunnableSensorTasks();
+	void configureSensors();
 
 };
 

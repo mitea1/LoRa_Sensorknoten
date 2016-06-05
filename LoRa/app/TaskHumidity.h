@@ -19,7 +19,7 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskHumidity();
 
-	osStatus start(BME280_MODE);
+	osStatus start();
 	osStatus stop();
 
 	TASK_STATE getState();
@@ -45,9 +45,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-	void setBME280Mode(BME280_MODE);
-	BME280_MODE getBME280Mode();
 
 	void setState(TASK_STATE);
 };

@@ -26,8 +26,7 @@ TaskTemperature::~TaskTemperature() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskTemperature::start(BME280_MODE desiredBME280Mode){
-	setBME280Mode(desiredBME280Mode);
+osStatus TaskTemperature::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskTemperature::callBack(void const* data){
 
 void TaskTemperature::measureTemperature(){
 	BME280TemperatureMessage bme280TemperatureMessage;
-	mutexI2C->lock(osWaitForever);
-	bme280->init(getBME280Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -82,14 +78,6 @@ void TaskTemperature::setStackSize(uint32_t stacksize){
 
 void TaskTemperature::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskTemperature::setBME280Mode(BME280_MODE desiredMode){
-	this->bme280Mode = desiredMode;
-}
-
-BME280_MODE TaskTemperature::getBME280Mode(){
-	return this->bme280Mode;
 }
 
 void TaskTemperature::setState(TASK_STATE state){

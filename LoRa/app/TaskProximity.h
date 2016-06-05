@@ -18,7 +18,7 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskProximity();
 
-	osStatus start(SI1143_MODE);
+	osStatus start();
 	osStatus stop();
 
 	TASK_STATE getState();
@@ -34,7 +34,6 @@ private:
 	TASK_STATE state;
 
 	SI1143* si1143;
-	SI1143_MODE si1143Mode;
 
 	static void callBack(void const *);
 	void measureProximity();
@@ -44,9 +43,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-	void setSI1143Mode(SI1143_MODE);
-	SI1143_MODE getSI1143Mode();
 
 	void setState(TASK_STATE);
 };

@@ -26,8 +26,7 @@ TaskGPS::~TaskGPS() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskGPS::start(uBLOX_MODE desiredMode){
-	setUBLOXMode(desiredMode);
+osStatus TaskGPS::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskGPS::callBack(void const* data){
 
 void TaskGPS::measureGps(){
 	UBloxGPSMessage uBloxGPSMessage;
-	mutexUART->lock(osWaitForever);
-	mUBlox->init(getUBLOXMode());
-	mutexUART->unlock();
 
 	while(true){
 		mutexUART->lock(osWaitForever);
@@ -83,14 +79,6 @@ void TaskGPS::setStackSize(uint32_t stacksize){
 
 void TaskGPS::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskGPS::setUBLOXMode(uBLOX_MODE desiredMode){
-	this->uBloxMode = desiredMode;
-}
-
-uBLOX_MODE TaskGPS::getUBLOXMode(){
-	return this->uBloxMode;
 }
 
 void TaskGPS::setState(TASK_STATE state){

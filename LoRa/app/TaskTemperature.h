@@ -18,7 +18,7 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskTemperature();
 
-	osStatus start(BME280_MODE);
+	osStatus start();
 	osStatus stop();
 
 	TASK_STATE getState();
@@ -34,7 +34,6 @@ private:
 	TASK_STATE state;
 
 	BME280* bme280;
-	BME280_MODE bme280Mode;
 
 	static void callBack(void const *);
 	void measureTemperature();
@@ -44,9 +43,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-	void setBME280Mode(BME280_MODE);
-	BME280_MODE getBME280Mode();
 
 	void setState(TASK_STATE);
 };
