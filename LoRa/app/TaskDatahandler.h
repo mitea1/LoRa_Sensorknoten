@@ -26,8 +26,9 @@ public:
 	virtual ~TaskDatahandler();
 
 	osStatus start();
+	osStatus stop();
 
-	ApplicationConfig::TASK_STATE getState();
+	TASK_STATE getState();
 
 	void setDebugSerial(RawSerial*);
 	void setLoRa(LoRa* lora);
@@ -41,7 +42,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
-	ApplicationConfig::TASK_STATE state;
+	TASK_STATE state;
 
 	osEvent lightMeasureEvent;
 	osEvent temperatureMeasureEvent;
@@ -62,7 +63,7 @@ private:
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
 
-	void setState(ApplicationConfig::TASK_STATE);
+	void setState(TASK_STATE);
 
 };
 

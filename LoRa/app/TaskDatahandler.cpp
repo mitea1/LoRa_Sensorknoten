@@ -14,7 +14,7 @@ TaskDatahandler::TaskDatahandler(LoRa* lora,QueueBundle queueBundle,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
-	setState(ApplicationConfig::SLEEPING_STATE);
+	setState(SLEEPING);
 }
 
 TaskDatahandler::~TaskDatahandler() {
@@ -22,8 +22,14 @@ TaskDatahandler::~TaskDatahandler() {
 }
 
 osStatus TaskDatahandler::start(){
-	setState(ApplicationConfig::RUNNING_STATE);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
+}
+
+osStatus TaskDatahandler::stop(){
+	thread->terminate();
+	setState(SLEEPING);
+	delete this->thread;
 }
 
 void TaskDatahandler::callBack(void const* data){
@@ -145,11 +151,11 @@ void TaskDatahandler::setLoRa(LoRa* lora){
 	this->lora = lora;
 }
 
-void TaskDatahandler::setState(ApplicationConfig::TASK_STATE state){
+void TaskDatahandler::setState(TASK_STATE state){
 	this->state = state;
 }
 
-ApplicationConfig::TASK_STATE TaskDatahandler::getState(){
+TASK_STATE TaskDatahandler::getState(){
 	return state;
 }
 

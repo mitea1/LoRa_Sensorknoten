@@ -21,7 +21,7 @@ public:
 	osStatus start(SI1143_MODE);
 	osStatus stop();
 
-	ApplicationConfig::TASK_STATE getState();
+	TASK_STATE getState();
 
 private:
 	rtos::Thread* thread;
@@ -31,7 +31,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
-	ApplicationConfig::TASK_STATE state;
+	TASK_STATE state;
 
 	SI1143* si1143;
 	SI1143_MODE si1143Mode;
@@ -48,7 +48,7 @@ private:
 	void setSI1143Mode(SI1143_MODE);
 	SI1143_MODE getSI1143Mode();
 
-	void setState(ApplicationConfig::TASK_STATE);
+	void setState(TASK_STATE);
 };
 
 #endif /* TASKPROXIMITY_H_ */

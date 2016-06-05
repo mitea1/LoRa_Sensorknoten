@@ -19,15 +19,15 @@ ApplicationConfig::~ApplicationConfig() {
 void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 	switch (desiredMode) {
 	case APPLICATION_MODE_1:
-		setStateTaskLight(RUNNING_STATE);
-		setStateTaskTemperature(RUNNING_STATE);
-		setStateTaskPressure(RUNNING_STATE);
-		setStateTaskHumidity(RUNNING_STATE);
-		setStateTaskAcceleration(RUNNING_STATE);
-		setStateTaskGyroscope(RUNNING_STATE);
-		setStateTaskTesla(RUNNING_STATE);
-		setStateTaskProximity(RUNNING_STATE);
-		setStateTaskGPS(RUNNING_STATE);
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(RUNNING);
+		setStateTaskHumidity(RUNNING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(RUNNING);
+		setStateTaskTesla(RUNNING);
+		setStateTaskProximity(RUNNING);
+		setStateTaskGPS(RUNNING);
 		max44009Mode = MAX44009_MODE_1;
 		bme280Mode = BME280_MODE_1;
 		mpu9250Mode = MPU9250_MODE_1;
@@ -35,31 +35,191 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		ubloxMode = uBLOX_MODE_1;
 		break;
 	case APPLICATION_MODE_2:
-		setStateTaskLight(SLEEPING_STATE);
-		setStateTaskTemperature(RUNNING_STATE);
-		setStateTaskPressure(RUNNING_STATE);
-		setStateTaskHumidity(RUNNING_STATE);
-		setStateTaskAcceleration(SLEEPING_STATE);
-		setStateTaskGyroscope(SLEEPING_STATE);
-		setStateTaskTesla(SLEEPING_STATE);
-		setStateTaskProximity(SLEEPING_STATE);
-		setStateTaskGPS(RUNNING_STATE);
-		max44009Mode = MAX44009_MODE_2;
-		bme280Mode = BME280_MODE_2;
-		mpu9250Mode = MPU9250_MODE_2;
-		si1143Mode = SI1143_MODE_2;
-		ubloxMode = uBLOX_MODE_2;
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(RUNNING);
+		setStateTaskHumidity(RUNNING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		max44009Mode = MAX44009_MODE_1;
+		bme280Mode = BME280_MODE_1;
+		mpu9250Mode = MPU9250_MODE_1;
+		si1143Mode = SI1143_MODE_1;
+		ubloxMode = uBLOX_MODE_1;
 		break;
 	case APPLICATION_MODE_3:
-		setStateTaskLight(SLEEPING_STATE);
-		setStateTaskTemperature(RUNNING_STATE);
-		setStateTaskPressure(RUNNING_STATE);
-		setStateTaskHumidity(RUNNING_STATE);
-		setStateTaskAcceleration(SLEEPING_STATE);
-		setStateTaskGyroscope(SLEEPING_STATE);
-		setStateTaskTesla(SLEEPING_STATE);
-		setStateTaskProximity(SLEEPING_STATE);
-		setStateTaskGPS(RUNNING_STATE);
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(RUNNING);
+		setStateTaskHumidity(RUNNING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_1;
+		bme280Mode = BME280_MODE_1;
+		mpu9250Mode = MPU9250_MODE_1;
+		si1143Mode = SI1143_MODE_1;
+		ubloxMode = uBLOX_MODE_1;
+		break;
+	case APPLICATION_MODE_4:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(RUNNING);
+		setStateTaskTesla(RUNNING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		max44009Mode = MAX44009_MODE_1;
+		bme280Mode = BME280_MODE_1;
+		mpu9250Mode = MPU9250_MODE_1;
+		si1143Mode = SI1143_MODE_1;
+		ubloxMode = uBLOX_MODE_1;
+		break;
+	case APPLICATION_MODE_5:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(RUNNING);
+		setStateTaskTesla(RUNNING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_6:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_7:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_8:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_9:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_10:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(RUNNING);
+		setStateTaskGPS(RUNNING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_11:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(RUNNING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	case APPLICATION_MODE_99:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		max44009Mode = MAX44009_MODE_3;
+		bme280Mode = BME280_MODE_3;
+		mpu9250Mode = MPU9250_MODE_3;
+		si1143Mode = SI1143_MODE_3;
+		ubloxMode = uBLOX_MODE_3;
+		break;
+	default:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(RUNNING);
+		setStateTaskHumidity(RUNNING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(RUNNING);
+		setStateTaskTesla(RUNNING);
+		setStateTaskProximity(RUNNING);
+		setStateTaskGPS(RUNNING);
 		max44009Mode = MAX44009_MODE_3;
 		bme280Mode = BME280_MODE_3;
 		mpu9250Mode = MPU9250_MODE_3;
@@ -89,39 +249,39 @@ uBLOX_MODE ApplicationConfig::getuBlox_MODE() {
 	return ubloxMode;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskLight(){
+TASK_STATE ApplicationConfig::getStateTaskLight(){
 	return stateTaskLight;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskTemperature(){
+TASK_STATE ApplicationConfig::getStateTaskTemperature(){
 	return stateTaskTemperature;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskPressure(){
+TASK_STATE ApplicationConfig::getStateTaskPressure(){
 	return stateTaskPressure;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskHumidity(){
+TASK_STATE ApplicationConfig::getStateTaskHumidity(){
 	return stateTaskHumidity;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskAcceleration(){
+TASK_STATE ApplicationConfig::getStateTaskAcceleration(){
 	return stateTaskAcceleration;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskGyroscope(){
+TASK_STATE ApplicationConfig::getStateTaskGyroscope(){
 	return stateTaskGyroscope;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskTesla(){
+TASK_STATE ApplicationConfig::getStateTaskTesla(){
 	return stateTaskTesla;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskProximity(){
+TASK_STATE ApplicationConfig::getStateTaskProximity(){
 	return stateTaskProximity;
 }
 
-ApplicationConfig::TASK_STATE ApplicationConfig::getStateTaskGPS(){
+TASK_STATE ApplicationConfig::getStateTaskGPS(){
 	return stateTaskGPS;
 }
 
@@ -145,39 +305,39 @@ void ApplicationConfig::setuBlox_MODE(uBLOX_MODE ubloxMode) {
 	this->ubloxMode = ubloxMode;
 }
 
-void ApplicationConfig::setStateTaskLight(ApplicationConfig::TASK_STATE _stateTaskLight){
+void ApplicationConfig::setStateTaskLight(TASK_STATE _stateTaskLight){
 	this->stateTaskLight = _stateTaskLight;
 }
 
-void ApplicationConfig::setStateTaskTemperature(ApplicationConfig::TASK_STATE _stateTaskTemperature){
+void ApplicationConfig::setStateTaskTemperature(TASK_STATE _stateTaskTemperature){
 	this->stateTaskTemperature = _stateTaskTemperature;
 }
 
-void ApplicationConfig::setStateTaskPressure(ApplicationConfig::TASK_STATE _stateTaskPressure){
+void ApplicationConfig::setStateTaskPressure(TASK_STATE _stateTaskPressure){
 	this->stateTaskPressure = _stateTaskPressure;
 }
 
-void ApplicationConfig::setStateTaskHumidity(ApplicationConfig::TASK_STATE stateTaskHumidity){
+void ApplicationConfig::setStateTaskHumidity(TASK_STATE stateTaskHumidity){
 	this->stateTaskHumidity = stateTaskHumidity;
 }
 
-void ApplicationConfig::setStateTaskAcceleration(ApplicationConfig::TASK_STATE stateTaskAcceleration){
+void ApplicationConfig::setStateTaskAcceleration(TASK_STATE stateTaskAcceleration){
 	this->stateTaskAcceleration = stateTaskAcceleration;
 }
 
-void ApplicationConfig::setStateTaskGyroscope(ApplicationConfig::TASK_STATE stateTaskGyroscope){
+void ApplicationConfig::setStateTaskGyroscope(TASK_STATE stateTaskGyroscope){
 	this->stateTaskGyroscope = stateTaskGyroscope;
 }
 
-void ApplicationConfig::setStateTaskTesla(ApplicationConfig::TASK_STATE stateTaskTesla){
+void ApplicationConfig::setStateTaskTesla(TASK_STATE stateTaskTesla){
 	this->stateTaskTesla = stateTaskTesla;
 }
 
-void ApplicationConfig::setStateTaskProximity(ApplicationConfig::TASK_STATE stateTaskProximity){
+void ApplicationConfig::setStateTaskProximity(TASK_STATE stateTaskProximity){
 	this->stateTaskProximity = stateTaskProximity;
 }
 
-void ApplicationConfig::setStateTaskGPS(ApplicationConfig::TASK_STATE stateTaskGPS){
+void ApplicationConfig::setStateTaskGPS(TASK_STATE stateTaskGPS){
 	this->stateTaskGPS = stateTaskGPS;
 }
 

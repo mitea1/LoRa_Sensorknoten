@@ -21,7 +21,7 @@ public:
 	osStatus start(MPU9250_MODE);
 	osStatus stop();
 
-	ApplicationConfig::TASK_STATE getState();
+	TASK_STATE getState();
 
 private:
 	rtos::Thread* thread;
@@ -31,7 +31,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
-	ApplicationConfig::TASK_STATE state;
+	TASK_STATE state;
 
 	MPU9250* mpu9250;
 	MPU9250_MODE mpu9250Mode;
@@ -48,7 +48,7 @@ private:
 	void setMPU9250Mode(MPU9250_MODE);
 	MPU9250_MODE getMPU9250Mode();
 
-	void setState(ApplicationConfig::TASK_STATE);
+	void setState(TASK_STATE);
 
 };
 

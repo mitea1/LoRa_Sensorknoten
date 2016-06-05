@@ -19,7 +19,7 @@ TaskAcceleration::TaskAcceleration(MPU9250* mpu9250,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
-	setState(ApplicationConfig::SLEEPING_STATE);
+	setState(SLEEPING);
 }
 
 TaskAcceleration::~TaskAcceleration() {
@@ -28,12 +28,13 @@ TaskAcceleration::~TaskAcceleration() {
 
 osStatus TaskAcceleration::start(MPU9250_MODE desiredMPU9250Mode){
 	setMPU9250Mode(desiredMPU9250Mode);
-	setState(ApplicationConfig::RUNNING_STATE);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskAcceleration::stop(){
-	setState(ApplicationConfig::SLEEPING_STATE);
+	thread->terminate();
+	setState(SLEEPING);
 	delete this->thread;
 }
 
@@ -93,11 +94,11 @@ MPU9250_MODE TaskAcceleration::getMPU9250Mode(){
 	return this->mpu9250Mode;
 }
 
-void TaskAcceleration::setState(ApplicationConfig::TASK_STATE state){
+void TaskAcceleration::setState(TASK_STATE state){
 	this->state = state;
 }
 
-ApplicationConfig::TASK_STATE TaskAcceleration::getState(){
+TASK_STATE TaskAcceleration::getState(){
 	return state;
 }
 

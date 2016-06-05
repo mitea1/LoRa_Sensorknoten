@@ -19,7 +19,7 @@ TaskProximity::TaskProximity(SI1143* si1143,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
-	setState(ApplicationConfig::SLEEPING_STATE);
+	setState(SLEEPING);
 }
 
 TaskProximity::~TaskProximity() {
@@ -28,12 +28,13 @@ TaskProximity::~TaskProximity() {
 
 osStatus TaskProximity::start(SI1143_MODE desiredSI1143Mode){
 	setSI1143Mode(desiredSI1143Mode);
-	setState(ApplicationConfig::RUNNING_STATE);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskProximity::stop(){
-	setState(ApplicationConfig::SLEEPING_STATE);
+	thread->terminate();
+	setState(SLEEPING);
 	delete this->thread;
 }
 
@@ -89,10 +90,10 @@ SI1143_MODE TaskProximity::getSI1143Mode(){
 	return this->si1143Mode;
 }
 
-void TaskProximity::setState(ApplicationConfig::TASK_STATE state){
+void TaskProximity::setState(TASK_STATE state){
 	this->state = state;
 }
 
-ApplicationConfig::TASK_STATE TaskProximity::getState(){
+TASK_STATE TaskProximity::getState(){
 	return state;
 }

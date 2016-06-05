@@ -19,7 +19,7 @@ TaskTesla::TaskTesla(MPU9250* mpu9250,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
-	setState(ApplicationConfig::SLEEPING_STATE);
+	setState(SLEEPING);
 }
 
 TaskTesla::~TaskTesla() {
@@ -28,12 +28,13 @@ TaskTesla::~TaskTesla() {
 
 osStatus TaskTesla::start(MPU9250_MODE desiredMPU9250Mode){
 	setMPU9250Mode(desiredMPU9250Mode);
-	setState(ApplicationConfig::RUNNING_STATE);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskTesla::stop(){
-	setState(ApplicationConfig::SLEEPING_STATE);
+	thread->terminate();
+	setState(SLEEPING);
 	delete this->thread;
 }
 
@@ -91,11 +92,11 @@ MPU9250_MODE TaskTesla::getMPU9250Mode(){
 	return this->mpu9250Mode;
 }
 
-void TaskTesla::setState(ApplicationConfig::TASK_STATE state){
+void TaskTesla::setState(TASK_STATE state){
 	this->state = state;
 }
 
-ApplicationConfig::TASK_STATE TaskTesla::getState(){
+TASK_STATE TaskTesla::getState(){
 	return state;
 }
 

@@ -16,8 +16,18 @@
 enum APPLICATION_MODE {
 	APPLICATION_MODE_1,
 	APPLICATION_MODE_2,
-	APPLICATION_MODE_3
+	APPLICATION_MODE_3,
+	APPLICATION_MODE_4,
+	APPLICATION_MODE_5,
+	APPLICATION_MODE_6,
+	APPLICATION_MODE_7,
+	APPLICATION_MODE_8,
+	APPLICATION_MODE_9,
+	APPLICATION_MODE_10,
+	APPLICATION_MODE_11,
+	APPLICATION_MODE_99
 };
+
 
 class ApplicationConfig {
 public:
@@ -26,26 +36,21 @@ public:
 
 	void build(APPLICATION_MODE);
 
-	enum TASK_STATE {
-		RUNNING_STATE = 1,
-		SLEEPING_STATE = 0
-	};
-
 	MAX44009_MODE getMAX44009_MODE();
 	BME280_MODE getBME280_MODE();
 	MPU9250_MODE getMPU9250_MODE();
 	SI1143_MODE getSI1143_MODE();
 	uBLOX_MODE getuBlox_MODE();
 
-	ApplicationConfig::TASK_STATE getStateTaskLight();
-	ApplicationConfig::TASK_STATE getStateTaskTemperature();
-	ApplicationConfig::TASK_STATE getStateTaskPressure();
-	ApplicationConfig::TASK_STATE getStateTaskHumidity();
-	ApplicationConfig::TASK_STATE getStateTaskAcceleration();
-	ApplicationConfig::TASK_STATE getStateTaskGyroscope();
-	ApplicationConfig::TASK_STATE getStateTaskTesla();
-	ApplicationConfig::TASK_STATE getStateTaskProximity();
-	ApplicationConfig::TASK_STATE getStateTaskGPS();
+	TASK_STATE getStateTaskLight();
+	TASK_STATE getStateTaskTemperature();
+	TASK_STATE getStateTaskPressure();
+	TASK_STATE getStateTaskHumidity();
+	TASK_STATE getStateTaskAcceleration();
+	TASK_STATE getStateTaskGyroscope();
+	TASK_STATE getStateTaskTesla();
+	TASK_STATE getStateTaskProximity();
+	TASK_STATE getStateTaskGPS();
 
 private:
 	MAX44009_MODE max44009Mode;
@@ -54,15 +59,15 @@ private:
 	SI1143_MODE si1143Mode;
 	uBLOX_MODE ubloxMode;
 
-	ApplicationConfig::TASK_STATE stateTaskLight;
-	ApplicationConfig::TASK_STATE stateTaskTemperature;
-	ApplicationConfig::TASK_STATE stateTaskPressure;
-	ApplicationConfig::TASK_STATE stateTaskHumidity;
-	ApplicationConfig::TASK_STATE stateTaskAcceleration;
-	ApplicationConfig::TASK_STATE stateTaskGyroscope;
-	ApplicationConfig::TASK_STATE stateTaskTesla;
-	ApplicationConfig::TASK_STATE stateTaskProximity;
-	ApplicationConfig::TASK_STATE stateTaskGPS;
+	TASK_STATE stateTaskLight;
+	TASK_STATE stateTaskTemperature;
+	TASK_STATE stateTaskPressure;
+	TASK_STATE stateTaskHumidity;
+	TASK_STATE stateTaskAcceleration;
+	TASK_STATE stateTaskGyroscope;
+	TASK_STATE stateTaskTesla;
+	TASK_STATE stateTaskProximity;
+	TASK_STATE stateTaskGPS;
 
 	void setMAX44009_MODE(MAX44009_MODE);
 	void setBME280_MODE(BME280_MODE);
@@ -70,15 +75,15 @@ private:
 	void setSI1143_MODE(SI1143_MODE);
 	void setuBlox_MODE(uBLOX_MODE);
 
-	void setStateTaskLight(ApplicationConfig::TASK_STATE);
-	void setStateTaskTemperature(ApplicationConfig::TASK_STATE);
-	void setStateTaskPressure(ApplicationConfig::TASK_STATE);
-	void setStateTaskHumidity(ApplicationConfig::TASK_STATE);
-	void setStateTaskAcceleration(ApplicationConfig::TASK_STATE);
-	void setStateTaskGyroscope(ApplicationConfig::TASK_STATE);
-	void setStateTaskTesla(ApplicationConfig::TASK_STATE);
-	void setStateTaskProximity(ApplicationConfig::TASK_STATE);
-	void setStateTaskGPS(ApplicationConfig::TASK_STATE);
+	void setStateTaskLight(TASK_STATE);
+	void setStateTaskTemperature(TASK_STATE);
+	void setStateTaskPressure(TASK_STATE);
+	void setStateTaskHumidity(TASK_STATE);
+	void setStateTaskAcceleration(TASK_STATE);
+	void setStateTaskGyroscope(TASK_STATE);
+	void setStateTaskTesla(TASK_STATE);
+	void setStateTaskProximity(TASK_STATE);
+	void setStateTaskGPS(TASK_STATE);
 
 };
 

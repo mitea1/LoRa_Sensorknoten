@@ -32,6 +32,7 @@ private:
 
 	void setIntegrationTime(uint8_t);
 	void setContinousMode(uint8_t);
+	void setManualConfig(uint8_t);
 
 	void setI2CRT(I2C_RT*);
 };

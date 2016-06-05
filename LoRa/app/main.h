@@ -21,7 +21,6 @@
 #include "SI1143ProximityMessage.h"
 #include "uBlox.h"
 #include "UBloxGPSMessage.h"
-#include "ApplicationConfig.h"
 
 #define GPS_MESSAGE_LENGTH  36
 #define BAUD_UART   9600
@@ -81,6 +80,11 @@ typedef struct QueueBundle{
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queueGps;
+};
+
+enum TASK_STATE {
+	RUNNING = 1,
+	SLEEPING = 0
 };
 
 

@@ -22,17 +22,39 @@ MAX44009Config::~MAX44009Config() {
 
 void MAX44009Config::build(MAX44009_MODE desiredMode){
 	switch(desiredMode){
-		case MAX44009_MODE_1:
+		case MAX44009_MODE_0:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_800_MS);
-			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
-			break;
-		case MAX44009_MODE_2:
+			setContinousMode(MAX_44009_CONTINOUS_MODE_OFF);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_OFF);
+		case MAX44009_MODE_1:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_400_MS);
 			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_OFF);
+			break;
+		case MAX44009_MODE_2:
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_200_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_OFF);
 			break;
 		case MAX44009_MODE_3:
-			setIntegrationTime(MAX_44009_INTEGRATION_TIME_6_25_MS);
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_100_MS);
 			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_OFF);
+			break;
+		case MAX44009_MODE_4:
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_50_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_ON);
+			break;
+		case MAX44009_MODE_5:
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_25_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_ON);
+			break;
+		case MAX44009_MODE_6:
+			setIntegrationTime(MAX_44009_INTEGRATION_TIME_12_5_MS);
+			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
+			setManualConfig(MAX_44009_MANUAL_CONFIG_ON);
 			break;
 		default:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_800_MS);
@@ -53,4 +75,8 @@ void MAX44009Config::setIntegrationTime(uint8_t integrationTime){
 
 void MAX44009Config::setContinousMode(uint8_t continousMode){
 	this->continousMode = continousMode;
+}
+
+void MAX44009Config::setManualConfig(uint8_t manualConfig){
+	this->manualConfig = manualConfig;
 }
