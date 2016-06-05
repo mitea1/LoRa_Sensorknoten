@@ -50,6 +50,11 @@ void MAX44009::setContinousMode(uint8_t continousMode){
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
 
+void MAX44009::setManualConfig(uint8_t manualConfig){
+	uint8_t registerValue = manualConfig<<6;
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
+}
+
 void MAX44009::setI2CRT(I2C_RT* i2c){
 	this->i2c = i2c;
 }

@@ -19,6 +19,7 @@ TaskHumidity::TaskHumidity(BME280* bme280,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(SLEEPING);
 }
 
 TaskHumidity::~TaskHumidity() {
@@ -27,10 +28,13 @@ TaskHumidity::~TaskHumidity() {
 
 osStatus TaskHumidity::start(BME280_MODE desiredBME280Mode){
 	setBME280Mode(desiredBME280Mode);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskHumidity::stop(){
+	thread->terminate();
+	setState(SLEEPING);
 	delete this->thread;
 }
 
@@ -86,5 +90,13 @@ void TaskHumidity::setBME280Mode(BME280_MODE desiredMode){
 
 BME280_MODE TaskHumidity::getBME280Mode(){
 	return this->bme280Mode;
+}
+
+void TaskHumidity::setState(TASK_STATE state){
+	this->state = state;
+}
+
+TASK_STATE TaskHumidity::getState(){
+	return state;
 }
 

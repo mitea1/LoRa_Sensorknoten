@@ -21,6 +21,8 @@ public:
 	osStatus start(MPU9250_MODE);
 	osStatus stop();
 
+	TASK_STATE getState();
+
 private:
 	rtos::Thread* thread;
 	rtos::Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queue;
@@ -29,6 +31,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
+	TASK_STATE state;
 
 	MPU9250* mpu9250;
 	MPU9250_MODE mpu9250Mode;
@@ -44,6 +47,8 @@ private:
 
 	void setMPU9250Mode(MPU9250_MODE);
 	MPU9250_MODE getMPU9250Mode();
+
+	void setState(TASK_STATE);
 };
 
 #endif /* APP_TASKTESLA_H_ */

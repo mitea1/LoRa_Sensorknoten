@@ -21,6 +21,8 @@ public:
 	osStatus start(uBLOX_MODE);
 	osStatus stop();
 
+	TASK_STATE getState();
+
 private:
 	rtos::Thread* thread;
 	rtos::Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queue;
@@ -29,6 +31,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
+	TASK_STATE state;
 
 	uBlox* mUBlox;
 	uBLOX_MODE uBloxMode;
@@ -44,6 +47,8 @@ private:
 
 	void setUBLOXMode(uBLOX_MODE);
 	uBLOX_MODE getUBLOXMode();
+
+	void setState(TASK_STATE);
 };
 
 #endif /* TASKGPS_H_ */

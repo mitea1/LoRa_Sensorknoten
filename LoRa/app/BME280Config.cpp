@@ -19,6 +19,12 @@ BME280Config::~BME280Config() {
 
 void BME280Config::build(BME280_MODE desiredMode){
 	switch(desiredMode){
+	case BME280_MODE_0:
+		setOversamplingTemperature(BME280_TEMP_OVRS_1);
+		setOversamplingPressure(BME280_PRESS_OVRS_1);
+		setOversamplingHumidity(BME280_HUM_OVRS_1);
+		setMode(BME280_FORCED_MODE);
+		break;
 	case BME280_MODE_1:
 		setOversamplingTemperature(BME280_TEMP_OVRS_1);
 		setOversamplingPressure(BME280_PRESS_OVRS_1);
@@ -29,21 +35,45 @@ void BME280Config::build(BME280_MODE desiredMode){
 		setOversamplingTemperature(BME280_TEMP_OVRS_2);
 		setOversamplingPressure(BME280_PRESS_OVRS_2);
 		setOversamplingHumidity(BME280_HUM_OVRS_2);
-		setMode(BME280_NORMAL_MODE);
+		setMode(BME280_FORCED_MODE);
 		break;
 	case BME280_MODE_3:
+		setOversamplingTemperature(BME280_TEMP_OVRS_2);
+		setOversamplingPressure(BME280_PRESS_OVRS_2);
+		setOversamplingHumidity(BME280_HUM_OVRS_2);
+		setMode(BME280_NORMAL_MODE);
+		break;
+	case BME280_MODE_4:
+		setOversamplingTemperature(BME280_TEMP_OVRS_4);
+		setOversamplingPressure(BME280_PRESS_OVRS_4);
+		setOversamplingHumidity(BME280_HUM_OVRS_4);
+		setMode(BME280_FORCED_MODE);
+		break;
+	case BME280_MODE_5:
 		setOversamplingTemperature(BME280_TEMP_OVRS_4);
 		setOversamplingPressure(BME280_PRESS_OVRS_4);
 		setOversamplingHumidity(BME280_HUM_OVRS_4);
 		setMode(BME280_NORMAL_MODE);
 		break;
-	case BME280_MODE_4:
+	case BME280_MODE_6:
+		setOversamplingTemperature(BME280_TEMP_OVRS_8);
+		setOversamplingPressure(BME280_PRESS_OVRS_8);
+		setOversamplingHumidity(BME280_HUM_OVRS_8);
+		setMode(BME280_FORCED_MODE);
+		break;
+	case BME280_MODE_7:
 		setOversamplingTemperature(BME280_TEMP_OVRS_8);
 		setOversamplingPressure(BME280_PRESS_OVRS_8);
 		setOversamplingHumidity(BME280_HUM_OVRS_8);
 		setMode(BME280_NORMAL_MODE);
 		break;
-	case BME280_MODE_5:
+	case BME280_MODE_8:
+		setOversamplingTemperature(BME280_TEMP_OVRS_16);
+		setOversamplingPressure(BME280_PRESS_OVRS_16);
+		setOversamplingHumidity(BME280_HUM_OVRS_16);
+		setMode(BME280_FORCED_MODE);
+		break;
+	case BME280_MODE_9:
 		setOversamplingTemperature(BME280_TEMP_OVRS_16);
 		setOversamplingPressure(BME280_PRESS_OVRS_16);
 		setOversamplingHumidity(BME280_HUM_OVRS_16);

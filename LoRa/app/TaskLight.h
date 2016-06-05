@@ -26,6 +26,8 @@ public:
 	osStatus start(MAX44009_MODE);
 	osStatus stop();
 
+	TASK_STATE getState();
+
 private:
 	rtos::Thread* thread;
 	rtos::Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queue;
@@ -34,6 +36,7 @@ private:
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
 	unsigned char *stack_pointer = NULL;
 
+	TASK_STATE state;
 
 	MAX44009* max44009;
 	MAX44009_MODE max44009Mode;
@@ -49,6 +52,8 @@ private:
 
 	void setMAX44009Mode(MAX44009_MODE);
 	MAX44009_MODE getMAX44009Mode();
+
+	void setState(TASK_STATE);
 
 };
 #endif /* TASKLIGHT_H_ */

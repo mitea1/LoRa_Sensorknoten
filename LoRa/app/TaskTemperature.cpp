@@ -19,6 +19,7 @@ TaskTemperature::TaskTemperature(BME280* bme280,rtos::Mutex* mutexI2C,
 	setPriority(priority);
 	setStackSize(stackSize);
 	setStackPointer(stackPointer);
+	setState(SLEEPING);
 }
 
 TaskTemperature::~TaskTemperature() {
@@ -27,10 +28,13 @@ TaskTemperature::~TaskTemperature() {
 
 osStatus TaskTemperature::start(BME280_MODE desiredBME280Mode){
 	setBME280Mode(desiredBME280Mode);
+	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
 
 osStatus TaskTemperature::stop(){
+	thread->terminate();
+	setState(SLEEPING);
 	delete this->thread;
 }
 
@@ -86,5 +90,13 @@ void TaskTemperature::setBME280Mode(BME280_MODE desiredMode){
 
 BME280_MODE TaskTemperature::getBME280Mode(){
 	return this->bme280Mode;
+}
+
+void TaskTemperature::setState(TASK_STATE state){
+	this->state = state;
+}
+
+TASK_STATE TaskTemperature::getState(){
+	return state;
 }
 
