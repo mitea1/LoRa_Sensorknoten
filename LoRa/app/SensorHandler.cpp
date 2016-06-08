@@ -68,7 +68,7 @@ void SensorHandler::stopAllRunningSensorTasks(){
 		taskTesla->stop();
 	}
 	if(taskProximity->getState() == RUNNING){
-		taskProximity->stop();
+//		taskProximity->stop();
 	}
 	if(taskGps->getState() == RUNNING){
 		taskGps->stop();
@@ -95,7 +95,7 @@ void SensorHandler::initSensors(){
 	max44009 = new MAX44009(i2c_rt);
 	bme280 = new BME280(i2c_rt);
 	mpu9250 = new MPU9250(i2c_rt);
-	si1143 = new SI1143(i2c_rt);
+//	si1143 = new SI1143(i2c_rt);
 }
 
 void SensorHandler::initTasks(){
@@ -135,7 +135,7 @@ void SensorHandler::startRunnableSensorTasks(){
 		taskTesla->start();
 	}
 	if(config->getStateTaskProximity() == RUNNING){
-		//taskProximity->start();
+		taskProximity->start();
 	}
 	if(config->getStateTaskGPS() == RUNNING){
 		taskGps->start();
@@ -146,7 +146,7 @@ void SensorHandler::configureSensors(){
 	max44009->init(config->getMAX44009_MODE());
 	bme280->init(config->getBME280_MODE());
 	mpu9250->init(config->getMPU9250_MODE());
-//	si1143->init(config->getSI1143_MODE());
+	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
 }
 

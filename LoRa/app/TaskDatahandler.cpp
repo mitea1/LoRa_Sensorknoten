@@ -58,6 +58,7 @@ void TaskDatahandler::getMessagesFromSensorQueues(){
 	accelerationMeasureEvent = queueBundle.queueAcceleration->get(0);
 	gyroscopeMeasureEvent = queueBundle.queueGyro->get(0);
 	teslaMeasureEvent = queueBundle.queueTesla->get(0);
+	proximityMeasureEvent = queueBundle.queueProximity->get(0);
 	gpsMeasureEvent = queueBundle.queueGps->get(0);
 }
 
@@ -108,6 +109,12 @@ void TaskDatahandler::forwardSensorMessages(){
 		MPU9250TeslaMessage* teslaMessage = (MPU9250TeslaMessage*)teslaMeasureEvent.value.p;
 		debugSerial->printf("%s\n",teslaMessage->getLoRaMessageString());
 		loraMessage.append(teslaMessage->getLoRaMessageString());
+	}
+
+	if(proximityMeasureEvent.status == osEventMessage){
+		SI1143ProximityMessage* si1143ProximityMessage = (SI1143ProximityMessage*)proximityMeasureEvent.value.p;
+		debugSerial->printf("%s\n",si1143ProximityMessage->getLoRaMessageString());
+		loraMessage.append(si1143ProximityMessage->getLoRaMessageString());
 	}
 
 	if(gpsMeasureEvent.status == osEventMessage){

@@ -50,16 +50,22 @@ void SI1143::command(uint8_t cmd)
     uint8_t val;
 
     i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_RESPONSE,false,&val,1);
+    osDelay(10);
     while(val!=0)
     {
     	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_COMMAND,false,SI1143_NOP,1);
+    	osDelay(10);
         i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_RESPONSE,false,&val,1);
     }
     do{
     	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_COMMAND,false,&cmd,1);
-        if(cmd==RESET) break;{
-        	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_RESPONSE,false,&val,1);
+    	osDelay(10);
+        if(cmd==SI1143_RESET){
+        	break;
         }
+        osDelay(10);
+		i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_RESPONSE,false,&val,1);
+
     }while(val==0);
 }
 
@@ -80,10 +86,10 @@ int SI1143::getProximity(int repeat) // Read the data for the first LED
     }
     proximity = stack / repeat;
 
-    if(proximity > bias1)
-    	proximity = proximity - bias1;
-    else
-    	proximity = 0;
+//    if(proximity > bias1)
+//    	proximity = proximity - bias1;
+//    else
+//    	proximity = 0;
 
     return proximity;
 }

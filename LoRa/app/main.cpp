@@ -5,7 +5,7 @@ int main() {
 
 
 	SensorHandler sensorHandler;
-	sensorHandler.init(APPLICATION_MODE_TEST_MAX44009);
+	sensorHandler.init(APPLICATION_MODE_1);
     while (true) {
 
     }
