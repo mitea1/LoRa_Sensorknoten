@@ -16,6 +16,7 @@
 #include "BME280TemperatureMessage.h"
 #include "BME280PressureMessage.h"
 #include "BME280HumidityMessage.h"
+#include "CommandMessage.h"
 #include "main.h"
 
 
@@ -32,6 +33,7 @@ public:
 
 	void setDebugSerial(RawSerial*);
 	void setLoRa(LoRa* lora);
+
 private:
 	Thread* thread;
 	QueueBundle queueBundle;
@@ -51,6 +53,7 @@ private:
 	osEvent accelerationMeasureEvent;
 	osEvent gyroscopeMeasureEvent;
 	osEvent teslaMeasureEvent;
+	osEvent proximityMeasureEvent;
 	osEvent gpsMeasureEvent;
 
 	static void callBack(void const *);

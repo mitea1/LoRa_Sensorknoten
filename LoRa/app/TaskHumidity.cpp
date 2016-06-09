@@ -26,8 +26,7 @@ TaskHumidity::~TaskHumidity() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskHumidity::start(BME280_MODE desiredBME280Mode){
-	setBME280Mode(desiredBME280Mode);
+osStatus TaskHumidity::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskHumidity::callBack(void const* data){
 
 void TaskHumidity::measureHumidity(){
 	BME280HumidityMessage bme280HumidityMessage;
-	mutexI2C->lock(osWaitForever);
-	bme280->init(getBME280Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -82,14 +78,6 @@ void TaskHumidity::setStackSize(uint32_t stacksize){
 
 void TaskHumidity::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskHumidity::setBME280Mode(BME280_MODE desiredMode){
-	this->bme280Mode = desiredMode;
-}
-
-BME280_MODE TaskHumidity::getBME280Mode(){
-	return this->bme280Mode;
 }
 
 void TaskHumidity::setState(TASK_STATE state){

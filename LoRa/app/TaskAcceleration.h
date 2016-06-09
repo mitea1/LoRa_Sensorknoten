@@ -18,7 +18,7 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskAcceleration();
 
-	osStatus start(MPU9250_MODE);
+	osStatus start();
 	osStatus stop();
 
 	TASK_STATE getState();
@@ -34,7 +34,6 @@ private:
 	TASK_STATE state;
 
 	MPU9250* mpu9250;
-	MPU9250_MODE mpu9250Mode;
 
 	static void callBack(void const *);
 	void measureAcceleration();
@@ -44,9 +43,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-	void setMPU9250Mode(MPU9250_MODE);
-	MPU9250_MODE getMPU9250Mode();
 
 	void setState(TASK_STATE);
 

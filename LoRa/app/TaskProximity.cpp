@@ -26,8 +26,7 @@ TaskProximity::~TaskProximity() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskProximity::start(SI1143_MODE desiredSI1143Mode){
-	setSI1143Mode(desiredSI1143Mode);
+osStatus TaskProximity::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskProximity::callBack(void const* data){
 
 void TaskProximity::measureProximity(){
 	SI1143ProximityMessage si1143ProximityMessage;
-	mutexI2C->lock(osWaitForever);
-	si1143->init(getSI1143Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -80,14 +76,6 @@ void TaskProximity::setStackSize(uint32_t stacksize){
 
 void TaskProximity::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskProximity::setSI1143Mode(SI1143_MODE desiredMode){
-	this->si1143Mode = desiredMode;
-}
-
-SI1143_MODE TaskProximity::getSI1143Mode(){
-	return this->si1143Mode;
 }
 
 void TaskProximity::setState(TASK_STATE state){

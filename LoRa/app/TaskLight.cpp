@@ -28,8 +28,7 @@ TaskLight::~TaskLight() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskLight::start(MAX44009_MODE desiredMAX44009Mode){
-	setMAX44009Mode(desiredMAX44009Mode);
+osStatus TaskLight::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -50,9 +49,6 @@ void TaskLight::callBack(void const* data){
 
 void TaskLight::measureLight(){
 	MAX44009Message* max44009Message = new MAX44009Message();
-	mutexI2C->lock(osWaitForever);
-	max44009->init(getMAX44009Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -84,14 +80,6 @@ void TaskLight::setStackSize(uint32_t stacksize){
 
 void TaskLight::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskLight::setMAX44009Mode(MAX44009_MODE desiredMode){
-	this->max44009Mode = desiredMode;
-}
-
-MAX44009_MODE TaskLight::getMAX44009Mode(){
-	return this->max44009Mode;
 }
 
 void TaskLight::setState(TASK_STATE state){

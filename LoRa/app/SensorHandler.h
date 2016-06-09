@@ -72,9 +72,11 @@ private:
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT> queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT> queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT> queueGps;
+	Queue<CommandMessage,COMMAND_QUEUE_LENGHT> queueCommands;
 
 	QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
-								&queueAcceleration,&queueGyro,&queueTesla,&queueProximity,&queueGps};
+								&queueAcceleration,&queueGyro,&queueTesla,&queueProximity,
+								&queueGps,&queueCommands};
 
 	uBlox* gpsSensor;
 	MAX44009* max44009;
@@ -93,6 +95,7 @@ private:
 
 	void stopAllRunningSensorTasks();
 	void startRunnableSensorTasks();
+	void configureSensors();
 
 };
 

@@ -58,12 +58,14 @@ void TaskDatahandler::getMessagesFromSensorQueues(){
 	accelerationMeasureEvent = queueBundle.queueAcceleration->get(0);
 	gyroscopeMeasureEvent = queueBundle.queueGyro->get(0);
 	teslaMeasureEvent = queueBundle.queueTesla->get(0);
+	proximityMeasureEvent = queueBundle.queueProximity->get(0);
 	gpsMeasureEvent = queueBundle.queueGps->get(0);
 }
 
 void TaskDatahandler::forwardSensorMessages(){
 	std::string loraMessage;
-	std::vector<uint8_t> data;
+	std::vector<uint8_t> dataToSend;
+	std::vector<uint8_t> dataReceived;
 
 	int32_t ret;
 
@@ -110,6 +112,12 @@ void TaskDatahandler::forwardSensorMessages(){
 		loraMessage.append(teslaMessage->getLoRaMessageString());
 	}
 
+	if(proximityMeasureEvent.status == osEventMessage){
+		SI1143ProximityMessage* si1143ProximityMessage = (SI1143ProximityMessage*)proximityMeasureEvent.value.p;
+		debugSerial->printf("%s\n",si1143ProximityMessage->getLoRaMessageString());
+		loraMessage.append(si1143ProximityMessage->getLoRaMessageString());
+	}
+
 	if(gpsMeasureEvent.status == osEventMessage){
 		UBloxGPSMessage* uBloxGpsMessage = (UBloxGPSMessage*)gpsMeasureEvent.value.p;
 		debugSerial->printf("%s\n",uBloxGpsMessage->getLoRaMessageString());
@@ -118,11 +126,15 @@ void TaskDatahandler::forwardSensorMessages(){
 	debugSerial->printf("\n");
 	// format data for sending to the gateway
 	for (std::string::iterator it = loraMessage.begin(); it != loraMessage.end(); it++){
-		data.push_back((uint8_t) *it);
+		dataToSend.push_back((uint8_t) *it);
 	}
-	//lora->send(data);
+
+//	lora->send(dataToSend);
+//	lora->recv(dataReceived);
 
 	loraMessage.clear();
+	dataToSend.clear();
+	dataReceived.clear();
 
 }
 

@@ -13,7 +13,7 @@
 
 /*----- Macros -------------------------------------------------------------*/
 //Addresses of the BMP280 Sensor
-#define BME280_SENSOR_ADDRESS 		0b11101110	/**< Sensor address */
+#define BME280_SENSOR_ADDRESS 		0b11101100	/**< Sensor address */
 #define BME280_SENSOR_ID			0xD0		/**< ID of BMP280 */
 #define BME280_SENSOR_RESET			0xE0		/**< Reset sensor */
 #define BME280_SENSOR_CTRL_HUM		0xF2		/**<  */

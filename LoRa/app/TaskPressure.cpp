@@ -26,8 +26,7 @@ TaskPressure::~TaskPressure() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskPressure::start(BME280_MODE desiredBME280Mode){
-	setBME280Mode(desiredBME280Mode);
+osStatus TaskPressure::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskPressure::callBack(void const* data){
 
 void TaskPressure::measurePressure(){
 	BME280PressureMessage bme280PressureMessage;
-	mutexI2C->lock(osWaitForever);
-	bme280->init(getBME280Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -60,7 +56,6 @@ void TaskPressure::measurePressure(){
 		queue->put(&bme280PressureMessage,osWaitForever);
 		osDelay(PRESSURE_TASK_DELAY_MS);
 	}
-
 
 }
 
@@ -82,14 +77,6 @@ void TaskPressure::setStackSize(uint32_t stacksize){
 
 void TaskPressure::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskPressure::setBME280Mode(BME280_MODE desiredMode){
-	this->bme280Mode = desiredMode;
-}
-
-BME280_MODE TaskPressure::getBME280Mode(){
-	return this->bme280Mode;
 }
 
 void TaskPressure::setState(TASK_STATE state){

@@ -26,8 +26,7 @@ TaskGyroscope::~TaskGyroscope() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskGyroscope::start(MPU9250_MODE desiredMPU9250Mode){
-	setMPU9250Mode(desiredMPU9250Mode);
+osStatus TaskGyroscope::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskGyroscope::callBack(void const* data){
 
 void TaskGyroscope::measureGyroscope(){
 	MPU9250GyroscopeMessage mpu9250GyroscopeMessage;
-	mutexI2C->lock(osWaitForever);
-	mpu9250->init(getMPU9250Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -84,14 +80,6 @@ void TaskGyroscope::setStackSize(uint32_t stacksize){
 
 void TaskGyroscope::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskGyroscope::setMPU9250Mode(MPU9250_MODE desiredMode){
-	this->mpu9250Mode = desiredMode;
-}
-
-MPU9250_MODE TaskGyroscope::getMPU9250Mode(){
-	return this->mpu9250Mode;
 }
 
 void TaskGyroscope::setState(TASK_STATE state){

@@ -18,7 +18,7 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskGPS();
 
-	osStatus start(uBLOX_MODE);
+	osStatus start();
 	osStatus stop();
 
 	TASK_STATE getState();
@@ -44,9 +44,6 @@ private:
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);
 	void setStackPointer(unsigned char*);
-
-	void setUBLOXMode(uBLOX_MODE);
-	uBLOX_MODE getUBLOXMode();
 
 	void setState(TASK_STATE);
 };

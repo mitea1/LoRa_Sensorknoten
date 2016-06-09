@@ -41,6 +41,7 @@ SensorHandler::~SensorHandler() {
 void SensorHandler::init(APPLICATION_MODE desiredMode){
 	config->build(desiredMode);
 	stopAllRunningSensorTasks();
+	configureSensors();
 	startRunnableSensorTasks();
 }
 
@@ -113,34 +114,40 @@ void SensorHandler::initTasks(){
 
 void SensorHandler::startRunnableSensorTasks(){
 	if(config->getStateTaskLight() == RUNNING){
-		taskLight->start(config->getMAX44009_MODE());
+		taskLight->start();
 	}
 	if(config->getStateTaskTemperature() == RUNNING){
-		taskTemperature->start(config->getBME280_MODE());
+		taskTemperature->start();
 	}
 	if(config->getStateTaskPressure() == RUNNING){
-		taskPressure->start(config->getBME280_MODE());
+		taskPressure->start();
 	}
 	if(config->getStateTaskHumidity() == RUNNING){
-		taskHumidity->start(config->getBME280_MODE());
+		taskHumidity->start();
 	}
 	if(config->getStateTaskAcceleration() == RUNNING){
-		taskAcceleration->start(config->getMPU9250_MODE());
+		taskAcceleration->start();
 	}
 	if(config->getStateTaskGyroscope() == RUNNING){
-		taskGyroscope->start(config->getMPU9250_MODE());
+		taskGyroscope->start();
 	}
 	if(config->getStateTaskTesla() == RUNNING){
-		taskTesla->start(config->getMPU9250_MODE());
+		taskTesla->start();
 	}
 	if(config->getStateTaskProximity() == RUNNING){
-		//taskProximity->start(config->getSI1143_MODE());
+		taskProximity->start();
 	}
 	if(config->getStateTaskGPS() == RUNNING){
-		taskGps->start(config->getuBlox_MODE());
+		taskGps->start();
 	}
+}
 
-	osDelay(100);
+void SensorHandler::configureSensors(){
+	max44009->init(config->getMAX44009_MODE());
+	bme280->init(config->getBME280_MODE());
+	mpu9250->init(config->getMPU9250_MODE());
+	si1143->init(config->getSI1143_MODE());
+	gpsSensor->init(config->getuBlox_MODE());
 }
 
 void SensorHandler::initMutexes(){

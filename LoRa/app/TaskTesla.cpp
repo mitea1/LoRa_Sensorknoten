@@ -26,8 +26,7 @@ TaskTesla::~TaskTesla() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskTesla::start(MPU9250_MODE desiredMPU9250Mode){
-	setMPU9250Mode(desiredMPU9250Mode);
+osStatus TaskTesla::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskTesla::callBack(void const* data){
 
 void TaskTesla::measureTesla(){
 	MPU9250TeslaMessage mpu9250TeslaMessage;
-	mutexI2C->lock(osWaitForever);
-	mpu9250->init(getMPU9250Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -82,14 +78,6 @@ void TaskTesla::setStackSize(uint32_t stacksize){
 
 void TaskTesla::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskTesla::setMPU9250Mode(MPU9250_MODE desiredMode){
-	this->mpu9250Mode = desiredMode;
-}
-
-MPU9250_MODE TaskTesla::getMPU9250Mode(){
-	return this->mpu9250Mode;
 }
 
 void TaskTesla::setState(TASK_STATE state){

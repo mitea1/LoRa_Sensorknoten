@@ -26,8 +26,7 @@ TaskAcceleration::~TaskAcceleration() {
 	// TODO Auto-generated destructor stub
 }
 
-osStatus TaskAcceleration::start(MPU9250_MODE desiredMPU9250Mode){
-	setMPU9250Mode(desiredMPU9250Mode);
+osStatus TaskAcceleration::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
 }
@@ -48,9 +47,6 @@ void TaskAcceleration::callBack(void const* data){
 
 void TaskAcceleration::measureAcceleration(){
 	MPU9250AccelerationMessage mpu9250AccelerationMessage;
-	mutexI2C->lock(osWaitForever);
-	mpu9250->init(getMPU9250Mode());
-	mutexI2C->unlock();
 
 	while(true){
 		mutexI2C->lock(osWaitForever);
@@ -84,14 +80,6 @@ void TaskAcceleration::setStackSize(uint32_t stacksize){
 
 void TaskAcceleration::setStackPointer(unsigned char* stackPointer){
 	this->stack_pointer = stackPointer;
-}
-
-void TaskAcceleration::setMPU9250Mode(MPU9250_MODE desiredMode){
-	this->mpu9250Mode = desiredMode;
-}
-
-MPU9250_MODE TaskAcceleration::getMPU9250Mode(){
-	return this->mpu9250Mode;
 }
 
 void TaskAcceleration::setState(TASK_STATE state){
