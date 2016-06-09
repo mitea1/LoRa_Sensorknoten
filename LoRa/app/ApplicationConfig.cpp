@@ -9,7 +9,6 @@
 
 ApplicationConfig::ApplicationConfig() {
 	// TODO Auto-generated constructor stub
-
 }
 
 ApplicationConfig::~ApplicationConfig() {
@@ -365,6 +364,11 @@ TASK_STATE ApplicationConfig::getStateTaskGPS(){
 	return stateTaskGPS;
 }
 
+LORA_STATE ApplicationConfig::getStateLoRa(){
+	//TODO implement usage of this function
+	return stateLoRa;
+}
+
 void ApplicationConfig::setMAX44009_MODE(MAX44009_MODE max44009Mode) {
 	this->max44009Mode = max44009Mode;
 }
@@ -419,6 +423,12 @@ void ApplicationConfig::setStateTaskProximity(TASK_STATE stateTaskProximity){
 
 void ApplicationConfig::setStateTaskGPS(TASK_STATE stateTaskGPS){
 	this->stateTaskGPS = stateTaskGPS;
+
+}
+
+void ApplicationConfig::setStateLoRa(LORA_STATE stateLoRa){
+	//TODO implement usage of this function
+	this->stateLoRa = stateLoRa;
 }
 
 

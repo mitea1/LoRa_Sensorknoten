@@ -69,7 +69,7 @@ void SI1143::command(uint8_t cmd)
     }while(val==0);
 }
 
-int SI1143::getProximity(int repeat) // Read the data for the first LED
+int SI1143::getProximity(int numberOfMeasurements) // Read the data for the first LED
 {
 	uint8_t lowByte;
 	uint8_t highByte;
@@ -78,23 +78,18 @@ int SI1143::getProximity(int repeat) // Read the data for the first LED
 
     command(SI1143_PSALS_FORCE);
 
-    for(int r=repeat; r>0; r=r-1)
+    for(int r=numberOfMeasurements; r>0; r=r-1)
     {
     	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_PS1_DATA0,false,&lowByte,1);
     	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_PS1_DATA1,false,&highByte,1);
         stack = stack + (highByte * 256) + lowByte;
     }
-    proximity = stack / repeat;
-
-//    if(proximity > bias1)
-//    	proximity = proximity - bias1;
-//    else
-//    	proximity = 0;
+    proximity = stack / numberOfMeasurements;
 
     return proximity;
 }
 
-int SI1143::getAmbientLight(int repeat) // Read the data for ambient light
+int SI1143::getAmbientLight(int numberOfMeasurements) // Read the data for ambient light
 {
 
     uint8_t lowByte;
@@ -104,18 +99,18 @@ int SI1143::getAmbientLight(int repeat) // Read the data for ambient light
 
     command(SI1143_PSALS_FORCE);
 
-    for(int r=repeat; r>0; r=r-1)
+    for(int r=numberOfMeasurements; r>0; r=r-1)
     {
     	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_ALS_VIS_DATA0,false,&lowByte,1);
     	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_ALS_VIS_DATA1,false,&highByte,1);
         stack = stack + (highByte * 256) + lowByte;
     }
-    ambientLight = stack / repeat;
+    ambientLight = stack / numberOfMeasurements;
 
     return ambientLight;
 }
 
-int SI1143::getInfraRedLight(int repeat) // Read the data for infrared light
+int SI1143::getInfraRedLight(int numberOfMeasurements) // Read the data for infrared light
 {
     uint8_t lowByte;
 	uint8_t highByte;
@@ -124,14 +119,16 @@ int SI1143::getInfraRedLight(int repeat) // Read the data for infrared light
 
     command(SI1143_PSALS_FORCE);
 
-    for(int r=repeat; r>0; r=r-1)
+    for(int r=numberOfMeasurements; r>0; r=r-1)
     {
     	i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_ALS_IR_DATA0,false,&lowByte,1);
 		i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_ALS_IR_DATA1,false,&highByte,1);
         stack = stack + (highByte * 256) + lowByte;
     }
-    infraRedLight = stack / repeat;
+    infraRedLight = stack / numberOfMeasurements;
 
     return infraRedLight;
 }
+
+
 

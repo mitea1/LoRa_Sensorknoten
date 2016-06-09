@@ -27,7 +27,6 @@ void LoRa::init(){
     setAckRetries(1);
     dot->setTxPower(20);
 
-
     saveConfig();
 
     joinNetwork();

@@ -21,6 +21,7 @@
 #include "SI1143ProximityMessage.h"
 #include "uBlox.h"
 #include "UBloxGPSMessage.h"
+#include "CommandMessage.h"
 
 #define GPS_MESSAGE_LENGTH  36
 #define BAUD_UART   9600
@@ -35,6 +36,7 @@
 #define HUMIDITY_QUEUE_LENGHT		1
 #define PROXIMITY_QUEUE_LENGHT		1
 #define GPS_QUEUE_LENGHT			1
+#define COMMAND_QUEUE_LENGHT		1
 
 #define LIGHT_TASK_DELAY_MS 			1000
 #define TEMPERATURE_TASK_DELAY_MS 		1000
@@ -69,6 +71,14 @@
 #define MPU9250_Z_TESLA_MESSAGE_ID			"M9"
 #define SI1143_PROXIMITY_MESSAGE_ID			"P1"
 
+#define LORA_NETWORK_NAME					"conduitgwy"
+#define LORA_NETWORK_PASSPHRASE				"conduitgwy"
+
+#define LORA_COMMAND_APPLICATION_MODE_1		"AM1"
+#define LORA_COMMAND_APPLICATION_MODE_2		"AM2"
+#define LORA_COMMAND_APPLICATION_MODE_3		"AM3"
+#define LORA_COMMAND_APPLICATION_MODE_4		"AM4"
+
 
 typedef struct QueueBundle{
 	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight;
@@ -80,11 +90,17 @@ typedef struct QueueBundle{
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queueGps;
+	Queue<CommandMessage,COMMAND_QUEUE_LENGHT>* queueCommands;
 };
 
 enum TASK_STATE {
 	RUNNING = 1,
 	SLEEPING = 0
+};
+
+enum LORA_STATE {
+	ON = 1,
+	OFF = 0
 };
 
 

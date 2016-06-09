@@ -68,7 +68,7 @@ void SensorHandler::stopAllRunningSensorTasks(){
 		taskTesla->stop();
 	}
 	if(taskProximity->getState() == RUNNING){
-//		taskProximity->stop();
+		taskProximity->stop();
 	}
 	if(taskGps->getState() == RUNNING){
 		taskGps->stop();
@@ -95,7 +95,7 @@ void SensorHandler::initSensors(){
 	max44009 = new MAX44009(i2c_rt);
 	bme280 = new BME280(i2c_rt);
 	mpu9250 = new MPU9250(i2c_rt);
-//	si1143 = new SI1143(i2c_rt);
+	si1143 = new SI1143(i2c_rt);
 }
 
 void SensorHandler::initTasks(){

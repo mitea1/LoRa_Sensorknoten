@@ -57,6 +57,8 @@ public:
 	TASK_STATE getStateTaskProximity();
 	TASK_STATE getStateTaskGPS();
 
+	LORA_STATE getStateLoRa();
+
 private:
 	MAX44009_MODE max44009Mode;
 	BME280_MODE bme280Mode;
@@ -74,6 +76,8 @@ private:
 	TASK_STATE stateTaskProximity;
 	TASK_STATE stateTaskGPS;
 
+	LORA_STATE stateLoRa;
+
 	void setMAX44009_MODE(MAX44009_MODE);
 	void setBME280_MODE(BME280_MODE);
 	void setMPU9250_MODE(MPU9250_MODE);
@@ -89,6 +93,8 @@ private:
 	void setStateTaskTesla(TASK_STATE);
 	void setStateTaskProximity(TASK_STATE);
 	void setStateTaskGPS(TASK_STATE);
+
+	void setStateLoRa(LORA_STATE);
 
 };
 
