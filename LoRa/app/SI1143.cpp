@@ -130,5 +130,19 @@ int SI1143::getInfraRedLight(int numberOfMeasurements) // Read the data for infr
     return infraRedLight;
 }
 
+void SI1143::configureInterrupts(){
+	uint8_t interruptEnableValue = config->getInterruptEnable();
+
+	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_IRQ_ENABLE,false,0,1);
+}
+
+void SI1143::setProximitySensing1Threshold(){
+	uint8_t thresholdLowByte = (config->getProximitySensing1Threshold()) & 0xFF;
+	uint8_t thresholdHighByte = (config->getProximitySensing1Threshold()) >> 8;
+
+	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_PS1_TH0,false,&thresholdLowByte,1);
+	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_PS1_TH1,false,&thresholdHighByte,1);
+
+}
 
 

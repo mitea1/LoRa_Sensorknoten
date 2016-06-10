@@ -156,6 +156,9 @@ class SI1143
 
         void command(uint8_t cmd);
 
+        void configureInterrupts();
+		void setProximitySensing1Threshold();
+
 };
 
 #endif /* SI1143_H_ */

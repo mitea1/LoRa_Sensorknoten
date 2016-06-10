@@ -19,8 +19,9 @@ MAX44009::~MAX44009() {
 
 void MAX44009::init(MAX44009_MODE desiredMode){
 	config->build(desiredMode);
-	setIntegrationTime(config->getIntegrationTime());
-	setContinousMode(config->getContinousMode());
+	setIntegrationTime();
+	setContinousMode();
+
 }
 
 float MAX44009::getLux(){
@@ -40,18 +41,23 @@ float MAX44009::calculateLux(uint8_t mantissa, uint8_t exponent){
 	return pow(2,exponent) * mantissa * 0.72;
 }
 
-void MAX44009::setIntegrationTime(uint8_t integrationTime){
-	uint8_t registerValue = integrationTime;
+void MAX44009::setIntegrationTime(){
+	uint8_t registerValue = config->getIntegrationTime();
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
 
-void MAX44009::setContinousMode(uint8_t continousMode){
-	uint8_t registerValue = continousMode<<7;
+void MAX44009::setContinousMode(){
+	uint8_t registerValue = (config->getContinousMode()) << 7;
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
 
-void MAX44009::setManualConfig(uint8_t manualConfig){
-	uint8_t registerValue = manualConfig<<6;
+void MAX44009::setManualConfig(){
+	uint8_t registerValue = (config->getManualConfig()) << 6;
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
+}
+
+void MAX44009::setUpperThreshold(){
+	uint8_t registerValue = config->getUpperThreshold();
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
 
