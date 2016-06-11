@@ -209,6 +209,22 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
 		break;
+	case APPLICATION_MODE_TEST:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_4);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_4);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_1);
+		break;
 	case APPLICATION_MODE_TEST_MAX44009:
 		setStateTaskLight(RUNNING);
 		setStateTaskTemperature(SLEEPING);

@@ -25,6 +25,8 @@ void MPU9250::init(MPU9250_MODE desiredMode){
 		enableAxisAccelerationMeasurement();
 		enableAxisGyroscopeMeasurement();
 		enableAxisTeslaMeasurement();
+		configureInterrupts();
+		setWakeOnReceiveThreshold();
 }
 
 float MPU9250::getXAxisAcceleration(){
@@ -207,14 +209,14 @@ void MPU9250::enableAxisTeslaMeasurement(){
 }
 
 void MPU9250::configureInterrupts(){
-	uint8_t configValueInterruptPin = config->getInterruptPinConfiguration();
+	uint8_t configValueInterruptPin = config->getInterruptPinConfiguration()|0x02;
 
 	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_INT_PIN_CFG,false,
 				&configValueInterruptPin,1);
 
 	uint8_t configValueInterruptEnable = config->getInterruptEnableConfiguration();
 
-	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_INT_PIN_CFG,false,
+	i2c->write_RT(MPU9250_DEFAULT_ADDRESS,MPU9250_INT_ENABLE,false,
 				&configValueInterruptEnable,1);
 }
 

@@ -41,7 +41,7 @@ void TaskDatahandler::callBack(void const* data){
 }
 
 void TaskDatahandler::handleData(){
-	//lora->init();
+//	lora->init();
 
 	while(true){
 		getMessagesFromSensorQueues();

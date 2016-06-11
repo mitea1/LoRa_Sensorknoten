@@ -21,7 +21,9 @@ void MAX44009::init(MAX44009_MODE desiredMode){
 	config->build(desiredMode);
 	setIntegrationTime();
 	setContinousMode();
-
+	configureInterrupts();
+	setUpperThreshold();
+	setLowerThreshold();
 }
 
 float MAX44009::getLux(){
@@ -56,9 +58,19 @@ void MAX44009::setManualConfig(){
 	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
 }
 
+void MAX44009::configureInterrupts(){
+	uint8_t registerValue = config->getInterruptEnable();
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_INT_ENABLE,false,&registerValue,1);
+}
+
 void MAX44009::setUpperThreshold(){
 	uint8_t registerValue = config->getUpperThreshold();
-	i2c->write_RT(MAX44009_ADRESS,MAX44009_CONFIG,false,&registerValue,1);
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_TH_UPPER,false,&registerValue,1);
+}
+
+void MAX44009::setLowerThreshold(){
+	uint8_t registerValue = config->getLowerThreshold();
+	i2c->write_RT(MAX44009_ADRESS,MAX44009_TH_LOWER,false,&registerValue,1);
 }
 
 void MAX44009::setI2CRT(I2C_RT* i2c){

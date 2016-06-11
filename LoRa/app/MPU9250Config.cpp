@@ -43,7 +43,7 @@ void MPU9250Config::build(MPU9250_MODE desiredMode){
 		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
 		setInterruptPinConfiguration(MPU9250_INT_ANYRD_2CLEAR_MASK|
 				MPU9250_LATCH_INT_EN_MASK);
-		setWakeOnMotionThreshold(MPU9250_WOM_THRESHOLD_500_MG);
+		setWakeOnMotionThreshold(MPU9250_WOM_THRESHOLD_1020_MG);
 		break;
 	}
 }
