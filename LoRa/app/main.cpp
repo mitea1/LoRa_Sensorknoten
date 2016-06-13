@@ -5,14 +5,16 @@
 int main() {
 
 
-//	SensorHandler sensorHandler;
-//	sensorHandler.init(APPLICATION_MODE_TEST_uBlox);
-	RawSerial* uart = new RawSerial(XBEE_DOUT,XBEE_DIN);
-	RawSerial* usb = new RawSerial(USBTX,USBRX);
-	uart->baud(9600);
-	usb->baud(9600);
-	UART_Tunnel uartTunnel(uart,usb);
 
+	SensorHandler sensorHandler;
+	sensorHandler.init(APPLICATION_MODE_TEST);
+//	mbed::RawSerial* uartSerial = new mbed::RawSerial(XBEE_DOUT,XBEE_DIN);
+//	mbed::RawSerial* usbSerial = new mbed::RawSerial(USBTX,USBRX);
+//
+//	uartSerial->baud(9600);
+//	usbSerial->baud(9600);
+//
+//	UART_Tunnel uartTunnel(uartSerial,usbSerial);
     while (true) {
 
     }

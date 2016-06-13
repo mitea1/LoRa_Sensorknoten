@@ -10,21 +10,23 @@
 LoRa::LoRa(mDot* dot,RawSerial* debugSerial) {
 	this->dot = dot;
 	this->debugSerial = debugSerial;
+	this->config = new LoRaConfig();
 }
 
 LoRa::~LoRa() {
 	// TODO Auto-generated destructor stub
 }
 
-void LoRa::init(){
-    resetConfig();
+void LoRa::init(LORA_MODE desiredMode){
+	config->build(desiredMode);
 
-    setPublicNetwork(true);
-    setFrequencySubBand(config_frequency_sub_band);
-    setNetworkName(config_network_name);
-	setNetworkPassphrase(config_network_pass);
-	setSpreadingFactor(mDot::SF_7);
-    setAckRetries(1);
+	resetConfig();
+    setPublicNetwork();
+    setFrequencySubBand();
+    setNetworkName();
+	setNetworkPassphrase();
+	setSpreadingFactor();
+    setAckRetries();
     dot->setTxPower(20);
 
     saveConfig();
@@ -32,29 +34,34 @@ void LoRa::init(){
     joinNetwork();
 }
 
-int32_t LoRa::setPublicNetwork(bool isPublic){
+int32_t LoRa::setPublicNetwork(){
 	int32_t ret;
+	bool publicity = config->getPublicity();
 
-	if ((ret = dot->setPublicNetwork(isPublic)) != mDot::MDOT_OK) {
+	if ((ret = dot->setPublicNetwork(publicity)) != mDot::MDOT_OK) {
 	        debugSerial->printf("failed to set public network %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
 	}
 
 	return ret;
 }
 
-int32_t LoRa::setFrequencySubBand(uint8_t frequencySubBand){
+int32_t LoRa::setFrequencySubBand(){
 	int32_t ret;
+	uint8_t subBand = config->getFrequencySubBand();
+
 	debugSerial->printf("setting frequency sub band\n");
 
-	if ((ret = dot->setFrequencySubBand(frequencySubBand)) != mDot::MDOT_OK) {
+	if ((ret = dot->setFrequencySubBand(subBand)) != mDot::MDOT_OK) {
 		debugSerial->printf("failed to set frequency sub band %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
 	}
 
 	return ret;
 }
 
-int32_t LoRa::setNetworkName(const std::string& networkName){
+int32_t LoRa::setNetworkName(){
 	int32_t ret;
+	std::string networkName = config->getNetworkName();
+
 	debugSerial->printf("setting network name\n");
 
 	if ((ret = dot->setNetworkName(networkName)) != mDot::MDOT_OK) {
@@ -64,8 +71,9 @@ int32_t LoRa::setNetworkName(const std::string& networkName){
 	return ret;
 }
 
-int32_t LoRa::setNetworkPassphrase(const std::string& networkPassphrase){
+int32_t LoRa::setNetworkPassphrase(){
 	int32_t ret;
+	std::string networkPassphrase = config->getNetworkPassphrase();
 	debugSerial->printf("setting network password\n");
 
 	if ((ret = dot->setNetworkPassphrase(networkPassphrase)) != mDot::MDOT_OK) {
@@ -75,23 +83,47 @@ int32_t LoRa::setNetworkPassphrase(const std::string& networkPassphrase){
 	return ret;
 }
 
-int32_t LoRa::setSpreadingFactor(const uint8_t& spreadingFactor){
-	// a higher spreading factor allows for longer range but lower throughput
-	// in the 915 (US) frequency band, spreading factors 7 - 10 are available
-	// in the 868 (EU) frequency band, spreading factors 7 - 12 are available
+int32_t LoRa::setSpreadingFactor(){
 	int32_t ret;
+	uint8_t spreadingFactorLoRa = config->getSpreadingFactor();
+	mDot::DataRates spreadingFactorMdot;
+
+	switch(spreadingFactorLoRa){
+		case LORA_SPREADING_FACTOR_7:
+			spreadingFactorMdot = mDot::SF_7;
+			break;
+		case LORA_SPREADING_FACTOR_8:
+			spreadingFactorMdot = mDot::SF_8;
+			break;
+		case LORA_SPREADING_FACTOR_9:
+			spreadingFactorMdot = mDot::SF_9;
+			break;
+		case LORA_SPREADING_FACTOR_10:
+			spreadingFactorMdot = mDot::SF_10;
+			break;
+		case LORA_SPREADING_FACTOR_11:
+			spreadingFactorMdot = mDot::SF_11;
+			break;
+		case LORA_SPREADING_FACTOR_12:
+			spreadingFactorMdot = mDot::SF_12;
+			break;
+		default:
+			spreadingFactorMdot = mDot::SF_12;
+			break;
+	}
 
 	debugSerial->printf("setting TX spreading factor\n");
-	if ((ret = dot->setTxDataRate(spreadingFactor)) != mDot::MDOT_OK) {
+	if ((ret = dot->setTxDataRate(spreadingFactorMdot)) != mDot::MDOT_OK) {
 		debugSerial->printf("failed to set TX datarate %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
 	}
 
 	return ret;
 }
 
-int32_t LoRa::setAckRetries(const uint8_t& retries){
+int32_t LoRa::setAckRetries(){
 	int32_t ret;
-	// request receive confirmation of packets from the gateway
+	uint8_t retries = config->getAcknowledgeRetries();
+
 	debugSerial->printf("enabling ACKs\n");
 	if ((ret = dot->setAck(retries)) != mDot::MDOT_OK) {
 		debugSerial->printf("failed to enable ACKs %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
@@ -105,7 +137,6 @@ void LoRa::resetConfig(){
 }
 
 void LoRa::saveConfig(){
-	// save this configuration to the mDot's NVM
 	debugSerial->printf("saving config\n");
 	if (! dot->saveConfig()) {
 		debugSerial->printf("failed to save configuration\n");

@@ -41,7 +41,6 @@ void TaskDatahandler::callBack(void const* data){
 }
 
 void TaskDatahandler::handleData(){
-//	lora->init();
 
 	while(true){
 		getMessagesFromSensorQueues();
@@ -129,7 +128,7 @@ void TaskDatahandler::forwardSensorMessages(){
 		dataToSend.push_back((uint8_t) *it);
 	}
 
-//	lora->send(dataToSend);
+	lora->send(dataToSend);
 //	lora->recv(dataReceived);
 
 	loraMessage.clear();

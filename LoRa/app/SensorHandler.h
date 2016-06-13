@@ -96,6 +96,7 @@ private:
 	void stopAllRunningSensorTasks();
 	void startRunnableSensorTasks();
 	void configureSensors();
+	void configureLora();
 
 };
 

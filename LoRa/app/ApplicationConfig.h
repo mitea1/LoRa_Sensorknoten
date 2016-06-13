@@ -9,6 +9,7 @@
 #include "uBloxConfig.h"
 #include "MAX44009Config.h"
 #include "SI1143Config.h"
+#include "LoRaConfig.h"
 #include "main.h"
 #ifndef APPLICATIONCONFIG_H_
 #define APPLICATIONCONFIG_H_
@@ -47,6 +48,7 @@ public:
 	MPU9250_MODE getMPU9250_MODE();
 	SI1143_MODE getSI1143_MODE();
 	uBLOX_MODE getuBlox_MODE();
+	LORA_MODE getLORA_MODE();
 
 	TASK_STATE getStateTaskLight();
 	TASK_STATE getStateTaskTemperature();
@@ -66,6 +68,7 @@ private:
 	MPU9250_MODE mpu9250Mode;
 	SI1143_MODE si1143Mode;
 	uBLOX_MODE ubloxMode;
+	LORA_MODE loraMode;
 
 	TASK_STATE stateTaskLight;
 	TASK_STATE stateTaskTemperature;
@@ -84,6 +87,7 @@ private:
 	void setMPU9250_MODE(MPU9250_MODE);
 	void setSI1143_MODE(SI1143_MODE);
 	void setuBlox_MODE(uBLOX_MODE);
+	void setLORA_MODE(LORA_MODE);
 
 	void setStateTaskLight(TASK_STATE);
 	void setStateTaskTemperature(TASK_STATE);

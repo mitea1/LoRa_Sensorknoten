@@ -11,6 +11,8 @@ UART_Tunnel::UART_Tunnel() {
 	this->uartSerial = new mbed::RawSerial(XBEE_DOUT,XBEE_DIN);
 	this->usbSerial = new mbed::RawSerial(USBTX,USBRX);
 
+	uartSerial->baud(9600);
+	usbSerial->baud(9600);
 	uartSerial->attach(this,&UART_Tunnel::onUartRx,this->uartSerial->RxIrq);
 	usbSerial->attach(this,&UART_Tunnel::onUsbRx,this->usbSerial->RxIrq);
 

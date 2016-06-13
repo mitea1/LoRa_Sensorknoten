@@ -46,6 +46,8 @@ void MAX44009Config::build(MAX44009_MODE desiredMode){
 			setContinousMode(MAX_44009_CONTINOUS_MODE_ON);
 			setManualConfig(MAX_44009_MANUAL_CONFIG_ON);
 			setInterruptEnable(MAX_44009_IRQ_ENABLED);
+			setInterruptUpperThreshold(MAX_44009_THRESHOLD_4096_LUX);
+			setInterruptLowerThreshold(0);
 			break;
 		case MAX44009_MODE_5:
 			setIntegrationTime(MAX_44009_INTEGRATION_TIME_25_MS);

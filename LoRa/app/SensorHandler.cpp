@@ -42,6 +42,7 @@ void SensorHandler::init(APPLICATION_MODE desiredMode){
 	config->build(desiredMode);
 	stopAllRunningSensorTasks();
 	configureSensors();
+	configureLora();
 	startRunnableSensorTasks();
 }
 
@@ -148,6 +149,10 @@ void SensorHandler::configureSensors(){
 	mpu9250->init(config->getMPU9250_MODE());
 	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
+}
+
+void SensorHandler::configureLora(){
+	lora->init(config->getLORA_MODE());
 }
 
 void SensorHandler::initMutexes(){
