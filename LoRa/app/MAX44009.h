@@ -18,6 +18,9 @@
 #define MAX44009_LUX_L_BYTE		0x04
 #define MAX44009_LUX_H_L_BYTE	0x0304
 
+#define MAX44009_INT_ENABLE		0x01
+#define MAX44009_TH_UPPER		0x05
+#define MAX44009_TH_LOWER		0x06
 
 class MAX44009 {
 public:
@@ -30,11 +33,15 @@ private:
 	MAX44009Config* config;
 	float calculateLux(uint8_t,uint8_t);
 
-	void setIntegrationTime(uint8_t);
-	void setContinousMode(uint8_t);
-	void setManualConfig(uint8_t);
+	void setIntegrationTime();
+	void setContinousMode();
+	void setManualConfig();
 
 	void setI2CRT(I2C_RT*);
+
+	void configureInterrupts();
+	void setUpperThreshold();
+	void setLowerThreshold();
 };
 
 #endif /* APP_MAX44009_H_ */

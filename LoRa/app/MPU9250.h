@@ -248,21 +248,6 @@
 #define MPU9250_I2C_SLV1_NACK_MASK      0x02
 #define MPU9250_I2C_SLV0_NACK_MASK      0x01
 
-//INT_PIN_CFG register masks
-#define MPU9250_ACTL_MASK               0x80
-#define MPU9250_OPEN_MASK               0x40
-#define MPU9250_LATCH_INT_EN_MASK       0x20
-#define MPU9250_INT_ANYRD_2CLEAR_MASK   0x10
-#define MPU9250_ACTL_FSYNC_MASK         0x08
-#define MPU9250_FSYNC_INT_MODE_EN_MASK  0x04
-#define MPU9250_BYPASS_EN_MASK          0x02
-
-//INT_ENABLE register masks
-#define MPU9250_WOM_EN_MASK             0x40
-#define MPU9250_FIFO_OFLOW_EN_MASK      0x10
-#define MPU9250_FSYNC_INT_EN_MASK       0x08
-#define MPU9250_RAW_RDY_EN_MASK         0x01
-
 //INT_STATUS register masks
 #define MPU9250_WOM_INT_MASK            0x40
 #define MPU9250_FIFO_OFLOW_INT_MASK     0x10
@@ -345,9 +330,6 @@ public:
 	virtual ~MPU9250();
 
 	void init(MPU9250_MODE);
-	void enableAxisAccelerationMeasurement();
-	void enableAxisGyroscopeMeasurement();
-	void enableAxisTeslaMeasurement();
 
 	float getXAxisAcceleration();
 	float getYAxisAcceleration();
@@ -362,6 +344,13 @@ private:
 	I2C_RT* i2c;
 	MPU9250Config* config;
 	void setI2c(I2C_RT*);
+
+	void enableAxisAccelerationMeasurement();
+	void enableAxisGyroscopeMeasurement();
+	void enableAxisTeslaMeasurement();
+
+	void configureInterrupts();
+	void setWakeOnReceiveThreshold();
 };
 
 #endif /* APP_MPU9250_H_ */

@@ -6,6 +6,7 @@
  */
 #include "mDot.h"
 #include "MTSLog.h"
+#include "LoRaConfig.h"
 
 #ifndef LORA_H_
 #define LORA_H_
@@ -15,26 +16,39 @@ public:
 	LoRa(mDot*,RawSerial*);
 	virtual ~LoRa();
 
-	void init();
+	void init(LORA_MODE);
 
 	int32_t send(std::vector<uint8_t>&);
 	int32_t recv(std::vector<uint8_t>&);
+
+	int16_t getLastRssi();
+	int16_t getLastSnr();
+
+	uint8_t getSpreadingFactor();
+	uint8_t getTxPowerdBm();
+
+	void ping();
+
 
 
 private:
 	mDot* dot;
 	RawSerial* debugSerial;
 
-	std::string config_network_name = "conduitgwy";
-	std::string config_network_pass = "conduitgwy";
-	uint8_t config_frequency_sub_band = 1;
+	LoRaConfig* config;
 
-	int32_t setPublicNetwork(bool);
-	int32_t setFrequencySubBand(uint8_t);
-	int32_t setNetworkName(const std::string&);
-	int32_t setNetworkPassphrase(const std::string&);
-	int32_t setSpreadingFactor(const uint8_t&);
-	int32_t setAckRetries(const uint8_t&);
+	int16_t rssi;
+	int16_t snr;
+	uint8_t spreadingFactor;
+	uint8_t txPowerdBm;
+
+	int32_t setPublicNetwork();
+	int32_t setFrequencySubBand();
+	int32_t setNetworkName();
+	int32_t setNetworkPassphrase();
+	int32_t setSpreadingFactor();
+	int32_t setAckRetries();
+	int32_t setTxPower();
 	void saveConfig();
 	void resetConfig();
 	void joinNetwork();

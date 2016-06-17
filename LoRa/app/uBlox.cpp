@@ -70,9 +70,9 @@ void uBlox::writeMessage(char* string){
 void uBlox::init(uBLOX_MODE desiredMode){
 	//TODO initialize depending on chosen Mode
 	sendDisableEveryString();
-	osDelay(10);
+	osDelay(100);
 	sendEnablePollhString();
-	osDelay(10);
+	osDelay(100);
 }
 
 void uBlox::buildSettingsStrings(){

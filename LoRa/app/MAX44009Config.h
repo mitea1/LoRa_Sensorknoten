@@ -12,6 +12,7 @@
 #define MAX_44009_CONTINOUS_MODE_OFF		0b0
 #define MAX_44009_MANUAL_CONFIG_ON			0b1
 #define MAX_44009_MANUAL_CONFIG_OFF			0b0
+
 //Integration Times
 #define MAX_44009_INTEGRATION_TIME_800_MS	0b000
 #define MAX_44009_INTEGRATION_TIME_400_MS	0b001
@@ -21,6 +22,9 @@
 #define MAX_44009_INTEGRATION_TIME_25_MS	0b101
 #define MAX_44009_INTEGRATION_TIME_12_5_MS	0b110
 #define MAX_44009_INTEGRATION_TIME_6_25_MS	0b111
+
+#define MAX_44009_IRQ_ENABLED				0x1
+#define MAX_44009_THRESHOLD_4096_LUX		0xC0
 
 enum MAX44009_MODE{
 	MAX44009_MODE_0,
@@ -42,15 +46,24 @@ public:
 	uint8_t getIntegrationTime();
 	uint8_t getContinousMode();
 	uint8_t getManualConfig();
+	uint8_t getInterruptEnable();
+	uint8_t getUpperThreshold();
+	uint8_t getLowerThreshold();
 
 private:
 	uint8_t integrationTime;
 	uint8_t continousMode;
 	uint8_t manualConfig;
+	uint8_t interruptEnable;
+	uint8_t upperThreshold;
+	uint8_t lowerThreshold;
 
 	void setIntegrationTime(uint8_t);
 	void setContinousMode(uint8_t);
 	void setManualConfig(uint8_t);
+	void setInterruptEnable(uint8_t);
+	void setInterruptUpperThreshold(uint8_t);
+	void setInterruptLowerThreshold(uint8_t);
 };
 
 #endif /* APP_MAX44009CONFIG_H_ */

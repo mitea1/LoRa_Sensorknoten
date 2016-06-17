@@ -19,7 +19,7 @@ UBloxGPSMessage::UBloxGPSMessage() {
 }
 
 UBloxGPSMessage::~UBloxGPSMessage() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void UBloxGPSMessage::setLongitude(float longitude){
@@ -42,9 +42,9 @@ char* UBloxGPSMessage::getLoRaMessageString(){
 
 	char buffer[20];
 	loraMessage.clear();
-	sprintf(buffer,"%s:%.2f,",loraMessageId.at(1).c_str(),getLongitude());
+	sprintf(buffer,"%s:%.8f,",loraMessageId.at(1).c_str(),getLongitude());
 	loraMessage.append(buffer);
-	sprintf(buffer,"%s:%.2f,",loraMessageId.at(2).c_str(),getLatitude());
+	sprintf(buffer,"%s:%.8f,",loraMessageId.at(2).c_str(),getLatitude());
 	loraMessage.append(buffer);
 	return (char*) loraMessage.c_str();
 }

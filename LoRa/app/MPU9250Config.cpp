@@ -36,6 +36,15 @@ void MPU9250Config::build(MPU9250_MODE desiredMode){
 		setMagnetometerBitResolution(MPU9250_MAG_16_BIT);
 		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
 		break;
+	case MPU9250_MODE_4:
+		setAccelerometerScale(MPU9250_FULL_SCALE_2G);
+		setGyroscopeScale(MPU9250_GYRO_FULL_SCALE_250DPS);
+		setMagnetometerBitResolution(MPU9250_MAG_16_BIT);
+		setMagnetometerMeasureMode(MPU9250_MAG_CONTINUOUS_MEASUREMENT_1);
+		setInterruptPinConfiguration(MPU9250_INT_ANYRD_2CLEAR_MASK|
+				MPU9250_LATCH_INT_EN_MASK);
+		setWakeOnMotionThreshold(MPU9250_WOM_THRESHOLD_1020_MG);
+		break;
 	}
 }
 
@@ -53,6 +62,18 @@ void MPU9250Config::setMagnetometerBitResolution(uint8_t magnetometerBitResoluti
 
 void MPU9250Config::setMagnetometerMeasureMode(uint8_t magnetometermeasureMode){
 	this->magnetometerMeasureMode = magnetometermeasureMode;
+}
+
+void MPU9250Config::setInterruptPinConfiguration(uint8_t interruptPinConfiguration){
+	this->interruptPinConfiguration = interruptPinConfiguration;
+}
+
+void MPU9250Config::setInterruptEnableConfiguration(uint8_t interruptEnbaleConfiguration){
+	this->interruptEnableConfiguration = interruptEnableConfiguration;
+}
+
+void MPU9250Config::setWakeOnMotionThreshold(uint8_t wakeOnMotionThreshold){
+	this->wakeOnMotionThreshold;
 }
 
 uint8_t MPU9250Config::getAccelerometerScale(){
@@ -134,6 +155,18 @@ float MPU9250Config::getTeslaDivider(){
 	}
 
 	return divider;
+}
+
+uint8_t MPU9250Config::getInterruptPinConfiguration(){
+	return interruptPinConfiguration;
+}
+
+uint8_t MPU9250Config::getInterruptEnableConfiguration(){
+	return interruptEnableConfiguration;
+}
+
+uint8_t MPU9250Config::getWakeOnMotionThreshold(){
+	return wakeOnMotionThreshold;
 }
 
 

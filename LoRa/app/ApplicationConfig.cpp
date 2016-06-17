@@ -27,11 +27,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
-		setSI1143_MODE(SI1143_MODE_1);
+		setSI1143_MODE(SI1143_MODE_3);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_2:
 		setStateTaskLight(SLEEPING);
@@ -43,11 +45,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_3:
 		setStateTaskLight(SLEEPING);
@@ -59,11 +63,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_4:
 		setStateTaskLight(SLEEPING);
@@ -75,11 +81,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_5:
 		setStateTaskLight(SLEEPING);
@@ -91,11 +99,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_6:
 		setStateTaskLight(RUNNING);
@@ -107,11 +117,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_7:
 		setStateTaskLight(RUNNING);
@@ -123,11 +135,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_8:
 		setStateTaskLight(RUNNING);
@@ -139,11 +153,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_9:
 		setStateTaskLight(RUNNING);
@@ -155,11 +171,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_10:
 		setStateTaskLight(SLEEPING);
@@ -171,11 +189,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_11:
 		setStateTaskLight(SLEEPING);
@@ -187,11 +207,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_99:
 		setStateTaskLight(SLEEPING);
@@ -203,11 +225,31 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
+		break;
+	case APPLICATION_MODE_TEST:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_4);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_4);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_MAX44009:
 		setStateTaskLight(RUNNING);
@@ -219,11 +261,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_BME280:
 		setStateTaskLight(SLEEPING);
@@ -235,11 +279,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_MPU9250:
 		setStateTaskLight(SLEEPING);
@@ -251,11 +297,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_SI1143:
 		setStateTaskLight(SLEEPING);
@@ -267,11 +315,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_uBlox:
 		setStateTaskLight(SLEEPING);
@@ -283,11 +333,31 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
+		break;
+	case APPLICATION_MODE_LORA_MEASUREMENT:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(RUNNING);
+		setMAX44009_MODE(MAX44009_MODE_1);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_1);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	default:
 		setStateTaskLight(RUNNING);
@@ -299,11 +369,13 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
 		break;
 	}
 }
@@ -326,6 +398,10 @@ SI1143_MODE ApplicationConfig::getSI1143_MODE() {
 
 uBLOX_MODE ApplicationConfig::getuBlox_MODE() {
 	return ubloxMode;
+}
+
+LORA_MODE ApplicationConfig::getLORA_MODE(){
+	return loraMode;
 }
 
 TASK_STATE ApplicationConfig::getStateTaskLight(){
@@ -364,6 +440,10 @@ TASK_STATE ApplicationConfig::getStateTaskGPS(){
 	return stateTaskGPS;
 }
 
+TASK_STATE ApplicationConfig::getStateTaskLoRaMeasurement(){
+	return stateTaskLoraMeasurement;
+}
+
 LORA_STATE ApplicationConfig::getStateLoRa(){
 	//TODO implement usage of this function
 	return stateLoRa;
@@ -387,6 +467,10 @@ void ApplicationConfig::setSI1143_MODE(SI1143_MODE si1143Mode) {
 
 void ApplicationConfig::setuBlox_MODE(uBLOX_MODE ubloxMode) {
 	this->ubloxMode = ubloxMode;
+}
+
+void ApplicationConfig::setLORA_MODE(LORA_MODE loraMode){
+	this->loraMode = loraMode;
 }
 
 void ApplicationConfig::setStateTaskLight(TASK_STATE _stateTaskLight){
@@ -423,7 +507,10 @@ void ApplicationConfig::setStateTaskProximity(TASK_STATE stateTaskProximity){
 
 void ApplicationConfig::setStateTaskGPS(TASK_STATE stateTaskGPS){
 	this->stateTaskGPS = stateTaskGPS;
+}
 
+void ApplicationConfig::setStateTaskLoRaMeasurement(TASK_STATE stateTaskLoRaMeasurement){
+	this->stateTaskLoraMeasurement = stateTaskLoRaMeasurement;
 }
 
 void ApplicationConfig::setStateLoRa(LORA_STATE stateLoRa){

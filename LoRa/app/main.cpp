@@ -1,11 +1,13 @@
-#include "SensorHandler.h"
+#include "Application.h"
 #include "ApplicationConfig.h"
+#include "UARTTunnel.h"
 
 int main() {
 
 
-	SensorHandler sensorHandler;
-	sensorHandler.init(APPLICATION_MODE_1);
+	Application application;
+	application.init(APPLICATION_MODE_LORA_MEASUREMENT);
+
     while (true) {
 
     }

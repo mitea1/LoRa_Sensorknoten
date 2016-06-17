@@ -9,6 +9,7 @@
 #include "uBloxConfig.h"
 #include "MAX44009Config.h"
 #include "SI1143Config.h"
+#include "LoRaConfig.h"
 #include "main.h"
 #ifndef APPLICATIONCONFIG_H_
 #define APPLICATIONCONFIG_H_
@@ -26,11 +27,13 @@ enum APPLICATION_MODE {
 	APPLICATION_MODE_10,
 	APPLICATION_MODE_11,
 	APPLICATION_MODE_99,
+	APPLICATION_MODE_TEST,
 	APPLICATION_MODE_TEST_MAX44009,
 	APPLICATION_MODE_TEST_BME280,
 	APPLICATION_MODE_TEST_MPU9250,
 	APPLICATION_MODE_TEST_SI1143,
-	APPLICATION_MODE_TEST_uBlox
+	APPLICATION_MODE_TEST_uBlox,
+	APPLICATION_MODE_LORA_MEASUREMENT,
 };
 
 
@@ -46,6 +49,7 @@ public:
 	MPU9250_MODE getMPU9250_MODE();
 	SI1143_MODE getSI1143_MODE();
 	uBLOX_MODE getuBlox_MODE();
+	LORA_MODE getLORA_MODE();
 
 	TASK_STATE getStateTaskLight();
 	TASK_STATE getStateTaskTemperature();
@@ -56,6 +60,7 @@ public:
 	TASK_STATE getStateTaskTesla();
 	TASK_STATE getStateTaskProximity();
 	TASK_STATE getStateTaskGPS();
+	TASK_STATE getStateTaskLoRaMeasurement();
 
 	LORA_STATE getStateLoRa();
 
@@ -65,6 +70,7 @@ private:
 	MPU9250_MODE mpu9250Mode;
 	SI1143_MODE si1143Mode;
 	uBLOX_MODE ubloxMode;
+	LORA_MODE loraMode;
 
 	TASK_STATE stateTaskLight;
 	TASK_STATE stateTaskTemperature;
@@ -75,6 +81,7 @@ private:
 	TASK_STATE stateTaskTesla;
 	TASK_STATE stateTaskProximity;
 	TASK_STATE stateTaskGPS;
+	TASK_STATE stateTaskLoraMeasurement;
 
 	LORA_STATE stateLoRa;
 
@@ -83,6 +90,7 @@ private:
 	void setMPU9250_MODE(MPU9250_MODE);
 	void setSI1143_MODE(SI1143_MODE);
 	void setuBlox_MODE(uBLOX_MODE);
+	void setLORA_MODE(LORA_MODE);
 
 	void setStateTaskLight(TASK_STATE);
 	void setStateTaskTemperature(TASK_STATE);
@@ -93,6 +101,7 @@ private:
 	void setStateTaskTesla(TASK_STATE);
 	void setStateTaskProximity(TASK_STATE);
 	void setStateTaskGPS(TASK_STATE);
+	void setStateTaskLoRaMeasurement(TASK_STATE);
 
 	void setStateLoRa(LORA_STATE);
 
