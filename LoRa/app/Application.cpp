@@ -5,9 +5,9 @@
  *      Author: Adrian
  */
 
-#include "SensorHandler.h"
+#include "Application.h"
 
-SensorHandler::SensorHandler() {
+Application::Application() {
 	initInterfaces();
 	initSensors();
 	initMutexes();
@@ -16,7 +16,7 @@ SensorHandler::SensorHandler() {
 	taskDataHandler->start();
 }
 
-SensorHandler::~SensorHandler() {
+Application::~Application() {
 	delete uart;
 	delete debugSerial;
 	delete i2c_rt;
@@ -38,7 +38,7 @@ SensorHandler::~SensorHandler() {
 	delete taskGps;
 }
 
-void SensorHandler::init(APPLICATION_MODE desiredMode){
+void Application::init(APPLICATION_MODE desiredMode){
 	config->build(desiredMode);
 	stopAllRunningSensorTasks();
 	configureSensors();
@@ -46,7 +46,7 @@ void SensorHandler::init(APPLICATION_MODE desiredMode){
 	startRunnableSensorTasks();
 }
 
-void SensorHandler::stopAllRunningSensorTasks(){
+void Application::stopAllRunningSensorTasks(){
 	if(taskLight->getState() == RUNNING){
 		taskLight->stop();
 	}
@@ -74,11 +74,14 @@ void SensorHandler::stopAllRunningSensorTasks(){
 	if(taskGps->getState() == RUNNING){
 		taskGps->stop();
 	}
+	if(taskLoRaMeasurement->getState() == RUNNING){
+		taskLoRaMeasurement->stop();
+	}
 
 	osDelay(100);
 }
 
-void SensorHandler::initInterfaces(){
+void Application::initInterfaces(){
 	uart = new RawSerial(XBEE_DOUT,XBEE_DIN);
 	debugSerial = new RawSerial(USBTX,USBRX);
 	i2c_rt = new I2C_RT();
@@ -91,7 +94,7 @@ void SensorHandler::initInterfaces(){
 	debugSerial->format(8,SerialBase::None,1);
 }
 
-void SensorHandler::initSensors(){
+void Application::initSensors(){
 	gpsSensor = new uBlox(uart);
 	max44009 = new MAX44009(i2c_rt);
 	bme280 = new BME280(i2c_rt);
@@ -99,7 +102,7 @@ void SensorHandler::initSensors(){
 	si1143 = new SI1143(i2c_rt);
 }
 
-void SensorHandler::initTasks(){
+void Application::initTasks(){
 	taskLight = new TaskLight(max44009,mutexI2C,&queueLight,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	taskTemperature = new TaskTemperature(bme280,mutexI2C,&queueTemperature,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	taskHumidity = new  TaskHumidity(bme280,mutexI2C,&queueHumidity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
@@ -109,11 +112,12 @@ void SensorHandler::initTasks(){
 	taskTesla = new  TaskTesla(mpu9250,mutexI2C,&queueTesla,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	taskProximity = new  TaskProximity(si1143,mutexI2C,&queueProximity,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	taskGps = new  TaskGPS(gpsSensor,mutexUART1,&queueGps,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
-	taskDataHandler = new  TaskDatahandler(lora,queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	taskLoRaMeasurement = new TaskLoRaMeasurement(lora,mutexLoRa,&queueLoRaMeasurements,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
+	taskDataHandler = new  TaskDatahandler(lora,mutexLoRa,queueBundle,osPriorityNormal,DEFAULT_STACK_SIZE,NULL);
 	taskDataHandler->setDebugSerial(debugSerial);
 }
 
-void SensorHandler::startRunnableSensorTasks(){
+void Application::startRunnableSensorTasks(){
 	if(config->getStateTaskLight() == RUNNING){
 		taskLight->start();
 	}
@@ -141,25 +145,29 @@ void SensorHandler::startRunnableSensorTasks(){
 	if(config->getStateTaskGPS() == RUNNING){
 		taskGps->start();
 	}
+	if(config->getStateTaskLoRaMeasurement() == RUNNING){
+		taskLoRaMeasurement->start();
+	}
 }
 
-void SensorHandler::configureSensors(){
+void Application::configureSensors(){
 	max44009->init(config->getMAX44009_MODE());
 	bme280->init(config->getBME280_MODE());
 	mpu9250->init(config->getMPU9250_MODE());
-	si1143->init(config->getSI1143_MODE());
+//	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
 }
 
-void SensorHandler::configureLora(){
-	lora->init(config->getLORA_MODE());
+void Application::configureLora(){
+//	lora->init(config->getLORA_MODE());
 }
 
-void SensorHandler::initMutexes(){
+void Application::initMutexes(){
 	this->mutexI2C = new Mutex();
 	this->mutexUART1 = new Mutex();
+	this->mutexLoRa = new Mutex();
 }
 
-void SensorHandler::initApplicationConfig(){
+void Application::initApplicationConfig(){
 	config = new ApplicationConfig();
 }

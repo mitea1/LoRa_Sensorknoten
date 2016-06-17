@@ -40,24 +40,23 @@
 #define LORA_ACKNOWLEDGE_RETRIES_1			1
 #define LORA_ACKNOWLEDGE_RETRIES_2			2
 
-
 enum LORA_MODE{
-	LORA_MODE_0,
-	LORA_MODE_1,
-	LORA_MODE_2,
-	LORA_MODE_3,
-	LORA_MODE_4,
-	LORA_MODE_5,
+	LORA_MODE_0 = 0,
+	LORA_MODE_1 = 1,
+	LORA_MODE_2 = 2,
+	LORA_MODE_3 = 3,
+	LORA_MODE_4 = 4,
+	LORA_MODE_5 = 5,
 };
 
 class LoRaConfig {
 public:
 	LoRaConfig();
-	LoRaConfig(uint8_t);
 	virtual ~LoRaConfig();
 	void build(LORA_MODE);
 
-	bool getPublicity();
+	bool isPublic();
+	bool isActiv();
 	std::string getNetworkName();
 	std::string getNetworkPassphrase();
 	uint8_t getFrequencySubBand();
@@ -65,23 +64,32 @@ public:
 	uint8_t getTxPowerdBm();
 	uint8_t getAcknowledgeRetries();
 
+	LORA_MODE getLORA_MODE();
+
+
 private:
 	std::string* networkName;
 	std::string* networkPassphrase;
 	bool publicity;
+	bool activity;
 	uint8_t frequencySubBand;
 	uint8_t spreadingFactor;
 	uint8_t txPowerdBm;
 	uint8_t acknowledgeRetries;
 
+	LORA_MODE loraMode;
+
 
 	void setNetworkPublicity(bool);
+	void setActivity(bool);
 	void setNetworkName(char*);
 	void setNetworkPassphrase(char*);
 	void setFrequencySubBand(uint8_t);
 	void setSpreadingFactor(uint8_t);
 	void setTxPowerdBm(uint8_t);
 	void setAcknowledgeRetries(uint8_t);
+
+	void setLORA_MODE(LORA_MODE);
 
 };
 

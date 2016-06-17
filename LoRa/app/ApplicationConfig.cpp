@@ -27,6 +27,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -44,6 +45,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -61,6 +63,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -78,6 +81,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -95,6 +99,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -112,6 +117,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -129,6 +135,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -146,6 +153,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -163,6 +171,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -180,6 +189,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -197,6 +207,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -214,6 +225,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -231,6 +243,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_4);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_4);
@@ -248,6 +261,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -265,6 +279,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -282,6 +297,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -299,6 +315,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -316,6 +333,25 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(SLEEPING);
 		setStateTaskProximity(SLEEPING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_1);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_1);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_1);
+		setLORA_MODE(LORA_MODE_1);
+		break;
+	case APPLICATION_MODE_LORA_MEASUREMENT:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(RUNNING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -333,6 +369,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setStateTaskTesla(RUNNING);
 		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(RUNNING);
+		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
@@ -403,6 +440,10 @@ TASK_STATE ApplicationConfig::getStateTaskGPS(){
 	return stateTaskGPS;
 }
 
+TASK_STATE ApplicationConfig::getStateTaskLoRaMeasurement(){
+	return stateTaskLoraMeasurement;
+}
+
 LORA_STATE ApplicationConfig::getStateLoRa(){
 	//TODO implement usage of this function
 	return stateLoRa;
@@ -466,7 +507,10 @@ void ApplicationConfig::setStateTaskProximity(TASK_STATE stateTaskProximity){
 
 void ApplicationConfig::setStateTaskGPS(TASK_STATE stateTaskGPS){
 	this->stateTaskGPS = stateTaskGPS;
+}
 
+void ApplicationConfig::setStateTaskLoRaMeasurement(TASK_STATE stateTaskLoRaMeasurement){
+	this->stateTaskLoraMeasurement = stateTaskLoRaMeasurement;
 }
 
 void ApplicationConfig::setStateLoRa(LORA_STATE stateLoRa){

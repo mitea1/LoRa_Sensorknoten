@@ -16,75 +16,95 @@
 //}
 
 void LoRaConfig::build(LORA_MODE desiredMode){
+	setLORA_MODE(desiredMode);
+
 	switch(desiredMode){
-	case LORA_MODE_0:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	case LORA_MODE_1:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	case LORA_MODE_2:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	case LORA_MODE_3:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	case LORA_MODE_4:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	case LORA_MODE_5:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
-	default:
-		setNetworkPublicity(true);
-		setNetworkName(LORA_NETWORK_NAME);
-		setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-		setFrequencySubBand(LORA_SUBBAND_0);
-		setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-		setTxPowerdBm(LORA_TX_POWER_16_DBM);
-		setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
-		break;
+
+		case LORA_MODE_0:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		case LORA_MODE_1:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		case LORA_MODE_2:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		case LORA_MODE_3:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		case LORA_MODE_4:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		case LORA_MODE_5:
+			setNetworkPublicity(true);
+			setActivity(true);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
+
+		default:
+			setNetworkPublicity(true);
+			setActivity(false);
+			setNetworkName(LORA_NETWORK_NAME);
+			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setFrequencySubBand(LORA_SUBBAND_0);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			break;
 	}
 }
 
-bool LoRaConfig::getPublicity(){
+bool LoRaConfig::isPublic(){
 	return publicity;
+}
+
+bool LoRaConfig::isActiv(){
+	return activity;
 }
 
 std::string LoRaConfig::getNetworkName(){
@@ -111,8 +131,16 @@ uint8_t LoRaConfig::getAcknowledgeRetries(){
 	return acknowledgeRetries;
 }
 
-void LoRaConfig::setNetworkPublicity(bool isPublic){
-	this->publicity = isPublic;
+LORA_MODE LoRaConfig::getLORA_MODE(){
+	return loraMode;
+}
+
+void LoRaConfig::setNetworkPublicity(bool publicity){
+	this->publicity = publicity;
+}
+
+void LoRaConfig::setActivity(bool activity){
+	this->activity = activity;
 }
 
 void LoRaConfig::setNetworkName(char* networkName){
@@ -137,6 +165,10 @@ void LoRaConfig::setTxPowerdBm(uint8_t txPowerdBm){
 
 void LoRaConfig::setAcknowledgeRetries(uint8_t acknowledgeRetries){
 	this->acknowledgeRetries = acknowledgeRetries;
+}
+
+void LoRaConfig::setLORA_MODE(LORA_MODE loraMode){
+	this->loraMode = loraMode;
 }
 
 

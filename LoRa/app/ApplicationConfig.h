@@ -32,7 +32,8 @@ enum APPLICATION_MODE {
 	APPLICATION_MODE_TEST_BME280,
 	APPLICATION_MODE_TEST_MPU9250,
 	APPLICATION_MODE_TEST_SI1143,
-	APPLICATION_MODE_TEST_uBlox
+	APPLICATION_MODE_TEST_uBlox,
+	APPLICATION_MODE_LORA_MEASUREMENT,
 };
 
 
@@ -59,6 +60,7 @@ public:
 	TASK_STATE getStateTaskTesla();
 	TASK_STATE getStateTaskProximity();
 	TASK_STATE getStateTaskGPS();
+	TASK_STATE getStateTaskLoRaMeasurement();
 
 	LORA_STATE getStateLoRa();
 
@@ -79,6 +81,7 @@ private:
 	TASK_STATE stateTaskTesla;
 	TASK_STATE stateTaskProximity;
 	TASK_STATE stateTaskGPS;
+	TASK_STATE stateTaskLoraMeasurement;
 
 	LORA_STATE stateLoRa;
 
@@ -98,6 +101,7 @@ private:
 	void setStateTaskTesla(TASK_STATE);
 	void setStateTaskProximity(TASK_STATE);
 	void setStateTaskGPS(TASK_STATE);
+	void setStateTaskLoRaMeasurement(TASK_STATE);
 
 	void setStateLoRa(LORA_STATE);
 

@@ -50,7 +50,7 @@ void SI1143::command(uint8_t cmd)
     uint8_t val;
 
     i2c->read_RT((SI1143_IR_ADDRESS<<1),SI1143_RESPONSE,false,&val,1);
-    osDelay(10);
+    osDelay(100);
     while(val!=0)
     {
     	i2c->write_RT((SI1143_IR_ADDRESS<<1),SI1143_COMMAND,false,SI1143_NOP,1);

@@ -24,16 +24,17 @@
 #include "TaskTesla.h"
 #include "TaskProximity.h"
 #include "TaskGPS.h"
+#include "TaskLoRaMeasurement.h"
 #include "TaskDatahandler.h"
 #include "main.h"
 
-#ifndef SENSORHANDLER_H_
-#define SENSORHANDLER_H_
+#ifndef APPLICATION_H_
+#define APPLICATION_H_
 
-class SensorHandler {
+class Application {
 public:
-	SensorHandler();
-	virtual ~SensorHandler();
+	Application();
+	virtual ~Application();
 
 	void init(APPLICATION_MODE);
 
@@ -53,6 +54,7 @@ private:
 	TaskTesla* taskTesla;
 	TaskProximity* taskProximity;
 	TaskGPS* taskGps;
+	TaskLoRaMeasurement* taskLoRaMeasurement;
 	TaskDatahandler* taskDataHandler;
 
 	rtos::Mutex* mutexI2C;
@@ -62,6 +64,7 @@ private:
 	rtos::Mutex mutexMPU9250;
 	rtos::Mutex mutexSi4103;
 	rtos::Mutex mutexUBlox;
+	rtos::Mutex* mutexLoRa;
 
 	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT> queueLight;
 	Queue<BME280TemperatureMessage,TEMPERATURE_QUEUE_LENGHT> queueTemperature;
@@ -72,11 +75,12 @@ private:
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT> queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT> queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT> queueGps;
+	Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT> queueLoRaMeasurements;
 	Queue<CommandMessage,COMMAND_QUEUE_LENGHT> queueCommands;
 
 	QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
 								&queueAcceleration,&queueGyro,&queueTesla,&queueProximity,
-								&queueGps,&queueCommands};
+								&queueGps,&queueLoRaMeasurements,&queueCommands};
 
 	uBlox* gpsSensor;
 	MAX44009* max44009;
@@ -100,4 +104,4 @@ private:
 
 };
 
-#endif /* SENSORHANDLER_H_ */
+#endif /* APPLICATION_H_ */

@@ -27,16 +27,19 @@ void LoRa::init(LORA_MODE desiredMode){
 	setNetworkPassphrase();
 	setSpreadingFactor();
     setAckRetries();
-    dot->setTxPower(20);
+    setTxPower();
 
     saveConfig();
 
-    joinNetwork();
+    if(config->isActiv()){
+    	joinNetwork();
+    }
+
 }
 
 int32_t LoRa::setPublicNetwork(){
 	int32_t ret;
-	bool publicity = config->getPublicity();
+	bool publicity = config->isPublic();
 
 	if ((ret = dot->setPublicNetwork(publicity)) != mDot::MDOT_OK) {
 	        debugSerial->printf("failed to set public network %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
@@ -85,28 +88,35 @@ int32_t LoRa::setNetworkPassphrase(){
 
 int32_t LoRa::setSpreadingFactor(){
 	int32_t ret;
-	uint8_t spreadingFactorLoRa = config->getSpreadingFactor();
+
+	spreadingFactor = config->getSpreadingFactor();
 	mDot::DataRates spreadingFactorMdot;
 
-	switch(spreadingFactorLoRa){
+	switch(spreadingFactor){
 		case LORA_SPREADING_FACTOR_7:
 			spreadingFactorMdot = mDot::SF_7;
 			break;
+
 		case LORA_SPREADING_FACTOR_8:
 			spreadingFactorMdot = mDot::SF_8;
 			break;
+
 		case LORA_SPREADING_FACTOR_9:
 			spreadingFactorMdot = mDot::SF_9;
 			break;
+
 		case LORA_SPREADING_FACTOR_10:
 			spreadingFactorMdot = mDot::SF_10;
 			break;
+
 		case LORA_SPREADING_FACTOR_11:
 			spreadingFactorMdot = mDot::SF_11;
 			break;
+
 		case LORA_SPREADING_FACTOR_12:
 			spreadingFactorMdot = mDot::SF_12;
 			break;
+
 		default:
 			spreadingFactorMdot = mDot::SF_12;
 			break;
@@ -118,6 +128,11 @@ int32_t LoRa::setSpreadingFactor(){
 	}
 
 	return ret;
+}
+
+int32_t LoRa::setTxPower(){
+	txPowerdBm = config->getTxPowerdBm();
+	dot->setTxPower(txPowerdBm);
 }
 
 int32_t LoRa::setAckRetries(){
@@ -145,22 +160,52 @@ void LoRa::saveConfig(){
 
 
 int32_t LoRa::send(std::vector<uint8_t>& data){
-	int32_t ret;
-	ret=dot->send(data);
-	if (ret != mDot::MDOT_OK) {
-		debugSerial->printf("failed to send\n");
-		debugSerial->printf(mDot::getReturnCodeString(ret).c_str());
-		debugSerial->printf("\n");
-	} else {
-		debugSerial->printf("successfully sent data to gateway");
+	int32_t ret = mDot::MDOT_NOT_JOINED;
 
+	if(config->isActiv()){
+		ret=dot->send(data);
+		if (ret != mDot::MDOT_OK) {
+			debugSerial->printf("failed to send\n");
+			debugSerial->printf(mDot::getReturnCodeString(ret).c_str());
+			debugSerial->printf("\n");
+		} else {
+			debugSerial->printf("successfully sent data to gateway\n");
+		}
+	}
+
+		return ret;
+}
+
+int32_t LoRa::recv(std::vector<uint8_t>& data){
+	int32_t ret = mDot::MDOT_NOT_JOINED;
+	if(config->isActiv()){
+		ret = dot->recv(data);
 	}
 	return ret;
 }
 
-int32_t LoRa::recv(std::vector<uint8_t>& data){
-	return dot->recv(data);
+int16_t LoRa::getLastRssi(){
+	return dot->getRssiStats().last;
 }
+
+int16_t LoRa::getLastSnr(){
+	return snr;
+}
+
+uint8_t LoRa::getSpreadingFactor(){
+	return spreadingFactor;
+}
+
+uint8_t LoRa::getTxPowerdBm(){
+	return txPowerdBm;
+}
+
+void LoRa::ping(){
+	mDot::ping_response response = dot->ping();
+	this->rssi = response.rssi;
+	this->snr = response.snr;
+}
+
 
 void LoRa::joinNetwork(){
 	int32_t ret;
