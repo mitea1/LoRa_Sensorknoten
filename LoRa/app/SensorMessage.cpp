@@ -20,7 +20,4 @@ char* SensorMessage::getLoRaMessageString(){
 
 }
 
-char* SensorMessage::getLoRaMessageId(){
-
-}
 

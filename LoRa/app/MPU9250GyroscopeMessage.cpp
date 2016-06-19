@@ -54,8 +54,5 @@ char* MPU9250GyroscopeMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* MPU9250GyroscopeMessage::getLoRaMessageId(){
-
-}
 
 

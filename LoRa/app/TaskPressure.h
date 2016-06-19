@@ -1,9 +1,11 @@
-/*
- * TaskPressure.h
+/**
+ * @file TaskPressure.h
  *
- *  Created on: May 30, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 30.05.2016
+ *
  */
+
 #include "BME280.h"
 #include "BME280PressureMessage.h"
 #include "main.h"
@@ -11,6 +13,13 @@
 #ifndef TASKPRESSURE_H_
 #define TASKPRESSURE_H_
 
+/**
+ * @class TaskPressure
+ * @brief This TaskPressure Class handles the pressure measurement using the BME280.
+ * Starting the task using the start() starts the measurement.
+ * It can be used alongside with other measurement Tasks inside the mbed::rtos
+ * environment. The Task Class basically wraps mbeds Thread functionality.
+ */
 class TaskPressure {
 public:
 	TaskPressure(BME280*,Mutex*, Queue<BME280PressureMessage,PRESSURE_QUEUE_LENGHT>*);
@@ -18,9 +27,25 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskPressure();
 
+
+	/**
+	 * @brief Starts the task by building it and connecting a callback function to
+	 * the mbed::Thread
+	 * @return
+	 */
 	osStatus start();
+
+	/**
+	 * @brief Stops the task. Should only be used after start() was used
+	 * @return
+	 */
 	osStatus stop();
 
+
+	/**
+	 * @brief Gets the actual state of the Task either RUNNING or SLEEPING
+	 * @return
+	 */
 	TASK_STATE getState();
 
 private:
@@ -35,15 +60,55 @@ private:
 
 	BME280* bme280;
 
+
+	/**
+	 * @brief A Callback function thats called by the mbed::Thread of this TaskClass
+	 * @param
+	 */
 	static void callBack(void const *);
+
+	/**
+	 * @brief A thread safe method that measures the actual pressure. After measuring the pressure
+	 * it stores the value inside a BME280PressureMessage
+	 */
 	void measurePressure();
 
-	void setQueue(Queue<BME280PressureMessage,PRESSURE_QUEUE_LENGHT>*);
-	void setMutex(Mutex*);
-	void setPriority(osPriority);
-	void setStackSize(uint32_t);
-	void setStackPointer(unsigned char*);
 
+	/**
+	 * @brief Sets the message Queue of the Task where the measured values will be stored
+	 * after the measurement
+	 * @param queuePressure the queue where the BME280PressureMessage will be stored
+	 */
+	void setQueue(Queue<BME280PressureMessage,PRESSURE_QUEUE_LENGHT>* queuePressure);
+
+	/**
+	 * @brief Sets the mutex thats used for a thread safe measurement
+	 * @param mutexI2C the I2C mutex
+	 */
+	void setMutex(Mutex* mutexI2C);
+
+	/**
+	 * @brief Sets the priority of the Task
+	 * @param priority priority of the Task
+	 */
+	void setPriority(osPriority priority);
+
+	/**
+	 * @brief Sets the size of the Task
+	 * @param stackSize the stack size in Bytes
+	 */
+	void setStackSize(uint32_t stackSize);
+
+	/**
+	 * @brief Sets the stack pointer of for the task stack
+	 * @param stackPointer
+	 */
+	void setStackPointer(unsigned char* stackPointer);
+
+	/**
+	 * @brief Sets the actual state of the Task.
+	 * @param taskState either RUNNING or SLEEPING
+	 */
 	void setState(TASK_STATE);
 };
 

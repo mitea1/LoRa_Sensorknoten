@@ -32,6 +32,3 @@ char* BME280TemperatureMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* BME280TemperatureMessage::getLoRaMessageId(){
-
-}

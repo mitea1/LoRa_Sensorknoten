@@ -1,12 +1,12 @@
-/*
- * MPU9250.h
+/**
+ * @file MPU9250.h
  *
- *  Created on: 19.05.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 19.05.2016
+ *
  */
 #include "I2C_RT.h"
 #include "MPU9250Config.h"
-
 
 #ifndef APP_MPU9250_H_
 #define APP_MPU9250_H_
@@ -142,23 +142,11 @@
 #define MPU9250_GYRO_FS_SEL_MASK        0x18
 #define MPU9250_FCHOICE_B_MASK          0x03
 
-//Moved to MPU9250Config.h
-//#define MPU9250_GYRO_FULL_SCALE_250DPS  0b00
-//#define MPU9250_GYRO_FULL_SCALE_500DPS  0b01
-//#define MPU9250_GYRO_FULL_SCALE_1000DPS 0b10
-//#define MPU9250_GYRO_FULL_SCALE_2000DPS 0b11
-
 //ACCEL_CONFIG register masks
 #define MPU9250_AX_ST_EN_MASK           0x80
 #define MPU9250_AY_ST_EN_MASK           0x40
 #define MPU9250_AZ_ST_EN_MASK           0x20
 #define MPU9250_ACCEL_FS_SEL_MASK       0x18
-
-// Moved to MPU9250Config.h
-//#define MPU9250_FULL_SCALE_2G           0b00
-//#define MPU9250_FULL_SCALE_4G           0b01
-//#define MPU9250_FULL_SCALE_8G           0b10
-//#define MPU9250_FULL_SCALE_16G          0b11
 
 //ACCEL_CONFIG_2 register masks
 #define MPU9250_ACCEL_FCHOICE_B_MASK    0xC0
@@ -324,32 +312,132 @@
 //Magnetometer register masks
 #define MPU9250_WIA_MASK 0x48
 
+/**
+ * @class MPU9250
+ * @brief Provides Functionality to control the MPU9250 Sensor on the Sensbert
+ */
 class MPU9250 {
 public:
-	MPU9250(I2C_RT*);
+	MPU9250(I2C_RT* i2c);
 	virtual ~MPU9250();
 
-	void init(MPU9250_MODE);
+	/**
+	 * @brief Initializes the MPU9250 according to the desired MPU9250_MODE
+	 * @param desiredMode the desired Mode depending on which the MPU9250 has to be
+	 * configured
+	 */
+	void init(MPU9250_MODE desiredMode);
 
+
+	/**
+	 * @brief Gets the measured x-axis acceleration.
+	 * Important: Acceleration measurement first needs to be enable by
+	 * enableAccelerationMeasurement()
+	 * @return
+	 */
 	float getXAxisAcceleration();
+
+	/**
+	 * @brief Gets the measured y-axis acceleration.
+	 * Important: Acceleration measurement first needs to be enable by
+	 * enableAccelerationMeasurement()
+	 * @return
+	 */
 	float getYAxisAcceleration();
+
+	/**
+	 * @brief Gets the measured z-axis acceleration.
+	 * Important: Acceleration measurement first needs to be enable by
+	 * enableAccelerationMeasurement()
+	 * @return
+	 */
 	float getZAxisAcceleration();
+
+	/**
+	 * @brief Gets the measured x-axis gyroscope value.
+	 * Important: Acceleration measurement first needs to be enable by
+	 * enableAccelerationMeasurement()
+	 * @return
+	 */
 	float getXAxisGyro();
+
+	/**
+	 * @brief Gets the measured y-axis gyroscope value
+	 * Important: Gyroscope measurement first needs to be enable by
+	 * enableGyroscopeMeasurement()
+	 * @return
+	 */
 	float getYAxisGyro();
+
+	/**
+	 * @brief Gets the measured z-axis gyroscope value.
+	 * Important: Gyroscope measurement first needs to be enable by
+	 * enableGyroscopeMeasurement()
+	 * @return
+	 */
 	float getZAxisGyro();
+
+	/**
+	 * @brief Gets the measured x-axis tesla value.
+	 * Important: Gyroscope measurement first needs to be enable by
+	 * enableGyroscopeMeasurement()
+	 * @return
+	 */
 	float getXAxisTesla();
+
+	/**
+	 * @brief Gets the measured y-axis tesla value.
+	 * Important: Tesla measurement first needs to be enable by
+	 * enableTeslaMeasurement()
+	 * @return
+	 */
 	float getYAxisTesla();
+
+	/**
+	 * @brief Gets the measured z-axis tesla value.
+	 * Important: Tesla measurement first needs to be enable by
+	 * enableTeslaMeasurement()
+	 * @return
+	 */
 	float getZAxisTesla();
 private:
 	I2C_RT* i2c;
 	MPU9250Config* config;
-	void setI2c(I2C_RT*);
 
+	/**
+	 * @brief Set the i2c that is used to control the MPU9250
+	 * @param i2c the i2c that is used to control the MPU9250
+	 */
+	void setI2c(I2C_RT* i2c);
+
+	/**
+	 * @brief enables the acceleration measurement for all axis
+	 * according to the MPU9250Config.
+	 */
 	void enableAxisAccelerationMeasurement();
+
+	/**
+	 * @brief enables the gyroscope measurement for all axis
+	 * according to the MPU9250Config.
+	 */
 	void enableAxisGyroscopeMeasurement();
+
+	/**
+	 * @brief enables the tesla measurement for all axis
+	 * according to the MPU9250Config.
+	 */
 	void enableAxisTeslaMeasurement();
 
+
+	/**
+	 * @brief Configures and enables interrupts according to the MPU9250Config
+	 */
 	void configureInterrupts();
+
+	/**
+	 * @brief Sets the motion threshold in g when an interupt is triggered
+	 * according to the MPU9250Config
+	 */
 	void setWakeOnReceiveThreshold();
 };
 

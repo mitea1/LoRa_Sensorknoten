@@ -1,21 +1,21 @@
-/*
- * TaskLoRaMeasurement.cpp
+/**
+ * @file TaskLoRaMeasurement.cpp
  *
- *  Created on: 13.06.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 13.06.2016
  */
 
 #include "TaskLoRaMeasurement.h"
 
 TaskLoRaMeasurement::TaskLoRaMeasurement(LoRa* lora,Mutex* mutexLoRa,
-		Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue){
+		Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue){
 	this->lora = lora;
 	setMutex(mutexLoRa);
 	setQueue(queue);
 }
 
 TaskLoRaMeasurement::TaskLoRaMeasurement(LoRa* lora,Mutex* mutexLoRa,
-		rtos::Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue,
+		rtos::Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue,
 		osPriority priority, uint32_t stackSize, unsigned char *stackPointer):TaskLoRaMeasurement(lora,mutexLoRa,queue) {
 	setPriority(priority);
 	setStackSize(stackSize);
@@ -47,7 +47,7 @@ void TaskLoRaMeasurement::callBack(void const* data){
 }
 
 void TaskLoRaMeasurement::measureSignal(){
-	LoRaMeasuermentMessage* loraMeasurementMessage = new LoRaMeasuermentMessage();
+	LoRaMeasurementMessage* loraMeasurementMessage = new LoRaMeasurementMessage();
 
 	while(true){
 		mutexLoRa->lock(osWaitForever);
@@ -64,7 +64,7 @@ void TaskLoRaMeasurement::measureSignal(){
 
 }
 
-void TaskLoRaMeasurement::setQueue(Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue){
+void TaskLoRaMeasurement::setQueue(Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue){
 	this->queue = queue;
 }
 

@@ -8,7 +8,6 @@
 #include "MPU9250TeslaMessage.h"
 
 MPU9250TeslaMessage::MPU9250TeslaMessage() {
-	// TODO Auto-generated constructor stub
 	loraMessageId.push_back(MPU9250_X_TESLA_MESSAGE_ID);
 	loraMessageId.push_back(MPU9250_Y_TESLA_MESSAGE_ID);
 	loraMessageId.push_back(MPU9250_Z_TESLA_MESSAGE_ID);
@@ -16,7 +15,7 @@ MPU9250TeslaMessage::MPU9250TeslaMessage() {
 }
 
 MPU9250TeslaMessage::~MPU9250TeslaMessage() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void MPU9250TeslaMessage::setXTesla(float xTesla){
@@ -55,6 +54,3 @@ char* MPU9250TeslaMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* MPU9250TeslaMessage::getLoRaMessageId(){
-
-}

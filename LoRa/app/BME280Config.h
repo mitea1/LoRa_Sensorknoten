@@ -1,8 +1,9 @@
-/*
- * BME280Config.h
+/**
+ * @file BME280Config.h
  *
- *  Created on: 24.05.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 24.05.2016
+ *
  */
 #include <stdint-gcc.h>
 
@@ -43,29 +44,61 @@
 #define BME280_WHEAT_OVRS_H			BME280_HUM_OVRS_1
 
 
+/**
+ * BME280 Modes. Modes define sensor functionality
+ */
 enum BME280_MODE{
-	BME280_MODE_0,
-	BME280_MODE_1,
-	BME280_MODE_2,
-	BME280_MODE_3,
-	BME280_MODE_4,
-	BME280_MODE_5,
-	BME280_MODE_6,
-	BME280_MODE_7,
-	BME280_MODE_8,
-	BME280_MODE_9,
+	BME280_MODE_0,//!< BME280_MODE_0
+	BME280_MODE_1,//!< BME280_MODE_1
+	BME280_MODE_2,//!< BME280_MODE_2
+	BME280_MODE_3,//!< BME280_MODE_3
+	BME280_MODE_4,//!< BME280_MODE_4
+	BME280_MODE_5,//!< BME280_MODE_5
+	BME280_MODE_6,//!< BME280_MODE_6
+	BME280_MODE_7,//!< BME280_MODE_7
+	BME280_MODE_8,//!< BME280_MODE_8
+	BME280_MODE_9,//!< BME280_MODE_9
 };
 
+/**
+ * @class BME280Config
+ * @brief A configuration container for the BME280 Sensor.
+ * All its configuration values are stored an held inside
+ * this Class. Depending on the BME280_MODE it sets all the configuration values.
+ */
 class BME280Config {
 public:
 	BME280Config();
 	virtual ~BME280Config();
+
+	/**
+	 * @brief Generates a configuration according to the chosen BME280_MODE
+	 * @param desiredMode the mode to build the configuration according to
+	 */
 	void build(BME280_MODE);
 
+	/**
+	 * Gets the  temperature measurements oversampling value for the configuration and initialization of the BME280
+	 * @return temperature oversampling register value
+	 */
 	uint8_t getOversamplingTemperature();
+
+	/**
+	 * Gets the  pressure measurements oversampling value for the configuration and initialization of the BME280
+	 * @return pressure oversampling register value
+	 */
 	uint8_t getOversamplingPressure();
+
+	/**
+	 * Gets the  humidity measurements oversampling value for the configuration and initialization of the BME280
+	 * @return humidity oversampling register value
+	 */
 	uint8_t getOversamplingHumidity();
 
+	/**
+	 * Gets the sensor internal Mode
+	 * @return sensor internal Mode
+	 */
 	uint8_t getMode();
 
 private:
@@ -76,11 +109,29 @@ private:
 	uint8_t mode;
 
 
-	void setOversamplingTemperature(uint8_t);
-	void setOversamplingPressure(uint8_t);
-	void setOversamplingHumidity(uint8_t);
+	/**
+	 * @brief Sets the oversampling Value for Temperature measurements
+	 * @param oversamplingTemperature oversampling Value for Temperature measurements
+	 */
+	void setOversamplingTemperature(uint8_t oversamplingTemperature);
 
-	void setMode(uint8_t);
+	/**
+	 * @brief Sets the oversampling Value for Pressure measurements
+	 * @param oversamplingPressure oversampling Value for Pressure measurements
+	 */
+	void setOversamplingPressure(uint8_t oversamplingPressure);
+
+	/**
+	 * @brief Sets the oversampling Value for Humidity measurements
+	 * @param oversamplingHumidity oversampling Value for Humidity measurements
+	 */
+	void setOversamplingHumidity(uint8_t oversamplingHumidity);
+
+	/**
+	 * Set the internal mode of the BME280
+	 * @param desiredMode the internal mode of the BME280
+	 */
+	void setMode(uint8_t desiredMode);
 };
 
 #endif /* APP_BME280CONFIG_H_ */

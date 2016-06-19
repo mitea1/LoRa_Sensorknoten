@@ -49,7 +49,4 @@ char* UBloxGPSMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* UBloxGPSMessage::getLoRaMessageId(){
-
-}
 

@@ -8,11 +8,11 @@
 #include "ApplicationConfig.h"
 
 ApplicationConfig::ApplicationConfig() {
-	// TODO Auto-generated constructor stub
+
 }
 
 ApplicationConfig::~ApplicationConfig() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void ApplicationConfig::build(APPLICATION_MODE desiredMode) {

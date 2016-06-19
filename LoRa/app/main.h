@@ -28,6 +28,11 @@
 #define BAUD_UART   9600
 #define BAUD_USB    9600
 
+/**
+ * @defgroup Queue Lenghts
+ * @{
+ */
+
 #define LIGHT_QUEUE_LENGHT					1
 #define ACCELERATION_QUEUE_LENGHT			1
 #define GYROSCOPE_QUEUE_LENGHT				1
@@ -40,6 +45,13 @@
 #define LORA_MEASUREMENT_QUEUE_LENGHT		1
 #define COMMAND_QUEUE_LENGHT				1
 
+/** @} */
+
+/**
+ * @defgroup Task Delays
+ * @{
+ */
+
 #define LIGHT_TASK_DELAY_MS 			2000
 #define TEMPERATURE_TASK_DELAY_MS 		2000
 #define HUMIDITY_TASK_DELAY_MS 			2000
@@ -51,6 +63,13 @@
 #define GPS_TASK_DELAY_MS 				2000
 #define LORA_MEASUREMENT_TASK_DELAY_MS 	2000
 #define DATAHANLDER_TASK_DELAY_MS 		2000
+
+/** @} */
+
+/**
+ * @defgroup LoRa Message IDs
+ * @{
+ */
 
 #define MAX44009_MESSAGE_ID								"L"
 #define UBLOX_GPS_MESSAGE_ITOW_ID						"G1"
@@ -79,6 +98,8 @@
 #define LORA_MEASURMENT_SPREADING_FACTOR_MESSAGE_ID		"Z3"
 #define LORA_MEASURMENT_TX_POWER_MESSAGE_ID				"Z4"
 
+/** @} */
+
 #define LORA_NETWORK_NAME					"conduitgwy"
 #define LORA_NETWORK_PASSPHRASE				"conduitgwy"
 
@@ -87,7 +108,9 @@
 #define LORA_COMMAND_APPLICATION_MODE_3		"AM3"
 #define LORA_COMMAND_APPLICATION_MODE_4		"AM4"
 
-
+/**
+ * @brief Special Bundle that can hold references to all queues. Used especially by the TaskDatahandler
+ */
 typedef struct QueueBundle{
 	Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queueLight;
 	Queue<BME280TemperatureMessage,TEMPERATURE_QUEUE_LENGHT>* queueTemperature;
@@ -98,18 +121,26 @@ typedef struct QueueBundle{
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT>* queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queueGps;
-	Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queueLoRaMeasurments;
+	Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queueLoRaMeasurments;
 	Queue<CommandMessage,COMMAND_QUEUE_LENGHT>* queueCommands;
 };
 
+/**
+ * Task States. Define different States in which a task can be on the ApplicationConfig Level
+ * Each task is either RUNNING or SLEEPING
+ */
 enum TASK_STATE {
-	RUNNING = 1,
-	SLEEPING = 0
+	RUNNING = 1,//!< RUNNING
+	SLEEPING = 0//!< SLEEPING
 };
 
+/**
+ * LoRa States. Define different States in wich the LoRa Modul can be on the ApplicationConfig Level
+ * It's either ON or OFF
+ */
 enum LORA_STATE {
-	ON = 1,
-	OFF = 0
+	ON = 1,//!< ON
+	OFF = 0//!< OFF
 };
 
 

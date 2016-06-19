@@ -1,8 +1,8 @@
-/*
- * TaskLoRaMeasurement.h
+/**
+ * @file TaskLoRaMeasurement.h
  *
- *  Created on: 13.06.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 13.06.2016
  */
 
 #include <Thread.h>
@@ -17,8 +17,8 @@
 
 class TaskLoRaMeasurement {
 public:
-	TaskLoRaMeasurement(LoRa*,Mutex*, Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*);
-	TaskLoRaMeasurement(LoRa*,Mutex*,Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*,
+	TaskLoRaMeasurement(LoRa*,Mutex*, Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*);
+	TaskLoRaMeasurement(LoRa*,Mutex*,Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*,
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskLoRaMeasurement();
 
@@ -29,7 +29,7 @@ public:
 
 private:
 	rtos::Thread* thread;
-	rtos::Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue;
+	rtos::Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>* queue;
 	rtos::Mutex* mutexLoRa ;
 	osPriority priority = osPriorityNormal;
 	uint32_t stack_size = DEFAULT_STACK_SIZE;
@@ -42,7 +42,7 @@ private:
 	static void callBack(void const *);
 	void measureSignal();
 
-	void setQueue(Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*);
+	void setQueue(Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT>*);
 	void setMutex(Mutex*);
 	void setPriority(osPriority);
 	void setStackSize(uint32_t);

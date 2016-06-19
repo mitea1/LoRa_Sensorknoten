@@ -11,8 +11,7 @@
 #ifndef APP_BME280_H_
 #define APP_BME280_H_
 
-/*----- Macros -------------------------------------------------------------*/
-//Addresses of the BMP280 Sensor
+
 #define BME280_SENSOR_ADDRESS 		0b11101100	/**< Sensor address */
 #define BME280_SENSOR_ID			0xD0		/**< ID of BMP280 */
 #define BME280_SENSOR_RESET			0xE0		/**< Reset sensor */
@@ -29,7 +28,7 @@
 #define BME280_SENSOR_HUM_MSB		0xFD		/**< MSB of humidity value */
 #define BME280_SENSOR_HUM_LSB		0xFE		/**< xtra-LSB of humidity value */
 
-// Trimming Parameters Temperature, Humidity & Pressure
+
 #define BME280_digT1_LSB			0x88		/**< Trimming parameter for temperature */
 #define BME280_digT1_MSB			0x89		/**< Trimming parameter for temperature */
 #define BME280_digT2_LSB			0x8A		/**< Trimming parameter for temperature */
@@ -73,8 +72,23 @@ public:
 	void init(BME280_MODE);
 	void setI2C(I2C_RT*);
 
+
+	/**
+	 * @brief Gets the temperature in °C
+	 * @return temperature in °C
+	 */
 	float getTemperatureFloat();
+
+	/**
+	 * @brief Gets the pressure in hPa
+	 * @return pressure in hPa
+	 */
 	float getPressureFloat();
+
+	/**
+	 * @brief Gets the humidity in %
+	 * @return humidity in %
+	 */
 	float getHumidityFloat();
 
 private:
@@ -100,22 +114,97 @@ private:
 	int16_t digP8;
 	int16_t digP9;
 
-	int32_t compensateHumidity(int32_t, int32_t);
-	int64_t compensatePressure(int32_t, int32_t);
-	int32_t compensateTemperature(int32_t);
+	/**
+	 * Converts a raw measured humidity value in to an exact humidity value. The algorithm
+	 * was defined by Bosch itself
+	 * @param humidity_raw the raw measured humidity value
+	 * @param temperature_fine the exact temperature value
+	 * @return an exact humidity value
+	 */
+	int32_t compensateHumidity(int32_t humidity_raw, int32_t temperature_fine);
 
+	/**
+	 * Converts a raw measured pressure value in to an exact pressure value. The algorithm
+	 * was defined by Bosch itself
+	 * @param pressure_raw the raw measured pressure value
+	 * @param temperature_fine the exact temperature value
+	 * @return an exact pressure value
+	 */
+	int64_t compensatePressure(int32_t pressure_raw, int32_t temperature_fine);
+
+	/**
+	 * Converts a raw measured temperature value in to an exact temperature value. The algorithm
+	 * was defined by Bosch itself
+	 * @param temperatur_raw the raw measured temperature value
+	 * @return an exact temperature value
+	 */
+	int32_t compensateTemperature(int32_t temperature_raw);
+
+
+	/**
+	 * @brief Reads the trim Values that are used for calculation the exact Humidity by the compensateHumidity() Method from
+	 * the Sensor Registers and stores them
+	 */
 	void getTrimValuesHumidity();
+
+	/**
+	 * @brief Reads the trim Values that are used for calculation the exact Pressure by the compensatePressure() Method from
+	 * the Sensor Registers and stores them
+	 */
 	void getTrimValuesPressure();
+
+	/**
+	 * @brief Reads the trim Values that are used for calculation the exact Temperature by the compensateTemperature() Method from
+	 * the Sensor Registers and stores them
+	 */
 	void getTrimValuesTemperature();
 
-	void setWeatherMonitoringMode();
-	void setOversamplingTemperature(uint8_t);
-	void setOversamplingPressure(uint8_t);
-	void setOversamplingHumidity(uint8_t);
-	void setMode(uint8_t);
 
+	/**
+	 * @brief sets the Sensor in a special low Power Mode that is optimized for wheater Monitoring
+	 */
+	void setWeatherMonitoringMode();
+
+	/**
+	 * @brief sets the Oversampling for Temperature Measurements
+	 */
+	void setOversamplingTemperature(uint8_t overSamplingTemperature);
+
+	/**
+	 * @brief sets the Oversampling for Pressure Measurements
+	 */
+	void setOversamplingPressure(uint8_t overSamplingPressure);
+
+	/**
+	 * @brief sets the Oversampling for Humidity Measurements
+	 */
+	void setOversamplingHumidity(uint8_t overSamplingHumidity);
+
+	/**
+	 * @brief sets the internal Sensor Mode inside the CTRL_MEAS Register
+	 */
+	void setMode(uint8_t desiredMode);
+
+
+	/**
+	 * Get the raw Value of Humidity from the registers. This Value later needs to be processed
+	 * by the compensateHumidity() Method to get the exact Humidity
+	 * @return raw Humidity Value
+	 */
 	uint32_t getHumidity();
+
+	/**
+	 * Get the raw Value of Pressure from the registers. This Value later needs to be processed
+	 * by the compensatePressure() Method to get the exact Pressure
+	 * @return raw Pressure Value
+	 */
 	uint32_t getPressure();
+
+	/**
+	 * Get the raw Value of Temperature from the registers. This Value later needs to be processed
+	 * by the compensateTemperature() Method to get the exact Temperature
+	 * @return raw Temperature Value
+	 */
 	int32_t getTemperature();
 
 };

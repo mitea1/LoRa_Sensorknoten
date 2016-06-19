@@ -17,23 +17,6 @@ uBlox::~uBlox() {
 
 }
 
-void uBlox::setDebugSerial(mbed::RawSerial* debugSerial){
-	this->debug = debugSerial;
-}
-
-void uBlox::getMessage(){
-
-	debug->printf("DECODED MESSAGE:\n");
-	debug->printf("iTOW:%lu\n",getTimeOfWeekMs());
-	debug->printf("lon:%ld\n",getLongitude());
-	debug->printf("lat:%ld\n",getLatitude());
-	debug->printf("height:%ld\n",getHeightAboveEllipsoid());
-	debug->printf("hMSL:%ld\n",getHeightAboveMeanSeaLevel());
-	debug->printf("hAcc:%lu\n",getHorizontalAccuracyEstimate());
-	debug->printf("vAcc:%lu\n\n",getVerticalAccuracyEstimate());
-	debug->printf("BYTE CODE:%s\n\n",decoder->getReceiveBuffer());
-}
-
 unsigned long uBlox::getTimeOfWeekMs(){
 	return decoder->getLastPoslhh().iTOW;
 }
@@ -62,21 +45,12 @@ unsigned long uBlox::getVerticalAccuracyEstimate(){
 	return decoder->getLastPoslhh().vAcc;
 }
 
-
-void uBlox::writeMessage(char* string){
-	serial->printf("Test");
-}
-
 void uBlox::init(uBLOX_MODE desiredMode){
 	//TODO initialize depending on chosen Mode
 	sendDisableEveryString();
 	osDelay(100);
-	sendEnablePollhString();
+	sendEnablePosllhString();
 	osDelay(100);
-}
-
-void uBlox::buildSettingsStrings(){
-
 }
 
 void uBlox::sendDisableEveryString(){
@@ -88,7 +62,7 @@ void uBlox::sendDisableEveryString(){
 	}
 }
 
-void uBlox::sendEnablePollhString(){
+void uBlox::sendEnablePosllhString(){
 	int i;
 		uint8_t enablePollhString[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0x01,0x02,0x00,0x01,0x00,0x00,0x00,0x00,0x13,0xBE};
 		for(i=0;i<16;i++){

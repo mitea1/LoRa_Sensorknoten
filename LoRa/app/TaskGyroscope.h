@@ -1,9 +1,11 @@
-/*
- * TaskGyroscope.h
+/**
+ * @file TaskGyroscope.h
  *
- *  Created on: May 30, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 30.05.2016
+ *
  */
+
 #include "MPU9250.h"
 #include "MPU9250GyroscopeMessage.h"
 #include "main.h"
@@ -11,6 +13,13 @@
 #ifndef TASKGYROSCOPE_H_
 #define TASKGYROSCOPE_H_
 
+/**
+ * @class TaskGyroscope
+ * @brief This TaskGyroscope Class handles the gyroscope measurement using the MPU9250.
+ * Starting the task using the start() starts the measurement of all axis.
+ * It can be used alongside with other measurement Tasks inside the mbed::rtos
+ * environment. The Task Class basically wraps mbeds Thread functionality.
+ */
 class TaskGyroscope {
 public:
 	TaskGyroscope(MPU9250*,Mutex*, Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>*);
@@ -18,9 +27,25 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskGyroscope();
 
+
+	/**
+	 * @brief Starts the task by building it and connecting a callback function to
+	 * the mbed::Thread
+	 * @return
+	 */
 	osStatus start();
+
+	/**
+	 * @brief Stops the task. Should only be used after start() was used
+	 * @return
+	 */
 	osStatus stop();
 
+
+	/**
+	 * @brief Gets the actual state of the Task either RUNNING or SLEEPING
+	 * @return
+	 */
 	TASK_STATE getState();
 
 private:
@@ -35,16 +60,57 @@ private:
 
 	MPU9250* mpu9250;
 
+
+	/**
+	 * @brief A Callback function thats called by the mbed::Thread of this TaskClass
+	 * @param
+	 */
 	static void callBack(void const *);
+
+	/**
+	 * @brief A thread safe method that acquires data from the gyroscope. After acquiring data from the
+	 * it stores the data inside a MPU9250GyroscopeMessage
+	 */
 	void measureGyroscope();
 
-	void setQueue(Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>*);
-	void setMutex(Mutex*);
-	void setPriority(osPriority);
-	void setStackSize(uint32_t);
-	void setStackPointer(unsigned char*);
 
-	void setState(TASK_STATE);
+	/**
+	 * @brief Sets the message Queue of the Task where the measured values will be stored
+	 * after the measurement
+	 * @param queueGyro the queue where the MPU9250GyroscopeMessage will be stored
+	 */
+	void setQueue(Queue<MPU9250GyroscopeMessage,GYROSCOPE_QUEUE_LENGHT>* queueGyro);
+
+	/**
+	 * @brief Sets the mutex thats used for a thread safe measurement
+	 * @param mutexI2C the I2C mutex
+	 */
+	void setMutex(Mutex* mutexI2C);
+
+	/**
+	 * @brief Sets the priority of the Task
+	 * @param priority priority of the Task
+	 */
+	void setPriority(osPriority priority);
+
+	/**
+	 * @brief Sets the size of the Task
+	 * @param stackSize the stack size in Bytes
+	 */
+	void setStackSize(uint32_t stackSize);
+
+	/**
+	 * @brief Sets the stack pointer of for the task stack
+	 * @param stackPointer
+	 */
+	void setStackPointer(unsigned char* stackPointer);
+
+
+	/**
+	 * @brief Sets the actual state of the Task.
+	 * @param taskState either RUNNING or SLEEPING
+	 */
+	void setState(TASK_STATE taskState);
 
 };
 
