@@ -1,8 +1,9 @@
-/*
- * MPU9250GyroscopeMessage.h
+/**
+ * @file MPU9250GyroscopeMessage.h
  *
- *  Created on: Jun 1, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 01.06.2016
+ *
  */
 
 #ifndef MPU9250GYROSCOPEMESSAGE_H_
@@ -17,14 +18,48 @@ public:
 	MPU9250GyroscopeMessage();
 	virtual ~MPU9250GyroscopeMessage();
 
-	void setXGyro(float);
-	void setYGyro(float);
-	void setZGyro(float);
+	/**
+	 * Sets the x-axis gyroscope value of the MPU9250GyroscopeMessage
+	 * @param xGyro x-axis Gyroscope value to be stored
+	 */
+	void setXGyro(float xGyro);
 
+	/**
+	 * Sets the y-axis gyroscope value of the MPU9250GyroscopeMessage
+	 * @param yGyro y-axis Gyroscope value to be stored
+	 */
+	void setYGyro(float yGyro);
+
+	/**
+	 * Sets the z-axis gyroscope value of the MPU9250GyroscopeMessage
+	 * @param zGyro z-axis Gyroscope value to be stored
+	 */
+	void setZGyro(float zGyro);
+
+
+	/**
+	 * Gets the x-axis gyroscope value from the MPU9250GyroscopeMessage
+	 * @return
+	 */
 	float getXGyro();
+
+	/**
+	 * Gets the y-axis gyroscope value from the MPU9250GyroscopeMessage
+	 * @return
+	 */
 	float getYGyro();
+
+	/**
+	 * Gets the z-axis gyroscope value from the MPU9250GyroscopeMessage
+	 * @return
+	 */
 	float getZGyro();
 
+	/**
+	 * Gets a small LoRaMessage Type Formated String from the  MPU9250GyroscopeMessage.
+	 * This String can later be used for transportation via LoRa
+	 * @return
+	 */
 	virtual char* getLoRaMessageString();
 
 private:
@@ -35,7 +70,6 @@ private:
 	float yGyro;
 	float zGyro;
 
-	virtual char* getLoRaMessageId();
 };
 
 

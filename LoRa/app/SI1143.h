@@ -1,8 +1,9 @@
-/*
- * SI1143.h
+/**
+ * @file SI1143.h
  *
- *  Created on: Jun 2, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 02.06.2016
+ *
  */
 #ifndef SI1143_H_
 #define SI1143_H_
@@ -132,17 +133,51 @@
 #define SI1143_AUX_TASK                    0x40
 
 
+/**
+ * @class SI1143
+ * @brief Provides Functionality to control  the SI1143 Sensor on the Sensbert
+ */
+
 class SI1143
 {
     public:
         SI1143(I2C_RT*);
 
-        void init(SI1143_MODE);
+
+        /**
+         * @brief Initializes the SI1143 according to the desired SI1143_MODE
+         * @param desiredMode the desired Mode depending on which the SI1143 has
+         * to be configured
+         */
+        void init(SI1143_MODE desiredMode);
+        /**
+         * @brief Restarts the Sensor and its functionality
+         */
         void restart(void);
 
 
+        /**
+         * @brief Get the actual proximity that has been measured
+         * @param repeat how many time the measurement has been taken to get an average
+         * proximity value
+         * @return
+         */
         int getProximity(int repeat);
+
+        /**
+         * @brief Get the actual ambient light that has been measured
+         * @param repeat how many time the measurement has been taken to get an average
+         * ambient light value
+         * @return
+         */
         int getAmbientLight(int repeat);
+
+        /**
+		 * @brief Get the actual infrared light that has been measured
+		 * @param repeat how many time the measurement has been taken to get an average
+		 * infrared light value
+		 * @return
+		 */
         int getInfraRedLight(int repeat);
 
 
@@ -154,9 +189,23 @@ class SI1143
 
         SI1143Config* config;
 
+        /**
+         * @brief Sends commands via i2c to the command register.
+         * Is used to control the Sensor
+         * @param cmd command to be sent to the command register
+         */
         void command(uint8_t cmd);
 
+        /**
+         * @brief Configure SI1143 Interrupts internally
+         * according to its SI1143Config
+         */
         void configureInterrupts();
+
+        /**
+		 * @brief Sets the proximity sensing threshold of led 1
+		 * according to its SI1143Config
+		 */
 		void setProximitySensing1Threshold();
 
 };

@@ -8,7 +8,7 @@
 #include "LoRaMeasuermentMessage.h"
 #include "main.h"
 
-LoRaMeasuermentMessage::LoRaMeasuermentMessage() {
+LoRaMeasurementMessage::LoRaMeasurementMessage() {
 	loraMessageId.push_back(LORA_MEASURMENT_RSSI_MESSAGE_ID);
 	loraMessageId.push_back(LORA_MEASURMENT_SNR_MESSAGE_ID);
 	loraMessageId.push_back(LORA_MEASURMENT_SPREADING_FACTOR_MESSAGE_ID);
@@ -16,43 +16,43 @@ LoRaMeasuermentMessage::LoRaMeasuermentMessage() {
 
 }
 
-LoRaMeasuermentMessage::~LoRaMeasuermentMessage() {
-	// TODO Auto-generated destructor stub
+LoRaMeasurementMessage::~LoRaMeasurementMessage() {
+
 }
 
-void LoRaMeasuermentMessage::setRssi(int16_t rssi){
+void LoRaMeasurementMessage::setRssi(int16_t rssi){
 	this->rssi = rssi;
 }
 
-int16_t LoRaMeasuermentMessage::getRssi(){
+int16_t LoRaMeasurementMessage::getRssi(){
 	return rssi;
 }
 
-void LoRaMeasuermentMessage::setSnr(int16_t snr){
+void LoRaMeasurementMessage::setSnr(int16_t snr){
 	this->snr = snr;
 }
 
-int16_t LoRaMeasuermentMessage::getSnr(){
+int16_t LoRaMeasurementMessage::getSnr(){
 	return snr;
 }
 
-void LoRaMeasuermentMessage::setSpreadingFactor(uint8_t spreadingFactor){
+void LoRaMeasurementMessage::setSpreadingFactor(uint8_t spreadingFactor){
 	this->spreadingFactor = spreadingFactor;
 }
 
-uint8_t LoRaMeasuermentMessage::getSpreadingFactor(){
+uint8_t LoRaMeasurementMessage::getSpreadingFactor(){
 	return spreadingFactor;
 }
 
-void LoRaMeasuermentMessage::setTxPowerdBm(uint8_t txPowerdBm){
+void LoRaMeasurementMessage::setTxPowerdBm(uint8_t txPowerdBm){
 	this->txPowerdBm = txPowerdBm;
 }
 
-uint8_t LoRaMeasuermentMessage::getTxPowerdBm(){
+uint8_t LoRaMeasurementMessage::getTxPowerdBm(){
 	return txPowerdBm;
 }
 
-char* LoRaMeasuermentMessage::getLoRaMessageString(){
+char* LoRaMeasurementMessage::getLoRaMessageString(){
 	char buffer[20];
 	loraMessage.clear();
 	sprintf(buffer,"%s:%d,",loraMessageId.at(0).c_str(),getRssi());
@@ -66,6 +66,3 @@ char* LoRaMeasuermentMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* LoRaMeasuermentMessage::getLoRaMessageId(){
-
-}

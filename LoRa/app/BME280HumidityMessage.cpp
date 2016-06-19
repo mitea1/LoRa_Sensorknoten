@@ -33,6 +33,3 @@ char* BME280HumidityMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* BME280HumidityMessage::getLoRaMessageId(){
-
-}

@@ -12,12 +12,9 @@ I2C_RT::I2C_RT(){
 }
 
 I2C_RT::~I2C_RT() {
-	// TODO Auto-generated destructor stub
-}
-
-void I2C_RT::setMbedI2C(mbed::I2C* i2c){
 
 }
+
 
 void I2C_RT::read_RT(uint8_t address,uint16_t reg,bool isTwoBytes,uint8_t*data,uint8_t dataLenght){
 

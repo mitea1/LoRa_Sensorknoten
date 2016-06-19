@@ -126,7 +126,7 @@ void TaskDatahandler::forwardSensorMessages(){
 	}
 
 	if(loraMeasureEvent.status == osEventMessage){
-		LoRaMeasuermentMessage* loraMeasurementMessage = (LoRaMeasuermentMessage*) loraMeasureEvent.value.p;
+		LoRaMeasurementMessage* loraMeasurementMessage = (LoRaMeasurementMessage*) loraMeasureEvent.value.p;
 		debugSerial->printf("%s\n",loraMeasurementMessage->getLoRaMessageString());
 		loraMessage.append(loraMeasurementMessage->getLoRaMessageString());
 	}

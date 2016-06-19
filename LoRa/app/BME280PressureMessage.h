@@ -1,28 +1,46 @@
-/*
- * BME280PressureMessage.h
+/**
+ * @file BME280PressureMessage.h
  *
- *  Created on: Jun 1, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date Jun 1, 2016
  */
 
 #ifndef BME280PRESSUREMESSAGE_H_
 #define BME280PRESSUREMESSAGE_H_
+
 #include <stdio.h>
 #include <string>
 #include <vector>
 #include "SensorMessage.h"
 
+/**
+ * @class BME280PressureMessage
+ * @brief A Container that can hold acquired humidity values. The container will be
+ * transported via a MessageQueue between different Tasks.
+ */
 class BME280PressureMessage: public SensorMessage {
 public:
 	BME280PressureMessage();
 	virtual ~BME280PressureMessage();
 
-	void setPressure(float);
+	/**
+	 * Sets the pressure value of the BME280PressureMessage
+	 * @param pressure
+	 */
+	void setPressure(float pressure);
+
+	/**
+	 * Gets the pressure value from the BME280PressureMessage
+	 * @return
+	 */
 	float getPressure();
 
-
+	/**
+	 * Gets a small LoRaMessage Type Formated String from the BMEPressureMessage.
+	 * This String can later be used for transportation via LoRa
+	 * @return
+	 */
 	virtual char* getLoRaMessageString();
-	virtual char* getLoRaMessageId();
 
 private:
 	std::string loraMessage;

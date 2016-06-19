@@ -33,8 +33,5 @@ char* BME280PressureMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* BME280PressureMessage::getLoRaMessageId(){
-
-}
 
 

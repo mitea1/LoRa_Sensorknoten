@@ -32,7 +32,5 @@ char* SI1143ProximityMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* SI1143ProximityMessage::getLoRaMessageId(){
 
-}
 

@@ -56,9 +56,6 @@ char* MPU9250AccelerationMessage::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* MPU9250AccelerationMessage::getLoRaMessageId(){
-
-}
 
 
 

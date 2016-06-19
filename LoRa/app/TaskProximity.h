@@ -1,8 +1,9 @@
-/*
- * TaskProximity.h
+/**
+ * @file TaskProximity.h
  *
- *  Created on: Jun 3, 2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 03.06.2016
+ *
  */
 #include "SI1143.h"
 #include "SI1143ProximityMessage.h"
@@ -11,6 +12,13 @@
 #ifndef TASKPROXIMITY_H_
 #define TASKPROXIMITY_H_
 
+/**
+ * @class TaskProximity
+ * @brief This TaskProximity Class handles the proximity measurement using the SI1143.
+ * Starting the task using the start() starts the measurement.
+ * It can be used alongside with other measurement Tasks inside the mbed::rtos
+ * environment. The Task Class basically wraps mbeds Thread functionality.
+ */
 class TaskProximity {
 public:
 	TaskProximity(SI1143*,Mutex*,Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>*);
@@ -18,9 +26,25 @@ public:
 			osPriority, uint32_t, unsigned char*);
 	virtual ~TaskProximity();
 
+
+	/**
+	 * @brief Starts the task by building it and connecting a callback function to
+	 * the mbed::Thread
+	 * @return
+	 */
 	osStatus start();
+
+	/**
+	 * @brief Stops the task. Should only be used after start() was used
+	 * @return
+	 */
 	osStatus stop();
 
+
+	/**
+	 * @brief Gets the actual state of the Task either RUNNING or SLEEPING
+	 * @return
+	 */
 	TASK_STATE getState();
 
 private:
@@ -35,15 +59,56 @@ private:
 
 	SI1143* si1143;
 
+
+	/**
+	 * @brief A Callback function thats called by the mbed::Thread of this TaskClass
+	 * @param
+	 */
 	static void callBack(void const *);
+
+	/**
+	 * @brief A thread safe method that acquires data from the gyroscope. After acquiring data from the
+	 * it stores the data inside a MPU9250GyroscopeMessage
+	 */
 	void measureProximity();
 
-	void setQueue(Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>*);
-	void setMutex(Mutex*);
-	void setPriority(osPriority);
-	void setStackSize(uint32_t);
-	void setStackPointer(unsigned char*);
 
+	/**
+	 * @brief Sets the message Queue of the Task where the measured values will be stored
+	 * after the measurement
+	 * @param queueProximity the queue where the SI1143ProximityMessage will be stored
+	 */
+	void setQueue(Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queueProximity);
+
+	/**
+	 * @brief Sets the mutex thats used for a thread safe measurement
+	 * @param mutexI2C the I2C mutex
+	 */
+	void setMutex(Mutex* mutexI2C);
+
+	/**
+	 * @brief Sets the priority of the Task
+	 * @param priority priority of the Task
+	 */
+	void setPriority(osPriority priority);
+
+	/**
+	 * @brief Sets the size of the Task
+	 * @param stackSize the stack size in Bytes
+	 */
+	void setStackSize(uint32_t stackSize);
+
+	/**
+	 * @brief Sets the stack pointer of for the task stack
+	 * @param stackPointer
+	 */
+	void setStackPointer(unsigned char* stackPointer);
+
+
+	/**
+	 * @brief Sets the actual state of the Task.
+	 * @param taskState either RUNNING or SLEEPING
+	 */
 	void setState(TASK_STATE);
 };
 

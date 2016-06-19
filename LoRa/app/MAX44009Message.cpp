@@ -33,6 +33,3 @@ char* MAX44009Message::getLoRaMessageString(){
 	return (char*) loraMessage.c_str();
 }
 
-char* MAX44009Message::getLoRaMessageId(){
-
-}

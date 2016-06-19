@@ -1,9 +1,10 @@
 /*
- * SensorHandler.h
+ * 	Application.h
  *
  *  Created on: Jun 3, 2016
  *      Author: Adrian
  */
+
 #include "ApplicationConfig.h"
 #include "mbed.h"
 #include "rtos.h"
@@ -28,15 +29,19 @@
 #include "TaskDatahandler.h"
 #include "main.h"
 
-#ifndef APPLICATION_H_
-#define APPLICATION_H_
+#ifndef SENSORHANDLER_H_
+#define SENSORHANDLER_H_
 
 class Application {
 public:
 	Application();
 	virtual ~Application();
 
-	void init(APPLICATION_MODE);
+	/**
+	 * @brief Start the Application in the desired Mode
+	 * @return
+	 */
+	void init(APPLICATION_MODE desiredMode);
 
 private:
 	RawSerial* uart;
@@ -75,7 +80,7 @@ private:
 	Queue<MPU9250TeslaMessage,TESLA_QUEUE_LENGHT> queueTesla;
 	Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT> queueProximity;
 	Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT> queueGps;
-	Queue<LoRaMeasuermentMessage,LORA_MEASUREMENT_QUEUE_LENGHT> queueLoRaMeasurements;
+	Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT> queueLoRaMeasurements;
 	Queue<CommandMessage,COMMAND_QUEUE_LENGHT> queueCommands;
 
 	QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
@@ -90,16 +95,52 @@ private:
 
 	ApplicationConfig* config;
 
+	/**
+	 * @brief Initializes all Interfaces such as I2C, UART and a Debug Serial via USB
+	 */
 	void initInterfaces();
+
+	/**
+	 * @brief Initializes (builds) all Sensors in their specific modes
+	 */
 	void initSensors();
+
+	/**
+	 * @brief Initializes (builds) all Tasks so that they are ready to run
+	 */
 	void initTasks();
+
+	/**
+	 * @brief Initializes (builds) all Mutexes so that they are ready to be used
+	 */
 	void initMutexes();
+
+	/**
+	 * @brief Initializes (builds) the ApplicationConfig which contains information about
+	 * which Task has to be run and how the sensors have to be configured
+	 */
 	void initApplicationConfig();
 
-
+	/**
+	 * @brief Stops all tasks that are currently running. Used to define a defined state to start the application
+	 * in a new mode or when using a transition between two application modes it is neccessary to stop all task before
+	 * starting them again
+	 */
 	void stopAllRunningSensorTasks();
+
+	/**
+	 * @brief Starts all task which are allowed to run by the Application Config
+	 */
 	void startRunnableSensorTasks();
+
+	/**
+	 * @brief Configures and builds the sensors according to they SensorMode specific parameters
+	 */
 	void configureSensors();
+
+	/**
+	 * @brief Configures and builds the LoRa Device according to its Mode specific parameters
+	 */
 	void configureLora();
 
 };

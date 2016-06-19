@@ -202,8 +202,6 @@ uint8_t LoRa::getTxPowerdBm(){
 
 void LoRa::ping(){
 	mDot::ping_response response = dot->ping();
-	this->rssi = response.rssi;
-	this->snr = response.snr;
 }
 
 

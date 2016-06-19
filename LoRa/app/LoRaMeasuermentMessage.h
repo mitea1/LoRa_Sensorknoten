@@ -1,8 +1,8 @@
-/*
- * LoRaMeasuermentMessage.h
+/**
+ * @file LoRaMeasuermentMessage.h
  *
- *  Created on: 13.06.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 13.06.2016
  */
 
 #ifndef APP_LORAMEASUERMENTMESSAGE_H_
@@ -14,22 +14,71 @@
 #include <vector>
 #include "SensorMessage.h"
 
-class LoRaMeasuermentMessage: public SensorMessage {
+/**
+ * @class LoRaMeasurementMessage
+ * @brief A Container that can hold acquired measurement values such as Rssi, Snr and some other config values from the LoRa Module.
+ * The container will be transported via a MessageQueue between different Tasks and its intended to stored measurement results.
+ */
+class LoRaMeasurementMessage: public SensorMessage {
 public:
-	LoRaMeasuermentMessage();
-	virtual ~LoRaMeasuermentMessage();
+	LoRaMeasurementMessage();
+	virtual ~LoRaMeasurementMessage();
 
-	void setRssi(int16_t);
+
+	/**
+	 * @brief Sets the rssi value of the LoRaMeasurementMessage
+	 * @param rssi rssi value to be stored
+	 */
+	void setRssi(int16_t rssi);
+
+	/**
+	 * @brief Gets the stored rssi value of the LoRaMeasurmentMessage
+	 * @return
+	 */
 	int16_t getRssi();
-	void setSnr(int16_t);
+
+	/**
+	 * @brief Sets the snr value of the LoRaMeasurementMessage
+	 * @param snr snr value to be stored
+	 */
+	void setSnr(int16_t snr);
+
+	/**
+	 * @brief Gets the stored snr value of the LoRaMeasurementMessage
+	 * @return
+	 */
 	int16_t getSnr();
-	void setSpreadingFactor(uint8_t);
+
+	/**
+	 * @brief Sets the spreadingFactor of the LoRaMeasurementMessage
+	 * @param spreadingFactor spreading Factor to be stored
+	 */
+	void setSpreadingFactor(uint8_t spreadingFactor);
+
+	/**
+	 * @brief Gets the stored spreading Factor of the LoRaMeasurementMessage
+	 * @return
+	 */
 	uint8_t getSpreadingFactor();
-	void setTxPowerdBm(uint8_t);
+
+	/**
+	 * @brief Sets the tx Power value in dBm of the LoRaMeasurementMessage
+	 * @param txPowerdBm tx Power in dBm to be stored
+	 */
+	void setTxPowerdBm(uint8_t txPowerdBm);
+
+	/**
+	 * @breif Gets the stored tx Power in dBm of the LoRaMeasurementMessage
+	 * @return
+	 */
 	uint8_t getTxPowerdBm();
 
+	/**
+	 * Gets a small LoRaMessage Type Formated String from the LoRaMeasurmentMessage.
+	 * This String can later be used for transportation via LoRa
+	 * @return
+	 */
 	virtual char* getLoRaMessageString();
-	virtual char* getLoRaMessageId();
 
 private:
 	std::string loraMessage;

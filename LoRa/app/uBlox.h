@@ -1,8 +1,9 @@
-/*
- * uBlox.h
+/**
+ * @file uBlox.h
  *
- *  Created on: 16.05.2016
- *      Author: Adrian
+ * @author Adrian
+ * @date 16.05.2016
+ *
  */
 
 #include <RawSerial.h>
@@ -13,39 +14,78 @@
 #ifndef APP_UBLOX_H_
 #define APP_UBLOX_H_
 
+/**
+ * @class uBlox
+ * @brief Provides Functionality to control the uBlox
+ */
 class uBlox {
 public:
 	uBlox(mbed::RawSerial*);
-	void init(uBLOX_MODE);
 	virtual ~uBlox();
-	void getMessage();
-	void writeMessage(char*);
-	void setDebugSerial(mbed::RawSerial*);
 
+	/**
+	 * @brief Initializes the uBlox according to the desired uBLOX_MODE
+	 * @param desiredMode the desired Mode depending on which the uBlox has to be
+	 * configured
+	 */
+	void init(uBLOX_MODE);
+
+	/**
+	 * @brief Gets the GPS Time of Week in ms
+	 */
 	unsigned long getTimeOfWeekMs();
+
+	/**
+	 * @brief Gets the decoded Latitude of the GPS Coordinate
+	 * @return
+	 */
 	float getLatitude();
+
+	/**
+	 * @brief Gets the decoded Longitude of the GPS Coordinate
+	 * @return
+	 */
 	float getLongitude();
+
+	/**
+	 * @brief Gets the decoded height above ellipsoid of the GPS Coordinate
+	 * @return
+	 */
 	signed long getHeightAboveEllipsoid();
+
+	/**
+	 * @brief Gets the decoded height above mean sea level of the GPS Coordinate
+	 * @return
+	 */
 	signed long getHeightAboveMeanSeaLevel();
+
+	/**
+	 * @brief Gets the decoded horizontal accuracy of the GPS Coordinate measurement
+	 * @return
+	 */
 	unsigned long getHorizontalAccuracyEstimate();
+
+	/**
+	 * @brief Gets the decoded vertical accuracy of the GPS Coordinate measurment
+	 * @return
+	 */
 	unsigned long getVerticalAccuracyEstimate();
 
 private:
 	Decoder* decoder;
 	mbed::RawSerial* serial;
-	mbed::RawSerial* debug;
-//	char* disableAllString;
-//	char* enablePollhString;
 
 	uBloxConfig* config;
 
-	void buildSettingsStrings();
+	/**
+	 * Sends a String via the uart interface of the uBlox that disables all telegrams
+	 */
 	void sendDisableEveryString();
-	void sendEnablePollhString();
 
-	void disableEveryMessage();
-	void enablePollhMessage();
-
+	/**
+	 * Sends a String via the uart interface of the uBlox that enables the NAV-POSLLH Telegram
+	 */
+	void sendEnablePosllhString();
 
 };
 
