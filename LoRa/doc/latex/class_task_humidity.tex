@@ -1,0 +1,68 @@
+\hypertarget{class_task_humidity}{}\section{Task\+Humidity Class Reference}
+\label{class_task_humidity}\index{Task\+Humidity@{Task\+Humidity}}
+
+
+This \hyperlink{class_task_humidity}{Task\+Humidity} Class handles the humidity measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Humidity.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_humidity_a545407db5ef85639236f35620b5bb114}{}{\bfseries Task\+Humidity} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_humidity_message}{B\+M\+E280\+Humidity\+Message}, H\+U\+M\+I\+D\+I\+T\+Y\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_humidity_a545407db5ef85639236f35620b5bb114}
+
+\item 
+\hypertarget{class_task_humidity_ae8c19f103089b840ca43ddf9e3545b6f}{}{\bfseries Task\+Humidity} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_humidity_message}{B\+M\+E280\+Humidity\+Message}, H\+U\+M\+I\+D\+I\+T\+Y\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_humidity_ae8c19f103089b840ca43ddf9e3545b6f}
+
+\item 
+os\+Status \hyperlink{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}{start} ()
+\item 
+os\+Status \hyperlink{class_task_humidity_a2fa68058ef5a7c52019e16c648738a41}{stop} ()
+\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_humidity_a908679dd64690c5c4d801ce812a1e97c}{get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_humidity}{Task\+Humidity} Class handles the humidity measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_humidity_a908679dd64690c5c4d801ce812a1e97c}{}\index{Task\+Humidity@{Task\+Humidity}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Humidity@{Task\+Humidity}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Humidity\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_humidity_a908679dd64690c5c4d801ce812a1e97c}
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}{}\index{Task\+Humidity@{Task\+Humidity}!start@{start}}
+\index{start@{start}!Task\+Humidity@{Task\+Humidity}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Humidity\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}
+Starts the task by building and its measurement \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_humidity_a2fa68058ef5a7c52019e16c648738a41}{}\index{Task\+Humidity@{Task\+Humidity}!stop@{stop}}
+\index{stop@{stop}!Task\+Humidity@{Task\+Humidity}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Humidity\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_humidity_a2fa68058ef5a7c52019e16c648738a41}
+Stops the task. Should only be used after \hyperlink{class_task_humidity_a2a3f5cee6c4794901c5b95a28df7388b}{start()} was used \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/Task\+Humidity.\+h\item 
+app/Task\+Humidity.\+cpp\end{DoxyCompactItemize}

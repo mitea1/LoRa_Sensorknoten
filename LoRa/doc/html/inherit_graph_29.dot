@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="UART_Tunnel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_u_a_r_t___tunnel.html",tooltip="Makes it possible to use the mDotDKs USB Connection as a COM-Port to communicate directly with a devi..."];
+}

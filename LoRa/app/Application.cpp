@@ -154,12 +154,12 @@ void Application::configureSensors(){
 	max44009->init(config->getMAX44009_MODE());
 	bme280->init(config->getBME280_MODE());
 	mpu9250->init(config->getMPU9250_MODE());
-//	si1143->init(config->getSI1143_MODE());
+	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
 }
 
 void Application::configureLora(){
-//	lora->init(config->getLORA_MODE());
+	lora->init(config->getLORA_MODE());
 }
 
 void Application::initMutexes(){

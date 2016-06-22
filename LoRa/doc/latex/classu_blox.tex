@@ -1,0 +1,146 @@
+\hypertarget{classu_blox}{}\section{u\+Blox Class Reference}
+\label{classu_blox}\index{u\+Blox@{u\+Blox}}
+
+
+Provides Functionality to control the \hyperlink{classu_blox}{u\+Blox}.  
+
+
+
+
+{\ttfamily \#include $<$u\+Blox.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classu_blox_a81e94abeda6b79a8f8eb56599a4ed4b5}{}{\bfseries u\+Blox} (mbed\+::\+Raw\+Serial $\ast$)\label{classu_blox_a81e94abeda6b79a8f8eb56599a4ed4b5}
+
+\item 
+void \hyperlink{classu_blox_a5005d11f191751df7fb93f126e2e7fd7}{init} (\hyperlink{u_blox_config_8h_a6385c8c7bdf45fd188525597db9b7314}{u\+B\+L\+O\+X\+\_\+\+M\+O\+D\+E})
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{classu_blox}{u\+Blox} according to the desired u\+B\+L\+O\+X\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+\hypertarget{classu_blox_ae728283170659a04c5af8676297750a7}{}unsigned long \hyperlink{classu_blox_ae728283170659a04c5af8676297750a7}{get\+Time\+Of\+Week\+Ms} ()\label{classu_blox_ae728283170659a04c5af8676297750a7}
+
+\begin{DoxyCompactList}\small\item\em Gets the G\+P\+S Time of Week in ms. \end{DoxyCompactList}\item 
+float \hyperlink{classu_blox_ac39bf4a46447c1041647f58f44d49d55}{get\+Latitude} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded Latitude of the G\+P\+S Coordinate. \end{DoxyCompactList}\item 
+float \hyperlink{classu_blox_a197b674384c809289096235e5e8d1b86}{get\+Longitude} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded Longitude of the G\+P\+S Coordinate. \end{DoxyCompactList}\item 
+signed long \hyperlink{classu_blox_a4deda46fa93b47cc419309d1267bb9d9}{get\+Height\+Above\+Ellipsoid} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded height above ellipsoid of the G\+P\+S Coordinate. \end{DoxyCompactList}\item 
+signed long \hyperlink{classu_blox_a5e355dcb06d874794e5a236ae078cacc}{get\+Height\+Above\+Mean\+Sea\+Level} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded height above mean sea level of the G\+P\+S Coordinate. \end{DoxyCompactList}\item 
+unsigned long \hyperlink{classu_blox_a94c237054ac789f4b15d096ca774940e}{get\+Horizontal\+Accuracy\+Estimate} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded horizontal accuracy of the G\+P\+S Coordinate measurement. \end{DoxyCompactList}\item 
+unsigned long \hyperlink{classu_blox_a782209fd2fc0ebac5e601346c60d2a1d}{get\+Vertical\+Accuracy\+Estimate} ()
+\begin{DoxyCompactList}\small\item\em Gets the decoded vertical accuracy of the G\+P\+S Coordinate measurment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides Functionality to control the \hyperlink{classu_blox}{u\+Blox}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classu_blox_a4deda46fa93b47cc419309d1267bb9d9}{}\index{u\+Blox@{u\+Blox}!get\+Height\+Above\+Ellipsoid@{get\+Height\+Above\+Ellipsoid}}
+\index{get\+Height\+Above\+Ellipsoid@{get\+Height\+Above\+Ellipsoid}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Height\+Above\+Ellipsoid}]{\setlength{\rightskip}{0pt plus 5cm}signed long u\+Blox\+::get\+Height\+Above\+Ellipsoid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a4deda46fa93b47cc419309d1267bb9d9}
+
+
+Gets the decoded height above ellipsoid of the G\+P\+S Coordinate. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_a5e355dcb06d874794e5a236ae078cacc}{}\index{u\+Blox@{u\+Blox}!get\+Height\+Above\+Mean\+Sea\+Level@{get\+Height\+Above\+Mean\+Sea\+Level}}
+\index{get\+Height\+Above\+Mean\+Sea\+Level@{get\+Height\+Above\+Mean\+Sea\+Level}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Height\+Above\+Mean\+Sea\+Level}]{\setlength{\rightskip}{0pt plus 5cm}signed long u\+Blox\+::get\+Height\+Above\+Mean\+Sea\+Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a5e355dcb06d874794e5a236ae078cacc}
+
+
+Gets the decoded height above mean sea level of the G\+P\+S Coordinate. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_a94c237054ac789f4b15d096ca774940e}{}\index{u\+Blox@{u\+Blox}!get\+Horizontal\+Accuracy\+Estimate@{get\+Horizontal\+Accuracy\+Estimate}}
+\index{get\+Horizontal\+Accuracy\+Estimate@{get\+Horizontal\+Accuracy\+Estimate}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Horizontal\+Accuracy\+Estimate}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long u\+Blox\+::get\+Horizontal\+Accuracy\+Estimate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a94c237054ac789f4b15d096ca774940e}
+
+
+Gets the decoded horizontal accuracy of the G\+P\+S Coordinate measurement. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_ac39bf4a46447c1041647f58f44d49d55}{}\index{u\+Blox@{u\+Blox}!get\+Latitude@{get\+Latitude}}
+\index{get\+Latitude@{get\+Latitude}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Latitude}]{\setlength{\rightskip}{0pt plus 5cm}float u\+Blox\+::get\+Latitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_ac39bf4a46447c1041647f58f44d49d55}
+
+
+Gets the decoded Latitude of the G\+P\+S Coordinate. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_a197b674384c809289096235e5e8d1b86}{}\index{u\+Blox@{u\+Blox}!get\+Longitude@{get\+Longitude}}
+\index{get\+Longitude@{get\+Longitude}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Longitude}]{\setlength{\rightskip}{0pt plus 5cm}float u\+Blox\+::get\+Longitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a197b674384c809289096235e5e8d1b86}
+
+
+Gets the decoded Longitude of the G\+P\+S Coordinate. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_a782209fd2fc0ebac5e601346c60d2a1d}{}\index{u\+Blox@{u\+Blox}!get\+Vertical\+Accuracy\+Estimate@{get\+Vertical\+Accuracy\+Estimate}}
+\index{get\+Vertical\+Accuracy\+Estimate@{get\+Vertical\+Accuracy\+Estimate}!u\+Blox@{u\+Blox}}
+\subsubsection[{get\+Vertical\+Accuracy\+Estimate}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long u\+Blox\+::get\+Vertical\+Accuracy\+Estimate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a782209fd2fc0ebac5e601346c60d2a1d}
+
+
+Gets the decoded vertical accuracy of the G\+P\+S Coordinate measurment. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classu_blox_a5005d11f191751df7fb93f126e2e7fd7}{}\index{u\+Blox@{u\+Blox}!init@{init}}
+\index{init@{init}!u\+Blox@{u\+Blox}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void u\+Blox\+::init (
+\begin{DoxyParamCaption}
+\item[{{\bf u\+B\+L\+O\+X\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{classu_blox_a5005d11f191751df7fb93f126e2e7fd7}
+
+
+Initializes the \hyperlink{classu_blox}{u\+Blox} according to the desired u\+B\+L\+O\+X\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the desired Mode depending on which the \hyperlink{classu_blox}{u\+Blox} has to be configured \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{u_blox_8h}{u\+Blox.\+h}\item 
+app/u\+Blox.\+cpp\end{DoxyCompactItemize}

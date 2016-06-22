@@ -14,7 +14,7 @@ uBlox::uBlox(mbed::RawSerial* serial) {
 }
 
 uBlox::~uBlox() {
-
+	delete decoder;
 }
 
 unsigned long uBlox::getTimeOfWeekMs(){
@@ -46,27 +46,24 @@ unsigned long uBlox::getVerticalAccuracyEstimate(){
 }
 
 void uBlox::init(uBLOX_MODE desiredMode){
-	//TODO initialize depending on chosen Mode
-	sendDisableEveryString();
-	osDelay(100);
-	sendEnablePosllhString();
-	osDelay(100);
-}
+	config->build(desiredMode);
+	std::vector< std::vector<uint8_t> > initialConfigurationStrings = config->getInitialConfigurationString();
 
-void uBlox::sendDisableEveryString(){
-	int i;
-	uint8_t disableString[28]={0xB5,0x62,0x06,0x00,0x14,0x00,0x01,0x00,0x00,0x00,0xD0,0x08,0x00,0x00,0x80,0x25,0x00,0x00,0x01,0x00,0x01,
-			0x00,0x00,0x00,0x00,0x00,0x9A,0x79};
-	for(i=0;i<28;i++){
-		serial->putc(disableString[i]);
+	for(uint8_t i = 0 ; i < initialConfigurationStrings.size() ; i++){
+		sendConfigurationString( initialConfigurationStrings.at(i) );
 	}
+
 }
 
-void uBlox::sendEnablePosllhString(){
-	int i;
-		uint8_t enablePollhString[16]={0xB5,0x62,0x06,0x01,0x08,0x00,0x01,0x02,0x00,0x01,0x00,0x00,0x00,0x00,0x13,0xBE};
-		for(i=0;i<16;i++){
-			serial->putc(enablePollhString[i]);
-		}
+void uBlox::sendConfigurationString(std::vector<uint8_t> commandString){
+	for(uint8_t i = 0 ; i < commandString.size() ; i++){
+		uint8_t character = commandString.at(i);
+		serial->putc(character);
+	}
+
+	osDelay(100);
 }
+
+
+
 

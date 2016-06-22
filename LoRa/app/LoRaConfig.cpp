@@ -20,9 +20,9 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 
 	switch(desiredMode){
 
-		case LORA_MODE_0:
+		case LORA_MODE_0_OFF:
 			setNetworkPublicity(true);
-			setActivity(true);
+			setActivity(false);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
 			setFrequencySubBand(LORA_SUBBAND_0);

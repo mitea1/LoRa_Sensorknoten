@@ -1,0 +1,92 @@
+\hypertarget{class_b_m_e280_config}{}\section{B\+M\+E280\+Config Class Reference}
+\label{class_b_m_e280_config}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+
+
+A configuration container for the \hyperlink{class_b_m_e280}{B\+M\+E280} Sensor. All its configuration values are stored an held inside this Class. Depending on the B\+M\+E280\+\_\+\+M\+O\+D\+E it sets all the configuration values.  
+
+
+
+
+{\ttfamily \#include $<$B\+M\+E280\+Config.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_b_m_e280_config_a7c04196811432e07cb2f0963b5fb8894}{build} (\hyperlink{_b_m_e280_config_8h_adbe608ebe4835999264df777979ca834}{B\+M\+E280\+\_\+\+M\+O\+D\+E})
+\begin{DoxyCompactList}\small\item\em Generates a configuration according to the chosen B\+M\+E280\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_b_m_e280_config_aaa2fd7e69315df6f8b6f632927540e4e}{get\+Oversampling\+Temperature} ()
+\item 
+uint8\+\_\+t \hyperlink{class_b_m_e280_config_a22308ba28db458a49462d6367abef94a}{get\+Oversampling\+Pressure} ()
+\item 
+uint8\+\_\+t \hyperlink{class_b_m_e280_config_a25d660eda8d0b1ebdf6459c184c4e805}{get\+Oversampling\+Humidity} ()
+\item 
+uint8\+\_\+t \hyperlink{class_b_m_e280_config_abf3314c5259e3021448a1c422412538b}{get\+Mode} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A configuration container for the \hyperlink{class_b_m_e280}{B\+M\+E280} Sensor. All its configuration values are stored an held inside this Class. Depending on the B\+M\+E280\+\_\+\+M\+O\+D\+E it sets all the configuration values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_b_m_e280_config_a7c04196811432e07cb2f0963b5fb8894}{}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}!build@{build}}
+\index{build@{build}!B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}void B\+M\+E280\+Config\+::build (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+M\+E280\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_config_a7c04196811432e07cb2f0963b5fb8894}
+
+
+Generates a configuration according to the chosen B\+M\+E280\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the mode to build the configuration according to \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_b_m_e280_config_abf3314c5259e3021448a1c422412538b}{}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}!get\+Mode@{get\+Mode}}
+\index{get\+Mode@{get\+Mode}!B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+\subsubsection[{get\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t B\+M\+E280\+Config\+::get\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_config_abf3314c5259e3021448a1c422412538b}
+Gets the sensor internal Mode \begin{DoxyReturn}{Returns}
+sensor internal Mode 
+\end{DoxyReturn}
+\hypertarget{class_b_m_e280_config_a25d660eda8d0b1ebdf6459c184c4e805}{}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}!get\+Oversampling\+Humidity@{get\+Oversampling\+Humidity}}
+\index{get\+Oversampling\+Humidity@{get\+Oversampling\+Humidity}!B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+\subsubsection[{get\+Oversampling\+Humidity}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t B\+M\+E280\+Config\+::get\+Oversampling\+Humidity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_config_a25d660eda8d0b1ebdf6459c184c4e805}
+Gets the humidity measurements oversampling value for the configuration and initialization of the \hyperlink{class_b_m_e280}{B\+M\+E280} \begin{DoxyReturn}{Returns}
+humidity oversampling register value 
+\end{DoxyReturn}
+\hypertarget{class_b_m_e280_config_a22308ba28db458a49462d6367abef94a}{}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}!get\+Oversampling\+Pressure@{get\+Oversampling\+Pressure}}
+\index{get\+Oversampling\+Pressure@{get\+Oversampling\+Pressure}!B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+\subsubsection[{get\+Oversampling\+Pressure}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t B\+M\+E280\+Config\+::get\+Oversampling\+Pressure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_config_a22308ba28db458a49462d6367abef94a}
+Gets the pressure measurements oversampling value for the configuration and initialization of the \hyperlink{class_b_m_e280}{B\+M\+E280} \begin{DoxyReturn}{Returns}
+pressure oversampling register value 
+\end{DoxyReturn}
+\hypertarget{class_b_m_e280_config_aaa2fd7e69315df6f8b6f632927540e4e}{}\index{B\+M\+E280\+Config@{B\+M\+E280\+Config}!get\+Oversampling\+Temperature@{get\+Oversampling\+Temperature}}
+\index{get\+Oversampling\+Temperature@{get\+Oversampling\+Temperature}!B\+M\+E280\+Config@{B\+M\+E280\+Config}}
+\subsubsection[{get\+Oversampling\+Temperature}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t B\+M\+E280\+Config\+::get\+Oversampling\+Temperature (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_config_aaa2fd7e69315df6f8b6f632927540e4e}
+Gets the temperature measurements oversampling value for the configuration and initialization of the \hyperlink{class_b_m_e280}{B\+M\+E280} \begin{DoxyReturn}{Returns}
+temperature oversampling register value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_b_m_e280_config_8h}{B\+M\+E280\+Config.\+h}\item 
+app/B\+M\+E280\+Config.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,76 @@
+\hypertarget{class_s_i1143_proximity_message}{}\section{S\+I1143\+Proximity\+Message Class Reference}
+\label{class_s_i1143_proximity_message}\index{S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}}
+
+
+A Container that can hold acquired proximity values from the \hyperlink{class_s_i1143}{S\+I1143}. The container will be transported via a Message\+Queue between different Tasks.  
+
+
+
+
+{\ttfamily \#include $<$S\+I1143\+Proximity\+Message.\+h$>$}
+
+
+
+Inheritance diagram for S\+I1143\+Proximity\+Message\+:
+% FIG 0
+
+
+Collaboration diagram for S\+I1143\+Proximity\+Message\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_s_i1143_proximity_message_aceb6655e055bebd12ba1085ca5caeae0}{set\+Proximity} (uint16\+\_\+t proximity)
+\item 
+uint16\+\_\+t \hyperlink{class_s_i1143_proximity_message_a44fe23ce784f1ce62a39110de2bb55ee}{get\+Proximity} ()
+\item 
+virtual char $\ast$ \hyperlink{class_s_i1143_proximity_message_a17ecf5362d65923d106d729103f67580}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Container that can hold acquired proximity values from the \hyperlink{class_s_i1143}{S\+I1143}. The container will be transported via a Message\+Queue between different Tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_i1143_proximity_message_a17ecf5362d65923d106d729103f67580}{}\index{S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ S\+I1143\+Proximity\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_s_i1143_proximity_message_a17ecf5362d65923d106d729103f67580}
+Gets a small Lo\+Ra\+Message Type Formated String from the \hyperlink{class_m_a_x44009_message}{M\+A\+X44009\+Message}. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{Sensor\+Message}.
+
+\hypertarget{class_s_i1143_proximity_message_a44fe23ce784f1ce62a39110de2bb55ee}{}\index{S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}!get\+Proximity@{get\+Proximity}}
+\index{get\+Proximity@{get\+Proximity}!S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}}
+\subsubsection[{get\+Proximity}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t S\+I1143\+Proximity\+Message\+::get\+Proximity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_proximity_message_a44fe23ce784f1ce62a39110de2bb55ee}
+Gets the proximity value from the \hyperlink{class_s_i1143_proximity_message}{S\+I1143\+Proximity\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_proximity_message_aceb6655e055bebd12ba1085ca5caeae0}{}\index{S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}!set\+Proximity@{set\+Proximity}}
+\index{set\+Proximity@{set\+Proximity}!S\+I1143\+Proximity\+Message@{S\+I1143\+Proximity\+Message}}
+\subsubsection[{set\+Proximity}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I1143\+Proximity\+Message\+::set\+Proximity (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{proximity}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_proximity_message_aceb6655e055bebd12ba1085ca5caeae0}
+Sets the proximity value of the \hyperlink{class_s_i1143_proximity_message}{S\+I1143\+Proximity\+Message} 
+\begin{DoxyParams}{Parameters}
+{\em proximity} & proximity value to be stored \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_s_i1143_proximity_message_8h}{S\+I1143\+Proximity\+Message.\+h}\item 
+app/S\+I1143\+Proximity\+Message.\+cpp\end{DoxyCompactItemize}

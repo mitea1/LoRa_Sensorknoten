@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MAX44009Config",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_a_x44009_config.html",tooltip="A configuration container for the MAX44009 Sensor. All its configuration values are stored an held in..."];
+}

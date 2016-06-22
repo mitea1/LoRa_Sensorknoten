@@ -45,7 +45,7 @@
  * LoRa Modes.
  */
 enum LORA_MODE{
-	LORA_MODE_0 = 0,//!< LORA_MODE_0
+	LORA_MODE_0_OFF = 0,//!< LORA_MODE_0
 	LORA_MODE_1 = 1,//!< LORA_MODE_1
 	LORA_MODE_2 = 2,//!< LORA_MODE_2
 	LORA_MODE_3 = 3,//!< LORA_MODE_3

@@ -1,0 +1,76 @@
+\hypertarget{class_b_m_e280_humidity_message}{}\section{B\+M\+E280\+Humidity\+Message Class Reference}
+\label{class_b_m_e280_humidity_message}\index{B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}}
+
+
+A Container that can hold acquired humidity values from the \hyperlink{class_b_m_e280}{B\+M\+E280}. The container will be transported via a Message\+Queue between different Tasks.  
+
+
+
+
+{\ttfamily \#include $<$B\+M\+E280\+Humidity\+Message.\+h$>$}
+
+
+
+Inheritance diagram for B\+M\+E280\+Humidity\+Message\+:
+% FIG 0
+
+
+Collaboration diagram for B\+M\+E280\+Humidity\+Message\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_b_m_e280_humidity_message_a3513519af9d97399981b4f1a5a8f987a}{set\+Humidity} (float humidity)
+\item 
+float \hyperlink{class_b_m_e280_humidity_message_a3acc6140309a09385c77a0f5a0b86b20}{get\+Humidity} ()
+\item 
+virtual char $\ast$ \hyperlink{class_b_m_e280_humidity_message_acdee6e41c92c624cfd9dde11a7781e5d}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Container that can hold acquired humidity values from the \hyperlink{class_b_m_e280}{B\+M\+E280}. The container will be transported via a Message\+Queue between different Tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_b_m_e280_humidity_message_a3acc6140309a09385c77a0f5a0b86b20}{}\index{B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}!get\+Humidity@{get\+Humidity}}
+\index{get\+Humidity@{get\+Humidity}!B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}}
+\subsubsection[{get\+Humidity}]{\setlength{\rightskip}{0pt plus 5cm}float B\+M\+E280\+Humidity\+Message\+::get\+Humidity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_humidity_message_a3acc6140309a09385c77a0f5a0b86b20}
+Gets the humidity value from the \hyperlink{class_b_m_e280_humidity_message}{B\+M\+E280\+Humidity\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_b_m_e280_humidity_message_acdee6e41c92c624cfd9dde11a7781e5d}{}\index{B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ B\+M\+E280\+Humidity\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_b_m_e280_humidity_message_acdee6e41c92c624cfd9dde11a7781e5d}
+Gets a small Lo\+Ra\+Message Type Formated String from the B\+M\+E\+Humidity\+Message. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{Sensor\+Message}.
+
+\hypertarget{class_b_m_e280_humidity_message_a3513519af9d97399981b4f1a5a8f987a}{}\index{B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}!set\+Humidity@{set\+Humidity}}
+\index{set\+Humidity@{set\+Humidity}!B\+M\+E280\+Humidity\+Message@{B\+M\+E280\+Humidity\+Message}}
+\subsubsection[{set\+Humidity}]{\setlength{\rightskip}{0pt plus 5cm}void B\+M\+E280\+Humidity\+Message\+::set\+Humidity (
+\begin{DoxyParamCaption}
+\item[{float}]{humidity}
+\end{DoxyParamCaption}
+)}\label{class_b_m_e280_humidity_message_a3513519af9d97399981b4f1a5a8f987a}
+Sets the humidity value of the \hyperlink{class_b_m_e280_humidity_message}{B\+M\+E280\+Humidity\+Message} 
+\begin{DoxyParams}{Parameters}
+{\em humidity} & to be stored \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_b_m_e280_humidity_message_8h}{B\+M\+E280\+Humidity\+Message.\+h}\item 
+app/B\+M\+E280\+Humidity\+Message.\+cpp\end{DoxyCompactItemize}

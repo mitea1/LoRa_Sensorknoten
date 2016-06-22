@@ -1,0 +1,21 @@
+digraph "app/LoRaConfig.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="app/LoRaConfig.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="app/ApplicationConfig.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_application_config_8h_source.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="app/Application.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_application_8h_source.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="app/LoRa.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_lo_ra_8h.html"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="app/TaskLoRaMeasurement.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_task_lo_ra_measurement_8h.html"];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="app/TaskLoRaMeasurement.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_task_lo_ra_measurement_8cpp.html"];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="app/TaskDatahandler.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_task_datahandler_8h.html"];
+  Node7 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

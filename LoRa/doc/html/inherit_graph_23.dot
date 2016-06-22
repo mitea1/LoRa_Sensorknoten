@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TaskLight",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_task_light.html",tooltip="This TaskLight Class handles the light measurement using the MAX44009. Starting the task using the st..."];
+}

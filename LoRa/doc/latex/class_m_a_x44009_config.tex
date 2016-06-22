@@ -1,0 +1,143 @@
+\hypertarget{class_m_a_x44009_config}{}\section{M\+A\+X44009\+Config Class Reference}
+\label{class_m_a_x44009_config}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+
+
+A configuration container for the \hyperlink{class_m_a_x44009}{M\+A\+X44009} Sensor. All its configuration values are stored an held inside this Class. Depending on the M\+A\+X44009\+\_\+\+M\+O\+D\+E using as a parameter for the \hyperlink{class_m_a_x44009_config_a2879fcff8331e54ab1ee8bf54a386f6e}{build()} method it sets all the configuration values.  
+
+
+
+
+{\ttfamily \#include $<$M\+A\+X44009\+Config.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_m_a_x44009_config_a7ba14821841b8769bda1796a60d10b00}{}{\bfseries M\+A\+X44009\+Config} (\hyperlink{_m_a_x44009_config_8h_a2c5c90cfcbd78cedaaf2c20e01b00b56}{M\+A\+X44009\+\_\+\+M\+O\+D\+E})\label{class_m_a_x44009_config_a7ba14821841b8769bda1796a60d10b00}
+
+\item 
+void \hyperlink{class_m_a_x44009_config_a2879fcff8331e54ab1ee8bf54a386f6e}{build} (\hyperlink{_m_a_x44009_config_8h_a2c5c90cfcbd78cedaaf2c20e01b00b56}{M\+A\+X44009\+\_\+\+M\+O\+D\+E} desired\+Mode)
+\begin{DoxyCompactList}\small\item\em Generates a configuration according to the chosen M\+A\+X44009\+\_\+\+M\+O\+D\+E by setting all \hyperlink{class_lo_ra}{Lo\+Ra} Module specific configuration values depending on the chosen M\+A\+X44009\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_a699f0d5e7ec64e97e7c544eea9378932}{get\+Integration\+Time} ()
+\begin{DoxyCompactList}\small\item\em Gets the integration Time for Lux Measurements defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_aa01a44988bd5c806536d698b8add77e1}{get\+Continous\+Mode} ()
+\begin{DoxyCompactList}\small\item\em Gets the Continuous Mode for Lux Measurements defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_ac6df00bd34bf33421560111530810a8a}{get\+Manual\+Config} ()
+\begin{DoxyCompactList}\small\item\em Gets the Manual Config for the Sensor defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_a5de7b8993ac3ed575358b11158448637}{get\+Interrupt\+Enable} ()
+\begin{DoxyCompactList}\small\item\em Gets the interrupt Enable Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_ac8271a8451e77deded7ba370e61014d3}{get\+Upper\+Threshold} ()
+\begin{DoxyCompactList}\small\item\em Gets the upper Threshold Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_m_a_x44009_config_a48dcfdf66b67d7581199dd18f7d2b04b}{get\+Lower\+Threshold} ()
+\begin{DoxyCompactList}\small\item\em Gets the lower Threshold Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A configuration container for the \hyperlink{class_m_a_x44009}{M\+A\+X44009} Sensor. All its configuration values are stored an held inside this Class. Depending on the M\+A\+X44009\+\_\+\+M\+O\+D\+E using as a parameter for the \hyperlink{class_m_a_x44009_config_a2879fcff8331e54ab1ee8bf54a386f6e}{build()} method it sets all the configuration values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_a_x44009_config_a2879fcff8331e54ab1ee8bf54a386f6e}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!build@{build}}
+\index{build@{build}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}void M\+A\+X44009\+Config\+::build (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+A\+X44009\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_a2879fcff8331e54ab1ee8bf54a386f6e}
+
+
+Generates a configuration according to the chosen M\+A\+X44009\+\_\+\+M\+O\+D\+E by setting all \hyperlink{class_lo_ra}{Lo\+Ra} Module specific configuration values depending on the chosen M\+A\+X44009\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the mode to build the configuration according to \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_a_x44009_config_aa01a44988bd5c806536d698b8add77e1}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Continous\+Mode@{get\+Continous\+Mode}}
+\index{get\+Continous\+Mode@{get\+Continous\+Mode}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Continous\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Continous\+Mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_aa01a44988bd5c806536d698b8add77e1}
+
+
+Gets the Continuous Mode for Lux Measurements defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_a_x44009_config_a699f0d5e7ec64e97e7c544eea9378932}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Integration\+Time@{get\+Integration\+Time}}
+\index{get\+Integration\+Time@{get\+Integration\+Time}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Integration\+Time}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Integration\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_a699f0d5e7ec64e97e7c544eea9378932}
+
+
+Gets the integration Time for Lux Measurements defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_a_x44009_config_a5de7b8993ac3ed575358b11158448637}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Interrupt\+Enable@{get\+Interrupt\+Enable}}
+\index{get\+Interrupt\+Enable@{get\+Interrupt\+Enable}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Interrupt\+Enable}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Interrupt\+Enable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_a5de7b8993ac3ed575358b11158448637}
+
+
+Gets the interrupt Enable Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_a_x44009_config_a48dcfdf66b67d7581199dd18f7d2b04b}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Lower\+Threshold@{get\+Lower\+Threshold}}
+\index{get\+Lower\+Threshold@{get\+Lower\+Threshold}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Lower\+Threshold}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Lower\+Threshold (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_a48dcfdf66b67d7581199dd18f7d2b04b}
+
+
+Gets the lower Threshold Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_a_x44009_config_ac6df00bd34bf33421560111530810a8a}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Manual\+Config@{get\+Manual\+Config}}
+\index{get\+Manual\+Config@{get\+Manual\+Config}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Manual\+Config}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Manual\+Config (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_ac6df00bd34bf33421560111530810a8a}
+
+
+Gets the Manual Config for the Sensor defined in the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_a_x44009_config_ac8271a8451e77deded7ba370e61014d3}{}\index{M\+A\+X44009\+Config@{M\+A\+X44009\+Config}!get\+Upper\+Threshold@{get\+Upper\+Threshold}}
+\index{get\+Upper\+Threshold@{get\+Upper\+Threshold}!M\+A\+X44009\+Config@{M\+A\+X44009\+Config}}
+\subsubsection[{get\+Upper\+Threshold}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t M\+A\+X44009\+Config\+::get\+Upper\+Threshold (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_a_x44009_config_ac8271a8451e77deded7ba370e61014d3}
+
+
+Gets the upper Threshold Value that has to be written to the \hyperlink{class_m_a_x44009}{M\+A\+X44009} according to the actual \hyperlink{class_m_a_x44009_config}{M\+A\+X44009\+Config}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_m_a_x44009_config_8h}{M\+A\+X44009\+Config.\+h}\item 
+app/M\+A\+X44009\+Config.\+cpp\end{DoxyCompactItemize}

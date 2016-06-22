@@ -1,0 +1,92 @@
+\hypertarget{class_s_i1143_config}{}\section{S\+I1143\+Config Class Reference}
+\label{class_s_i1143_config}\index{S\+I1143\+Config@{S\+I1143\+Config}}
+
+
+A configuration container for the \hyperlink{class_s_i1143}{S\+I1143} Sensor. All its configuration values are stored an held inside this Class. Depending on the S\+I1143\+\_\+\+M\+O\+D\+E it sets all the configuration values.  
+
+
+
+
+{\ttfamily \#include $<$S\+I1143\+Config.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_s_i1143_config_ad052889f8a003ad8a8203fa43843cc08}{build} (\hyperlink{_s_i1143_config_8h_ae6d915c2410b566eab9cc10516661ecd}{S\+I1143\+\_\+\+M\+O\+D\+E} desired\+Mode)
+\begin{DoxyCompactList}\small\item\em Generates a configuration and sets its value according to the chosen S\+I1143\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_i1143_config_a3b9e1efcd4179023c7f5e82f54188c03}{get\+Led1\+Voltage} ()
+\begin{DoxyCompactList}\small\item\em Gets the voltage of Led1 from the actual configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_i1143_config_a14be800a204416b1d29392d983b34e9c}{get\+Interrupt\+Enable} ()
+\begin{DoxyCompactList}\small\item\em Gets the interrupt enable from the actual configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_s_i1143_config_a741e9901a3d4beaaa6311faa4a14b845}{get\+Proximity\+Sensing1\+Threshold} ()
+\begin{DoxyCompactList}\small\item\em Gets the proximity sensing threshold for led 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A configuration container for the \hyperlink{class_s_i1143}{S\+I1143} Sensor. All its configuration values are stored an held inside this Class. Depending on the S\+I1143\+\_\+\+M\+O\+D\+E it sets all the configuration values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_i1143_config_ad052889f8a003ad8a8203fa43843cc08}{}\index{S\+I1143\+Config@{S\+I1143\+Config}!build@{build}}
+\index{build@{build}!S\+I1143\+Config@{S\+I1143\+Config}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I1143\+Config\+::build (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+I1143\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_config_ad052889f8a003ad8a8203fa43843cc08}
+
+
+Generates a configuration and sets its value according to the chosen S\+I1143\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the mode to build the configuration according to \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_s_i1143_config_a14be800a204416b1d29392d983b34e9c}{}\index{S\+I1143\+Config@{S\+I1143\+Config}!get\+Interrupt\+Enable@{get\+Interrupt\+Enable}}
+\index{get\+Interrupt\+Enable@{get\+Interrupt\+Enable}!S\+I1143\+Config@{S\+I1143\+Config}}
+\subsubsection[{get\+Interrupt\+Enable}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t S\+I1143\+Config\+::get\+Interrupt\+Enable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_config_a14be800a204416b1d29392d983b34e9c}
+
+
+Gets the interrupt enable from the actual configuration. 
+
+\begin{DoxyReturn}{Returns}
+interrupt enable register value 
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_config_a3b9e1efcd4179023c7f5e82f54188c03}{}\index{S\+I1143\+Config@{S\+I1143\+Config}!get\+Led1\+Voltage@{get\+Led1\+Voltage}}
+\index{get\+Led1\+Voltage@{get\+Led1\+Voltage}!S\+I1143\+Config@{S\+I1143\+Config}}
+\subsubsection[{get\+Led1\+Voltage}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t S\+I1143\+Config\+::get\+Led1\+Voltage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_config_a3b9e1efcd4179023c7f5e82f54188c03}
+
+
+Gets the voltage of Led1 from the actual configuration. 
+
+\begin{DoxyReturn}{Returns}
+led 1 voltage register value 
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_config_a741e9901a3d4beaaa6311faa4a14b845}{}\index{S\+I1143\+Config@{S\+I1143\+Config}!get\+Proximity\+Sensing1\+Threshold@{get\+Proximity\+Sensing1\+Threshold}}
+\index{get\+Proximity\+Sensing1\+Threshold@{get\+Proximity\+Sensing1\+Threshold}!S\+I1143\+Config@{S\+I1143\+Config}}
+\subsubsection[{get\+Proximity\+Sensing1\+Threshold}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t S\+I1143\+Config\+::get\+Proximity\+Sensing1\+Threshold (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_config_a741e9901a3d4beaaa6311faa4a14b845}
+
+
+Gets the proximity sensing threshold for led 1. 
+
+\begin{DoxyReturn}{Returns}
+proximity sensing threshold for led 1 register value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_s_i1143_config_8h}{S\+I1143\+Config.\+h}\item 
+app/S\+I1143\+Config.\+cpp\end{DoxyCompactItemize}

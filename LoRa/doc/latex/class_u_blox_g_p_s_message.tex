@@ -1,0 +1,118 @@
+\hypertarget{class_u_blox_g_p_s_message}{}\section{U\+Blox\+G\+P\+S\+Message Class Reference}
+\label{class_u_blox_g_p_s_message}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+
+
+A Container that can hold acquired gps values from the u\+B\+L\+O\+X. The container will be transported via a Message\+Queue between different Tasks.  
+
+
+
+
+{\ttfamily \#include $<$U\+Blox\+G\+P\+S\+Message.\+h$>$}
+
+
+
+Inheritance diagram for U\+Blox\+G\+P\+S\+Message\+:
+% FIG 0
+
+
+Collaboration diagram for U\+Blox\+G\+P\+S\+Message\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_u_blox_g_p_s_message_ab7199f52ae51a5082353ed7b1b28f3c8}{set\+Longitude} (float longitude)
+\begin{DoxyCompactList}\small\item\em Sets the longitude value of the u\+Blox\+G\+P\+S\+Message. \end{DoxyCompactList}\item 
+void \hyperlink{class_u_blox_g_p_s_message_a634ed37614be2ed636f548476fa57f1e}{set\+Latitude} (float latitude)
+\begin{DoxyCompactList}\small\item\em Sets the latitude value of the u\+Blox\+G\+P\+S\+Message. \end{DoxyCompactList}\item 
+float \hyperlink{class_u_blox_g_p_s_message_ab3678ddfae0505e177c1eb3c91c69f36}{get\+Longitude} ()
+\begin{DoxyCompactList}\small\item\em Gets the longitude value of the u\+Blox\+G\+P\+S\+Message. \end{DoxyCompactList}\item 
+float \hyperlink{class_u_blox_g_p_s_message_a70457916dfaa0551946607cd83346645}{get\+Latitude} ()
+\begin{DoxyCompactList}\small\item\em Gets the latitude value of the u\+Blox\+G\+P\+S\+Message. \end{DoxyCompactList}\item 
+virtual char $\ast$ \hyperlink{class_u_blox_g_p_s_message_a163a535b6947f79ca60e9ccbd10f8327}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Container that can hold acquired gps values from the u\+B\+L\+O\+X. The container will be transported via a Message\+Queue between different Tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_u_blox_g_p_s_message_a70457916dfaa0551946607cd83346645}{}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}!get\+Latitude@{get\+Latitude}}
+\index{get\+Latitude@{get\+Latitude}!U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+\subsubsection[{get\+Latitude}]{\setlength{\rightskip}{0pt plus 5cm}float U\+Blox\+G\+P\+S\+Message\+::get\+Latitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_u_blox_g_p_s_message_a70457916dfaa0551946607cd83346645}
+
+
+Gets the latitude value of the u\+Blox\+G\+P\+S\+Message. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_u_blox_g_p_s_message_ab3678ddfae0505e177c1eb3c91c69f36}{}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}!get\+Longitude@{get\+Longitude}}
+\index{get\+Longitude@{get\+Longitude}!U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+\subsubsection[{get\+Longitude}]{\setlength{\rightskip}{0pt plus 5cm}float U\+Blox\+G\+P\+S\+Message\+::get\+Longitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_u_blox_g_p_s_message_ab3678ddfae0505e177c1eb3c91c69f36}
+
+
+Gets the longitude value of the u\+Blox\+G\+P\+S\+Message. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_u_blox_g_p_s_message_a163a535b6947f79ca60e9ccbd10f8327}{}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ U\+Blox\+G\+P\+S\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_u_blox_g_p_s_message_a163a535b6947f79ca60e9ccbd10f8327}
+Gets a small Lo\+Ra\+Message Type Formated String from the u\+Blox\+G\+P\+S\+Message. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{Sensor\+Message}.
+
+\hypertarget{class_u_blox_g_p_s_message_a634ed37614be2ed636f548476fa57f1e}{}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}!set\+Latitude@{set\+Latitude}}
+\index{set\+Latitude@{set\+Latitude}!U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+\subsubsection[{set\+Latitude}]{\setlength{\rightskip}{0pt plus 5cm}void U\+Blox\+G\+P\+S\+Message\+::set\+Latitude (
+\begin{DoxyParamCaption}
+\item[{float}]{latitude}
+\end{DoxyParamCaption}
+)}\label{class_u_blox_g_p_s_message_a634ed37614be2ed636f548476fa57f1e}
+
+
+Sets the latitude value of the u\+Blox\+G\+P\+S\+Message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em latitude} & latitude value to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_u_blox_g_p_s_message_ab7199f52ae51a5082353ed7b1b28f3c8}{}\index{U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}!set\+Longitude@{set\+Longitude}}
+\index{set\+Longitude@{set\+Longitude}!U\+Blox\+G\+P\+S\+Message@{U\+Blox\+G\+P\+S\+Message}}
+\subsubsection[{set\+Longitude}]{\setlength{\rightskip}{0pt plus 5cm}void U\+Blox\+G\+P\+S\+Message\+::set\+Longitude (
+\begin{DoxyParamCaption}
+\item[{float}]{longitude}
+\end{DoxyParamCaption}
+)}\label{class_u_blox_g_p_s_message_ab7199f52ae51a5082353ed7b1b28f3c8}
+
+
+Sets the longitude value of the u\+Blox\+G\+P\+S\+Message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em longitude} & longitude value to be stored \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_u_blox_g_p_s_message_8h}{U\+Blox\+G\+P\+S\+Message.\+h}\item 
+app/U\+Blox\+G\+P\+S\+Message.\+cpp\end{DoxyCompactItemize}

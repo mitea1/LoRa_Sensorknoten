@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TaskGPS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_task_g_p_s.html",tooltip="This TaskGPS Class handles the GPS measurement using the uBlox. Starting the task using the start() s..."];
+}

@@ -1,0 +1,86 @@
+\hypertarget{class_i2_c___r_t}{}\section{I2\+C\+\_\+\+R\+T Class Reference}
+\label{class_i2_c___r_t}\index{I2\+C\+\_\+\+R\+T@{I2\+C\+\_\+\+R\+T}}
+
+
+Controls the I2\+C device of the m\+Dot. mbed\+::\+I2\+C functionality is wrapped inside it\textquotesingle{}s methods. It\textquotesingle{}s possible to wrap other I2\+C functionality from different Libraries or write an own implementation.  
+
+
+
+
+{\ttfamily \#include $<$I2\+C\+\_\+\+R\+T.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_i2_c___r_t_ad443d0f425844171b78bfeccfe0b5d68}{read\+\_\+\+R\+T} (uint8\+\_\+t address, uint16\+\_\+t reg, bool two\+Bytes, uint8\+\_\+t $\ast$read\+Data, uint8\+\_\+t data\+Length)
+\begin{DoxyCompactList}\small\item\em Reads data from a specific register. \end{DoxyCompactList}\item 
+void \hyperlink{class_i2_c___r_t_a08527ac5db07d11f83d9cc2ceeab9bce}{write\+\_\+\+R\+T} (uint8\+\_\+t address, uint16\+\_\+t reg, bool two\+Bytes, uint8\+\_\+t $\ast$data\+To\+Write, uint8\+\_\+t data\+Lenght)
+\begin{DoxyCompactList}\small\item\em Write data to a specific register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Controls the I2\+C device of the m\+Dot. mbed\+::\+I2\+C functionality is wrapped inside it\textquotesingle{}s methods. It\textquotesingle{}s possible to wrap other I2\+C functionality from different Libraries or write an own implementation. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_i2_c___r_t_ad443d0f425844171b78bfeccfe0b5d68}{}\index{I2\+C\+\_\+\+R\+T@{I2\+C\+\_\+\+R\+T}!read\+\_\+\+R\+T@{read\+\_\+\+R\+T}}
+\index{read\+\_\+\+R\+T@{read\+\_\+\+R\+T}!I2\+C\+\_\+\+R\+T@{I2\+C\+\_\+\+R\+T}}
+\subsubsection[{read\+\_\+\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C\+\_\+\+R\+T\+::read\+\_\+\+R\+T (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{address, }
+\item[{uint16\+\_\+t}]{reg, }
+\item[{bool}]{two\+Bytes, }
+\item[{uint8\+\_\+t $\ast$}]{read\+Data, }
+\item[{uint8\+\_\+t}]{data\+Length}
+\end{DoxyParamCaption}
+)}\label{class_i2_c___r_t_ad443d0f425844171b78bfeccfe0b5d68}
+
+
+Reads data from a specific register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address of the I2\+C Slave device \\
+\hline
+{\em reg} & register from which the data has to be read \\
+\hline
+{\em two\+Bytes} & defines if two Bytes at once has to be read \\
+\hline
+{\em read\+Data} & storage for the read Data \\
+\hline
+{\em data\+Length} & length of the storage in bytes \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_i2_c___r_t_a08527ac5db07d11f83d9cc2ceeab9bce}{}\index{I2\+C\+\_\+\+R\+T@{I2\+C\+\_\+\+R\+T}!write\+\_\+\+R\+T@{write\+\_\+\+R\+T}}
+\index{write\+\_\+\+R\+T@{write\+\_\+\+R\+T}!I2\+C\+\_\+\+R\+T@{I2\+C\+\_\+\+R\+T}}
+\subsubsection[{write\+\_\+\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}void I2\+C\+\_\+\+R\+T\+::write\+\_\+\+R\+T (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{address, }
+\item[{uint16\+\_\+t}]{reg, }
+\item[{bool}]{two\+Bytes, }
+\item[{uint8\+\_\+t $\ast$}]{data\+To\+Write, }
+\item[{uint8\+\_\+t}]{data\+Lenght}
+\end{DoxyParamCaption}
+)}\label{class_i2_c___r_t_a08527ac5db07d11f83d9cc2ceeab9bce}
+
+
+Write data to a specific register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address of the I2\+C Slave device \\
+\hline
+{\em reg} & register where the data has to be write \\
+\hline
+{\em two\+Bytes} & defines if two bytes at once has to be write \\
+\hline
+{\em data\+To\+Write} & the actual data that has to be written \\
+\hline
+{\em data\+Lenght} & the length of the data in bytes \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_i2_c___r_t_8h}{I2\+C\+\_\+\+R\+T.\+h}\item 
+app/I2\+C\+\_\+\+R\+T.\+cpp\end{DoxyCompactItemize}

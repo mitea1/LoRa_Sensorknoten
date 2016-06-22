@@ -5,10 +5,8 @@
 int main() {
 
 
-//	Application application;
-//	application.init(APPLICATION_MODE_LORA_MEASUREMENT);
-
-	UART_Tunnel uartTunnel;
+	Application application;
+	application.init(APPLICATION_MODE_9);
 
     while (true) {
 

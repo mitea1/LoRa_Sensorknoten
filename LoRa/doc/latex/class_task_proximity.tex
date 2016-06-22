@@ -1,0 +1,80 @@
+\hypertarget{class_task_proximity}{}\section{Task\+Proximity Class Reference}
+\label{class_task_proximity}\index{Task\+Proximity@{Task\+Proximity}}
+
+
+This \hyperlink{class_task_proximity}{Task\+Proximity} Class handles the proximity measurement using the \hyperlink{class_s_i1143}{S\+I1143}. Starting the task using the \hyperlink{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Proximity.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_proximity_a2e178fef32356fece189e2a3d5e51ed8}{}{\bfseries Task\+Proximity} (\hyperlink{class_s_i1143}{S\+I1143} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_s_i1143_proximity_message}{S\+I1143\+Proximity\+Message}, P\+R\+O\+X\+I\+M\+I\+T\+Y\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_proximity_a2e178fef32356fece189e2a3d5e51ed8}
+
+\item 
+\hypertarget{class_task_proximity_a177f14bdf30cfd34a5537a0b5e758e58}{}{\bfseries Task\+Proximity} (\hyperlink{class_s_i1143}{S\+I1143} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_s_i1143_proximity_message}{S\+I1143\+Proximity\+Message}, P\+R\+O\+X\+I\+M\+I\+T\+Y\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_proximity_a177f14bdf30cfd34a5537a0b5e758e58}
+
+\item 
+os\+Status \hyperlink{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. \end{DoxyCompactList}\item 
+os\+Status \hyperlink{class_task_proximity_a6838a84e0bd2d236f09f6344263ae3b9}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task. Should only be used after \hyperlink{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{start()} was used. \end{DoxyCompactList}\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_proximity_a71f0b1482f40f70f3405594d27ff9c8c}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_proximity}{Task\+Proximity} Class handles the proximity measurement using the \hyperlink{class_s_i1143}{S\+I1143}. Starting the task using the \hyperlink{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_proximity_a71f0b1482f40f70f3405594d27ff9c8c}{}\index{Task\+Proximity@{Task\+Proximity}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Proximity@{Task\+Proximity}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Proximity\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_proximity_a71f0b1482f40f70f3405594d27ff9c8c}
+
+
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{}\index{Task\+Proximity@{Task\+Proximity}!start@{start}}
+\index{start@{start}!Task\+Proximity@{Task\+Proximity}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Proximity\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}
+
+
+Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_proximity_a6838a84e0bd2d236f09f6344263ae3b9}{}\index{Task\+Proximity@{Task\+Proximity}!stop@{stop}}
+\index{stop@{stop}!Task\+Proximity@{Task\+Proximity}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Proximity\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_proximity_a6838a84e0bd2d236f09f6344263ae3b9}
+
+
+Stops the task. Should only be used after \hyperlink{class_task_proximity_a38eee2752705735bd33b621ea7bcca8b}{start()} was used. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_proximity_8h}{Task\+Proximity.\+h}\item 
+app/Task\+Proximity.\+cpp\end{DoxyCompactItemize}

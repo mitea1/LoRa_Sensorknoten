@@ -1,0 +1,80 @@
+\hypertarget{class_task_pressure}{}\section{Task\+Pressure Class Reference}
+\label{class_task_pressure}\index{Task\+Pressure@{Task\+Pressure}}
+
+
+This \hyperlink{class_task_pressure}{Task\+Pressure} Class handles the pressure measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Pressure.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_pressure_a52693ee5b203587a085d178eb4c6d3d9}{}{\bfseries Task\+Pressure} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_pressure_message}{B\+M\+E280\+Pressure\+Message}, P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_pressure_a52693ee5b203587a085d178eb4c6d3d9}
+
+\item 
+\hypertarget{class_task_pressure_a0768827efc8c603dbaa43d9c392282b9}{}{\bfseries Task\+Pressure} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_pressure_message}{B\+M\+E280\+Pressure\+Message}, P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_pressure_a0768827efc8c603dbaa43d9c392282b9}
+
+\item 
+os\+Status \hyperlink{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. \end{DoxyCompactList}\item 
+os\+Status \hyperlink{class_task_pressure_a220dadca7ab645b909d4929711bdc54f}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task. Should only be used after \hyperlink{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{start()} was used. \end{DoxyCompactList}\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_pressure_a441370afd73e806f76823f2b797e1db7}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_pressure}{Task\+Pressure} Class handles the pressure measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_pressure_a441370afd73e806f76823f2b797e1db7}{}\index{Task\+Pressure@{Task\+Pressure}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Pressure@{Task\+Pressure}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Pressure\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_pressure_a441370afd73e806f76823f2b797e1db7}
+
+
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{}\index{Task\+Pressure@{Task\+Pressure}!start@{start}}
+\index{start@{start}!Task\+Pressure@{Task\+Pressure}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Pressure\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}
+
+
+Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_pressure_a220dadca7ab645b909d4929711bdc54f}{}\index{Task\+Pressure@{Task\+Pressure}!stop@{stop}}
+\index{stop@{stop}!Task\+Pressure@{Task\+Pressure}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Pressure\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_pressure_a220dadca7ab645b909d4929711bdc54f}
+
+
+Stops the task. Should only be used after \hyperlink{class_task_pressure_a702e7f98f983c27a8cc70b4f7d11fbda}{start()} was used. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_pressure_8h}{Task\+Pressure.\+h}\item 
+app/Task\+Pressure.\+cpp\end{DoxyCompactItemize}
