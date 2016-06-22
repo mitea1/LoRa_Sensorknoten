@@ -78,14 +78,10 @@ private:
 	uBloxConfig* config;
 
 	/**
-	 * Sends a String via the uart interface of the uBlox that disables all telegrams
+	 * @brief Sends a Configuration String via the uart interface of the uBlox
+	 * @param configurationString
 	 */
-	void sendDisableEveryString();
-
-	/**
-	 * Sends a String via the uart interface of the uBlox that enables the NAV-POSLLH Telegram
-	 */
-	void sendEnablePosllhString();
+	void sendConfigurationString(std::vector<uint8_t> configurationString);
 
 };
 

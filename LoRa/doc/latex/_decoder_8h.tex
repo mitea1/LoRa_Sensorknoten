@@ -1,0 +1,69 @@
+\hypertarget{_decoder_8h}{}\section{app/\+Decoder.h File Reference}
+\label{_decoder_8h}\index{app/\+Decoder.\+h@{app/\+Decoder.\+h}}
+{\ttfamily \#include $<$Raw\+Serial.\+h$>$}\\*
+Include dependency graph for Decoder.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_p_o_s_l_h_h}{P\+O\+S\+L\+H\+H}
+\item 
+class \hyperlink{class_decoder}{Decoder}
+\begin{DoxyCompactList}\small\item\em This Class is used to decode the byte stream thats sent from the \hyperlink{classu_blox}{u\+Blox}. At the moment it only decodes the N\+A\+V-\/\+P\+O\+L\+L\+S\+H byte stream. For correct usage all other messages of the \hyperlink{classu_blox}{u\+Blox} needs to be deactivated or at least the N\+A\+V-\/\+P\+O\+L\+L\+S\+H needs to be activated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_decoder_8h_a1871f8f14902dc227a7391f0db4c0f4a}{}\#define {\bfseries H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+H\+T}~2\label{_decoder_8h_a1871f8f14902dc227a7391f0db4c0f4a}
+
+\item 
+\hypertarget{_decoder_8h_ad000f46db4ebfb1a20ac2c8ed1513a07}{}\#define {\bfseries I\+D\+\_\+\+L\+E\+N\+G\+H\+T}~2\label{_decoder_8h_ad000f46db4ebfb1a20ac2c8ed1513a07}
+
+\item 
+\hypertarget{_decoder_8h_adc5452b8abc02d86c3e478f877411cbb}{}\#define {\bfseries L\+E\+N\+G\+H\+T\+\_\+\+L\+E\+N\+G\+H\+T}~2\label{_decoder_8h_adc5452b8abc02d86c3e478f877411cbb}
+
+\item 
+\hypertarget{_decoder_8h_a39ce044aad6ffc7a4aa7c0c9d23998d2}{}\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+L\+E\+N\+G\+H\+T}~28\label{_decoder_8h_a39ce044aad6ffc7a4aa7c0c9d23998d2}
+
+\item 
+\hypertarget{_decoder_8h_aeec8ed00f1d24206f53ba3d2fa42db70}{}\#define {\bfseries C\+R\+C\+\_\+\+L\+E\+N\+G\+H\+T}~2\label{_decoder_8h_aeec8ed00f1d24206f53ba3d2fa42db70}
+
+\item 
+\hypertarget{_decoder_8h_aff1dd0f6dc4400b16451bb66d6a1efdd}{}\#define {\bfseries M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+E\+N\+G\+H\+T}~(H\+E\+A\+D\+E\+R\+\_\+\+L\+E\+N\+G\+H\+T+I\+D\+\_\+\+L\+E\+N\+G\+H\+T+L\+E\+N\+G\+H\+T\+\_\+\+L\+E\+N\+G\+H\+T+P\+A\+Y\+L\+O\+A\+D\+\_\+\+L\+E\+N\+G\+H\+T+C\+R\+C\+\_\+\+L\+E\+N\+G\+H\+T)\label{_decoder_8h_aff1dd0f6dc4400b16451bb66d6a1efdd}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5d}{Decoder\+State} \{ \hyperlink{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da0cb1b2c6a7db1f1084886c98909a3f36}{I\+N\+I\+T} = 0, 
+\hyperlink{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da563f8ed00490ea22ea2605d9571dada8}{R\+E\+C\+E\+I\+V\+E}, 
+\hyperlink{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5daedbaf1619a7cd7276e67127835445d3b}{D\+E\+C\+O\+D\+E}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Adrian 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+16.\+05.\+2016 
+\end{DoxyDate}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5d}{}\index{Decoder.\+h@{Decoder.\+h}!Decoder\+State@{Decoder\+State}}
+\index{Decoder\+State@{Decoder\+State}!Decoder.\+h@{Decoder.\+h}}
+\subsubsection[{Decoder\+State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Decoder\+State}}\label{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5d}
+States in which the \hyperlink{class_decoder}{Decoder} can be \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+N\+I\+T@{I\+N\+I\+T}!Decoder.\+h@{Decoder.\+h}}\index{Decoder.\+h@{Decoder.\+h}!I\+N\+I\+T@{I\+N\+I\+T}}\item[{\em 
+\hypertarget{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da0cb1b2c6a7db1f1084886c98909a3f36}{}I\+N\+I\+T\label{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da0cb1b2c6a7db1f1084886c98909a3f36}
+}]I\+N\+I\+T. \index{R\+E\+C\+E\+I\+V\+E@{R\+E\+C\+E\+I\+V\+E}!Decoder.\+h@{Decoder.\+h}}\index{Decoder.\+h@{Decoder.\+h}!R\+E\+C\+E\+I\+V\+E@{R\+E\+C\+E\+I\+V\+E}}\item[{\em 
+\hypertarget{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da563f8ed00490ea22ea2605d9571dada8}{}R\+E\+C\+E\+I\+V\+E\label{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5da563f8ed00490ea22ea2605d9571dada8}
+}]R\+E\+C\+E\+I\+V\+E. \index{D\+E\+C\+O\+D\+E@{D\+E\+C\+O\+D\+E}!Decoder.\+h@{Decoder.\+h}}\index{Decoder.\+h@{Decoder.\+h}!D\+E\+C\+O\+D\+E@{D\+E\+C\+O\+D\+E}}\item[{\em 
+\hypertarget{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5daedbaf1619a7cd7276e67127835445d3b}{}D\+E\+C\+O\+D\+E\label{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5daedbaf1619a7cd7276e67127835445d3b}
+}]D\+E\+C\+O\+D\+E. \end{description}
+\end{Desc}

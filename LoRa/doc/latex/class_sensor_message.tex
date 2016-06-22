@@ -1,0 +1,46 @@
+\hypertarget{class_sensor_message}{}\section{Sensor\+Message Class Reference}
+\label{class_sensor_message}\index{Sensor\+Message@{Sensor\+Message}}
+
+
+The Base Class of a Container that can hold acquired values from a Sensor. The container will be transported via a Message\+Queue between different Tasks.  
+
+
+
+
+{\ttfamily \#include $<$Sensor\+Message.\+h$>$}
+
+
+
+Inheritance diagram for Sensor\+Message\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual char $\ast$ \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Base Class of a Container that can hold acquired values from a Sensor. The container will be transported via a Message\+Queue between different Tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{}\index{Sensor\+Message@{Sensor\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!Sensor\+Message@{Sensor\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Sensor\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_sensor_message_acea0d36241823af20d6fd750cf726a23}
+Gets a small Lo\+Ra\+Message Type Formated String from the \hyperlink{class_sensor_message}{Sensor\+Message}. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_lo_ra_measurement_message_adc396198b07614cbdf3b63f5933a4c8a}{Lo\+Ra\+Measurement\+Message}, \hyperlink{class_m_p_u9250_tesla_message_ab26adfdc4c479d892ac7152f7e988229}{M\+P\+U9250\+Tesla\+Message}, \hyperlink{class_m_p_u9250_acceleration_message_a76afe97e9852bfea5b29b6b9a41647aa}{M\+P\+U9250\+Acceleration\+Message}, \hyperlink{class_m_p_u9250_gyroscope_message_ae090d5bd7484413970db2d80929bd0f5}{M\+P\+U9250\+Gyroscope\+Message}, \hyperlink{class_u_blox_g_p_s_message_a163a535b6947f79ca60e9ccbd10f8327}{U\+Blox\+G\+P\+S\+Message}, \hyperlink{class_s_i1143_proximity_message_a17ecf5362d65923d106d729103f67580}{S\+I1143\+Proximity\+Message}, \hyperlink{class_m_a_x44009_message_ab34f5b992a01dd21f567c31b1af75b61}{M\+A\+X44009\+Message}, \hyperlink{class_b_m_e280_humidity_message_acdee6e41c92c624cfd9dde11a7781e5d}{B\+M\+E280\+Humidity\+Message}, \hyperlink{class_b_m_e280_pressure_message_a39d1703529dbc2d06480a16f87616500}{B\+M\+E280\+Pressure\+Message}, and \hyperlink{class_b_m_e280_temperature_message_a783ed2e838818dce058065b55773c3c3}{B\+M\+E280\+Temperature\+Message}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_sensor_message_8h}{Sensor\+Message.\+h}\item 
+app/Sensor\+Message.\+cpp\end{DoxyCompactItemize}

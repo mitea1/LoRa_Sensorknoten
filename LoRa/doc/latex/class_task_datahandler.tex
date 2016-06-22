@@ -1,0 +1,101 @@
+\hypertarget{class_task_datahandler}{}\section{Task\+Datahandler Class Reference}
+\label{class_task_datahandler}\index{Task\+Datahandler@{Task\+Datahandler}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_datahandler_a922e19fd09eeae8f51ae0745606abea7}{}{\bfseries Task\+Datahandler} (\hyperlink{class_lo_ra}{Lo\+Ra} $\ast$, Mutex $\ast$, \hyperlink{struct_queue_bundle}{Queue\+Bundle}, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_datahandler_a922e19fd09eeae8f51ae0745606abea7}
+
+\item 
+os\+Status \hyperlink{class_task_datahandler_a4643728911a09ec5af8f81bf92205f12}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. \end{DoxyCompactList}\item 
+os\+Status \hyperlink{class_task_datahandler_a3bc8f0d70fab0912ee18273f046b518c}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task. Should only be used after \hyperlink{class_task_datahandler_a4643728911a09ec5af8f81bf92205f12}{start()} was used. \end{DoxyCompactList}\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_datahandler_ac4bda2270d38cd1ae75fe64f0c8c0c79}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. \end{DoxyCompactList}\item 
+void \hyperlink{class_task_datahandler_aec7afb68edd2d6b9e53c71734bee772b}{set\+Debug\+Serial} (Raw\+Serial $\ast$debug\+Serial)
+\begin{DoxyCompactList}\small\item\em Set a serial interface thats used for debugging the datastream which will be sent via \hyperlink{class_lo_ra}{Lo\+Ra} and to show data handling relevant information. \end{DoxyCompactList}\item 
+void \hyperlink{class_task_datahandler_a004dfee34db4d87834dc351c4e50e6e6}{set\+Lo\+Ra} (\hyperlink{class_lo_ra}{Lo\+Ra} $\ast$lora)
+\begin{DoxyCompactList}\small\item\em Sets the \hyperlink{class_lo_ra}{Lo\+Ra} interface thats used to forward acquired data form other Tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_datahandler_ac4bda2270d38cd1ae75fe64f0c8c0c79}{}\index{Task\+Datahandler@{Task\+Datahandler}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Datahandler@{Task\+Datahandler}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Datahandler\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_datahandler_ac4bda2270d38cd1ae75fe64f0c8c0c79}
+
+
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_datahandler_aec7afb68edd2d6b9e53c71734bee772b}{}\index{Task\+Datahandler@{Task\+Datahandler}!set\+Debug\+Serial@{set\+Debug\+Serial}}
+\index{set\+Debug\+Serial@{set\+Debug\+Serial}!Task\+Datahandler@{Task\+Datahandler}}
+\subsubsection[{set\+Debug\+Serial}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Datahandler\+::set\+Debug\+Serial (
+\begin{DoxyParamCaption}
+\item[{Raw\+Serial $\ast$}]{debug\+Serial}
+\end{DoxyParamCaption}
+)}\label{class_task_datahandler_aec7afb68edd2d6b9e53c71734bee772b}
+
+
+Set a serial interface thats used for debugging the datastream which will be sent via \hyperlink{class_lo_ra}{Lo\+Ra} and to show data handling relevant information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em debug\+Serial} & the Serial interface used to show information \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_task_datahandler_a004dfee34db4d87834dc351c4e50e6e6}{}\index{Task\+Datahandler@{Task\+Datahandler}!set\+Lo\+Ra@{set\+Lo\+Ra}}
+\index{set\+Lo\+Ra@{set\+Lo\+Ra}!Task\+Datahandler@{Task\+Datahandler}}
+\subsubsection[{set\+Lo\+Ra}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Datahandler\+::set\+Lo\+Ra (
+\begin{DoxyParamCaption}
+\item[{{\bf Lo\+Ra} $\ast$}]{lora}
+\end{DoxyParamCaption}
+)}\label{class_task_datahandler_a004dfee34db4d87834dc351c4e50e6e6}
+
+
+Sets the \hyperlink{class_lo_ra}{Lo\+Ra} interface thats used to forward acquired data form other Tasks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lora} & the lora interface that should be used to forward data via \hyperlink{class_lo_ra}{Lo\+Ra} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_task_datahandler_a4643728911a09ec5af8f81bf92205f12}{}\index{Task\+Datahandler@{Task\+Datahandler}!start@{start}}
+\index{start@{start}!Task\+Datahandler@{Task\+Datahandler}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Datahandler\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_datahandler_a4643728911a09ec5af8f81bf92205f12}
+
+
+Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_datahandler_a3bc8f0d70fab0912ee18273f046b518c}{}\index{Task\+Datahandler@{Task\+Datahandler}!stop@{stop}}
+\index{stop@{stop}!Task\+Datahandler@{Task\+Datahandler}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Datahandler\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_datahandler_a3bc8f0d70fab0912ee18273f046b518c}
+
+
+Stops the task. Should only be used after \hyperlink{class_task_datahandler_a4643728911a09ec5af8f81bf92205f12}{start()} was used. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_datahandler_8h}{Task\+Datahandler.\+h}\item 
+app/Task\+Datahandler.\+cpp\end{DoxyCompactItemize}

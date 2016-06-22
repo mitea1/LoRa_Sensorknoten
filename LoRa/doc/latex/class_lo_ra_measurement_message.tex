@@ -1,0 +1,182 @@
+\hypertarget{class_lo_ra_measurement_message}{}\section{Lo\+Ra\+Measurement\+Message Class Reference}
+\label{class_lo_ra_measurement_message}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+
+
+A Container that can hold acquired measurement values such as Rssi, Snr and some other config values from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. The container will be transported via a Message\+Queue between different Tasks and its intended to stored measurement results.  
+
+
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Measuerment\+Message.\+h$>$}
+
+
+
+Inheritance diagram for Lo\+Ra\+Measurement\+Message\+:
+% FIG 0
+
+
+Collaboration diagram for Lo\+Ra\+Measurement\+Message\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_lo_ra_measurement_message_ae7926bece980f29a8bfa7a0ef47545c8}{set\+Rssi} (int16\+\_\+t rssi)
+\begin{DoxyCompactList}\small\item\em Sets the rssi value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{class_lo_ra_measurement_message_a647be5e5801453888ef3ffceab4ed40d}{get\+Rssi} ()
+\begin{DoxyCompactList}\small\item\em Gets the stored rssi value of the Lo\+Ra\+Measurment\+Message. \end{DoxyCompactList}\item 
+void \hyperlink{class_lo_ra_measurement_message_ab5a4889834f40d339011efe99f68e925}{set\+Snr} (int16\+\_\+t snr)
+\begin{DoxyCompactList}\small\item\em Sets the snr value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{class_lo_ra_measurement_message_aed0d810e3f8ef617a3c05fa793f4d0a1}{get\+Snr} ()
+\begin{DoxyCompactList}\small\item\em Gets the stored snr value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+void \hyperlink{class_lo_ra_measurement_message_a2d33032664e8bbb0114c9c3e356fc0d8}{set\+Spreading\+Factor} (uint8\+\_\+t spreading\+Factor)
+\begin{DoxyCompactList}\small\item\em Sets the spreading\+Factor of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_measurement_message_a595910a38d9c65c56e75b15ba972430c}{get\+Spreading\+Factor} ()
+\begin{DoxyCompactList}\small\item\em Gets the stored spreading Factor of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+void \hyperlink{class_lo_ra_measurement_message_a1292e94acbc1a475e1c9b62fd509fb5e}{set\+Tx\+Powerd\+Bm} (uint8\+\_\+t tx\+Powerd\+Bm)
+\begin{DoxyCompactList}\small\item\em Sets the tx Power value in d\+Bm of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_measurement_message_af6d59e3812781d3836e5d59ef28ca893}{get\+Tx\+Powerd\+Bm} ()
+\item 
+virtual char $\ast$ \hyperlink{class_lo_ra_measurement_message_adc396198b07614cbdf3b63f5933a4c8a}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Container that can hold acquired measurement values such as Rssi, Snr and some other config values from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. The container will be transported via a Message\+Queue between different Tasks and its intended to stored measurement results. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_lo_ra_measurement_message_adc396198b07614cbdf3b63f5933a4c8a}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Lo\+Ra\+Measurement\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_lo_ra_measurement_message_adc396198b07614cbdf3b63f5933a4c8a}
+Gets a small Lo\+Ra\+Message Type Formated String from the Lo\+Ra\+Measurment\+Message. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{Sensor\+Message}.
+
+\hypertarget{class_lo_ra_measurement_message_a647be5e5801453888ef3ffceab4ed40d}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!get\+Rssi@{get\+Rssi}}
+\index{get\+Rssi@{get\+Rssi}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{get\+Rssi}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Lo\+Ra\+Measurement\+Message\+::get\+Rssi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_a647be5e5801453888ef3ffceab4ed40d}
+
+
+Gets the stored rssi value of the Lo\+Ra\+Measurment\+Message. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_measurement_message_aed0d810e3f8ef617a3c05fa793f4d0a1}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!get\+Snr@{get\+Snr}}
+\index{get\+Snr@{get\+Snr}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{get\+Snr}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Lo\+Ra\+Measurement\+Message\+::get\+Snr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_aed0d810e3f8ef617a3c05fa793f4d0a1}
+
+
+Gets the stored snr value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_measurement_message_a595910a38d9c65c56e75b15ba972430c}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!get\+Spreading\+Factor@{get\+Spreading\+Factor}}
+\index{get\+Spreading\+Factor@{get\+Spreading\+Factor}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{get\+Spreading\+Factor}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Measurement\+Message\+::get\+Spreading\+Factor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_a595910a38d9c65c56e75b15ba972430c}
+
+
+Gets the stored spreading Factor of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_measurement_message_af6d59e3812781d3836e5d59ef28ca893}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}}
+\index{get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{get\+Tx\+Powerd\+Bm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Measurement\+Message\+::get\+Tx\+Powerd\+Bm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_af6d59e3812781d3836e5d59ef28ca893}
+Gets the stored tx Power in d\+Bm of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_measurement_message_ae7926bece980f29a8bfa7a0ef47545c8}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!set\+Rssi@{set\+Rssi}}
+\index{set\+Rssi@{set\+Rssi}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{set\+Rssi}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+Measurement\+Message\+::set\+Rssi (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{rssi}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_ae7926bece980f29a8bfa7a0ef47545c8}
+
+
+Sets the rssi value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rssi} & rssi value to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lo_ra_measurement_message_ab5a4889834f40d339011efe99f68e925}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!set\+Snr@{set\+Snr}}
+\index{set\+Snr@{set\+Snr}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{set\+Snr}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+Measurement\+Message\+::set\+Snr (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{snr}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_ab5a4889834f40d339011efe99f68e925}
+
+
+Sets the snr value of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em snr} & snr value to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lo_ra_measurement_message_a2d33032664e8bbb0114c9c3e356fc0d8}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!set\+Spreading\+Factor@{set\+Spreading\+Factor}}
+\index{set\+Spreading\+Factor@{set\+Spreading\+Factor}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{set\+Spreading\+Factor}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+Measurement\+Message\+::set\+Spreading\+Factor (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{spreading\+Factor}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_a2d33032664e8bbb0114c9c3e356fc0d8}
+
+
+Sets the spreading\+Factor of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spreading\+Factor} & spreading Factor to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lo_ra_measurement_message_a1292e94acbc1a475e1c9b62fd509fb5e}{}\index{Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}!set\+Tx\+Powerd\+Bm@{set\+Tx\+Powerd\+Bm}}
+\index{set\+Tx\+Powerd\+Bm@{set\+Tx\+Powerd\+Bm}!Lo\+Ra\+Measurement\+Message@{Lo\+Ra\+Measurement\+Message}}
+\subsubsection[{set\+Tx\+Powerd\+Bm}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+Measurement\+Message\+::set\+Tx\+Powerd\+Bm (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{tx\+Powerd\+Bm}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_measurement_message_a1292e94acbc1a475e1c9b62fd509fb5e}
+
+
+Sets the tx Power value in d\+Bm of the \hyperlink{class_lo_ra_measurement_message}{Lo\+Ra\+Measurement\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Powerd\+Bm} & tx Power in d\+Bm to be stored \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_lo_ra_measuerment_message_8h}{Lo\+Ra\+Measuerment\+Message.\+h}\item 
+app/Lo\+Ra\+Measuerment\+Message.\+cpp\end{DoxyCompactItemize}

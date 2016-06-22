@@ -1,0 +1,68 @@
+\hypertarget{class_task_acceleration}{}\section{Task\+Acceleration Class Reference}
+\label{class_task_acceleration}\index{Task\+Acceleration@{Task\+Acceleration}}
+
+
+This \hyperlink{class_task_acceleration}{Task\+Acceleration} Class handles the acceleration measurement using the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. Starting the task using the \hyperlink{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Acceleration.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_acceleration_a56d2be1e134cb1b780edfa7787949d44}{}{\bfseries Task\+Acceleration} (\hyperlink{class_m_p_u9250}{M\+P\+U9250} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message}, A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_acceleration_a56d2be1e134cb1b780edfa7787949d44}
+
+\item 
+\hypertarget{class_task_acceleration_a241a585bb371c0898cd6c922cbd6e684}{}{\bfseries Task\+Acceleration} (\hyperlink{class_m_p_u9250}{M\+P\+U9250} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message}, A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+N\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_acceleration_a241a585bb371c0898cd6c922cbd6e684}
+
+\item 
+os\+Status \hyperlink{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}{start} ()
+\item 
+os\+Status \hyperlink{class_task_acceleration_af0ba8f331bca797340f0752187ab6914}{stop} ()
+\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_acceleration_a74d8657ad86fec38efae380a393679cc}{get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_acceleration}{Task\+Acceleration} Class handles the acceleration measurement using the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. Starting the task using the \hyperlink{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_acceleration_a74d8657ad86fec38efae380a393679cc}{}\index{Task\+Acceleration@{Task\+Acceleration}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Acceleration@{Task\+Acceleration}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Acceleration\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_acceleration_a74d8657ad86fec38efae380a393679cc}
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}{}\index{Task\+Acceleration@{Task\+Acceleration}!start@{start}}
+\index{start@{start}!Task\+Acceleration@{Task\+Acceleration}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Acceleration\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}
+Starts the task by building and its measurement \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_acceleration_af0ba8f331bca797340f0752187ab6914}{}\index{Task\+Acceleration@{Task\+Acceleration}!stop@{stop}}
+\index{stop@{stop}!Task\+Acceleration@{Task\+Acceleration}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Acceleration\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_acceleration_af0ba8f331bca797340f0752187ab6914}
+Stops the task. Should only be used after \hyperlink{class_task_acceleration_aedfec3a60f517bbab4c8689dfd9c5c00}{start()} was used \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_acceleration_8h}{Task\+Acceleration.\+h}\item 
+app/Task\+Acceleration.\+cpp\end{DoxyCompactItemize}

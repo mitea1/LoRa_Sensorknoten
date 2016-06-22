@@ -1,0 +1,175 @@
+\hypertarget{class_lo_ra_config}{}\section{Lo\+Ra\+Config Class Reference}
+\label{class_lo_ra_config}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+
+
+A configuration container for the \hyperlink{class_lo_ra}{Lo\+Ra} Module. All its configuration values are stored an held inside this Class. Depending on the L\+O\+R\+A\+\_\+\+M\+O\+D\+E it sets all the configuration values.  
+
+
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Config.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_lo_ra_config_a82652fe8fa6ce800ab5cb712d21cdd01}{build} (\hyperlink{_lo_ra_config_8h_a07be112bb46983585d462a9039dc470c}{L\+O\+R\+A\+\_\+\+M\+O\+D\+E} desired\+Mode)
+\begin{DoxyCompactList}\small\item\em Generates a configuration according to the chosen L\+O\+R\+A\+\_\+\+M\+O\+D\+E by setting all \hyperlink{class_lo_ra}{Lo\+Ra} Module specific configuration values depending on the chosen L\+O\+R\+A\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+\hypertarget{class_lo_ra_config_a48eb30816989f3655bc1408ce93202b6}{}bool \hyperlink{class_lo_ra_config_a48eb30816989f3655bc1408ce93202b6}{is\+Public} ()\label{class_lo_ra_config_a48eb30816989f3655bc1408ce93202b6}
+
+\begin{DoxyCompactList}\small\item\em Gets info if the Network to which the \hyperlink{class_lo_ra}{Lo\+Ra} Module sings up is public or not from its Configuration. \end{DoxyCompactList}\item 
+bool \hyperlink{class_lo_ra_config_a07a0194fa9a1a7946d2894b8ba28339d}{is\+Activ} ()
+\begin{DoxyCompactList}\small\item\em Gets info if \hyperlink{class_lo_ra}{Lo\+Ra} Module will be active and run or not from its Configuration. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_lo_ra_config_a418b6f51436522a6319591aecd8e8841}{get\+Network\+Name} ()
+\begin{DoxyCompactList}\small\item\em Gets the name of the Network to which the \hyperlink{class_lo_ra}{Lo\+Ra} Module sings up from its Configuration. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_lo_ra_config_a2e55d17633dd7f25bdd672b91a1d81b4}{get\+Network\+Passphrase} ()
+\begin{DoxyCompactList}\small\item\em Gets the Passphrase of the Network to which the \hyperlink{class_lo_ra}{Lo\+Ra} Module sings up from its Configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_config_ae6246cc57369f37d5098edf67253d8b4}{get\+Frequency\+Sub\+Band} ()
+\begin{DoxyCompactList}\small\item\em Gets the frequency Sub\+Band that will be used by the \hyperlink{class_lo_ra}{Lo\+Ra} Module to send and receive its data from its Configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_config_a0f59725c879cbe252dd078caced161c8}{get\+Spreading\+Factor} ()
+\begin{DoxyCompactList}\small\item\em Gets the spreading Factor that the \hyperlink{class_lo_ra}{Lo\+Ra} Module will us for data transmission from its Configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_config_a2041c574ac9170c094117b4f81e42746}{get\+Tx\+Powerd\+Bm} ()
+\begin{DoxyCompactList}\small\item\em Gets the transmission Power of the \hyperlink{class_lo_ra}{Lo\+Ra} Module from its Configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_config_ae76e434db01fca518c7576dff5b987c2}{get\+Acknowledge\+Retries} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of Acknowledgment Retries that will be made from its Configuration. \end{DoxyCompactList}\item 
+\hyperlink{_lo_ra_config_8h_a07be112bb46983585d462a9039dc470c}{L\+O\+R\+A\+\_\+\+M\+O\+D\+E} \hyperlink{class_lo_ra_config_af29a61540aa5d7147a8d190ec3a528ff}{get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E} ()
+\begin{DoxyCompactList}\small\item\em Gets the Actual L\+O\+R\+A\+\_\+\+M\+O\+D\+E of the built Lo\+Ra\+Configuration from its Configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A configuration container for the \hyperlink{class_lo_ra}{Lo\+Ra} Module. All its configuration values are stored an held inside this Class. Depending on the L\+O\+R\+A\+\_\+\+M\+O\+D\+E it sets all the configuration values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_lo_ra_config_a82652fe8fa6ce800ab5cb712d21cdd01}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!build@{build}}
+\index{build@{build}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+Config\+::build (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+O\+R\+A\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a82652fe8fa6ce800ab5cb712d21cdd01}
+
+
+Generates a configuration according to the chosen L\+O\+R\+A\+\_\+\+M\+O\+D\+E by setting all \hyperlink{class_lo_ra}{Lo\+Ra} Module specific configuration values depending on the chosen L\+O\+R\+A\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the mode to build the configuration according to \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lo_ra_config_ae76e434db01fca518c7576dff5b987c2}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Acknowledge\+Retries@{get\+Acknowledge\+Retries}}
+\index{get\+Acknowledge\+Retries@{get\+Acknowledge\+Retries}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Acknowledge\+Retries}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Config\+::get\+Acknowledge\+Retries (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_ae76e434db01fca518c7576dff5b987c2}
+
+
+Gets the number of Acknowledgment Retries that will be made from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_ae6246cc57369f37d5098edf67253d8b4}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Frequency\+Sub\+Band@{get\+Frequency\+Sub\+Band}}
+\index{get\+Frequency\+Sub\+Band@{get\+Frequency\+Sub\+Band}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Frequency\+Sub\+Band}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Config\+::get\+Frequency\+Sub\+Band (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_ae6246cc57369f37d5098edf67253d8b4}
+
+
+Gets the frequency Sub\+Band that will be used by the \hyperlink{class_lo_ra}{Lo\+Ra} Module to send and receive its data from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_af29a61540aa5d7147a8d190ec3a528ff}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E@{get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E}}
+\index{get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E@{get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf L\+O\+R\+A\+\_\+\+M\+O\+D\+E} Lo\+Ra\+Config\+::get\+L\+O\+R\+A\+\_\+\+M\+O\+D\+E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_af29a61540aa5d7147a8d190ec3a528ff}
+
+
+Gets the Actual L\+O\+R\+A\+\_\+\+M\+O\+D\+E of the built Lo\+Ra\+Configuration from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_a418b6f51436522a6319591aecd8e8841}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Network\+Name@{get\+Network\+Name}}
+\index{get\+Network\+Name@{get\+Network\+Name}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Network\+Name}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Lo\+Ra\+Config\+::get\+Network\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a418b6f51436522a6319591aecd8e8841}
+
+
+Gets the name of the Network to which the \hyperlink{class_lo_ra}{Lo\+Ra} Module sings up from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_a2e55d17633dd7f25bdd672b91a1d81b4}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Network\+Passphrase@{get\+Network\+Passphrase}}
+\index{get\+Network\+Passphrase@{get\+Network\+Passphrase}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Network\+Passphrase}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Lo\+Ra\+Config\+::get\+Network\+Passphrase (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a2e55d17633dd7f25bdd672b91a1d81b4}
+
+
+Gets the Passphrase of the Network to which the \hyperlink{class_lo_ra}{Lo\+Ra} Module sings up from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_a0f59725c879cbe252dd078caced161c8}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Spreading\+Factor@{get\+Spreading\+Factor}}
+\index{get\+Spreading\+Factor@{get\+Spreading\+Factor}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Spreading\+Factor}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Config\+::get\+Spreading\+Factor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a0f59725c879cbe252dd078caced161c8}
+
+
+Gets the spreading Factor that the \hyperlink{class_lo_ra}{Lo\+Ra} Module will us for data transmission from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_a2041c574ac9170c094117b4f81e42746}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}}
+\index{get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{get\+Tx\+Powerd\+Bm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+Config\+::get\+Tx\+Powerd\+Bm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a2041c574ac9170c094117b4f81e42746}
+
+
+Gets the transmission Power of the \hyperlink{class_lo_ra}{Lo\+Ra} Module from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_config_a07a0194fa9a1a7946d2894b8ba28339d}{}\index{Lo\+Ra\+Config@{Lo\+Ra\+Config}!is\+Activ@{is\+Activ}}
+\index{is\+Activ@{is\+Activ}!Lo\+Ra\+Config@{Lo\+Ra\+Config}}
+\subsubsection[{is\+Activ}]{\setlength{\rightskip}{0pt plus 5cm}bool Lo\+Ra\+Config\+::is\+Activ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_config_a07a0194fa9a1a7946d2894b8ba28339d}
+
+
+Gets info if \hyperlink{class_lo_ra}{Lo\+Ra} Module will be active and run or not from its Configuration. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_lo_ra_config_8h}{Lo\+Ra\+Config.\+h}\item 
+app/Lo\+Ra\+Config.\+cpp\end{DoxyCompactItemize}

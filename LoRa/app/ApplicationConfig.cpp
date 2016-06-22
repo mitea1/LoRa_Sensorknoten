@@ -31,7 +31,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setMAX44009_MODE(MAX44009_MODE_1);
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
-		setSI1143_MODE(SI1143_MODE_3);
+		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_1);
 		setLORA_MODE(LORA_MODE_1);
 		break;
@@ -68,7 +68,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_4:
@@ -104,7 +104,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_6:
@@ -140,7 +140,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_8:
@@ -176,7 +176,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_10:
@@ -212,7 +212,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_99:
@@ -230,18 +230,18 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST:
 		setStateTaskLight(RUNNING);
-		setStateTaskTemperature(SLEEPING);
+		setStateTaskTemperature(RUNNING);
 		setStateTaskPressure(SLEEPING);
 		setStateTaskHumidity(SLEEPING);
-		setStateTaskAcceleration(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
 		setStateTaskGyroscope(SLEEPING);
 		setStateTaskTesla(SLEEPING);
-		setStateTaskProximity(SLEEPING);
+		setStateTaskProximity(RUNNING);
 		setStateTaskGPS(SLEEPING);
 		setStateTaskLoRaMeasurement(SLEEPING);
 		setMAX44009_MODE(MAX44009_MODE_4);
@@ -266,7 +266,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_BME280:
@@ -284,7 +284,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_MPU9250:
@@ -302,7 +302,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_SI1143:
@@ -320,7 +320,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case APPLICATION_MODE_TEST_uBlox:
@@ -338,8 +338,8 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
-		setLORA_MODE(LORA_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_0);
+		setLORA_MODE(LORA_MODE_0_OFF);
 		break;
 	case APPLICATION_MODE_LORA_MEASUREMENT:
 		setStateTaskLight(SLEEPING);
@@ -356,7 +356,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_0);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	default:

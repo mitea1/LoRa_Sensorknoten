@@ -1,0 +1,113 @@
+\hypertarget{class_s_i1143}{}\section{S\+I1143 Class Reference}
+\label{class_s_i1143}\index{S\+I1143@{S\+I1143}}
+
+
+Provides Functionality to control the \hyperlink{class_s_i1143}{S\+I1143} Sensor on the Sensbert.  
+
+
+
+
+{\ttfamily \#include $<$S\+I1143.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_s_i1143_aebff43d7a1751c813383535224688602}{}{\bfseries S\+I1143} (\hyperlink{class_i2_c___r_t}{I2\+C\+\_\+\+R\+T} $\ast$)\label{class_s_i1143_aebff43d7a1751c813383535224688602}
+
+\item 
+void \hyperlink{class_s_i1143_a59db8778fd2d6679905488e88ed20f6b}{init} (\hyperlink{_s_i1143_config_8h_ae6d915c2410b566eab9cc10516661ecd}{S\+I1143\+\_\+\+M\+O\+D\+E} desired\+Mode)
+\begin{DoxyCompactList}\small\item\em Initializes the \hyperlink{class_s_i1143}{S\+I1143} according to the desired S\+I1143\+\_\+\+M\+O\+D\+E. \end{DoxyCompactList}\item 
+\hypertarget{class_s_i1143_ad0dacd5a95351984d0b31be17c4d903d}{}void \hyperlink{class_s_i1143_ad0dacd5a95351984d0b31be17c4d903d}{restart} (void)\label{class_s_i1143_ad0dacd5a95351984d0b31be17c4d903d}
+
+\begin{DoxyCompactList}\small\item\em Restarts the Sensor and its functionality. \end{DoxyCompactList}\item 
+int \hyperlink{class_s_i1143_a1c58ac229038e77fc4bfd51c7fc8d902}{get\+Proximity} (int repeat)
+\begin{DoxyCompactList}\small\item\em Get the actual proximity that has been measured. \end{DoxyCompactList}\item 
+int \hyperlink{class_s_i1143_a58b64b4d0819aca84da212da8be3c0ab}{get\+Ambient\+Light} (int repeat)
+\begin{DoxyCompactList}\small\item\em Get the actual ambient light that has been measured. \end{DoxyCompactList}\item 
+int \hyperlink{class_s_i1143_a32989c886bac6331caad26af2011b732}{get\+Infra\+Red\+Light} (int repeat)
+\begin{DoxyCompactList}\small\item\em Get the actual infrared light that has been measured. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides Functionality to control the \hyperlink{class_s_i1143}{S\+I1143} Sensor on the Sensbert. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_i1143_a58b64b4d0819aca84da212da8be3c0ab}{}\index{S\+I1143@{S\+I1143}!get\+Ambient\+Light@{get\+Ambient\+Light}}
+\index{get\+Ambient\+Light@{get\+Ambient\+Light}!S\+I1143@{S\+I1143}}
+\subsubsection[{get\+Ambient\+Light}]{\setlength{\rightskip}{0pt plus 5cm}int S\+I1143\+::get\+Ambient\+Light (
+\begin{DoxyParamCaption}
+\item[{int}]{repeat}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_a58b64b4d0819aca84da212da8be3c0ab}
+
+
+Get the actual ambient light that has been measured. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em repeat} & how many time the measurement has been taken to get an average ambient light value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_a32989c886bac6331caad26af2011b732}{}\index{S\+I1143@{S\+I1143}!get\+Infra\+Red\+Light@{get\+Infra\+Red\+Light}}
+\index{get\+Infra\+Red\+Light@{get\+Infra\+Red\+Light}!S\+I1143@{S\+I1143}}
+\subsubsection[{get\+Infra\+Red\+Light}]{\setlength{\rightskip}{0pt plus 5cm}int S\+I1143\+::get\+Infra\+Red\+Light (
+\begin{DoxyParamCaption}
+\item[{int}]{repeat}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_a32989c886bac6331caad26af2011b732}
+
+
+Get the actual infrared light that has been measured. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em repeat} & how many time the measurement has been taken to get an average infrared light value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_a1c58ac229038e77fc4bfd51c7fc8d902}{}\index{S\+I1143@{S\+I1143}!get\+Proximity@{get\+Proximity}}
+\index{get\+Proximity@{get\+Proximity}!S\+I1143@{S\+I1143}}
+\subsubsection[{get\+Proximity}]{\setlength{\rightskip}{0pt plus 5cm}int S\+I1143\+::get\+Proximity (
+\begin{DoxyParamCaption}
+\item[{int}]{repeat}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_a1c58ac229038e77fc4bfd51c7fc8d902}
+
+
+Get the actual proximity that has been measured. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em repeat} & how many time the measurement has been taken to get an average proximity value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_s_i1143_a59db8778fd2d6679905488e88ed20f6b}{}\index{S\+I1143@{S\+I1143}!init@{init}}
+\index{init@{init}!S\+I1143@{S\+I1143}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void S\+I1143\+::init (
+\begin{DoxyParamCaption}
+\item[{{\bf S\+I1143\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_s_i1143_a59db8778fd2d6679905488e88ed20f6b}
+
+
+Initializes the \hyperlink{class_s_i1143}{S\+I1143} according to the desired S\+I1143\+\_\+\+M\+O\+D\+E. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & the desired Mode depending on which the \hyperlink{class_s_i1143}{S\+I1143} has to be configured \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_s_i1143_8h}{S\+I1143.\+h}\item 
+app/S\+I1143.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,27 @@
+digraph "SensorMessage"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SensorMessage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="BME280HumidityMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_b_m_e280_humidity_message.html",tooltip="A Container that can hold acquired humidity values from the BME280. The container will be transported..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="BME280PressureMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_b_m_e280_pressure_message.html",tooltip="A Container that can hold acquired humidity values. The container will be transported via a MessageQu..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="BME280TemperatureMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_b_m_e280_temperature_message.html",tooltip="A Container that can hold acquired temperature values. The container will be transported via a Messag..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="LoRaMeasurementMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_lo_ra_measurement_message.html",tooltip="A Container that can hold acquired measurement values such as Rssi, Snr and some other config values ..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="MAX44009Message",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_a_x44009_message.html",tooltip="A Container that can hold acquired lux values from the MAX44009. The container will be transported vi..."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="MPU9250AccelerationMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_p_u9250_acceleration_message.html",tooltip="A Container that can hold acquired acceleration values from the MPU9250. The container will be transp..."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="MPU9250GyroscopeMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_p_u9250_gyroscope_message.html"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="MPU9250TeslaMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_p_u9250_tesla_message.html",tooltip="A Container that can hold acquired tesla values from the MPU9250. The container will be transported v..."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="SI1143ProximityMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_i1143_proximity_message.html",tooltip="A Container that can hold acquired proximity values from the SI1143. The container will be transporte..."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="UBloxGPSMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_u_blox_g_p_s_message.html",tooltip="A Container that can hold acquired gps values from the uBLOX. The container will be transported via a..."];
+}

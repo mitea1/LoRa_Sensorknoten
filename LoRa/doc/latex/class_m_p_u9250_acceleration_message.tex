@@ -1,0 +1,128 @@
+\hypertarget{class_m_p_u9250_acceleration_message}{}\section{M\+P\+U9250\+Acceleration\+Message Class Reference}
+\label{class_m_p_u9250_acceleration_message}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+
+
+A Container that can hold acquired acceleration values from the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. The container will be transported via a Message\+Queue between different Tasks.  
+
+
+
+
+{\ttfamily \#include $<$M\+P\+U9250\+Acceleration\+Message.\+h$>$}
+
+
+
+Inheritance diagram for M\+P\+U9250\+Acceleration\+Message\+:
+% FIG 0
+
+
+Collaboration diagram for M\+P\+U9250\+Acceleration\+Message\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_m_p_u9250_acceleration_message_a7d47004b639f7e9aa99dac5230c66f86}{set\+X\+Acceleration} (float x\+Acceleration)
+\item 
+void \hyperlink{class_m_p_u9250_acceleration_message_a81b5d3e5f3be6481295cd5fe6f834242}{set\+Y\+Acceleration} (float y\+Acceleration)
+\item 
+void \hyperlink{class_m_p_u9250_acceleration_message_a45c3a9e1db213302d5627389beb8c7bd}{set\+Z\+Acceleration} (float z\+Acceleration)
+\item 
+float \hyperlink{class_m_p_u9250_acceleration_message_aace29ce8da4dbb851ea1b05445e4e11f}{get\+X\+Acceleration} ()
+\item 
+float \hyperlink{class_m_p_u9250_acceleration_message_adfdd339c1a952fe1802d22b61886605f}{get\+Y\+Acceleration} ()
+\item 
+float \hyperlink{class_m_p_u9250_acceleration_message_a6dc58a0e34ed0c57971becebf0695663}{get\+Z\+Acceleration} ()
+\item 
+virtual char $\ast$ \hyperlink{class_m_p_u9250_acceleration_message_a76afe97e9852bfea5b29b6b9a41647aa}{get\+Lo\+Ra\+Message\+String} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Container that can hold acquired acceleration values from the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. The container will be transported via a Message\+Queue between different Tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_m_p_u9250_acceleration_message_a76afe97e9852bfea5b29b6b9a41647aa}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}}
+\index{get\+Lo\+Ra\+Message\+String@{get\+Lo\+Ra\+Message\+String}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{get\+Lo\+Ra\+Message\+String}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ M\+P\+U9250\+Acceleration\+Message\+::get\+Lo\+Ra\+Message\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_m_p_u9250_acceleration_message_a76afe97e9852bfea5b29b6b9a41647aa}
+Gets a small Lo\+Ra\+Message Type Formated String from the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message}. This String can later be used for transportation via \hyperlink{class_lo_ra}{Lo\+Ra} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_sensor_message_acea0d36241823af20d6fd750cf726a23}{Sensor\+Message}.
+
+\hypertarget{class_m_p_u9250_acceleration_message_aace29ce8da4dbb851ea1b05445e4e11f}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!get\+X\+Acceleration@{get\+X\+Acceleration}}
+\index{get\+X\+Acceleration@{get\+X\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{get\+X\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float M\+P\+U9250\+Acceleration\+Message\+::get\+X\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_aace29ce8da4dbb851ea1b05445e4e11f}
+Gets the x-\/axis acceleration value from the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_p_u9250_acceleration_message_adfdd339c1a952fe1802d22b61886605f}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!get\+Y\+Acceleration@{get\+Y\+Acceleration}}
+\index{get\+Y\+Acceleration@{get\+Y\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{get\+Y\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float M\+P\+U9250\+Acceleration\+Message\+::get\+Y\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_adfdd339c1a952fe1802d22b61886605f}
+Gets the y-\/axis acceleration value from the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_p_u9250_acceleration_message_a6dc58a0e34ed0c57971becebf0695663}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!get\+Z\+Acceleration@{get\+Z\+Acceleration}}
+\index{get\+Z\+Acceleration@{get\+Z\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{get\+Z\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}float M\+P\+U9250\+Acceleration\+Message\+::get\+Z\+Acceleration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_a6dc58a0e34ed0c57971becebf0695663}
+Gets the z-\/axis acceleration value from the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_m_p_u9250_acceleration_message_a7d47004b639f7e9aa99dac5230c66f86}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!set\+X\+Acceleration@{set\+X\+Acceleration}}
+\index{set\+X\+Acceleration@{set\+X\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{set\+X\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}void M\+P\+U9250\+Acceleration\+Message\+::set\+X\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{float}]{x\+Acceleration}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_a7d47004b639f7e9aa99dac5230c66f86}
+Sets the x-\/axis acceleration value of the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} 
+\begin{DoxyParams}{Parameters}
+{\em x\+Acceleration} & x-\/axis acceleration to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_p_u9250_acceleration_message_a81b5d3e5f3be6481295cd5fe6f834242}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!set\+Y\+Acceleration@{set\+Y\+Acceleration}}
+\index{set\+Y\+Acceleration@{set\+Y\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{set\+Y\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}void M\+P\+U9250\+Acceleration\+Message\+::set\+Y\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{float}]{y\+Acceleration}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_a81b5d3e5f3be6481295cd5fe6f834242}
+Sets the y-\/axis acceleration value of the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} 
+\begin{DoxyParams}{Parameters}
+{\em y\+Acceleration} & y-\/axis acceleration to be stored \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_m_p_u9250_acceleration_message_a45c3a9e1db213302d5627389beb8c7bd}{}\index{M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}!set\+Z\+Acceleration@{set\+Z\+Acceleration}}
+\index{set\+Z\+Acceleration@{set\+Z\+Acceleration}!M\+P\+U9250\+Acceleration\+Message@{M\+P\+U9250\+Acceleration\+Message}}
+\subsubsection[{set\+Z\+Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}void M\+P\+U9250\+Acceleration\+Message\+::set\+Z\+Acceleration (
+\begin{DoxyParamCaption}
+\item[{float}]{z\+Acceleration}
+\end{DoxyParamCaption}
+)}\label{class_m_p_u9250_acceleration_message_a45c3a9e1db213302d5627389beb8c7bd}
+Sets the z-\/axis acceleration value of the \hyperlink{class_m_p_u9250_acceleration_message}{M\+P\+U9250\+Acceleration\+Message} 
+\begin{DoxyParams}{Parameters}
+{\em z\+Acceleration} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_m_p_u9250_acceleration_message_8h}{M\+P\+U9250\+Acceleration\+Message.\+h}\item 
+app/M\+P\+U9250\+Acceleration\+Message.\+cpp\end{DoxyCompactItemize}

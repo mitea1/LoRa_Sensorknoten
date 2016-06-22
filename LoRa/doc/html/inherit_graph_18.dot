@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="TaskAcceleration",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_task_acceleration.html",tooltip="This TaskAcceleration Class handles the acceleration measurement using the MPU9250. Starting the task using the start() starts the measurement. It can be used alongside with other measurement Tasks inside the mbed::rtos environment. The Task Class basically wraps mbeds Thread functionality. "];
+}

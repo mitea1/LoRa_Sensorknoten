@@ -1,0 +1,80 @@
+\hypertarget{class_task_tesla}{}\section{Task\+Tesla Class Reference}
+\label{class_task_tesla}\index{Task\+Tesla@{Task\+Tesla}}
+
+
+This \hyperlink{class_task_tesla}{Task\+Tesla} Class handles the tesla measurement using the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. Starting the task using the \hyperlink{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{start()} starts the measurement of all axis. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Tesla.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_tesla_a101ec7162d49ea514b7edd10a34dca9f}{}{\bfseries Task\+Tesla} (\hyperlink{class_m_p_u9250}{M\+P\+U9250} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_p_u9250_tesla_message}{M\+P\+U9250\+Tesla\+Message}, T\+E\+S\+L\+A\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_tesla_a101ec7162d49ea514b7edd10a34dca9f}
+
+\item 
+\hypertarget{class_task_tesla_a33d2cc04f1b73014de76ce9fdcbecf09}{}{\bfseries Task\+Tesla} (\hyperlink{class_m_p_u9250}{M\+P\+U9250} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_p_u9250_tesla_message}{M\+P\+U9250\+Tesla\+Message}, T\+E\+S\+L\+A\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_tesla_a33d2cc04f1b73014de76ce9fdcbecf09}
+
+\item 
+os\+Status \hyperlink{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. \end{DoxyCompactList}\item 
+os\+Status \hyperlink{class_task_tesla_a452f3189815c358c87007e31c1aad5aa}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task. Should only be used after \hyperlink{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{start()} was used. \end{DoxyCompactList}\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_tesla_a324faa820e865a3c76b0decd359bd431}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_tesla}{Task\+Tesla} Class handles the tesla measurement using the \hyperlink{class_m_p_u9250}{M\+P\+U9250}. Starting the task using the \hyperlink{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{start()} starts the measurement of all axis. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_tesla_a324faa820e865a3c76b0decd359bd431}{}\index{Task\+Tesla@{Task\+Tesla}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Tesla@{Task\+Tesla}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Tesla\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_tesla_a324faa820e865a3c76b0decd359bd431}
+
+
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{}\index{Task\+Tesla@{Task\+Tesla}!start@{start}}
+\index{start@{start}!Task\+Tesla@{Task\+Tesla}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Tesla\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}
+
+
+Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_tesla_a452f3189815c358c87007e31c1aad5aa}{}\index{Task\+Tesla@{Task\+Tesla}!stop@{stop}}
+\index{stop@{stop}!Task\+Tesla@{Task\+Tesla}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Tesla\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_tesla_a452f3189815c358c87007e31c1aad5aa}
+
+
+Stops the task. Should only be used after \hyperlink{class_task_tesla_a42c4e57484a682500f4c0c3079df494e}{start()} was used. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_tesla_8h}{Task\+Tesla.\+h}\item 
+app/Task\+Tesla.\+cpp\end{DoxyCompactItemize}

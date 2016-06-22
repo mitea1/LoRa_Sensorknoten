@@ -1,0 +1,156 @@
+\hypertarget{class_lo_ra}{}\section{Lo\+Ra Class Reference}
+\label{class_lo_ra}\index{Lo\+Ra@{Lo\+Ra}}
+
+
+Represents the \hyperlink{class_lo_ra}{Lo\+Ra} Module with all its functionality. It wraps Multitech owns m\+Dot Library functions. It\textquotesingle{}s possible to wrap other functionality from other \hyperlink{class_lo_ra}{Lo\+Ra} Module Manufactures for future use cases.  
+
+
+
+
+{\ttfamily \#include $<$Lo\+Ra.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_lo_ra_ae32965b22bc4febb5c5e8ea03d22f09a}{}{\bfseries Lo\+Ra} (m\+Dot $\ast$, Raw\+Serial $\ast$)\label{class_lo_ra_ae32965b22bc4febb5c5e8ea03d22f09a}
+
+\item 
+void \hyperlink{class_lo_ra_a3b65d9f9801255e027b01e6b60cc3f31}{init} (\hyperlink{_lo_ra_config_8h_a07be112bb46983585d462a9039dc470c}{L\+O\+R\+A\+\_\+\+M\+O\+D\+E} desired\+Mode)
+\begin{DoxyCompactList}\small\item\em Initializes and start the \hyperlink{class_lo_ra}{Lo\+Ra} Module depending on the desire\+Mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{class_lo_ra_abba159688b78a72f888f2fe623bd249d}{send} (std\+::vector$<$ uint8\+\_\+t $>$ \&data\+To\+Send)
+\begin{DoxyCompactList}\small\item\em Sends data stored inside a vector via \hyperlink{class_lo_ra}{Lo\+Ra}. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{class_lo_ra_a01d13acfa1620817b3a1ea40306cf243}{recv} (std\+::vector$<$ uint8\+\_\+t $>$ \&received\+Data)
+\begin{DoxyCompactList}\small\item\em Receives data via \hyperlink{class_lo_ra}{Lo\+Ra} and stores it inside a vector. \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{class_lo_ra_a76439a227fee90321d4b7c000ef8e160}{get\+Last\+Rssi} ()
+\begin{DoxyCompactList}\small\item\em Gets the Rssi of the last sent Message. It\textquotesingle{}s important that at least 1 Acknowledgment Retries is set by set\+Ack\+Retries() \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{class_lo_ra_aa7283f0804d10799ddfdb1c3e722bdaf}{get\+Last\+Snr} ()
+\begin{DoxyCompactList}\small\item\em D\+O\+N\textquotesingle{}T U\+S\+E I\+T R\+E\+S\+U\+L\+U\+T\+S I\+N H\+A\+R\+D\+F\+A\+U\+L\+T! Gets the S\+N\+R of the last sent Message. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_a5654e34c55e36c165d2322a0d8b01c76}{get\+Spreading\+Factor} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual spreading Factor from 7 to 12 from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_lo_ra_a35c18060da2aa6a9dea6c5e57c76955a}{get\+Tx\+Powerd\+Bm} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual transmit Power in d\+Bm from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. \end{DoxyCompactList}\item 
+\hypertarget{class_lo_ra_ad4974b37b3fd86a95da4d1611b16a517}{}void \hyperlink{class_lo_ra_ad4974b37b3fd86a95da4d1611b16a517}{ping} ()\label{class_lo_ra_ad4974b37b3fd86a95da4d1611b16a517}
+
+\begin{DoxyCompactList}\small\item\em Sends a 0 Byte long ping message to the gateway. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents the \hyperlink{class_lo_ra}{Lo\+Ra} Module with all its functionality. It wraps Multitech owns m\+Dot Library functions. It\textquotesingle{}s possible to wrap other functionality from other \hyperlink{class_lo_ra}{Lo\+Ra} Module Manufactures for future use cases. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_lo_ra_a76439a227fee90321d4b7c000ef8e160}{}\index{Lo\+Ra@{Lo\+Ra}!get\+Last\+Rssi@{get\+Last\+Rssi}}
+\index{get\+Last\+Rssi@{get\+Last\+Rssi}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{get\+Last\+Rssi}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Lo\+Ra\+::get\+Last\+Rssi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_a76439a227fee90321d4b7c000ef8e160}
+
+
+Gets the Rssi of the last sent Message. It\textquotesingle{}s important that at least 1 Acknowledgment Retries is set by set\+Ack\+Retries() 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_aa7283f0804d10799ddfdb1c3e722bdaf}{}\index{Lo\+Ra@{Lo\+Ra}!get\+Last\+Snr@{get\+Last\+Snr}}
+\index{get\+Last\+Snr@{get\+Last\+Snr}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{get\+Last\+Snr}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Lo\+Ra\+::get\+Last\+Snr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_aa7283f0804d10799ddfdb1c3e722bdaf}
+
+
+D\+O\+N\textquotesingle{}T U\+S\+E I\+T R\+E\+S\+U\+L\+U\+T\+S I\+N H\+A\+R\+D\+F\+A\+U\+L\+T! Gets the S\+N\+R of the last sent Message. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_a5654e34c55e36c165d2322a0d8b01c76}{}\index{Lo\+Ra@{Lo\+Ra}!get\+Spreading\+Factor@{get\+Spreading\+Factor}}
+\index{get\+Spreading\+Factor@{get\+Spreading\+Factor}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{get\+Spreading\+Factor}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+::get\+Spreading\+Factor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_a5654e34c55e36c165d2322a0d8b01c76}
+
+
+Gets the actual spreading Factor from 7 to 12 from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_a35c18060da2aa6a9dea6c5e57c76955a}{}\index{Lo\+Ra@{Lo\+Ra}!get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}}
+\index{get\+Tx\+Powerd\+Bm@{get\+Tx\+Powerd\+Bm}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{get\+Tx\+Powerd\+Bm}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Lo\+Ra\+::get\+Tx\+Powerd\+Bm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_a35c18060da2aa6a9dea6c5e57c76955a}
+
+
+Gets the actual transmit Power in d\+Bm from the \hyperlink{class_lo_ra}{Lo\+Ra} Module. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_a3b65d9f9801255e027b01e6b60cc3f31}{}\index{Lo\+Ra@{Lo\+Ra}!init@{init}}
+\index{init@{init}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Lo\+Ra\+::init (
+\begin{DoxyParamCaption}
+\item[{{\bf L\+O\+R\+A\+\_\+\+M\+O\+D\+E}}]{desired\+Mode}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_a3b65d9f9801255e027b01e6b60cc3f31}
+
+
+Initializes and start the \hyperlink{class_lo_ra}{Lo\+Ra} Module depending on the desire\+Mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+Mode} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_lo_ra_a01d13acfa1620817b3a1ea40306cf243}{}\index{Lo\+Ra@{Lo\+Ra}!recv@{recv}}
+\index{recv@{recv}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Lo\+Ra\+::recv (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{received\+Data}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_a01d13acfa1620817b3a1ea40306cf243}
+
+
+Receives data via \hyperlink{class_lo_ra}{Lo\+Ra} and stores it inside a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em received\+Data} & the vector where the received data needs to be stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_lo_ra_abba159688b78a72f888f2fe623bd249d}{}\index{Lo\+Ra@{Lo\+Ra}!send@{send}}
+\index{send@{send}!Lo\+Ra@{Lo\+Ra}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}int32\+\_\+t Lo\+Ra\+::send (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{data\+To\+Send}
+\end{DoxyParamCaption}
+)}\label{class_lo_ra_abba159688b78a72f888f2fe623bd249d}
+
+
+Sends data stored inside a vector via \hyperlink{class_lo_ra}{Lo\+Ra}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+To\+Send} & the vector that contains the Data that needs to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_lo_ra_8h}{Lo\+Ra.\+h}\item 
+app/Lo\+Ra.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{class_task_light}{}\section{Task\+Light Class Reference}
+\label{class_task_light}\index{Task\+Light@{Task\+Light}}
+
+
+This \hyperlink{class_task_light}{Task\+Light} Class handles the light measurement using the \hyperlink{class_m_a_x44009}{M\+A\+X44009}. Starting the task using the \hyperlink{class_task_light_a958f0696792985292633cd57e95b95f6}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Light.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_light_a7d0fa8fa8313080e5c539bde177343f9}{}{\bfseries Task\+Light} (\hyperlink{class_m_a_x44009}{M\+A\+X44009} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_a_x44009_message}{M\+A\+X44009\+Message}, L\+I\+G\+H\+T\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_light_a7d0fa8fa8313080e5c539bde177343f9}
+
+\item 
+\hypertarget{class_task_light_ace733e8561a21d4e19b6420ab7b245f7}{}{\bfseries Task\+Light} (\hyperlink{class_m_a_x44009}{M\+A\+X44009} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_m_a_x44009_message}{M\+A\+X44009\+Message}, L\+I\+G\+H\+T\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_light_ace733e8561a21d4e19b6420ab7b245f7}
+
+\item 
+os\+Status \hyperlink{class_task_light_a958f0696792985292633cd57e95b95f6}{start} ()
+\item 
+os\+Status \hyperlink{class_task_light_a0b14246106163f1e230d16d542f7698f}{stop} ()
+\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_light_ae8ef3f57c726cb99c5983270aedcfb82}{get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_light}{Task\+Light} Class handles the light measurement using the \hyperlink{class_m_a_x44009}{M\+A\+X44009}. Starting the task using the \hyperlink{class_task_light_a958f0696792985292633cd57e95b95f6}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_light_ae8ef3f57c726cb99c5983270aedcfb82}{}\index{Task\+Light@{Task\+Light}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Light@{Task\+Light}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Light\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_light_ae8ef3f57c726cb99c5983270aedcfb82}
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_light_a958f0696792985292633cd57e95b95f6}{}\index{Task\+Light@{Task\+Light}!start@{start}}
+\index{start@{start}!Task\+Light@{Task\+Light}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Light\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_light_a958f0696792985292633cd57e95b95f6}
+Starts the task by building and its measurement \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_light_a0b14246106163f1e230d16d542f7698f}{}\index{Task\+Light@{Task\+Light}!stop@{stop}}
+\index{stop@{stop}!Task\+Light@{Task\+Light}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Light\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_light_a0b14246106163f1e230d16d542f7698f}
+Stops the task. Should only be used after \hyperlink{class_task_light_a958f0696792985292633cd57e95b95f6}{start()} was used \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_light_8h}{Task\+Light.\+h}\item 
+app/Task\+Light.\+cpp\end{DoxyCompactItemize}

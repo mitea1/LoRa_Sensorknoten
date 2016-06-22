@@ -1,0 +1,68 @@
+\hypertarget{class_task_g_p_s}{}\section{Task\+G\+P\+S Class Reference}
+\label{class_task_g_p_s}\index{Task\+G\+P\+S@{Task\+G\+P\+S}}
+
+
+This \hyperlink{class_task_g_p_s}{Task\+G\+P\+S} Class handles the G\+P\+S measurement using the \hyperlink{classu_blox}{u\+Blox}. Starting the task using the \hyperlink{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+G\+P\+S.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_g_p_s_af319c228440c12e1f0cace3f4fab8b6d}{}{\bfseries Task\+G\+P\+S} (\hyperlink{classu_blox}{u\+Blox} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_u_blox_g_p_s_message}{U\+Blox\+G\+P\+S\+Message}, G\+P\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_g_p_s_af319c228440c12e1f0cace3f4fab8b6d}
+
+\item 
+\hypertarget{class_task_g_p_s_a44c8b0ea07f08dddf4b4592e7d561cb8}{}{\bfseries Task\+G\+P\+S} (\hyperlink{classu_blox}{u\+Blox} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_u_blox_g_p_s_message}{U\+Blox\+G\+P\+S\+Message}, G\+P\+S\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_g_p_s_a44c8b0ea07f08dddf4b4592e7d561cb8}
+
+\item 
+os\+Status \hyperlink{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}{start} ()
+\item 
+os\+Status \hyperlink{class_task_g_p_s_aa03b804ce54372f9afcc24d52cd11b0c}{stop} ()
+\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_g_p_s_a16f42723c4a17b4b27d1d27b6e012845}{get\+State} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_g_p_s}{Task\+G\+P\+S} Class handles the G\+P\+S measurement using the \hyperlink{classu_blox}{u\+Blox}. Starting the task using the \hyperlink{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}{start()} starts the measurement. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_g_p_s_a16f42723c4a17b4b27d1d27b6e012845}{}\index{Task\+G\+P\+S@{Task\+G\+P\+S}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+G\+P\+S@{Task\+G\+P\+S}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+G\+P\+S\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_g_p_s_a16f42723c4a17b4b27d1d27b6e012845}
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}{}\index{Task\+G\+P\+S@{Task\+G\+P\+S}!start@{start}}
+\index{start@{start}!Task\+G\+P\+S@{Task\+G\+P\+S}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+G\+P\+S\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}
+Starts the task by building and its measurement \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_g_p_s_aa03b804ce54372f9afcc24d52cd11b0c}{}\index{Task\+G\+P\+S@{Task\+G\+P\+S}!stop@{stop}}
+\index{stop@{stop}!Task\+G\+P\+S@{Task\+G\+P\+S}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+G\+P\+S\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_g_p_s_aa03b804ce54372f9afcc24d52cd11b0c}
+Stops the task. Should only be used after \hyperlink{class_task_g_p_s_af0c070a139c754f802ae456a350aa1db}{start()} was used \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_g_p_s_8h}{Task\+G\+P\+S.\+h}\item 
+app/Task\+G\+P\+S.\+cpp\end{DoxyCompactItemize}

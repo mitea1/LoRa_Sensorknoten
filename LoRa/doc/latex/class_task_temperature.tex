@@ -1,0 +1,80 @@
+\hypertarget{class_task_temperature}{}\section{Task\+Temperature Class Reference}
+\label{class_task_temperature}\index{Task\+Temperature@{Task\+Temperature}}
+
+
+This \hyperlink{class_task_temperature}{Task\+Temperature} Class handles the temperature measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{start()} starts the measurement of all axis. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality.  
+
+
+
+
+{\ttfamily \#include $<$Task\+Temperature.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_task_temperature_a77f8397025d30bd3733b342a0391d1a2}{}{\bfseries Task\+Temperature} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_temperature_message}{B\+M\+E280\+Temperature\+Message}, T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$)\label{class_task_temperature_a77f8397025d30bd3733b342a0391d1a2}
+
+\item 
+\hypertarget{class_task_temperature_af7207d45514620c96b9d68cc1110560a}{}{\bfseries Task\+Temperature} (\hyperlink{class_b_m_e280}{B\+M\+E280} $\ast$, Mutex $\ast$, Queue$<$ \hyperlink{class_b_m_e280_temperature_message}{B\+M\+E280\+Temperature\+Message}, T\+E\+M\+P\+E\+R\+A\+T\+U\+R\+E\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+L\+E\+N\+G\+H\+T $>$ $\ast$, os\+Priority, uint32\+\_\+t, unsigned char $\ast$)\label{class_task_temperature_af7207d45514620c96b9d68cc1110560a}
+
+\item 
+os\+Status \hyperlink{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{start} ()
+\begin{DoxyCompactList}\small\item\em Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. \end{DoxyCompactList}\item 
+os\+Status \hyperlink{class_task_temperature_a636df181e9c97eaa84c93139393334f2}{stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task. Should only be used after \hyperlink{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{start()} was used. \end{DoxyCompactList}\item 
+T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E \hyperlink{class_task_temperature_a0a0f3454e5be903d0c316d4153f8220f}{get\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This \hyperlink{class_task_temperature}{Task\+Temperature} Class handles the temperature measurement using the \hyperlink{class_b_m_e280}{B\+M\+E280}. Starting the task using the \hyperlink{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{start()} starts the measurement of all axis. It can be used alongside with other measurement Tasks inside the mbed\+::rtos environment. The Task Class basically wraps mbeds Thread functionality. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_task_temperature_a0a0f3454e5be903d0c316d4153f8220f}{}\index{Task\+Temperature@{Task\+Temperature}!get\+State@{get\+State}}
+\index{get\+State@{get\+State}!Task\+Temperature@{Task\+Temperature}}
+\subsubsection[{get\+State}]{\setlength{\rightskip}{0pt plus 5cm}T\+A\+S\+K\+\_\+\+S\+T\+A\+T\+E Task\+Temperature\+::get\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_temperature_a0a0f3454e5be903d0c316d4153f8220f}
+
+
+Gets the actual state of the Task either R\+U\+N\+N\+I\+N\+G or S\+L\+E\+E\+P\+I\+N\+G. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{}\index{Task\+Temperature@{Task\+Temperature}!start@{start}}
+\index{start@{start}!Task\+Temperature@{Task\+Temperature}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Temperature\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}
+
+
+Starts the task by building it and connecting a callback function to the mbed\+::\+Thread. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_task_temperature_a636df181e9c97eaa84c93139393334f2}{}\index{Task\+Temperature@{Task\+Temperature}!stop@{stop}}
+\index{stop@{stop}!Task\+Temperature@{Task\+Temperature}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}os\+Status Task\+Temperature\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_task_temperature_a636df181e9c97eaa84c93139393334f2}
+
+
+Stops the task. Should only be used after \hyperlink{class_task_temperature_ada8c9d103caa02964b57fcf61d7baca5}{start()} was used. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_task_temperature_8h}{Task\+Temperature.\+h}\item 
+app/Task\+Temperature.\+cpp\end{DoxyCompactItemize}

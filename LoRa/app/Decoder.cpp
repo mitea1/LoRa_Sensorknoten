@@ -11,6 +11,8 @@
 Decoder::Decoder(mbed::RawSerial* serial) {
 	this->serial = serial;
 	this->serial->attach(this,&Decoder::rxInterrupt,this->serial->RxIrq);
+	setActualState(INIT);
+	setBufferPosition(0);
 }
 
 Decoder::~Decoder() {
@@ -34,6 +36,7 @@ bool Decoder::hasReceived(char specificChar){
 
 	if(lastReceivedChar == specificChar){
 		received = true;
+		setActualState(RECEIVE);
 	}
 
 	return received;

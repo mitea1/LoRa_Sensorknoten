@@ -1,0 +1,77 @@
+\hypertarget{class_decoder}{}\section{Decoder Class Reference}
+\label{class_decoder}\index{Decoder@{Decoder}}
+
+
+This Class is used to decode the byte stream thats sent from the \hyperlink{classu_blox}{u\+Blox}. At the moment it only decodes the N\+A\+V-\/\+P\+O\+L\+L\+S\+H byte stream. For correct usage all other messages of the \hyperlink{classu_blox}{u\+Blox} needs to be deactivated or at least the N\+A\+V-\/\+P\+O\+L\+L\+S\+H needs to be activated.  
+
+
+
+
+{\ttfamily \#include $<$Decoder.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_decoder_afbb216d45d750f0690b770ac05de47c8}{}{\bfseries Decoder} (mbed\+::\+Raw\+Serial $\ast$)\label{class_decoder_afbb216d45d750f0690b770ac05de47c8}
+
+\item 
+\hyperlink{_decoder_8h_ae93428308fdd9a41c5c4e3b313660d5d}{Decoder\+State} \hyperlink{class_decoder_aa40ea5002429be768f098c8552bdbbd0}{get\+Actual\+State} ()
+\begin{DoxyCompactList}\small\item\em Gets the actual State in which the decoder is. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{class_decoder_ac3387c24fad19dc2ad1030f6dd64f326}{get\+Receive\+Buffer} ()
+\begin{DoxyCompactList}\small\item\em Gets the receive Buffer in which all received Bytes from the N\+A\+V-\/\+P\+O\+L\+L\+S\+H are stored. \end{DoxyCompactList}\item 
+\hyperlink{struct_p_o_s_l_h_h}{P\+O\+S\+L\+H\+H} \hyperlink{class_decoder_a49a5192ad6bbe9aef721c4b6122aefc5}{get\+Last\+Poslhh} ()
+\begin{DoxyCompactList}\small\item\em Gets the last successfully decoded N\+A\+V-\/\+P\+O\+L\+L\+S\+H Bytestream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Class is used to decode the byte stream thats sent from the \hyperlink{classu_blox}{u\+Blox}. At the moment it only decodes the N\+A\+V-\/\+P\+O\+L\+L\+S\+H byte stream. For correct usage all other messages of the \hyperlink{classu_blox}{u\+Blox} needs to be deactivated or at least the N\+A\+V-\/\+P\+O\+L\+L\+S\+H needs to be activated. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_decoder_aa40ea5002429be768f098c8552bdbbd0}{}\index{Decoder@{Decoder}!get\+Actual\+State@{get\+Actual\+State}}
+\index{get\+Actual\+State@{get\+Actual\+State}!Decoder@{Decoder}}
+\subsubsection[{get\+Actual\+State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Decoder\+State} Decoder\+::get\+Actual\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_decoder_aa40ea5002429be768f098c8552bdbbd0}
+
+
+Gets the actual State in which the decoder is. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_decoder_a49a5192ad6bbe9aef721c4b6122aefc5}{}\index{Decoder@{Decoder}!get\+Last\+Poslhh@{get\+Last\+Poslhh}}
+\index{get\+Last\+Poslhh@{get\+Last\+Poslhh}!Decoder@{Decoder}}
+\subsubsection[{get\+Last\+Poslhh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+O\+S\+L\+H\+H} Decoder\+::get\+Last\+Poslhh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_decoder_a49a5192ad6bbe9aef721c4b6122aefc5}
+
+
+Gets the last successfully decoded N\+A\+V-\/\+P\+O\+L\+L\+S\+H Bytestream. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_decoder_ac3387c24fad19dc2ad1030f6dd64f326}{}\index{Decoder@{Decoder}!get\+Receive\+Buffer@{get\+Receive\+Buffer}}
+\index{get\+Receive\+Buffer@{get\+Receive\+Buffer}!Decoder@{Decoder}}
+\subsubsection[{get\+Receive\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Decoder\+::get\+Receive\+Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_decoder_ac3387c24fad19dc2ad1030f6dd64f326}
+
+
+Gets the receive Buffer in which all received Bytes from the N\+A\+V-\/\+P\+O\+L\+L\+S\+H are stored. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+app/\hyperlink{_decoder_8h}{Decoder.\+h}\item 
+app/Decoder.\+cpp\end{DoxyCompactItemize}
