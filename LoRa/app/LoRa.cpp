@@ -11,6 +11,8 @@ LoRa::LoRa(mDot* dot,RawSerial* debugSerial) {
 	this->dot = dot;
 	this->debugSerial = debugSerial;
 	this->config = new LoRaConfig();
+	this->dot->setActivityLedPin(PA_0);
+	this->dot->setActivityLedEnable(true);
 }
 
 LoRa::~LoRa() {
