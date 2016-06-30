@@ -59,7 +59,6 @@ void TaskLight::measureLight(){
 		osDelay(LIGHT_TASK_DELAY_MS);
 	}
 
-
 }
 
 void TaskLight::setQueue(Queue<MAX44009Message,LIGHT_QUEUE_LENGHT>* queue){

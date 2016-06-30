@@ -48,7 +48,7 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
 			setFrequencySubBand(LORA_SUBBAND_0);
-			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_12);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
 			break;
@@ -82,7 +82,7 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
-			setTxPowerdBm(LORA_TX_POWER_16_DBM);
+			setTxPowerdBm(LORA_TX_POWER_20_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
 			break;
 
