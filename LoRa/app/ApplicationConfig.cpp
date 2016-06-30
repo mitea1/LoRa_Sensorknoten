@@ -357,8 +357,63 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
 		setuBlox_MODE(uBLOX_MODE_0);
+		setLORA_MODE(LORA_MODE_5);
+		break;
+	case WEATHER_MEASUREMENT:
+		setStateTaskLight(RUNNING);
+		setStateTaskTemperature(RUNNING);
+		setStateTaskPressure(RUNNING);
+		setStateTaskHumidity(RUNNING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_1);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_1);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_0);
 		setLORA_MODE(LORA_MODE_1);
 		break;
+	case ORIENTATATION_MEASUREMENT:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(RUNNING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(SLEEPING);
+		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_1);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_1);
+		setSI1143_MODE(SI1143_MODE_1);
+		setuBlox_MODE(uBLOX_MODE_0);
+		setLORA_MODE(LORA_MODE_1);
+		break;
+	case DISTANCE_MEASUREMENT:
+		setStateTaskLight(SLEEPING);
+		setStateTaskTemperature(SLEEPING);
+		setStateTaskPressure(SLEEPING);
+		setStateTaskHumidity(SLEEPING);
+		setStateTaskAcceleration(SLEEPING);
+		setStateTaskGyroscope(SLEEPING);
+		setStateTaskTesla(SLEEPING);
+		setStateTaskProximity(RUNNING);
+		setStateTaskGPS(SLEEPING);
+		setStateTaskLoRaMeasurement(SLEEPING);
+		setMAX44009_MODE(MAX44009_MODE_1);
+		setBME280_MODE(BME280_MODE_1);
+		setMPU9250_MODE(MPU9250_MODE_1);
+		setSI1143_MODE(SI1143_MODE_3);
+		setuBlox_MODE(uBLOX_MODE_0);
+		setLORA_MODE(LORA_MODE_1);
+		break;
+
 	default:
 		setStateTaskLight(RUNNING);
 		setStateTaskTemperature(RUNNING);

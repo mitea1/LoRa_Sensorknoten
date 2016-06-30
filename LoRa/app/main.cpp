@@ -4,12 +4,11 @@
 
 int main() {
 
-
 	Application application;
-	application.init(APPLICATION_MODE_9);
+	application.init(WEATHER_MEASUREMENT);
 
     while (true) {
-
+    	sleep();
     }
 
     return 0;
