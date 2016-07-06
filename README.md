@@ -1,13 +1,13 @@
 #LoRa-Sensornode Firmware for Multitech mDot
 A multifunctional modular Library based on ARM mBed provides a widerange of functionality for several Sensors. 
-It allows you to build quickly build a Sensor for Proof of Concept implementations.
+It allows you to quickly build a Sensornode that measures specific data with its sensors and sends it via LoRaWAN.
 
 ##Supported Sensors
-+ MAX44009
-+ BME280
-+ MPU9250
-+ Si1143
-+ uBlox M8Q
++ MAX44009 (Lux Measurment)
++ BME280 (Temperature, Pressure and Humdity Measurment)
++ MPU9250 (Acceleration, Gyroscope and Magnetometer)
++ Si1143 (Proximity up to 50cm)
++ uBlox M8Q (GPS Position)
 
 ##Idea
 The Firmware has some predefined Application Modes running different Tasks(Measurements). Each mode can be used in a different Scenario.
