@@ -1,2 +1,2 @@
-# LoRa_Sensorknoten
+# LoRa Sensorknoten with Multitech mDot
 Test Text
