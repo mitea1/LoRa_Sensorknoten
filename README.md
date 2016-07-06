@@ -12,3 +12,10 @@ It allows you to quickly build a Sensornode that measures specific data with its
 ##Idea
 The Firmware has some predefined Application Modes running different Tasks(Measurements). Each mode can be used in a different Scenario.
 And you can build your own modes for your own Scenario in which you want to use the Sensornode.
+
+###Application Modes
+| Application_Mode    |TaskLight      |TaskTemperature    |
+| --------------------|:-------------:|:-----------------:|
+| Application_Mode_1  | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
