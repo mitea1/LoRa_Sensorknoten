@@ -1,2 +1,2 @@
-# LoRa Sensorknoten with Multitech mDot
+# LoRa-Sensornode Firmware for Multitech mDot
 Test Text
