@@ -31,7 +31,7 @@ And you can build your own modes for your own Scenario in which you want to use 
 <p>Einfache Tabelle mit Überschrift</p>
 <table>
   <tr>
-    <th>Vorname</th>
+    <th>Vor\nname</th>
     <th>Nachname</th>
   </tr>
   <tr>
