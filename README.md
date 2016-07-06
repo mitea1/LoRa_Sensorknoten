@@ -16,4 +16,14 @@ And you can build your own modes for your own Scenario in which you want to use 
 ###Application Modes
 | Application_Mode|TaskLight  |TaskTemperature|TaskPressure|TaskHumidity|TaskAcceleration|TaskGyroscope|TaskMagnetometer|TaskProximity|TaskGPS|
 |---------|:---------:|:----------:|:---------:|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|
-| Application_Mode_1|X|X|X|X|X|X|X|X|X|X|
+| Application_Mode_1 |X|X|X|X|X|X|X|X|X|X|
+| Application_Mode_2 | |X|X|X| | | | | |X|
+| Application_Mode_3 | |X|X|X| | | | | | |
+| Application_Mode_4 | | | | |X|X|X| | |X|
+| Application_Mode_5 | | | | |X|X|X| | | |
+| Application_Mode_6 |X|X| | |X| | | | |X|
+| Application_Mode_7 |X|X| | |X| | | | | |
+| Application_Mode_8 |X| | | | | | | | |X|
+| Application_Mode_9 |X| | | | | | | | | |
+| Application_Mode_10| | | | | | | | |X|X|
+| Application_Mode_11| | | | | | | | |X| |
