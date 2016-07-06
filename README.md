@@ -14,7 +14,6 @@ The Firmware has some predefined Application Modes running different Tasks(Measu
 And you can build your own modes for your own Scenario in which you want to use the Sensornode.
 
 ###Application Modes
-| Application_Mode|TaskLight  |TaskTemperature|TaskPressure |TaskHumidity
-|TaskAcceleration|TaskGyroscope|TaskMagnetometer|TaskProximity|TaskGPS|
+| Application_Mode|TaskLight  |TaskTemperature|TaskPressure|TaskHumidity|TaskAcceleration|TaskGyroscope|TaskMagnetometer|TaskProximity|TaskGPS|
 |---------|:---------:|:----------:|:---------:|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|
 | Application_Mode_1|X|X|X|X|X|X|X|X|X|X|
