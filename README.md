@@ -3,11 +3,11 @@ A multifunctional modular Library based on ARM mBed provides a widerange of func
 It allows you to quickly build a Sensornode that measures specific data with its sensors and sends it via LoRaWAN.
 
 ##Supported Sensors
-+ MAX44009 (Lux Measurment)
-+ BME280 (Temperature, Pressure and Humdity Measurment)
-+ MPU9250 (Acceleration, Gyroscope and Magnetometer)
-+ Si1143 (Proximity up to 50cm)
-+ uBlox M8Q (GPS Position)
++ MAX44009 (*Lux* Measurment)
++ BME280 (*Temperature*, *Pressure* and *Humdity* Measurment)
++ MPU9250 (*Acceleration*, *Gyroscope* and *Magnetometer*)
++ Si1143 (*Proximity* up to 50cm)
++ uBlox M8Q (*GPS* Position)
 
 ##Idea
 The Firmware has some predefined Application Modes running different Tasks(Measurements). Each mode can be used in a different Scenario. Application_Modes define which sensors are used, how often they aquire data and how often the data has to be sent via LoRa.
