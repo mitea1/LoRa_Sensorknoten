@@ -28,7 +28,7 @@ Lets say you just want to measure the Light then you choose an Application_Mode 
 | `Application_Mode_10`| | | | | | | | |X|X|
 | `Application_Mode_11`| | | | | | | | |X| |
 
-|X|RUNNING|
-| |SLEEPING|
+ X: RUNNING
+| |:  SLEEPING
 
 You can also build your own costum Application_Mode defining which sensors are used for Measurements
