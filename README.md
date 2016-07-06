@@ -1,5 +1,5 @@
 #LoRa-Sensornode Firmware for Multitech mDot
-A multifunctional modular Library based on ARM mBed provides a widerange of functionality for several Sensors. 
+A multifunctional and modular Firmware for Multitech's mDot based on ARM mBed provides a widerange of functionality for several Sensors. 
 It allows you to quickly build a Sensornode that measures specific data with its sensors and sends it via LoRaWAN.
 
 ##Supported Sensors
