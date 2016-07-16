@@ -114,6 +114,17 @@ private:
 	 */
 	int32_t setNetworkPassphrase();
 
+	int32_t setNetworkAddress();
+
+
+	/**
+	 * @brief Depending on the LoRaConfig it sets the join mode of the Node.
+	 * Either OTTA (Over the Air Activation or ABP (Activation by Personalization)
+	 * @param
+	 * @return
+	 */
+	int32_t setJoinMode();
+
 	/**
 	 * @brief Depending on the LoRaConfig it defines the spreading Factor
 	 * for transmissions via LoRa

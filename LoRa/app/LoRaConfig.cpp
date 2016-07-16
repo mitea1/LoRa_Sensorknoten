@@ -25,6 +25,7 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(false);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setNetworkAddress(LORA_N)
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
@@ -115,6 +116,10 @@ std::string LoRaConfig::getNetworkPassphrase(){
 	return *networkPassphrase;
 }
 
+std::string LoRaConfig::getNetworkAddress(){
+	return *networkAddress;
+}
+
 uint8_t LoRaConfig::getFrequencySubBand(){
 	return frequencySubBand;
 }
@@ -151,6 +156,10 @@ void LoRaConfig::setNetworkPassphrase(char* networkPassphrase){
 	this->networkPassphrase = new std::string(networkPassphrase);
 }
 
+void LoRaConfig::setNetworkAddress(char* networkAddress){
+	this->networkAddress = new std::string(networkAddress);
+}
+
 void LoRaConfig::setFrequencySubBand(uint8_t frequencySubBand){
 	this->frequencySubBand = frequencySubBand;
 }
@@ -169,6 +178,10 @@ void LoRaConfig::setAcknowledgeRetries(uint8_t acknowledgeRetries){
 
 void LoRaConfig::setLORA_MODE(LORA_MODE loraMode){
 	this->loraMode = loraMode;
+}
+
+void LoRaConfig::setJOIN_MODE(JOIN_MODE joinMode){
+	this->joinMode = joinMode;
 }
 
 

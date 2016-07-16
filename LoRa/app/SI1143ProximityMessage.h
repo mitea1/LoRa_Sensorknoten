@@ -14,7 +14,7 @@
 #ifndef APP_SI1143MESSAGE_H_
 #define APP_SI1143MESSAGE_H_
 
-#define SI1143_PROXIMITY_MESSAGE_ID		"P"
+#define SI1143_PROXIMITY_MESSAGE_ID		"P4"
 
 /**
  * @class SI1143ProximityMessage

@@ -100,8 +100,7 @@
 
 /** @} */
 
-#define LORA_NETWORK_NAME					"conduitgwy"
-#define LORA_NETWORK_PASSPHRASE				"conduitgwy"
+
 
 #define LORA_COMMAND_APPLICATION_MODE_1		"AM1"
 #define LORA_COMMAND_APPLICATION_MODE_2		"AM2"

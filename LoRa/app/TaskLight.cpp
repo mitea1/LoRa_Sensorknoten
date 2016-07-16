@@ -6,6 +6,7 @@
  */
 
 #include "TaskLight.h"
+#include "rtos_idle.h"
 
 
 
@@ -31,6 +32,7 @@ TaskLight::~TaskLight() {
 osStatus TaskLight::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
+	this->thread->attach_idle_hook(NULL);
 }
 
 osStatus TaskLight::stop(){

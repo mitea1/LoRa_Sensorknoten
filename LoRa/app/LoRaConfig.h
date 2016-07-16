@@ -11,8 +11,12 @@
 #ifndef LORACONFIG_H_
 #define LORACONFIG_H_
 
-#define LORA_NETWORK_NAME				"conduitgwy"
-#define LORA_NETWORK_PASSPHRASE			"conduitgwy"
+#define LORA_NETWORK_NAME			"conduitgwy"
+#define LORA_NETWORK_PASSPHRASE		"conduitgwy"
+#define LORA_NETWORK_ADDRESS		{0x01,0x02,0x03,0x04}
+#define LORA_APP_EUI				{0x70,0xB3,0xD5,0x7E,0xD0,0x00,0x01,0x2D}
+#define LORA_APP_KEY				{0x48,0xFE,0x41,0xB9,0x99,0x37,0x17,0xA9,0x24,0x08,0xF6,0xD2,0x30,0x80,0xF2,0x83}
+#define LORA_DEVICE_EUI				{0x00,0x80,0x00,0x00,0x00,0x00,0xB4,0x08}
 
 #define LORA_SUBBAND_0						0
 #define LORA_SUBBAND_1						1
@@ -51,6 +55,14 @@ enum LORA_MODE{
 	LORA_MODE_3 = 3,//!< LORA_MODE_3
 	LORA_MODE_4 = 4,//!< LORA_MODE_4
 	LORA_MODE_5 = 5,//!< LORA_MODE_5
+};
+
+/**
+ * Join Modes for LoRa
+ */
+enum JOIN_MODE{
+	OTA = true,//!< OTTA
+	ABP = false //!< ABP
 };
 
 /**
@@ -99,6 +111,12 @@ public:
 	std::string getNetworkPassphrase();
 
 	/**
+	 * @brief Gets the Network Address. Only used when using ABP JoinMode
+	 * @return
+	 */
+	std::string getNetworkAddress();
+
+	/**
 	 * @brief Gets the frequency SubBand that will be used by the LoRa Module to
 	 * send and receive its data from its Configuration
 	 * @return
@@ -132,10 +150,18 @@ public:
 	 */
 	LORA_MODE getLORA_MODE();
 
+	/**
+	 * @brief Gets the Actual JOIN_MODE of the built LoRaConfiguration
+	 * form its Configuration
+	 * @return
+	 */
+	JOIN_MODE getJOIN_MODE();
+
 
 private:
 	std::string* networkName;
 	std::string* networkPassphrase;
+	std::string* networkAddress;
 	bool publicity;
 	bool activity;
 	uint8_t frequencySubBand;
@@ -144,6 +170,7 @@ private:
 	uint8_t acknowledgeRetries;
 
 	LORA_MODE loraMode;
+	JOIN_MODE joinMode;
 
 
 	/**
@@ -169,6 +196,12 @@ private:
 	 * @param networkPassphrase passphrase of the Network
 	 */
 	void setNetworkPassphrase(char* networkPassphrase);
+
+	/**
+	 * @brief Sets the Networkaddress of the Network that will be used in the Configuration
+	 * @param networkAddress
+	 */
+	void setNetworkAddress(char* networkAddress);
 
 	/**
 	 * @brief Sets the SubBand that will be used in by the LoRa Module in the Configuration
@@ -199,6 +232,12 @@ private:
 	 * @param
 	 */
 	void setLORA_MODE(LORA_MODE);
+
+	/**
+	 * @brief Sets the Join Mode to a Network
+	 * @param
+	 */
+	void setJOIN_MODE(JOIN_MODE);
 
 };
 

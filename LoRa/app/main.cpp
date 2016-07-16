@@ -5,7 +5,7 @@
 int main() {
 
 	Application application;
-	application.init(WEATHER_MEASUREMENT);
+	application.init(ORIENTATATION_MEASUREMENT);
 
     while (true) {
     	sleep();

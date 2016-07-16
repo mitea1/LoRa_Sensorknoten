@@ -374,7 +374,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_0);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case ORIENTATATION_MEASUREMENT:
@@ -392,7 +392,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_1);
-		setuBlox_MODE(uBLOX_MODE_0);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 	case DISTANCE_MEASUREMENT:
@@ -410,7 +410,7 @@ void ApplicationConfig::build(APPLICATION_MODE desiredMode) {
 		setBME280_MODE(BME280_MODE_1);
 		setMPU9250_MODE(MPU9250_MODE_1);
 		setSI1143_MODE(SI1143_MODE_3);
-		setuBlox_MODE(uBLOX_MODE_0);
+		setuBlox_MODE(uBLOX_MODE_3);
 		setLORA_MODE(LORA_MODE_1);
 		break;
 

@@ -23,6 +23,7 @@ void LoRa::init(LORA_MODE desiredMode){
 	config->build(desiredMode);
 
 	resetConfig();
+
     setPublicNetwork();
     setFrequencySubBand();
     setNetworkName();
@@ -83,6 +84,35 @@ int32_t LoRa::setNetworkPassphrase(){
 
 	if ((ret = dot->setNetworkPassphrase(networkPassphrase)) != mDot::MDOT_OK) {
 		debugSerial->printf("failed to set network password %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+	}
+
+	return ret;
+}
+
+int32_t LoRa::setNetworkAddress(){
+	int32_t ret;
+	std::string networkAddress = config->getNetworkAddress();
+	debugSerial->printf("setting network address\n");
+
+	if ((ret = dot->setNetworkAddress(networkAddress)) != mDot::MDOT_OK) {
+		debugSerial->printf("failed to set network address %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+	}
+
+	return ret;
+}
+
+int32_t LoRa::setJoinMode(){
+	int32_t ret;
+	JOIN_MODE joinMode = config->getJOIN_MODE();
+	mDot::OTA;
+
+	debugSerial->printf("setting join mode\n");
+
+	if(joinMode == OTA){
+		dot->setJoinMode(mDot::OTA);
+	}
+	else{
+		dot->setJoinMode(mDot::MANUAL);
 	}
 
 	return ret;
