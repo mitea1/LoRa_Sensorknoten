@@ -50,7 +50,7 @@ public:
 	int16_t getLastRssi();
 
 	/**
-	 * @brief DON'T USE IT RESULUTS IN HARDFAULT!
+	 * @brief DON'T USE IT RESULTS IN HARDFAULT!
 	 * Gets the SNR of the last sent Message.
 	 * @return
 	 */
@@ -72,6 +72,13 @@ public:
 	 * @brief Sends a 0 Byte long ping message to the gateway
 	 */
 	void ping();
+
+
+	/**
+	 * @brief  Get ms until next free channel
+     * only applicable for European models, US models return 0
+	 */
+	uint32_t getNextTxMs();
 
 
 
@@ -114,7 +121,23 @@ private:
 	 */
 	int32_t setNetworkPassphrase();
 
-	int32_t setNetworkAddress();
+	/**
+	 * @brief Depending on the LoRaConfig it defines that AppEUI thats used for OTAA
+	 * @return
+	 */
+	int32_t setAppEUI();
+
+	/**
+	 * @brief Depending on the LoRaConfig it defines that AppKey thats used for OTAA
+	 * @return
+	 */
+	int32_t setAppKey();
+
+	/**
+	 * @brief Depending on the LoRaConfig it defines that DeviceEUI thats used for OTAA
+	 * @return
+	 */
+	int32_t setDeviceEUI();
 
 
 	/**

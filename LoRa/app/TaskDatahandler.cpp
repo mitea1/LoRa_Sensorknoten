@@ -46,7 +46,7 @@ void TaskDatahandler::handleData(){
 	while(true){
 		getMessagesFromSensorQueues();
 		forwardSensorMessages();
-		osDelay(DATAHANLDER_TASK_DELAY_MS);
+		osDelay(std::max((uint32_t)DATAHANLDER_TASK_DELAY_MS,(uint32_t)lora->getNextTxMs()));
 	}
 }
 

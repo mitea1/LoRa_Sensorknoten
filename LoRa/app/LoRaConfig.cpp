@@ -25,11 +25,11 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(false);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-			setNetworkAddress(LORA_N)
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 
 		case LORA_MODE_1:
@@ -37,10 +37,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(true);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
-			setFrequencySubBand(LORA_SUBBAND_0);
-			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
+			setFrequencySubBand(LORA_SUBBAND_1);
+			setSpreadingFactor(LORA_SPREADING_FACTOR_8);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
-			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_0);
+			setJOIN_MODE(OTA);
 			break;
 
 		case LORA_MODE_2:
@@ -48,10 +52,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(true);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_12);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 
 		case LORA_MODE_3:
@@ -59,10 +67,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(true);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 
 		case LORA_MODE_4:
@@ -70,10 +82,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(true);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 
 		case LORA_MODE_5:
@@ -81,10 +97,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(true);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_20_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 
 		default:
@@ -92,10 +112,14 @@ void LoRaConfig::build(LORA_MODE desiredMode){
 			setActivity(false);
 			setNetworkName(LORA_NETWORK_NAME);
 			setNetworkPassphrase(LORA_NETWORK_PASSPHRASE);
+			setAppEUI();
+			setAppKey();
+			setDeviceEUI();
 			setFrequencySubBand(LORA_SUBBAND_0);
 			setSpreadingFactor(LORA_SPREADING_FACTOR_7);
 			setTxPowerdBm(LORA_TX_POWER_16_DBM);
 			setAcknowledgeRetries(LORA_ACKNOWLEDGE_RETRIES_1);
+			setJOIN_MODE(ABP);
 			break;
 	}
 }
@@ -120,6 +144,18 @@ std::string LoRaConfig::getNetworkAddress(){
 	return *networkAddress;
 }
 
+std::vector<uint8_t> LoRaConfig::getAppEUI(){
+	return appEUI;
+}
+
+std::vector<uint8_t> LoRaConfig::getAppKey(){
+	return appKey;
+}
+
+std::vector<uint8_t> LoRaConfig::getDeviceEUI(){
+	return deviceEUI;
+}
+
 uint8_t LoRaConfig::getFrequencySubBand(){
 	return frequencySubBand;
 }
@@ -140,6 +176,10 @@ LORA_MODE LoRaConfig::getLORA_MODE(){
 	return loraMode;
 }
 
+JOIN_MODE LoRaConfig::getJOIN_MODE(){
+	return joinMode;
+}
+
 void LoRaConfig::setNetworkPublicity(bool publicity){
 	this->publicity = publicity;
 }
@@ -158,6 +198,28 @@ void LoRaConfig::setNetworkPassphrase(char* networkPassphrase){
 
 void LoRaConfig::setNetworkAddress(char* networkAddress){
 	this->networkAddress = new std::string(networkAddress);
+}
+
+void LoRaConfig::setAppEUI(){
+	uint8_t LORA_APP_EUI[] = {0x70,0xB3,0xD5,0x7E,0xD0,0x00,0x01,0x2D};
+//	for(int i = 0; i < 8; i++){
+//		this->appEUI.push_back(LORA_APP_EUI[i]);
+//	}
+
+}
+
+void LoRaConfig::setAppKey(){
+	uint8_t LORA_APP_KEY[]	= {0x6E,0xF0,0x1C,0x00,0xDC,0xAE,0x79,0xBA,0xD5,0xC6,0x8D,0xC7,0xB7,0x7C,0x07,0x53};
+//	for(int i = 0; i < 16; i++){
+//		this->appKey.push_back(LORA_APP_KEY[i]);
+//	}
+}
+
+void LoRaConfig::setDeviceEUI(){
+	uint8_t LORA_DEVICE_EUI[] = {0x00,0x80,0x00,0x00,0x00,0x00,0xB8,0x69};
+//	for(int i = 0; i < 8; i++){
+//		this->deviceEUI.push_back(LORA_DEVICE_EUI[i]);
+//	}
 }
 
 void LoRaConfig::setFrequencySubBand(uint8_t frequencySubBand){

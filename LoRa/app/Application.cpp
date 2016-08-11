@@ -78,6 +78,8 @@ void Application::stopAllRunningSensorTasks(){
 		taskLoRaMeasurement->stop();
 	}
 
+	taskDataHandler->stop();
+
 	osDelay(100);
 }
 
@@ -148,13 +150,15 @@ void Application::startRunnableSensorTasks(){
 	if(config->getStateTaskLoRaMeasurement() == RUNNING){
 		taskLoRaMeasurement->start();
 	}
+
+	taskDataHandler->start();
 }
 
 void Application::configureSensors(){
 	max44009->init(config->getMAX44009_MODE());
 	bme280->init(config->getBME280_MODE());
 	mpu9250->init(config->getMPU9250_MODE());
-	si1143->init(config->getSI1143_MODE());
+//	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
 }
 

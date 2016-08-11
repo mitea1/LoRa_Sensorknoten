@@ -5,7 +5,7 @@
 int main() {
 
 	Application application;
-	application.init(ORIENTATATION_MEASUREMENT);
+	application.init(APPLICATION_MODE_9);
 
     while (true) {
     	sleep();

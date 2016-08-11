@@ -24,13 +24,16 @@ void LoRa::init(LORA_MODE desiredMode){
 
 	resetConfig();
 
-    setPublicNetwork();
-    setFrequencySubBand();
     setNetworkName();
 	setNetworkPassphrase();
+	setAppEUI();
+	setAppKey();
+	setFrequencySubBand();
+	setPublicNetwork();
 	setSpreadingFactor();
     setAckRetries();
     setTxPower();
+    setJoinMode();
 
     saveConfig();
 
@@ -89,30 +92,57 @@ int32_t LoRa::setNetworkPassphrase(){
 	return ret;
 }
 
-int32_t LoRa::setNetworkAddress(){
+int32_t LoRa::setAppEUI(){
 	int32_t ret;
-	std::string networkAddress = config->getNetworkAddress();
-	debugSerial->printf("setting network address\n");
+	std::vector<uint8_t> appEUI;
+	uint8_t LORA_APP_EUI[] = {0x70,0xB3,0xD5,0x7E,0xD0,0x00,0x01,0x2D};
+	for(int i = 0; i < 8; i++){
+		appEUI.push_back(LORA_APP_EUI[i]);
+	}
+	debugSerial->printf("setting App EUI\n");
 
-	if ((ret = dot->setNetworkAddress(networkAddress)) != mDot::MDOT_OK) {
-		debugSerial->printf("failed to set network address %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+	if ((ret = dot->setNetworkId(appEUI)) != mDot::MDOT_OK) {
+		debugSerial->printf("failed to set App EUI %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+	}
+
+	return ret;
+
+}
+
+int32_t LoRa::setAppKey(){
+	int32_t ret;
+	std::vector<uint8_t> appKey;
+	uint8_t LORA_APP_KEY[]	= {0x6E,0xF0,0x1C,0x00,0xDC,0xAE,0x79,0xBA,0xD5,0xC6,0x8D,0xC7,0xB7,0x7C,0x07,0x53};
+	debugSerial->printf("setting App Key\n");
+
+	for(int i = 0; i < 16; i++){
+		appKey.push_back(LORA_APP_KEY[i]);
+	}
+
+	if ((ret = dot->setNetworkKey(appKey)) != mDot::MDOT_OK) {
+		debugSerial->printf("failed to set App Key %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
 	}
 
 	return ret;
 }
 
+
+
 int32_t LoRa::setJoinMode(){
 	int32_t ret;
 	JOIN_MODE joinMode = config->getJOIN_MODE();
-	mDot::OTA;
 
 	debugSerial->printf("setting join mode\n");
 
 	if(joinMode == OTA){
-		dot->setJoinMode(mDot::OTA);
+		if ((ret = dot->setJoinMode(mDot::OTA)) != mDot::MDOT_OK) {
+			debugSerial->printf("failed to set network address %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+		}
 	}
-	else{
-		dot->setJoinMode(mDot::MANUAL);
+	else if(joinMode == ABP){
+		if ((ret = dot->setJoinMode(mDot::MANUAL)) != mDot::MDOT_OK) {
+			debugSerial->printf("failed to set network address %d:%s\n", ret, mDot::getReturnCodeString(ret).c_str());
+		}
 	}
 
 	return ret;
@@ -234,6 +264,10 @@ uint8_t LoRa::getTxPowerdBm(){
 
 void LoRa::ping(){
 	mDot::ping_response response = dot->ping();
+}
+
+uint32_t LoRa::getNextTxMs(){
+	return dot->getNextTxMs();
 }
 
 

@@ -8,15 +8,12 @@
 
 #include <string>
 #include <stdint-gcc.h>
+#include <vector>
 #ifndef LORACONFIG_H_
 #define LORACONFIG_H_
 
 #define LORA_NETWORK_NAME			"conduitgwy"
 #define LORA_NETWORK_PASSPHRASE		"conduitgwy"
-#define LORA_NETWORK_ADDRESS		{0x01,0x02,0x03,0x04}
-#define LORA_APP_EUI				{0x70,0xB3,0xD5,0x7E,0xD0,0x00,0x01,0x2D}
-#define LORA_APP_KEY				{0x48,0xFE,0x41,0xB9,0x99,0x37,0x17,0xA9,0x24,0x08,0xF6,0xD2,0x30,0x80,0xF2,0x83}
-#define LORA_DEVICE_EUI				{0x00,0x80,0x00,0x00,0x00,0x00,0xB4,0x08}
 
 #define LORA_SUBBAND_0						0
 #define LORA_SUBBAND_1						1
@@ -61,9 +58,13 @@ enum LORA_MODE{
  * Join Modes for LoRa
  */
 enum JOIN_MODE{
-	OTA = true,//!< OTTA
-	ABP = false //!< ABP
+	OTA = 0,//!< OTTA
+	ABP = 1 //!< ABP
 };
+
+//static uint8_t LORA_APP_EUI[] = {0x70,0xB3,0xD5,0x7E,0xD0,0x00,0x01,0x2D};
+//static uint8_t LORA_APP_KEY[]	= {0x6E,0xF0,0x1C,0x00,0xDC,0xAE,0x79,0xBA,0xD5,0xC6,0x8D,0xC7,0xB7,0x7C,0x07,0x53};
+//static uint8_t LORA_DEVICE_EUI[] = {0x00,0x80,0x00,0x00,0x00,0x00,0xB8,0x69};
 
 /**
  * @class LoRaConfig
@@ -117,6 +118,24 @@ public:
 	std::string getNetworkAddress();
 
 	/**
+	 * @brief Gets the App EUI
+	 * @return
+	 */
+	std::vector<uint8_t> getAppEUI();
+
+	/**
+	 * @brief Gets the App Key
+	 * @return
+	 */
+	std::vector<uint8_t> getAppKey();
+
+	/**
+	 * @brief Gets the Device EUI
+	 * @return
+	 */
+	std::vector<uint8_t> getDeviceEUI();
+
+	/**
 	 * @brief Gets the frequency SubBand that will be used by the LoRa Module to
 	 * send and receive its data from its Configuration
 	 * @return
@@ -162,6 +181,9 @@ private:
 	std::string* networkName;
 	std::string* networkPassphrase;
 	std::string* networkAddress;
+	std::vector<uint8_t> appEUI;
+	std::vector<uint8_t> appKey;
+	std::vector<uint8_t> deviceEUI;
 	bool publicity;
 	bool activity;
 	uint8_t frequencySubBand;
@@ -202,6 +224,25 @@ private:
 	 * @param networkAddress
 	 */
 	void setNetworkAddress(char* networkAddress);
+
+	/**
+	 * @brief Sets the APP EUI for OTAA
+	 * @param appEUI
+	 */
+	void setAppEUI();
+
+	/**
+	 * @brief Sets the APP Key for OTAA
+	 * @param appKey
+	 */
+	void setAppKey();
+
+	/**
+	 * @brief Sets the device EUI for OTAA
+	 * @param deviceEUI
+	 */
+	void setDeviceEUI();
+
 
 	/**
 	 * @brief Sets the SubBand that will be used in by the LoRa Module in the Configuration
