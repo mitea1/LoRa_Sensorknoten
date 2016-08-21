@@ -1,5 +1,5 @@
 /*
- * SensorHandler.cpp
+ * Application.cpp
  *
  *  Created on: Jun 3, 2016
  *      Author: Adrian
@@ -11,9 +11,9 @@ Application::Application() {
 	initInterfaces();
 	initSensors();
 	initMutexes();
+	initQueueBundle();
 	initTasks();
 	initApplicationConfig();
-	taskDataHandler->start();
 }
 
 Application::~Application() {
@@ -77,8 +77,9 @@ void Application::stopAllRunningSensorTasks(){
 	if(taskLoRaMeasurement->getState() == RUNNING){
 		taskLoRaMeasurement->stop();
 	}
-
-	taskDataHandler->stop();
+	if(taskDataHandler->getState() == RUNNING){
+		taskDataHandler->stop();
+	}
 
 	osDelay(100);
 }
@@ -158,7 +159,7 @@ void Application::configureSensors(){
 	max44009->init(config->getMAX44009_MODE());
 	bme280->init(config->getBME280_MODE());
 	mpu9250->init(config->getMPU9250_MODE());
-//	si1143->init(config->getSI1143_MODE());
+	si1143->init(config->getSI1143_MODE());
 	gpsSensor->init(config->getuBlox_MODE());
 }
 
@@ -174,4 +175,18 @@ void Application::initMutexes(){
 
 void Application::initApplicationConfig(){
 	config = new ApplicationConfig();
+}
+
+void Application::initQueueBundle(){
+	this->queueBundle.queueAcceleration =  &queueAcceleration;
+	this->queueBundle.queueCommands = &queueCommands;
+	this->queueBundle.queueGps = &queueGps;
+	this->queueBundle.queueGyro = &queueGyro;
+	this->queueBundle.queueHumidity = &queueHumidity;
+	this->queueBundle.queueLight = &queueLight;
+	this->queueBundle.queueLoRaMeasurments = &queueLoRaMeasurements;
+	this->queueBundle.queuePressure = &queuePressure;
+	this->queueBundle.queueProximity = &queueProximity;
+	this->queueBundle.queueTemperature = &queueTemperature;
+	this->queueBundle.queueTesla = &queueTesla;
 }

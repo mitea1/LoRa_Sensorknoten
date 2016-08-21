@@ -77,9 +77,9 @@ private:
 	LoRa* lora;
 	Mutex* mutexLora;
 
-	osPriority priority = osPriorityNormal;
-	uint32_t stack_size = DEFAULT_STACK_SIZE;
-	unsigned char *stack_pointer = NULL;
+	osPriority priority;
+	uint32_t stack_size;
+	unsigned char *stack_pointer;
 
 	TASK_STATE state;
 
@@ -100,6 +100,12 @@ private:
 	 * @param
 	 */
 	static void callBack(void const *);
+
+	/**
+	 * @brief Attaches the idle_hook for this task
+	 * @param
+	 */
+	void attachIdleHook(void (*fptr) (void));
 
 	/**
 	 * @brief A method thats handling the data which was acquired and stored into
@@ -149,7 +155,6 @@ private:
 	 * @param stackPointer
 	 */
 	void setStackPointer(unsigned char* stackPointer);
-
 
 	/**
 	 * @brief Sets the actual state of the Task.

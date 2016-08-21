@@ -49,6 +49,10 @@ void TaskLight::callBack(void const* data){
 	instance->measureLight();
 }
 
+void TaskLight::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskLight::measureLight(){
 	MAX44009Message* max44009Message = new MAX44009Message();
 

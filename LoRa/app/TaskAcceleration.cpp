@@ -45,6 +45,10 @@ void TaskAcceleration::callBack(void const* data){
 	instance->measureAcceleration();
 }
 
+void TaskAcceleration::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskAcceleration::measureAcceleration(){
 	MPU9250AccelerationMessage mpu9250AccelerationMessage;
 

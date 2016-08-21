@@ -45,6 +45,10 @@ void TaskTemperature::callBack(void const* data){
 	instance->measureTemperature();
 }
 
+void TaskTemperature::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskTemperature::measureTemperature(){
 	BME280TemperatureMessage bme280TemperatureMessage;
 

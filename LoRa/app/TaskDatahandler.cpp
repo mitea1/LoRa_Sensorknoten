@@ -25,6 +25,7 @@ TaskDatahandler::~TaskDatahandler() {
 osStatus TaskDatahandler::start(){
 	setState(RUNNING);
 	this->thread = new rtos::Thread(callBack,this);
+	attachIdleHook(NULL);
 }
 
 osStatus TaskDatahandler::stop(){
@@ -39,6 +40,10 @@ void TaskDatahandler::callBack(void const* data){
 	TaskDatahandler* instance = const_cast<TaskDatahandler*>(constInstance);
 
 	instance->handleData();
+}
+
+void TaskDatahandler::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
 }
 
 void TaskDatahandler::handleData(){

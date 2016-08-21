@@ -45,6 +45,10 @@ void TaskPressure::callBack(void const* data){
 	instance->measurePressure();
 }
 
+void TaskPressure::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskPressure::measurePressure(){
 	BME280PressureMessage bme280PressureMessage;
 

@@ -50,9 +50,9 @@ private:
 	rtos::Thread* thread;
 	rtos::Queue<UBloxGPSMessage,GPS_QUEUE_LENGHT>* queue;
 	rtos::Mutex* mutexUART ;
-	osPriority priority = osPriorityNormal;
-	uint32_t stack_size = DEFAULT_STACK_SIZE;
-	unsigned char *stack_pointer = NULL;
+	osPriority priority;
+	uint32_t stack_size;
+	unsigned char *stack_pointer;
 
 	TASK_STATE state;
 
@@ -65,6 +65,12 @@ private:
 	 * @param
 	 */
 	static void callBack(void const *);
+
+	/**
+	 * @brief Attaches the idle_hook for this task
+	 * @param
+	 */
+	void attachIdleHook(void (*fptr) (void));
 
 	/**
 	 * @brief A thread safe method that acquires GPS values. After acquiring GPS Data

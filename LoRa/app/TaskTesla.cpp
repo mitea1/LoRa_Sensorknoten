@@ -45,6 +45,10 @@ void TaskTesla::callBack(void const* data){
 	instance->measureTesla();
 }
 
+void TaskTesla::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskTesla::measureTesla(){
 	MPU9250TeslaMessage mpu9250TeslaMessage;
 

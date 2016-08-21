@@ -51,9 +51,9 @@ private:
 	rtos::Thread* thread;
 	rtos::Queue<SI1143ProximityMessage,PROXIMITY_QUEUE_LENGHT>* queue;
 	rtos::Mutex* mutexI2C ;
-	osPriority priority = osPriorityNormal;
-	uint32_t stack_size = DEFAULT_STACK_SIZE;
-	unsigned char *stack_pointer = NULL;
+	osPriority priority;
+	uint32_t stack_size;
+	unsigned char *stack_pointer;
 
 	TASK_STATE state;
 
@@ -67,11 +67,16 @@ private:
 	static void callBack(void const *);
 
 	/**
+	 * @brief Attaches the idle_hook for this task
+	 * @param
+	 */
+	void attachIdleHook(void (*fptr) (void));
+
+	/**
 	 * @brief A thread safe method that acquires data from the gyroscope. After acquiring data from the
 	 * it stores the data inside a MPU9250GyroscopeMessage
 	 */
 	void measureProximity();
-
 
 	/**
 	 * @brief Sets the message Queue of the Task where the measured values will be stored

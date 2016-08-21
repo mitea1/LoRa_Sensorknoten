@@ -45,6 +45,10 @@ void TaskGPS::callBack(void const* data){
 	instance->measureGps();
 }
 
+void TaskGPS::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskGPS::measureGps(){
 	UBloxGPSMessage uBloxGPSMessage;
 

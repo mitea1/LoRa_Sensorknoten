@@ -45,6 +45,10 @@ void TaskGyroscope::callBack(void const* data){
 	instance->measureGyroscope();
 }
 
+void TaskGyroscope::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskGyroscope::measureGyroscope(){
 	MPU9250GyroscopeMessage mpu9250GyroscopeMessage;
 

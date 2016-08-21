@@ -83,9 +83,7 @@ private:
 	Queue<LoRaMeasurementMessage,LORA_MEASUREMENT_QUEUE_LENGHT> queueLoRaMeasurements;
 	Queue<CommandMessage,COMMAND_QUEUE_LENGHT> queueCommands;
 
-	QueueBundle queueBundle = {&queueLight,&queueTemperature,&queuePressure,&queueHumidity,
-								&queueAcceleration,&queueGyro,&queueTesla,&queueProximity,
-								&queueGps,&queueLoRaMeasurements,&queueCommands};
+	QueueBundle queueBundle;
 
 	uBlox* gpsSensor;
 	MAX44009* max44009;
@@ -120,6 +118,11 @@ private:
 	 * which Task has to be run and how the sensors have to be configured
 	 */
 	void initApplicationConfig();
+
+	/**
+	 * @brief Initializes (builds) the QueueBundle
+	 */
+	void initQueueBundle();
 
 	/**
 	 * @brief Stops all tasks that are currently running. Used to define a defined state to start the application

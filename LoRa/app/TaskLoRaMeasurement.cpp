@@ -46,6 +46,10 @@ void TaskLoRaMeasurement::callBack(void const* data){
 	instance->measureSignal();
 }
 
+void TaskLoRaMeasurement::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskLoRaMeasurement::measureSignal(){
 	LoRaMeasurementMessage* loraMeasurementMessage = new LoRaMeasurementMessage();
 

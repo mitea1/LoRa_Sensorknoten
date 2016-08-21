@@ -45,6 +45,10 @@ void TaskHumidity::callBack(void const* data){
 	instance->measureHumidity();
 }
 
+void TaskHumidity::attachIdleHook(void (*fptr) (void)){
+	this->thread->attach_idle_hook(fptr);
+}
+
 void TaskHumidity::measureHumidity(){
 	BME280HumidityMessage bme280HumidityMessage;
 
